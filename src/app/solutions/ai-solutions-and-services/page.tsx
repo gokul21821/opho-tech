@@ -1,30 +1,38 @@
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
+import { HeroSection } from "@/components/ui/HeroSection";
+import Image from "next/image";
 
 export default function AISolutionsAndServices() {
   return (
     <div className="flex min-h-screen flex-col bg-white text-gray-900">
-      <div className="relative">
-        <div className="absolute inset-0 bg-[url('/placeholder-blue-bg.png')] bg-cover bg-center opacity-60 -z-10"></div>
-        <Header />
-      </div>
+      <Header />
+
+      {/* HERO SECTION */}
+      <HeroSection
+        breadcrumb={[
+          { label: "Home", href: "/" },
+          { label: "Solutions", href: "/" },
+          { label: "AI Solutions & Services" },
+        ]}
+        title="AI Solutions & Services"
+        subtitle="Intelligent Automation and Predictive Advantage"
+        contentAlignment="center"
+      />
 
       <main className="flex flex-1 flex-col">
-        {/* Hero Section */}
-        <section className="relative bg-blue-900 text-white py-24 px-6 text-center">
-          <div className="absolute inset-0 bg-[url('/placeholder-blue-bg.png')] bg-cover bg-center opacity-60"></div>
-          <div className="relative z-10 max-w-3xl mx-auto">
-            <h1 className="text-4xl font-bold mb-4">AI Solutions & Services</h1>
-            <p className="text-base leading-relaxed">
-              Intelligent Automation and Predictive Advantage
-            </p>
-          </div>
-        </section>
 
         {/* Introduction Section */}
         <section className="py-20 px-6 bg-gradient-to-b from-white to-orange-50">
           <div className="grid md:grid-cols-2 gap-10 max-w-6xl mx-auto items-center">
-            <div className="w-full h-64 bg-gray-300 rounded-lg"></div>
+            <Image
+              src="/images/ai_solutions/solution.png"
+              alt="AI solution illustration"
+              width={520}
+              height={380}
+              className="h-auto w-[320px] sm:w-[380px] md:w-[420px] rounded-xl shadow-[0_10px_30px_-10px_rgba(15,44,88,0.3)]"
+              priority
+            />
             <div>
               <p className="text-sm text-gray-700 mb-6">
                 AI and Machine Learning are no longer futuristic concepts; they are the tools driving present-day
@@ -40,28 +48,52 @@ export default function AISolutionsAndServices() {
         </section>
 
         {/* AI Solutions & Services */}
-        <section className="py-20 px-6 text-center">
-          <h2 className="text-3xl font-semibold mb-4">AI Solutions & Services</h2>
-          <p className="text-gray-600 mb-12 max-w-3xl mx-auto">
-            Strategic AI: Adding Value to Data Beyond Simple Automation. We implement AI solutions that are deeply
-            embedded in your core workflows, transforming how decisions are made.
-          </p>
+        <section className="py-20 px-6">
+          <div className="grid md:grid-cols-2 gap-10 max-w-6xl mx-auto items-center mb-16">
+            <div>
+              <h2 className="text-3xl font-semibold mb-4">AI Solutions & Services</h2>
+              <p className="text-gray-600">
+                Strategic AI: Adding Value to Data Beyond Simple Automation. We implement AI solutions that are deeply
+                embedded in your core workflows, transforming how decisions are made.
+              </p>
+            </div>
+            <Image
+              src="/images/ai_solutions/aisolution.png"
+              alt="AI solutions illustration"
+              width={520}
+              height={380}
+              className="h-auto w-[320px] sm:w-[380px] md:w-[420px] rounded-xl shadow-[0_10px_30px_-10px_rgba(15,44,88,0.3)]"
+              priority
+            />
+          </div>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {[{
               title: 'Intelligent Automation',
-              impact: 'Automate complex, rule-based, and high-volume processes.',
-              outcome: 'Reduced operational costs, faster processing times, and better allocation of human capital.'
+              icon: '/images/icons/gear.svg',
+              impact: 'Automate complex, rule-based, and high-volume processes (e.g., invoice processing, customer routing). ',
+              outcome: 'Reduced operational costs, faster processing times, and reallocation of human capital to strategic tasks. '
             }, {
               title: 'Predictive Forecasting',
-              impact: 'Use sophisticated models to anticipate market shifts, customer behavior, and demand patterns.',
-              outcome: 'Reduced inventory risk, optimized pricing, and proactive maintenance.'
+              icon: '/images/icons/sparkle.svg',
+              impact: 'Use sophisticated models to anticipate market shifts, customer behavior, and equipment failures. ',
+              outcome: 'Reduced inventory risk, optimized pricing, and proactive maintenance (less downtime). .'
             }, {
               title: 'Personalized Engagement',
-              impact: 'Deploy AI to tailor every interaction, from marketing to recommendations.',
-              outcome: 'Increased loyalty, higher conversion rates, and growth in Customer Lifetime Value (CLV).'
+              icon: '/images/icons/lightning.svg',
+              impact: 'Deploy AI to tailor every interaction, from marketing to product recommendations.',
+              outcome: 'Increased customer loyalty, higher conversion rates, and growth in Customer Lifetime Value (CLV). '
             }].map((item, i) => (
               <div key={i} className="p-6 bg-white shadow-md rounded-xl border border-gray-200 text-left">
+                <div className="mb-4 h-7 w-7">
+                  <Image
+                    src={item.icon}
+                    alt={`${item.title} icon`}
+                    width={28}
+                    height={28}
+                    className="h-7 w-7"
+                  />
+                </div>
                 <h3 className="font-semibold mb-2">{item.title}</h3>
                 <p className="text-sm text-gray-700 mb-1"><strong>Strategic Business Impact:</strong> {item.impact}</p>
                 <p className="text-sm text-gray-700"><strong>Tangible Outcome:</strong> {item.outcome}</p>
@@ -81,16 +113,16 @@ export default function AISolutionsAndServices() {
           <div className="grid md:grid-cols-4 gap-8 max-w-6xl mx-auto text-left">
             {[{
               title: 'Business Problem Translation',
-              desc: 'Defining a clear business goal such as reducing churn or improving sustainability.'
+              desc: 'Defining a clear business goal (e.g., reduce churn substantially). '
             }, {
               title: 'Model Development & Training',
-              desc: 'Data scientists build and train models using high-quality, validated data.'
+              desc: 'Our data scientists build and train the most appropriate machine learning models (e.g., deep learning, NLP, computer vision) using your high-quality, validated data. '
             }, {
               title: 'Deployment & Integration',
-              desc: 'Architects ensure production-ready integration via APIs and MLOps pipelines.'
+              desc: 'Our architects and integration experts ensure the model is seamlessly deployed into your cloud architecture (via APIs, MLOps pipelines), enabling real-time decision-making. '
             }, {
               title: 'Monitoring & Governance',
-              desc: 'Continuous monitoring to maintain model accuracy, compliance, and reliability.'
+              desc: 'Establish continuous monitoring to track model performance, ensure ethical compliance, and retrain models to prevent "drift" and maintain accuracy over time.'
             }].map((item, i) => (
               <div key={i} className="p-6 bg-white shadow-sm rounded-xl border border-gray-200">
                 <h3 className="font-semibold mb-2">{item.title}</h3>
@@ -111,15 +143,13 @@ export default function AISolutionsAndServices() {
             <div className="p-6 bg-white border border-gray-200 rounded-xl shadow-sm">
               <h3 className="text-orange-600 font-semibold mb-2">Scalability & MLOps</h3>
               <p className="text-sm text-gray-700">
-                We focus on MLOps frameworks that treat AI models like enterprise software, ensuring rapid development and
-                reliable performance at scale.
+              We focus on an MLOps (Machine Learning Operations) framework, treating AI models like enterprise software. This ensures rapid development, automated deployment, and reliable performance at scale. 
               </p>
             </div>
             <div className="p-6 bg-white border border-gray-200 rounded-xl shadow-sm">
               <h3 className="text-orange-600 font-semibold mb-2">Ethical AI & Trust</h3>
               <p className="text-sm text-gray-700">
-                We embed principles of fairness, transparency, and data privacy into every AI solution, ensuring
-                compliance and building long-term customer trust.
+              We embed principles of fairness, transparency, and data privacy into every solution. This mitigates risk, ensures regulatory compliance, and builds customer trust. 
               </p>
             </div>
           </div>
@@ -129,10 +159,27 @@ export default function AISolutionsAndServices() {
         <section className="py-20 px-6 bg-gradient-to-b from-white to-orange-50 text-center">
           <h2 className="text-2xl font-semibold mb-10">AI Enablement - How You Lead</h2>
           <div className="grid md:grid-cols-5 gap-8 max-w-6xl mx-auto">
-            {["Enterprise-Ready AI With Measurable ROI", "Predictive Analytics And Process Automation", "Personalized Customer Engagement", "Ethical And Compliant AI Governance", "Continuous Monitoring And Model Optimization"].map((title, i) => (
+            {[{
+              title: "Enterprise-Ready AI With Measurable ROI",
+              icon: "/images/icons/monitor-rocket.svg"
+            }, {
+              title: "Predictive Analytics And Process Automation",
+              icon: "/images/icons/search-bulb.svg"
+            }, {
+              title: "Personalized Customer Engagement",
+              icon: "/images/icons/shield.svg"
+            }, {
+              title: "Ethical And Compliant AI Governance",
+              icon: "/images/icons/settings-load.svg"
+            }, {
+              title: "Continuous Monitoring And Model Optimization",
+              icon: "/images/icons/settings-phone.svg"
+            }].map((item, i) => (
               <div key={i} className="p-6 bg-white rounded-xl shadow-sm">
-                <div className="mx-auto mb-4 w-10 h-10 bg-gray-300 rounded-full"></div>
-                <p className="text-sm font-medium text-gray-700">{title}</p>
+                <div className="mx-auto mb-4 h-11 w-11 rounded-full bg-[#FFE3D3] grid place-items-center">
+                  <Image src={item.icon} alt={`${item.title} icon`} width={22} height={22} className="h-5 w-5" />
+                </div>
+                <p className="text-sm font-medium text-gray-700">{item.title}</p>
               </div>
             ))}
           </div>

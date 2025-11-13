@@ -1,19 +1,38 @@
+import Image from "next/image";
+import { Footer } from "@/components/layout/Footer";
+import { Header } from "@/components/layout/Header";
+import { HeroSection } from "@/components/ui/HeroSection";
+
 export default function CloudIntegrationPage() {
-      return (
-        <main className="bg-white text-gray-800">
-          {/* Hero Section */}
-          <section className="relative bg-blue-900 text-white py-24 px-6 text-center">
-            <div className="absolute inset-0 bg-[url('/placeholder-blue-bg.png')] bg-cover bg-center opacity-60"></div>
-            <div className="relative z-10 max-w-3xl mx-auto">
-              <h1 className="text-4xl font-bold mb-4">Cloud Integration & Architecture</h1>
-              <p className="text-base leading-relaxed">Building the Digital Backbone</p>
-            </div>
-          </section>
+  return (
+    <div className="flex min-h-screen flex-col bg-white text-gray-900">
+      <Header />
+
+      {/* HERO SECTION */}
+      <HeroSection
+        breadcrumb={[
+          { label: "Home", href: "/" },
+          { label: "Solutions", href: "/" },
+          { label: "Cloud Integration" },
+        ]}
+        title="Cloud Integration & Architecture"
+        subtitle="Building the Digital Backbone"
+        contentAlignment="center"
+      />
+
+      <main className="bg-white text-gray-800">
     
           {/* Overview Section */}
           <section className="py-20 px-6 bg-gradient-to-b from-white to-orange-50">
             <div className="grid md:grid-cols-2 gap-10 max-w-6xl mx-auto items-center">
-              <div className="w-full h-64 bg-gray-300 rounded-lg"></div>
+              <Image
+                src="/images/cloud-integrations/cloud.png"
+                alt="Cloud integration illustration"
+                width={520}
+                height={360}
+                className="h-auto w-[320px] sm:w-[380px] md:w-[460px] rounded-xl shadow-[0_10px_30px_-10px_rgba(15,44,88,0.3)]"
+                priority
+              />
               <div>
                 <p className="text-sm text-gray-600 mb-6">
                   <strong>For the Business Leaders:</strong> Cloud is not just an IT cost center; it is the platform for
@@ -41,17 +60,29 @@ export default function CloudIntegrationPage() {
               {[{
                 title: 'Siloed Data Across Various Systems And Platforms',
                 solution: 'Unified Data Fabric/Mesh architecture.',
-                outcome: 'Single source of truth for reliable decision-making and AI.'
+                outcome: 'Single source of truth for reliable decision-making and AI.',
+                icon: '/images/cloud-integrations/paper.svg'
               }, {
                 title: 'Slow Scaling To Meet Peak Demand Or New Markets',
                 solution: 'Hyper-Scalable Cloud Infrastructure (AWS, Azure, GCP and local partners).',
-                outcome: 'Agility to enter new markets or handle massive growth instantly.'
+                outcome: 'Agility to enter new markets or handle massive growth instantly.',
+                icon: '/images/cloud-integrations/sparkle.svg'
               }, {
                 title: 'High Maintenance Costs And Security Complexity',
                 solution: 'Managed Services & Infrastructure-as-Code (IaC).',
-                outcome: 'Reduced operational overhead and enhanced compliance/security posture.'
+                outcome: 'Reduced operational overhead and enhanced compliance/security posture.',
+                icon: '/images/data-monetize/money.svg'
               }].map((item, i) => (
                 <div key={i} className="p-6 bg-white shadow-md rounded-xl border border-gray-200 text-left">
+                  <div className="mb-4 h-7 w-7">
+                    <Image
+                      src={item.icon}
+                      alt={`${item.title} icon`}
+                      width={28}
+                      height={28}
+                      className="h-7 w-7"
+                    />
+                  </div>
                   <h3 className="font-semibold mb-2">{item.title}</h3>
                   <p className="text-sm text-gray-700 mb-1"><strong>Strategic Cloud Solution</strong>: {item.solution}</p>
                   <p className="text-sm text-gray-700"><strong>Business Outcome</strong>: {item.outcome}</p>
@@ -91,13 +122,13 @@ export default function CloudIntegrationPage() {
             <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
               {[{
                 title: 'Optimal Architecture Design',
-                desc: 'We focus on cost-optimization and governance from the start, ensuring your cloud expenditure is efficient and aligned with business value.'
+                desc: 'We focus on cost-optimization and governance from the start, ensuring your cloud expenditure (FinOps) is efficient and aligned with business value. We select the right services (IaaS, PaaS, or SaaS) for your needs. '
               }, {
                 title: 'Seamless Integration Expertise',
-                desc: 'We modernize legacy systems, migrate applications, and establish robust data pipelines for secure and reliable flows.'
+                desc: 'We specialize in modernizing legacy systems, migrating applications, and establishing robust data pipelines that ensure data flows securely and reliably across your entire ecosystem. '
               }, {
                 title: 'Security By Design',
-                desc: 'We implement enterprise-grade security and compliance frameworks to protect assets in the cloud environment.'
+                desc: 'We implement enterprise-grade security controls, identity and access management (IAM), and compliance frameworks to protect your assets in the cloud environment. '
               }].map((item, i) => (
                 <div key={i} className="p-6 bg-white rounded-xl border border-gray-200 shadow-sm">
                   <h4 className="font-semibold mb-2">{item.title}</h4>
@@ -111,10 +142,33 @@ export default function CloudIntegrationPage() {
           <section className="py-20 px-6 bg-gradient-to-b from-white to-orange-50 text-center">
             <h2 className="text-3xl font-semibold mb-12">Cloud Architecture - Benefits</h2>
             <div className="grid md:grid-cols-5 gap-8 max-w-6xl mx-auto">
-              {["Unified Data Environment For Reliable Analytics", "Scalable And Compliant Architecture", "Reduced Operational Costs And Maintenance", "Governance And FinOps Efficiency", "Faster Market Entry And Innovation Cycles"].map((benefit, i) => (
+              {[
+                {
+                  title: "Unified Data Environment For Reliable Analytics",
+                  icon: "/images/icons/shield.svg"
+                },
+                {
+                  title: "Scalable And Compliant Architecture",
+                  icon: "/images/icons/settings-phone.svg"
+                },
+                {
+                  title: "Reduced Operational Costs And Maintenance",
+                  icon: "/images/icons/settings-money.svg"
+                },
+                {
+                  title: "Governance And FinOps Efficiency",
+                  icon: "/images/icons/monitor.svg"
+                },
+                {
+                  title: "Faster Market Entry And Innovation Cycles",
+                  icon: "/images/icons/monitor-rocket.svg"
+                }
+              ].map((benefit, i) => (
                 <div key={i} className="p-6 bg-white rounded-xl shadow-sm">
-                  <div className="mx-auto mb-4 w-10 h-10 bg-gray-300 rounded-full"></div>
-                  <p className="text-sm font-medium text-gray-700">{benefit}</p>
+                  <div className="mx-auto mb-4 w-10 h-10 rounded-full bg-[#FFE3D3] grid place-items-center">
+                    <Image src={benefit.icon} alt={`${benefit.title} icon`} width={22} height={22} className="h-5 w-5" />
+                  </div>
+                  <p className="text-sm font-medium text-gray-700">{benefit.title}</p>
                 </div>
               ))}
             </div>
@@ -129,7 +183,13 @@ export default function CloudIntegrationPage() {
                 security, and speed.
               </p>
             </div>
-            <div className="w-full h-64 bg-gray-300 rounded-lg"></div>
+              <Image
+                src="/images/cloud-integrations/blue-cloud.png"
+                alt="Cloud architecture illustration"
+                width={520}
+                height={360}
+                className="h-auto w-[320px] sm:w-[380px] md:w-[460px] rounded-xl shadow-[0_10px_30px_-10px_rgba(15,44,88,0.3)]"
+              />
           </section>
     
           {/* Get Started */}
@@ -144,6 +204,9 @@ export default function CloudIntegrationPage() {
             </button>
           </section>
         </main>
-      );
-    }
+
+        <Footer />
+      </div>
+    );
+  }
     

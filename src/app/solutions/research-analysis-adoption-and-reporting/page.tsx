@@ -1,30 +1,34 @@
 // app/raar/page.tsx
 import Image from "next/image";
+import { Footer } from "@/components/layout/Footer";
+import { Header } from "@/components/layout/Header";
+import { HeroSection } from "@/components/ui/HeroSection";
 
 export default function RAARPage() {
   return (
-    <main className="bg-white text-[#0B1B2B]">
-      {/* Hero banner background gradient/waves mimic */}
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(1200px_600px_at_50%_-200px,#0F2C58_40%,#071A38_70%,#071A38_100%)]" />
-        <div className="relative mx-auto max-w-7xl px-6 pt-24 pb-20">
-          {/* Breadcrumb */}
-          <p className="text-sm/6 text-white/80">Home <span className="mx-2 text-white/50">›</span> RAAR</p>
-          <h1 className="mt-4 text-4xl font-semibold tracking-tight text-white sm:text-5xl">
-            Research, Analysis, Adoption & Reporting
-          </h1>
-          <p className="mt-4 max-w-3xl text-white/80">
-            Powered by AI agents. Built for every decision-maker in your organization.
-          </p>
-        </div>
-      </section>
+    <div className="flex min-h-screen flex-col bg-white text-[#0B1B2B]">
+      <Header />
+
+      {/* HERO SECTION */}
+      <HeroSection
+        breadcrumb={[
+          { label: "Home", href: "/" },
+          { label: "Solutions", href: "/" },
+          { label: "Research, Analysis, Adoption & Reporting" },
+        ]}
+        title="Research, Analysis, Adoption & Reporting"
+        subtitle="Powered by AI agents. Built for every decision-maker in your organization."
+        contentAlignment="center"
+      />
+
+      <main className="bg-white text-[#0B1B2B]">
 
       {/* Intro split */}
       <section className="mx-auto max-w-7xl px-6 py-16">
         <div className="grid items-center gap-10 md:grid-cols-2">
           <div className="justify-self-center">
             <Image
-              src="/placeholder.png"
+              src="/images/raar/brain.png"
               alt="RAAR illustration"
               width={520}
               height={380}
@@ -62,21 +66,25 @@ export default function RAARPage() {
                 title: "Research",
                 text:
                   "Pulls data from vendor contracts, licensing records, usage logs, cost reports, and integration documentation. Cleans, Secure and Validates data for analysis.",
+                icon: "/images/raar/research.svg",
               },
               {
                 title: "Analysis",
                 text:
                   "AI agents evaluate tools across Features, Security, Integration, Cost Efficiency, Performance, and Market Position. Builds SWOT profiles, identifies capability gaps, and benchmarks against industry standards.",
+                icon: "/images/raar/analyze.svg",
               },
               {
                 title: "Adoption",
                 text:
                   "Tracks user adoption rates, identifies underutilized tools, and measures organizational readiness for new technology implementations.",
+                icon: "/images/raar/star.svg",
               },
               {
                 title: "Reporting",
                 text:
                   "Delivers persona-specific insights. Strategic dashboards for executives, integration scores for architects, vendor intelligence for procurement, compliance & secure reports for regulators, & usability metrics for end users.",
+                icon: "/images/raar/notepad.svg",
               },
             ].map((item) => (
               <div
@@ -85,7 +93,7 @@ export default function RAARPage() {
               >
                 <div className="mb-4 h-7 w-7">
                   <Image
-                    src="/placeholder.svg"
+                    src={item.icon}
                     alt={`${item.title} icon`}
                     width={28}
                     height={28}
@@ -112,26 +120,31 @@ export default function RAARPage() {
               title: "Full Visibility",
               text:
                 "Complete view of your software portfolio with usage patterns and spend analysis",
+              icon: "/images/icons/tailored.svg",
             },
             {
               title: "Strategic Benchmarks",
               text:
                 "Industry comparisons on cost, performance, features, and security",
+              icon: "/images/icons/settings-load.svg",
             },
             {
               title: "Smart Recommendations",
               text:
                 "Data-driven guidance on which tools to adopt, retain, consolidate, or retire",
+              icon: "/images/icons/search-notes.svg",
             },
             {
               title: "Stakeholder-Specific Insights",
               text:
                 "Customized reports for C-Suite business leaders",
+              icon: "/images/icons/people.svg",
             },
             {
               title: "Audit-Ready Documentation",
               text:
                 "Compliance trails and governance reports for regulators and boards",
+              icon: "/images/icons/take-notes.svg",
             },
           ].map((item) => (
             <div
@@ -140,7 +153,7 @@ export default function RAARPage() {
             >
               <div className="mx-auto mb-3 h-10 w-10 rounded-full bg-[#FFE3D3] grid place-items-center">
                 <Image
-                  src="/placeholder.svg"
+                  src={item.icon}
                   alt={`${item.title} icon`}
                   width={20}
                   height={20}
@@ -186,7 +199,7 @@ export default function RAARPage() {
             </div>
             <div className="justify-self-center">
               <Image
-                src="/placeholder.png"
+                src="/images/raar/in-depth-analysis.png"
                 alt="Dashboard illustration"
                 width={520}
                 height={360}
@@ -219,5 +232,8 @@ export default function RAARPage() {
         <div className="h-28 w-full bg-[radial-gradient(1200px_500px_at_50%_100px,#0F2C58_30%,#071A38_75%)]" />
       </div>
     </main>
+
+    <Footer />
+  </div>
   );
 }

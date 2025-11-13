@@ -1,25 +1,23 @@
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
+import { HeroSection } from "@/components/ui/HeroSection";
 
 export default function Careers() {
   return (
     <div className="flex min-h-screen flex-col bg-white text-gray-900">
       <Header />
-      <main className="bg-white text-gray-800">
-        {/* Hero Section */}
-        <section className="relative bg-blue-900 text-white py-24 px-6 text-center">
-          <div className="absolute inset-0 bg-[url('/placeholder-blue-bg.png')] bg-cover bg-center opacity-60"></div>
-          <div className="relative z-10 max-w-3xl mx-auto">
-            <h1 className="text-4xl font-bold mb-4">
-              Join Us in Shaping the Future of AI & Cloud
-            </h1>
-            <p className="text-base leading-relaxed">
-              We are more than a technology company — we are a research and development hub where brilliant minds come
-              together to build the next generation of SaaS and PaaS solutions. If you’re passionate about AI, data
-              science, and cloud innovation, this is where you belong.
-            </p>
-          </div>
-        </section>
+      {/* HERO SECTION */}
+      <HeroSection
+        breadcrumb={[
+          { label: "Home", href: "/" },
+          { label: "Careers" },
+        ]}
+        title="Join Us in Shaping the Future of AI & Cloud"
+        subtitle="We are more than a technology company — we are a research and development hub where brilliant minds come together to build the next generation of SaaS and PaaS solutions. If you’re passionate about AI, data science, and cloud innovation, this is where you belong."
+        contentAlignment="center"
+      />
+
+          <main className="relative z-10 flex flex-col">
 
         {/* Join Our Team */}
         <section className="py-20 px-6 text-center bg-gradient-to-b from-white to-orange-50">
@@ -92,15 +90,15 @@ export default function Careers() {
                 <h3 className="font-semibold mb-3">{title}</h3>
                 <p className="text-sm text-gray-600">
                   {title === "Hybrid & Flexible Work Options" &&
-                    "We offer hybrid work models and flexible schedules to balance work and life."}
+                    "We understand that innovation doesn’t just happen at a desk. That’s why we offer hybrid work models and flexible schedules that empower you to balance work and life. Whether you prefer collaborating in our offices or contributing remotely, we make sure you stay connected and supported."}
                   {title === "R&D-Focused Projects With Global Clients" &&
-                    "Engage in cutting-edge research and development projects that have a global impact."}
+                    "Here, you won’t just work on routine tasks. You’ll engage in cutting-edge research and development projects that have a real-world impact across North America, Europe, and Asia. From AI-driven platforms to scalable cloud architectures, every project challenges you to push boundaries."}
                   {title === "Regular Hackathons & Innovation Sprints" &&
-                    "Our hackathons and innovation sprints give teams the chance to experiment and innovate."}
+                    "We thrive on creativity. Our hackathons and innovation sprints give teams the chance to experiment, prototype, and showcase new ideas. Many of our most impactful solutions started as hackathon concepts that evolved into client-ready innovations."}
                   {title === "Inclusive, Diverse, And Growth-Oriented Culture" &&
-                    "We embrace inclusivity, mentoring, and personal development for all team members."}
+                    "We know the best ideas come from diverse perspectives. Our culture embraces inclusivity and collaboration, ensuring every voice is heard. We invest in mentorship, training, and personal development so that every team member grows along with the company."}
                   {title === "Recognition And Rewards For Excellence" &&
-                    "From performance-based rewards to peer recognition, success is best when shared."}
+                    "Your hard work deserves to be celebrated. From performance-based rewards to peer recognition programs, we ensure contributions never go unnoticed. We believe success is best when it’s shared."}
                 </p>
               </div>
             ))}
@@ -110,9 +108,9 @@ export default function Careers() {
         {/* CTA Section */}
         <section className="py-20 px-6 text-center">
           <h2 className="text-3xl font-semibold mb-3">Ready to Solve</h2>
-          <p className="text-xl font-medium mb-6">What's Next With OphoTech?</p>
+          <p className="text-xl font-medium mb-6">What&apos;s Next With OphoTech?</p>
           <button className="px-6 py-3 bg-orange-500 text-white rounded-lg hover:bg-orange-600">
-            Let's Start →
+            Let&apos;s Start →
           </button>
         </section>
       </main>

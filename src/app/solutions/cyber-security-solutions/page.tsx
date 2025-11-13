@@ -2,37 +2,34 @@
 import Image from "next/image";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { HeroSection } from "@/components/ui/HeroSection";
 
 export default function CyberSecuritySolutions() {
   return (
     <div className="flex min-h-screen flex-col bg-white text-[#0B1B2B]">
-      {/* Hero background behind header */}
-      <div className="pointer-events-none fixed inset-x-0 top-0 -z-10 h-[360px] md:h-[420px] bg-[radial-gradient(1200px_600px_at_50%_-200px,#0F2C58_40%,#071A38_70%,#071A38_100%)]" />
       <Header />
 
+      {/* HERO SECTION */}
+      <HeroSection
+        breadcrumb={[
+          { label: "Home", href: "/" },
+          { label: "Solutions", href: "/" },
+          { label: "Cyber Security Solutions" },
+        ]}
+        title="Cyber Security Solutions"
+        subtitle="Autonomous Defense for the AI Age"
+        contentAlignment="center"
+      />
+
       <main className="flex-1">
-        {/* Hero */}
-        <section className="relative">
-          <div className="mx-auto max-w-7xl px-6 pt-24 pb-20">
-            <p className="text-sm/6 text-white/80">
-              Home <span className="mx-2 text-white/50">›</span> Cyber Security Solutions
-            </p>
-            <h1 className="mt-4 text-4xl font-semibold tracking-tight text-white sm:text-5xl">
-              Cyber Security Solutions
-            </h1>
-            <p className="mt-3 max-w-2xl text-white/80">
-              Autonomous Defense for the AI Age
-            </p>
-          </div>
-        </section>
 
         {/* Intro split */}
         <section className="mx-auto max-w-7xl px-6 py-14">
           <div className="grid items-center gap-10 md:grid-cols-2">
             <div className="justify-self-center">
               <Image
-                src="/placeholder.png"
-                alt="Shield illustration"
+                src="/images/cyber/cyber.png"
+                alt="Cyber security illustration"
                 width={520}
                 height={380}
                 className="h-auto w-[320px] sm:w-[380px] md:w-[420px] rounded-xl shadow-[0_10px_30px_-10px_rgba(15,44,88,0.3)]"
@@ -74,18 +71,21 @@ export default function CyberSecuritySolutions() {
               {[
                 {
                   title: "AI‑Generated Phishing & Deepfakes",
+                  icon: "/images/data-monetize/gear.svg",
                   k: "Business impact (Risk & Cost)",
                   body:
                     "High Likelihood, Critical Impact: Enables $25.6M deepfake fraud incidents and dominates basic web‑app breach patterns.",
                 },
                 {
                   title: "Living‑Off‑The‑Land (LotL) & Identity Abuse",
+                  icon: "/images/cloud-integrations/paper.svg",
                   k: "Business impact (Risk & Cost)",
                   body:
                     "High Likelihood: Stolen credentials are a primary pivot point, driving the global average cost per breach to $4.40M.",
                 },
                 {
                   title: "Ransomware/ Extortion",
+                  icon: "/images/cyber/bag.svg",
                   k: "Business impact (Risk & Cost)",
                   body:
                     "Critical Impact: Downtime is the largest driver of loss. Healthcare crises have showed >50% revenue disruption for providers.",
@@ -96,7 +96,7 @@ export default function CyberSecuritySolutions() {
                   className="rounded-xl border border-[#F2E8E1] bg-white p-6 shadow-[0_6px_18px_-8px_rgba(15,44,88,0.12)]"
                 >
                   <div className="mb-4 h-7 w-7">
-                    <Image src="/placeholder.svg" alt="icon" width={28} height={28} />
+                    <Image src={c.icon} alt={`${c.title} icon`} width={28} height={28} className="h-7 w-7" />
                   </div>
                   <h3 className="text-[16.5px] font-semibold text-[#0F2C58]">{c.title}</h3>
                   <p className="mt-1 text-xs font-medium uppercase tracking-wide text-[#0F2C58]/70">
@@ -202,20 +202,20 @@ export default function CyberSecuritySolutions() {
           <h2 className="text-center text-2xl font-semibold text-[#0B1B2B]">Our Solutions</h2>
           <div className="mx-auto mt-8 grid max-w-5xl grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-5">
             {[
-              "AI‑Driven Detection And Rapid Response",
-              "Resilience Roadmap With Measurable KPIs",
-              "Reduced Breach Costs And Recovery Times",
-              "Compliance And Governance Integration",
-              "Continuous Autonomous Protection",
-            ].map((label) => (
+              { label: "AI‑Driven Detection And Rapid Response", icon: "/images/icons/settings-phone.svg" },
+              { label: "Resilience Roadmap With Measurable KPIs", icon: "/images/icons/people-search.svg" },
+              { label: "Reduced Breach Costs And Recovery Times", icon: "/images/icons/settings-money.svg" },
+              { label: "Compliance And Governance Integration", icon: "/images/icons/settings-code.svg" },
+              { label: "Continuous Autonomous Protection", icon: "/images/icons/connection.svg" },
+            ].map((item) => (
               <div
-                key={label}
+                key={item.label}
                 className="flex flex-col items-center rounded-xl border border-[#F2E8E1] bg-white p-6 text-center"
               >
                 <div className="mb-3 h-11 w-11 rounded-full bg-[#FFE3D3] grid place-items-center">
-                  <Image src="/placeholder.svg" alt="solution icon" width={22} height={22} />
+                  <Image src={item.icon} alt={`${item.label} icon`} width={22} height={22} className="h-5 w-5" />
                 </div>
-                <p className="text-[13.5px] text-[#0F2C58]">{label}</p>
+                <p className="text-[13.5px] text-[#0F2C58]">{item.label}</p>
               </div>
             ))}
           </div>
@@ -255,7 +255,7 @@ export default function CyberSecuritySolutions() {
 
               <div className="justify-self-center">
                 <Image
-                  src="/placeholder.png"
+                  src="/images/cyber/cyber2.png"
                   alt="Security dashboard illustration"
                   width={520}
                   height={360}

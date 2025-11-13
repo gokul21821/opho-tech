@@ -25,17 +25,16 @@ const PlayIcon = () => (
 
 export function HeroSection() {
   return (
-    <section className="relative -mt-20 overflow-hidden bg-[#071533] pb-0 pt-20 text-white md:-mt-24 md:pt-24">
+    <section className="relative -mt-20 overflow-hidden pb-0 pt-20 text-white md:-mt-24 md:pt-24">
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute inset-x-0 -top-32 h-44 bg-gradient-to-r from-orange-500/80 via-orange-400/40 to-transparent blur-[80px] md:-top-40" />
         <Image
           src={HERO_BACKGROUND_WAVES}
           alt=""
           fill
           sizes="100vw"
-          className="object-cover -mt-20 md:-mt-24"
+          className="object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#061032]/40 to-[#040c22]/90" />
+
       </div>
 
       <div className="relative mx-auto flex min-h-[680px] max-w-7xl flex-col gap-16 px-6 pb-24 pt-36 md:flex-row md:items-center md:justify-between md:gap-20 md:px-8 lg:min-h-[720px]">
@@ -52,7 +51,7 @@ export function HeroSection() {
             Identify compliance gaps, discover hidden risks, and act before they
             impact audits or operations.
           </p>
-          <PrimaryButton>Let's Start</PrimaryButton>
+          <PrimaryButton>Let&apos;s Start</PrimaryButton>
         </div>
 
         <div className="relative max-w-2xl flex-1">

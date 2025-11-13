@@ -2,38 +2,34 @@
 import Image from "next/image";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { HeroSection } from "@/components/ui/HeroSection";
 
 export default function AIAgentDevelopment() {
   return (
     <div className="flex min-h-screen flex-col bg-white text-[#0B1B2B]">
-      {/* Hero background is behind header by stacking a fixed/absolute layer */}
-      <div className="pointer-events-none fixed inset-x-0 top-0 -z-10 h-[360px] md:h-[420px] bg-[radial-gradient(1200px_600px_at_50%_-200px,#0F2C58_40%,#071A38_70%,#071A38_100%)]" />
       <Header />
 
+      {/* HERO SECTION */}
+      <HeroSection
+        breadcrumb={[
+          { label: "Home", href: "/" },
+          { label: "Solutions", href: "/" },
+          { label: "AI Agent Development" },
+        ]}
+        title="AI Agent Development"
+        subtitle="The Future of Autonomous Business Operations"
+        contentAlignment="center"
+      />
+
       <main className="flex-1">
-        {/* Hero */}
-        <section className="relative">
-          <div className="mx-auto max-w-7xl px-6 pt-24 pb-20">
-            {/* Breadcrumb */}
-            <p className="text-sm/6 text-white/80">
-              Home <span className="mx-2 text-white/50">›</span> AI Agent Development
-            </p>
-            <h1 className="mt-4 text-4xl font-semibold tracking-tight text-white sm:text-5xl">
-              AI Agent Development
-            </h1>
-            <p className="mt-3 max-w-2xl text-white/80">
-              The Future of Autonomous Business Operations
-            </p>
-          </div>
-        </section>
 
         {/* Intro split */}
         <section className="mx-auto max-w-7xl px-6 py-14">
           <div className="grid items-center gap-10 md:grid-cols-2">
             <div className="justify-self-center">
               <Image
-                src="/placeholder.png"
-                alt="Agents dashboard illustration"
+                src="/images/ai_agents/aiagents.png"
+                alt="AI agents illustration"
                 width={520}
                 height={380}
                 className="h-auto w-[320px] sm:w-[380px] md:w-[420px] rounded-xl shadow-[0_10px_30px_-10px_rgba(15,44,88,0.3)]"
@@ -210,20 +206,20 @@ export default function AIAgentDevelopment() {
           <h2 className="text-center text-2xl font-semibold text-[#0B1B2B]">What You Get</h2>
           <div className="mx-auto mt-8 grid max-w-5xl grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-5">
             {[
-              "Autonomous, Intelligent Digital Workforce",
-              "End‑To‑End Workflow Automation",
-              "Transparent And Governed AI Operations",
-              "Scalable Cloud‑Native Agent Architecture",
-              "Enhanced Organizational Efficiency",
-            ].map((label) => (
+              { label: "Autonomous, Intelligent Digital Workforce", icon: "/images/icons/settings-code.svg" },
+              { label: "End‑To‑End Workflow Automation", icon: "/images/icons/loader-cube.svg" },
+              { label: "Transparent And Governed AI Operations", icon: "/images/icons/cloud-phone.svg" },
+              { label: "Scalable Cloud‑Native Agent Architecture", icon: "/images/icons/cloud-db.svg" },
+              { label: "Enhanced Organizational Efficiency", icon: "/images/icons/coding-phone.svg" },
+            ].map((item) => (
               <div
-                key={label}
+                key={item.label}
                 className="flex flex-col items-center rounded-xl border border-[#F2E8E1] bg-white p-6 text-center"
               >
                 <div className="mb-3 h-11 w-11 rounded-full bg-[#FFE3D3] grid place-items-center">
-                  <Image src="/placeholder.svg" alt="value icon" width={22} height={22} />
+                  <Image src={item.icon} alt={`${item.label} icon`} width={22} height={22} className="h-5 w-5" />
                 </div>
-                <p className="text-[13.5px] text-[#0F2C58]">{label}</p>
+                <p className="text-[13.5px] text-[#0F2C58]">{item.label}</p>
               </div>
             ))}
           </div>
@@ -249,8 +245,8 @@ export default function AIAgentDevelopment() {
               </div>
               <div className="justify-self-center">
                 <Image
-                  src="/placeholder.png"
-                  alt="Agentic AI illustration"
+                  src="/images/ai_agents/aiagentsworking.png"
+                  alt="Agentic AI for business illustration"
                   width={520}
                   height={360}
                   className="h-auto w-[320px] sm:w-[380px] md:w-[460px] rounded-xl shadow-[0_12px_32px_-10px_rgba(15,44,88,0.25)]"

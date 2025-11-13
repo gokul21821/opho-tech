@@ -1,30 +1,34 @@
 // app/data-monetization/page.tsx
 import Image from "next/image";
+import { Footer } from "@/components/layout/Footer";
+import { Header } from "@/components/layout/Header";
+import { HeroSection } from "@/components/ui/HeroSection";
 
 export default function DataMonetizationPage() {
   return (
-    <main className="bg-white text-[#0B1B2B]">
-      {/* Hero banner */}
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(1200px_600px_at_50%_-200px,#0F2C58_40%,#071A38_70%,#071A38_100%)]" />
-        <div className="relative mx-auto max-w-7xl px-6 pt-24 pb-20">
-          {/* Breadcrumb */}
-          <p className="text-sm/6 text-white/80">Home <span className="mx-2 text-white/50">›</span> Data Monetization</p>
-          <h1 className="mt-4 text-4xl font-semibold tracking-tight text-white sm:text-5xl">
-            Data Monetization
-          </h1>
-          <p className="mt-3 max-w-2xl text-white/80">
-            Turning Your Information into Revenue
-          </p>
-        </div>
-      </section>
+    <div className="flex min-h-screen flex-col bg-white text-[#0B1B2B]">
+      <Header />
+
+      {/* HERO SECTION */}
+      <HeroSection
+        breadcrumb={[
+          { label: "Home", href: "/" },
+          { label: "Solutions", href: "/" },
+          { label: "Data Monetization" },
+        ]}
+        title="Data Monetization"
+        subtitle="Turning Your Information into Revenue"
+        contentAlignment="center"
+      />
+
+      <main className="bg-white text-[#0B1B2B]">
 
       {/* Intro split */}
       <section className="mx-auto max-w-7xl px-6 py-16">
         <div className="grid items-center gap-10 md:grid-cols-2">
           <div className="justify-self-center">
             <Image
-              src="/placeholder.png"
+              src="/images/data-monetize/secure-communication.png"
               alt="Data monetization illustration"
               width={520}
               height={380}
@@ -34,10 +38,10 @@ export default function DataMonetizationPage() {
           </div>
           <div className="text-[15.5px] text-[#3A4A5F]">
             <p>
-              As a business leader, you know your data is a critical asset. Data Monetization is the strategy to unlock its financial potential, shifting it from a cost center to a profit generator.
+            As a business leader, you know your data is a critical asset. Data Monetization is the strategy to unlock its financial potential, shifting it from a cost center to a profit generator. 
             </p>
             <p className="mt-4">
-              We help executives convert complex data infrastructure into clear, measurable business returns. This is not just a technology project; it is a fundamental shift in how your company creates value and secures a competitive edge.
+            We help executives convert complex data infrastructure into clear, measurable business returns. This is not just a technology project; it is a fundamental shift in how your company creates value and secures a competitive edge. 
             </p>
           </div>
         </div>
@@ -91,9 +95,6 @@ export default function DataMonetizationPage() {
                   key={c.title}
                   className="rounded-xl border border-[#F2E8E1] bg-white p-6 shadow-[0_6px_18px_-8px_rgba(15,44,88,0.12)]"
                 >
-                  <div className="mb-4 h-7 w-7">
-                    <Image src="/placeholder.svg" alt="icon" width={28} height={28} />
-                  </div>
                   <h3 className="text-[16.5px] font-semibold text-[#0F2C58]">{c.title}</h3>
                   <p className="mt-2 text-[14px] text-[#3A4A5F]">{c.text}</p>
                 </div>
@@ -121,6 +122,7 @@ export default function DataMonetizationPage() {
                     "Create new products and services based on aggregated insights and industry benchmarks.",
                     "New revenue streams, high‑margin data products.",
                   ],
+                  icon: "/images/data-monetize/money.svg",
                 },
                 {
                   title: "Operational Efficiency",
@@ -128,6 +130,7 @@ export default function DataMonetizationPage() {
                     "Use AI and analytics to optimize core processes and predict future needs.",
                     "Reduced costs, optimized inventory, faster time‑to‑market.",
                   ],
+                  icon: "/images/data-monetize/gear.svg",
                 },
                 {
                   title: "Customer Experience",
@@ -135,6 +138,7 @@ export default function DataMonetizationPage() {
                     "Leverage hyper‑personalization to drive loyalty and sales.",
                     "Increased Customer Lifetime Value (CLV) and lower churn.",
                   ],
+                  icon: "/images/data-monetize/laptop.svg",
                 },
               ].map((b) => (
                 <div
@@ -142,7 +146,7 @@ export default function DataMonetizationPage() {
                   className="rounded-xl border border-[#F2E8E1] bg-white p-6 shadow-[0_6px_18px_-8px_rgba(15,44,88,0.12)]"
                 >
                   <div className="mb-4 h-7 w-7">
-                    <Image src="/placeholder.svg" alt="icon" width={28} height={28} />
+                    <Image src={b.icon} alt={`${b.title} icon`} width={28} height={28} className="h-7 w-7" />
                   </div>
                   <h3 className="text-[16.5px] font-semibold text-[#0F2C58]">{b.title}</h3>
                   <ul className="mt-3 space-y-2 text-[14px] text-[#3A4A5F]">
@@ -206,19 +210,27 @@ export default function DataMonetizationPage() {
 
         <div className="mx-auto mt-8 grid max-w-4xl grid-cols-1 gap-6 sm:grid-cols-3 lg:grid-cols-4">
           {[
-            "New Data‑Driven Revenue Streams",
-            "Operational Efficiency And Cost Reduction",
-            "Improved Customer Loyalty And Retention",
-            "Risk‑Aware Governance And Compliance",
-          ].map((label) => (
+            {
+              title: "New Data‑Driven Revenue Streams",
+              icon: "/images/icons/search-notes.svg",
+            },
+            {
+              title: "Operational Efficiency And Cost Reduction",
+              icon: "/images/icons/settings-money.svg",
+            },
+            {
+              title: "Improved Customer Loyalty And Retention",
+              icon: "/images/icons/monitor.svg",
+            },
+          ].map((item) => (
             <div
-              key={label}
+              key={item.title}
               className="flex flex-col items-center rounded-xl border border-[#F2E8E1] bg-white p-6 text-center"
             >
               <div className="mb-3 h-11 w-11 rounded-full bg-[#FFE3D3] grid place-items-center">
-                <Image src="/placeholder.svg" alt="value icon" width={22} height={22} />
+                <Image src={item.icon} alt={`${item.title} icon`} width={22} height={22} className="h-5 w-5" />
               </div>
-              <p className="text-[13.5px] text-[#0F2C58]">{label}</p>
+              <p className="text-[13.5px] text-[#0F2C58]">{item.title}</p>
             </div>
           ))}
         </div>
@@ -244,7 +256,7 @@ export default function DataMonetizationPage() {
             </div>
             <div className="justify-self-center">
               <Image
-                src="/placeholder.png"
+                src="/images/data-monetize/cube.png"
                 alt="Cube vault illustration"
                 width={520}
                 height={360}
@@ -277,5 +289,8 @@ export default function DataMonetizationPage() {
         <div className="h-28 w-full bg-[radial-gradient(1200px_500px_at_50%_100px,#0F2C58_30%,#071A38_75%)]" />
       </div>
     </main>
+
+    <Footer />
+  </div>
   );
 }
