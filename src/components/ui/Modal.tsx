@@ -2,6 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import { type ReactNode, useEffect, useRef } from "react";
+import { createPortal } from "react-dom";
 
 type ModalProps = {
   open: boolean;
@@ -43,12 +44,22 @@ export function Modal({
     }
   }, [open]);
 
+  useEffect(() => {
+    if (open) {
+      // Prevent body scroll when modal is open
+      document.body.style.overflow = "hidden";
+      return () => {
+        document.body.style.overflow = "";
+      };
+    }
+  }, [open]);
+
   if (!open) return null;
 
-  return (
+  const modalContent = (
     <div
       aria-hidden={!open}
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm"
+      className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/50 backdrop-blur-sm"
     >
       <div
         role="button"
@@ -60,7 +71,7 @@ export function Modal({
       <div
         ref={containerRef}
         className={cn(
-          "relative z-10 w-full max-w-3xl rounded-3xl bg-white p-8 shadow-2xl outline-none transition duration-300 animate-modal-in",
+          "relative z-10 w-full max-w-5xl rounded-2xl bg-transparent shadow-2xl outline-none transition duration-300 animate-modal-in",
           className,
         )}
         role="dialog"
@@ -73,5 +84,12 @@ export function Modal({
       </div>
     </div>
   );
+
+  // Render modal in a portal at document body level to ensure it's always on top
+  if (typeof window !== "undefined") {
+    return createPortal(modalContent, document.body);
+  }
+
+  return null;
 }
 

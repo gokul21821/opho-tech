@@ -178,33 +178,44 @@ export function ValuePropositionSection() {
 
               {/* Content Card */}
               <div className="flex flex-1 items-center rounded-2xl bg-white p-8">
-                <div className="flex flex-col justify-between gap-8">
-                  <p className="w-full max-w-[520px] font-poppins text-base leading-normal text-[#4F4F4F]">
-                    {activeFeature.description}
-                  </p>
-                  <button
-                    onClick={() => setIsModalOpen(true)}
-                    className="group flex w-fit items-center gap-1.5 rounded-lg bg-[#FFF6ED] px-3 py-3 transition-all hover:bg-[#FFE8D1]"
-                  >
-                    <span className="font-poppins text-base leading-none text-[#E45412]">
-                      Let&apos;s Connect
-                    </span>
-                    <svg
-                      width="16"
-                      height="16"
-                      viewBox="0 0 16 16"
-                      fill="none"
-                      className="transition-transform group-hover:translate-x-1"
+                <div className="flex w-full flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
+                  <div className="flex flex-col justify-between gap-8">
+                    <p className="w-full max-w-[520px] font-poppins text-base leading-normal text-[#4F4F4F]">
+                      {activeFeature.description}
+                    </p>
+                    <button
+                      onClick={() => setIsModalOpen(true)}
+                      className="group flex w-fit items-center gap-1.5 rounded-lg bg-[#FFF6ED] px-3 py-3 transition-all hover:bg-[#FFE8D1]"
                     >
-                      <path
-                        d="M5 8H11M11 8L8 5M11 8L8 11"
-                        stroke="#E45412"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </button>
+                      <span className="font-poppins text-base leading-none text-[#E45412]">
+                        Let&apos;s Connect
+                      </span>
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        className="transition-transform group-hover:translate-x-1"
+                      >
+                        <path
+                          d="M5 8H11M11 8L8 5M11 8L8 11"
+                          stroke="#E45412"
+                          strokeWidth="1.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                  <div className="flex items-center justify-center lg:flex-1 lg:justify-end">
+                    <Image
+                      src="/images/valuesection/world.svg"
+                      alt="Global connectivity"
+                      width={400}
+                      height={400}
+                      className="h-auto w-full max-w-[400px] lg:max-w-[500px]"
+                    />
+                  </div>
                 </div>
               </div>
             </div>

@@ -1,9 +1,15 @@
+"use client";
+
 import Image from "next/image";
+import { useState } from "react";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { HeroSection } from "@/components/ui/HeroSection";
+import { ContactModal } from "@/components/forms/ContactModal";
 
 export default function CloudIntegrationPage() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <div className="flex min-h-screen flex-col bg-white text-gray-900">
       <Header />
@@ -199,13 +205,17 @@ export default function CloudIntegrationPage() {
               Connect with our team for a quick Cloud Readiness Review and uncover the fastest, most cost-efficient path to
               modernization.
             </p>
-            <button className="px-6 py-3 bg-orange-500 text-white rounded-lg hover:bg-orange-600">
+            <button
+              onClick={() => setIsModalOpen(true)}
+              className="px-6 py-3 bg-orange-500 text-white rounded-lg hover:bg-orange-600"
+            >
               Schedule a Call →
             </button>
           </section>
         </main>
 
         <Footer />
+        <ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
       </div>
     );
   }

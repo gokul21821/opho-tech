@@ -21,7 +21,7 @@ export function CaseStudiesSection() {
           <div className="group relative w-full max-w-sm rounded-3xl border border-orange-300 bg-transparent p-8 text-left shadow-sm transition-all duration-300 hover:shadow-md">
             {/* Icon */}
             <Image
-              src="/images/icons/case.svg"
+              src="/images/casestudies/case.svg"
               alt="Case Study Icon"
               width={48}
               height={48}

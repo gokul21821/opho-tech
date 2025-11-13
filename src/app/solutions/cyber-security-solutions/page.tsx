@@ -1,10 +1,16 @@
+"use client";
+
 // app/cyber-security-solutions/page.tsx
 import Image from "next/image";
+import { useState } from "react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { HeroSection } from "@/components/ui/HeroSection";
+import { ContactModal } from "@/components/forms/ContactModal";
 
 export default function CyberSecuritySolutions() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <div className="flex min-h-screen flex-col bg-white text-[#0B1B2B]">
       <Header />
@@ -271,6 +277,7 @@ export default function CyberSecuritySolutions() {
           </p>
           <div className="mt-8 flex justify-center">
             <button
+              onClick={() => setIsModalOpen(true)}
               className="rounded-full bg-[#FF6A3D] px-6 py-3 text-white text-sm font-medium shadow-[0_8px_20px_-6px_rgba(255,106,61,0.6)] hover:brightness-110 transition"
               type="button"
             >
@@ -281,6 +288,7 @@ export default function CyberSecuritySolutions() {
       </main>
 
       <Footer />
+      <ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </div>
   );
 }

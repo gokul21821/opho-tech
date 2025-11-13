@@ -1,9 +1,15 @@
+"use client";
+
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { HeroSection } from "@/components/ui/HeroSection";
 import Image from "next/image";
+import { useState } from "react";
+import { ContactModal } from "@/components/forms/ContactModal";
 
 export default function AISolutionsAndServices() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <div className="flex min-h-screen flex-col bg-white text-gray-900">
       <Header />
@@ -193,13 +199,17 @@ export default function AISolutionsAndServices() {
           <p className="text-sm text-gray-600 mb-6 max-w-2xl mx-auto">
             Discover three high-impact AI use cases designed for your industry and pinpoint your fastest path to ROI.
           </p>
-          <button className="px-6 py-3 bg-orange-500 text-white rounded-lg hover:bg-orange-600">
+          <button
+            onClick={() => setIsModalOpen(true)}
+            className="px-6 py-3 bg-orange-500 text-white rounded-lg hover:bg-orange-600"
+          >
             Deploy Intelligent Automation →
           </button>
         </section>
       </main>
 
       <Footer />
+      <ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </div>
   );
 }

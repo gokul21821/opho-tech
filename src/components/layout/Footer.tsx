@@ -2,7 +2,9 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 import { slugify } from "@/lib/utils";
+import { ContactModal } from "@/components/forms/ContactModal";
 
 const COMPANY_LINKS = [
   "About Us",
@@ -54,12 +56,14 @@ const XIcon = () => (
 );
 
 export function Footer() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <footer className="relative w-full overflow-hidden">
       {/* Background Layer */}
       <div className="absolute inset-0 pointer-events-none">
         {/* Orange ellipse - positioned to show curved top portion */}
-        <div className="absolute -top-[50px] left-1/2 h-[600px] w-[150%] -translate-x-1/2 md:-top-[80px] md:h-[800px] lg:-top-[100px] lg:h-[1000px]">
+        <div className="absolute -top-[10px] left-1/2 h-[100px] w-[150%] -translate-x-1/2 md:-top-[80px] md:h-[100px] lg:-top-[1px] lg:h-[600px]">
           <div className="relative h-full w-full">
             <Image
               src="/images/footer/footer-elipse.svg"
@@ -73,7 +77,7 @@ export function Footer() {
         </div>
         
         {/* Blue footer background - overlays ellipse, leaving top curve visible */}
-        <div className="absolute top-[30px] left-0 right-0 bottom-0 md:top-[40px] lg:top-[50px]">
+        <div className="absolute top-[8px] left-0 right-0 bottom-0 md:top-[7px] lg:top-[5px]">
           <div className="relative h-full w-full">
             <Image
               src="/images/footer/footer-bg.png"
@@ -137,7 +141,7 @@ export function Footer() {
           </div>
 
           {/* Company Links */}
-          <FooterColumn title="Company" links={COMPANY_LINKS} />
+          <FooterColumn title="Company" links={COMPANY_LINKS} onContactClick={() => setIsModalOpen(true)} />
           
           {/* Resources Links */}
           <FooterColumn title="Resources" links={RESOURCE_LINKS} />
@@ -158,6 +162,7 @@ export function Footer() {
           </p>
         </div>
       </div>
+      <ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </footer>
   );
 }
@@ -166,9 +171,10 @@ type FooterColumnProps = {
   title: string;
   links: string[];
   hrefPrefix?: string;
+  onContactClick?: () => void;
 };
 
-function FooterColumn({ title, links, hrefPrefix }: FooterColumnProps) {
+function FooterColumn({ title, links, hrefPrefix, onContactClick }: FooterColumnProps) {
   return (
     <nav className="space-y-5">
       <h3 className="relative pb-2 text-base font-medium text-white after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-12 after:bg-orange-500">
@@ -177,12 +183,21 @@ function FooterColumn({ title, links, hrefPrefix }: FooterColumnProps) {
       <ul className="space-y-3 text-sm text-blue-50/80">
         {links.map((link) => (
           <li key={link}>
-            <Link
-              className="inline-block transition-colors hover:text-white hover:underline hover:underline-offset-2"
-              href={hrefPrefix ? `${hrefPrefix}${slugify(link)}` : slugify(link)}
-            >
-              {link}
-            </Link>
+            {link === "Contact" ? (
+              <button
+                onClick={onContactClick}
+                className="inline-block transition-colors hover:text-white hover:underline hover:underline-offset-2"
+              >
+                {link}
+              </button>
+            ) : (
+              <Link
+                className="inline-block transition-colors hover:text-white hover:underline hover:underline-offset-2"
+                href={hrefPrefix ? `${hrefPrefix}${slugify(link)}` : slugify(link)}
+              >
+                {link}
+              </Link>
+            )}
           </li>
         ))}
       </ul>

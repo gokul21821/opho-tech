@@ -1,12 +1,76 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
 import { Modal } from '@/components/ui/Modal';
 
 type ContactModalProps = {
   isOpen: boolean;
   onClose: () => void;
 };
+
+const LinkedInIcon = () => (
+  <svg
+    aria-hidden="true"
+    className="size-8"
+    fill="none"
+    viewBox="0 0 32 32"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <rect width="32" height="32" rx="8" fill="#FFF6ED" />
+    <path
+      d="M22.22 22.22h-2.22V17.6c0-.89-.38-1.44-1.24-1.44-.67 0-1.11.45-1.28.99-.07.14-.08.33-.08.53v4.54h-2.22c.03-5.56.01-6.11 0-6.58h2.22v.89c.23-.38.82-.95 1.91-.95 1.4 0 2.46.97 2.46 3.1v3.54ZM10.78 10.78a1.3 1.3 0 0 1-1.31-1.31c0-.6.48-1.31 1.31-1.31.56 0 1.01.45 1.01 1.31 0 .6-.45 1.31-1.01 1.31Zm1.1 11.44H9.66v-6.58h2.22v6.58Z"
+      fill="#E45412"
+    />
+  </svg>
+);
+
+const XIcon = () => (
+  <svg
+    aria-hidden="true"
+    className="size-8"
+    fill="none"
+    viewBox="0 0 32 32"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <rect width="32" height="32" rx="8" fill="white" />
+    <path
+      d="M20.5 11.5l-5.5 6.5-5.5-6.5M20.5 20.5l-5.5-6.5-5.5 6.5"
+      stroke="#111111"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
+
+const EmailIcon = () => (
+  <svg
+    aria-hidden="true"
+    className="size-6"
+    fill="none"
+    viewBox="0 0 24 24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+      stroke="#FFF6ED"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M22 6l-10 7L2 6"
+      stroke="#FFF6ED"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
+
+const CTA_BACKGROUND = "/images/hero/hero-background-waves.png";
 
 export function ContactModal({ isOpen, onClose }: ContactModalProps) {
   const [formData, setFormData] = useState({
@@ -22,7 +86,6 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission (UI only for now)
     console.log('Form submitted:', formData);
     onClose();
   };
@@ -40,27 +103,104 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
 
   return (
     <Modal open={isOpen} onClose={onClose} labelledBy="contact-modal-title">
-      <div className="w-full max-w-3xl">
-        <div className="mb-6 flex items-start justify-between">
-          <div>
-            <span className="font-poppins text-xs font-medium uppercase tracking-widest text-orange-500">
-              Get in Touch
-            </span>
-            <h2
-              id="contact-modal-title"
-              className="mt-2 font-poppins text-2xl font-medium text-gray-900 md:text-3xl"
-            >
-              Schedule a Consultation
-            </h2>
-            <p className="mt-2 font-poppins text-sm text-gray-600">
-              Let&apos;s discuss how we can help transform your business
-            </p>
+      <div className="flex w-full overflow-hidden rounded-2xl border-[1.5px] border-orange-400 bg-white">
+        {/* Left Side - Dark Background */}
+        <div className="relative hidden w-[475px] flex-shrink-0 flex-col justify-between overflow-hidden rounded-l-2xl bg-gradient-to-r from-[#1e2f62] via-[#1b2760] to-[#101b3f] p-8 lg:flex">
+          {/* Background Image */}
+          <div className="pointer-events-none absolute inset-0 opacity-70">
+            <Image
+              src={CTA_BACKGROUND}
+              alt=""
+              fill
+              sizes="475px"
+              className="object-cover"
+            />
           </div>
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#141f44]/90 via-[#152752]/70 to-[#15224a]/60" />
+
+          <div className="relative z-10 flex flex-col gap-5">
+            {/* Header Section */}
+            <div className="flex flex-col gap-2.5 border-b border-white/10 pb-5">
+              <p className="font-poppins text-xl font-medium capitalize leading-tight text-orange-500">
+                Book a Call
+              </p>
+              <h2
+                id="contact-modal-title"
+                className="font-poppins text-2xl font-medium leading-tight text-white"
+              >
+                From Idea to Impact in 15 Days
+              </h2>
+              <p className="font-poppins text-sm leading-normal text-gray-50">
+                Join our AI solution architects for a discovery session that transforms your vision into a tangible, business-ready MVP.
+              </p>
+            </div>
+
+            {/* Global Offices */}
+            <div className="flex flex-col gap-2.5 border-b border-white/10 pb-5">
+              <p className="font-poppins text-base font-medium capitalize text-gray-25">
+                Global Offices
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {['Canada', 'USA', 'India', 'Europe'].map((office) => (
+                  <div
+                    key={office}
+                    className="rounded-lg bg-gray-25 px-2.5 py-1.5"
+                  >
+                    <p className="font-poppins text-sm text-gray-900">
+                      {office}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Contact Information */}
+            <div className="flex flex-col gap-2.5 border-b border-white/10 pb-5">
+              <p className="font-poppins text-base font-medium capitalize text-gray-25">
+                Contact Information
+              </p>
+              <div className="flex items-center gap-2">
+                <EmailIcon />
+                <a
+                  href="mailto:info@ophotech.com"
+                  className="font-poppins text-base text-orange-500 transition-colors hover:text-orange-400"
+                >
+                  info@ophotech.com
+                </a>
+              </div>
+            </div>
+
+            {/* Social Media Icons */}
+            <div className="flex gap-3">
+              <Link
+                href="https://www.linkedin.com/company/ophotech/"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Visit OphoTech on LinkedIn"
+                className="transition-transform hover:scale-105"
+              >
+                <LinkedInIcon />
+              </Link>
+              <Link
+                href="https://x.com/opho_tech"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Visit OphoTech on X"
+                className="transition-transform hover:scale-105"
+              >
+                <XIcon />
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        {/* Right Side - Form */}
+        <div className="relative flex w-full flex-col bg-white p-5 lg:w-[420px] lg:flex-shrink-0">
           <button
             type="button"
             onClick={onClose}
             aria-label="Close modal"
-            className="flex size-10 items-center justify-center rounded-full bg-gray-100 text-gray-600 transition-colors hover:bg-gray-200"
+            className="absolute right-4 top-4 z-10 flex size-8 items-center justify-center rounded-full bg-gray-100 text-gray-600 transition-colors hover:bg-gray-200 lg:size-10"
           >
             <svg
               width="20"
@@ -77,16 +217,15 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
               />
             </svg>
           </button>
-        </div>
 
-        <form onSubmit={handleSubmit} className="space-y-5">
-          <div className="grid gap-5 md:grid-cols-2">
-            <div>
+          <form onSubmit={handleSubmit} className="mt-2 flex flex-col gap-2.5">
+            {/* Name */}
+            <div className="flex flex-col gap-1">
               <label
                 htmlFor="name"
-                className="mb-2 block font-poppins text-sm font-medium text-gray-700"
+                className="font-poppins text-sm text-gray-900"
               >
-                Name *
+                Name
               </label>
               <input
                 type="text"
@@ -95,17 +234,18 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                 required
                 value={formData.name}
                 onChange={handleChange}
-                className="w-full rounded-lg border border-gray-300 px-4 py-2.5 font-poppins text-sm transition-colors focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-100"
-                placeholder="Your full name"
+                className="rounded-md bg-gray-100 px-3 py-2.5 font-poppins text-xs text-gray-900 placeholder:text-gray-300 focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-100"
+                placeholder="Enter your name"
               />
             </div>
 
-            <div>
+            {/* Organization */}
+            <div className="flex flex-col gap-1">
               <label
                 htmlFor="organization"
-                className="mb-2 block font-poppins text-sm font-medium text-gray-700"
+                className="font-poppins text-sm text-gray-900"
               >
-                Organization *
+                Organization Name
               </label>
               <input
                 type="text"
@@ -114,17 +254,18 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                 required
                 value={formData.organization}
                 onChange={handleChange}
-                className="w-full rounded-lg border border-gray-300 px-4 py-2.5 font-poppins text-sm transition-colors focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-100"
-                placeholder="Company name"
+                className="rounded-md bg-gray-100 px-3 py-2.5 font-poppins text-xs text-gray-900 placeholder:text-gray-300 focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-100"
+                placeholder="Enter your organization name"
               />
             </div>
 
-            <div>
+            {/* Email */}
+            <div className="flex flex-col gap-1">
               <label
                 htmlFor="email"
-                className="mb-2 block font-poppins text-sm font-medium text-gray-700"
+                className="font-poppins text-sm text-gray-900"
               >
-                Email *
+                Work E-Mail
               </label>
               <input
                 type="email"
@@ -133,15 +274,16 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                 required
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full rounded-lg border border-gray-300 px-4 py-2.5 font-poppins text-sm transition-colors focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-100"
-                placeholder="your@email.com"
+                className="rounded-md bg-gray-100 px-3 py-2.5 font-poppins text-xs text-gray-900 placeholder:text-gray-300 focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-100"
+                placeholder="Enter your email"
               />
             </div>
 
-            <div>
+            {/* Phone */}
+            <div className="flex flex-col gap-1">
               <label
                 htmlFor="phone"
-                className="mb-2 block font-poppins text-sm font-medium text-gray-700"
+                className="font-poppins text-sm text-gray-900"
               >
                 Phone
               </label>
@@ -151,15 +293,35 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                 name="phone"
                 value={formData.phone}
                 onChange={handleChange}
-                className="w-full rounded-lg border border-gray-300 px-4 py-2.5 font-poppins text-sm transition-colors focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-100"
-                placeholder="+1 (555) 000-0000"
+                className="rounded-md bg-gray-100 px-3 py-2.5 font-poppins text-xs text-gray-900 placeholder:text-gray-300 focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-100"
+                placeholder="Enter your phone number"
               />
             </div>
 
-            <div>
+            {/* Brief */}
+            <div className="flex flex-col gap-1">
+              <label
+                htmlFor="brief"
+                className="font-poppins text-sm text-gray-900"
+              >
+                Share a Brief
+              </label>
+              <textarea
+                id="brief"
+                name="brief"
+                rows={3}
+                value={formData.brief}
+                onChange={handleChange}
+                className="h-[70px] resize-none rounded-md bg-gray-100 px-3 py-2 font-poppins text-xs text-gray-900 placeholder:text-gray-300 focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-100"
+                placeholder="Enter your message"
+              />
+            </div>
+
+            {/* Country */}
+            <div className="flex flex-col gap-1">
               <label
                 htmlFor="country"
-                className="mb-2 block font-poppins text-sm font-medium text-gray-700"
+                className="font-poppins text-sm text-gray-900"
               >
                 Country
               </label>
@@ -168,9 +330,9 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                 name="country"
                 value={formData.country}
                 onChange={handleChange}
-                className="w-full rounded-lg border border-gray-300 px-4 py-2.5 font-poppins text-sm transition-colors focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-100"
+                className="rounded-md bg-gray-100 px-3 py-2.5 font-poppins text-xs text-gray-900 focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-100"
               >
-                <option value="">Select a country</option>
+                <option value="">Select country</option>
                 <option value="US">United States</option>
                 <option value="UK">United Kingdom</option>
                 <option value="CA">Canada</option>
@@ -180,75 +342,66 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
               </select>
             </div>
 
-            <div>
-              <label
-                htmlFor="date"
-                className="mb-2 block font-poppins text-sm font-medium text-gray-700"
-              >
-                Preferred Date
-              </label>
-              <input
-                type="date"
-                id="date"
-                name="date"
-                value={formData.date}
-                onChange={handleChange}
-                className="w-full rounded-lg border border-gray-300 px-4 py-2.5 font-poppins text-sm transition-colors focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-100"
-              />
+            {/* Date and Time */}
+            <div className="flex gap-3">
+              <div className="flex flex-1 flex-col gap-1">
+                <label
+                  htmlFor="date"
+                  className="font-poppins text-sm text-gray-900"
+                >
+                  Preferred Time Slot
+                </label>
+                <input
+                  type="date"
+                  id="date"
+                  name="date"
+                  value={formData.date}
+                  onChange={handleChange}
+                  className="rounded-md bg-gray-100 px-3 py-2.5 font-poppins text-xs text-gray-900 focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-100"
+                />
+              </div>
+              <div className="flex flex-1 flex-col gap-1">
+                <label
+                  htmlFor="time"
+                  className="font-poppins text-sm text-gray-900 opacity-0"
+                >
+                  Preferred Time Slot
+                </label>
+                <input
+                  type="time"
+                  id="time"
+                  name="time"
+                  value={formData.time}
+                  onChange={handleChange}
+                  className="rounded-md bg-gray-100 px-3 py-2.5 font-poppins text-xs text-gray-900 focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-100"
+                />
+              </div>
             </div>
 
-            <div className="md:col-span-2">
-              <label
-                htmlFor="time"
-                className="mb-2 block font-poppins text-sm font-medium text-gray-700"
-              >
-                Preferred Time
-              </label>
-              <input
-                type="time"
-                id="time"
-                name="time"
-                value={formData.time}
-                onChange={handleChange}
-                className="w-full rounded-lg border border-gray-300 px-4 py-2.5 font-poppins text-sm transition-colors focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-100"
-              />
-            </div>
-
-            <div className="md:col-span-2">
-              <label
-                htmlFor="brief"
-                className="mb-2 block font-poppins text-sm font-medium text-gray-700"
-              >
-                Brief Description
-              </label>
-              <textarea
-                id="brief"
-                name="brief"
-                rows={4}
-                value={formData.brief}
-                onChange={handleChange}
-                className="w-full rounded-lg border border-gray-300 px-4 py-2.5 font-poppins text-sm transition-colors focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-100"
-                placeholder="Tell us about your project or requirements..."
-              />
-            </div>
-          </div>
-
-          <div className="flex gap-3 pt-2">
+            {/* Submit Button */}
             <button
               type="submit"
-              className="flex-1 rounded-lg bg-orange-500 px-6 py-3 font-poppins text-base font-medium text-white transition-colors hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
+              className="mt-2 flex items-center justify-center gap-1.5 rounded-lg bg-orange-500 px-3 py-3 font-poppins text-base text-white transition-colors hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
             >
-              Submit Request
+              <span>Submit Now</span>
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                className="rotate-180"
+              >
+                <path
+                  d="M6 12L10 8L6 4"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
             </button>
-            <button
-              type="button"
-              onClick={onClose}
-              className="rounded-lg border border-gray-300 px-6 py-3 font-poppins text-base font-medium text-gray-700 transition-colors hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2"
-            >
-              Cancel
-            </button>
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
     </Modal>
   );

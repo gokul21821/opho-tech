@@ -38,165 +38,255 @@ export default function PrivacyPolicy() {
         <section className="mx-auto max-w-5xl px-6 py-12">
           <div className="space-y-10">
             {/* Intro paragraph */}
-            <div className="text-[15px] leading-relaxed text-[#3A4A5F]">
-              <p>
-                At Opho Tech, we are committed to protecting your personal data. This Privacy Policy explains how we collect, use, share, and protect your personal information, including name, GDPR, CCPA, and other global data protection laws. All data shared with Opho Tech through our API endpoints and client services, built with ISO 27001 and SOC 2 Type II standards, for further information on data processing, kindly refer to our Data Processing Agreement in accordance with ISO 27001 and SOC 2 Type II standards.
+            <div>
+              <p className="text-[16px] leading-normal text-[#454545]">
+                Opho Tech ("Opho Tech", "we", or "us") values your privacy and is fully compliant with applicable privacy regulations including GDPR, CCPA, VCDPA, and other similar data protection laws. All data shared with Opho Tech through our API endpoints and online services is securely processed in accordance with ISO 27001 and SOC 2 Type II standards. For further details, please refer to our Data Processing Agreement.
               </p>
             </div>
+
+            {/* Separator line */}
+            <div className="h-px w-full bg-[#B0B0B0]" />
 
             {/* Opho Tech Privacy Policy Overview */}
             <div>
-              <h2 className="text-2xl font-semibold text-[#0B1B2B]">
+              <h2 className="text-[28px] font-medium leading-[38px] text-black">
                 Opho Tech Privacy Policy Overview
               </h2>
-              <p className="mt-3 text-[15px] leading-relaxed text-[#3A4A5F]">
-                This Privacy Policy explains what data is processed, how it&apos;s processed, and for what purposes ("Delivered to us, "Opho Tech", "we", or "us"). It applies to our website (the "Website"), any API(s) provided by us ("APIs"), our software-as-a-service ("SaaS") offering (the "Service"), and our clients. We outline the purpose of our visitors and users. This Policy explains the types of data and information we collect, and how we safeguard that data.
+              <p className="mt-5 text-[16px] leading-normal text-[#454545]">
+                This Privacy Policy outlines the privacy measures and practices of Opho Tech Inc. (referred to as "Opho Tech", "we", or "us") in relation to our website (the "Website"), and any features, products, and online services ("services") provided by Opho Tech. We value the privacy of our visitors and users. This Policy explains the types of data and information we collect, and how we safeguard that data.
               </p>
             </div>
+
+            {/* Separator line */}
+            <div className="h-px w-full bg-[#B0B0B0]" />
 
             {/* Our Services That Process Data */}
             <div>
-              <h2 className="text-2xl font-semibold text-[#0B1B2B]">
+              <h2 className="text-[28px] font-medium leading-[38px] text-black">
                 Our Services That Process Data
               </h2>
-              <p className="mt-3 text-[15px] leading-relaxed text-[#3A4A5F]">
-                Opho Tech&apos;s primary service is centered on fraud detection and prevention. We may also assist relating to you to analyze transactions, registrations, clicks, and other user behaviors to determine if the event is fraudulent or fraudulent. Our security scanning algorithms detect several forms of financial transactions or fraud attempts before they impact the business. Our anti-fraud technology uses Machine Learning algorithms to analyze and predict fraudulent movement and gather demographic information. These data points are not personally identifiable on their own.
+              <p className="mt-5 text-[16px] leading-normal text-[#454545]">
+                Opho Tech's primary service is centered on fraud detection and prevention. We may use data relating to you to analyze transactions, registrations, clicks, and other user behaviors to determine if the intent is malicious or fraudulent. Our machine learning algorithms and data processing mechanisms are built with privacy and data protection in mind, helping prevent data leakage and protect your privacy rights.
               </p>
             </div>
+
+            {/* Separator line */}
+            <div className="h-px w-full bg-[#B0B0B0]" />
 
             {/* Web Server Log Files */}
             <div>
-              <h3 className="text-xl font-semibold text-[#0B1B2B]">Web Server Log Files</h3>
-              <p className="mt-3 text-[15px] leading-relaxed text-[#3A4A5F]">
-                We collect server logs are files stored through our web server. The data collected may include Internet Protocol (IP) addresses, browser type, Internet Service Provider (ISP), date and time stamps, referring and exit pages, which could be used to detect frauds, clicks, or other information to analyze trends, administer the site, track user browsing patterns to detect anomalies, track Web bot, robot, spider or crawler movement, and gather demographic information. These data points are not personally identifiable on their own.
+              <h2 className="text-[28px] font-medium leading-[38px] text-black">
+                Web Server Log Files
+              </h2>
+              <p className="mt-5 text-[16px] leading-normal text-[#454545]">
+                Like most websites, Opho Tech uses log files through our web server. The data collected may include internet protocol (IP) addresses, browser type, Internet Service Provider (ISP), date and time stamps, referring and exit pages, and click data, to analyze trends, administer the website, track user movement, and gather demographic information. These data points are not personally identifiable on their own.
               </p>
             </div>
+
+            {/* Separator line */}
+            <div className="h-px w-full bg-[#B0B0B0]" />
 
             {/* Scripts, Cookies, and Web Beacons */}
             <div>
-              <h3 className="text-xl font-semibold text-[#0B1B2B]">
+              <h2 className="text-[28px] font-medium leading-[38px] text-black">
                 Scripts, Cookies, and Web Beacons
-              </h3>
-              <p className="mt-3 text-[15px] leading-relaxed text-[#3A4A5F]">
-                Opho Tech may use cookies, pixel tags, embedded scripts, web beacons, and similar technologies to store visitor preferences, record user behavior and actions, and customize your experience with our offerings. We also use cookies to determine if the event is fraudulent or if other information provided does not match with other "trusted" and likely fraudulent activity that is encountered.
+              </h2>
+              <p className="mt-5 text-[16px] leading-normal text-[#454545]">
+                Opho Tech may use cookies, pixel tags, embedded scripts, web beacons, and similar technologies to store visitor preferences, record user behavior and actions, and customize services based on the visitor's browser type or other information provided. Users with "Do Not Track" enabled will have their request respected with limited data tracking.
               </p>
             </div>
 
+            {/* Separator line */}
+            <div className="h-px w-full bg-[#B0B0B0]" />
+
             {/* Information & Data Collection */}
             <div>
-              <h2 className="text-2xl font-semibold text-[#0B1B2B]">
+              <h2 className="text-[28px] font-medium leading-[38px] text-black">
                 Information & Data Collection
               </h2>
 
-              <div className="mt-4 space-y-4">
+              <div className="mt-5 space-y-3">
                 <div>
-                  <h4 className="text-[16px] font-semibold text-[#0F2C58]">
-                    • Personal Information:
-                  </h4>
-                  <p className="mt-1 text-[15px] leading-relaxed text-[#3A4A5F]">
-                    This is information that identifies you as an individual or relates to an identifiable individual, such as your name, unique identifier (such as an account ID), email address, phone number, billing address, government identification (such as your Social Security Number or passport number), location, IP address, email address, or any other information related to an identifiable individual.
+                  <h3 className="text-[24px] font-medium leading-[26px] text-[#111111] capitalize">
+                    Personal Information:
+                  </h3>
+                  <p className="mt-3 text-[16px] leading-normal text-[#454545]">
+                    This is information that identifies you as an individual or relates to an identifiable individual, such as your name, unique identifier (such as account ID), email address, physical address, telephone number, credit card information, geolocation, and IP address. If you submit any Personal Information relating to others, you represent that you have the authority to do so and to allow us to use that information in accordance with this Privacy Policy.
                   </p>
                 </div>
 
                 <div>
-                  <h4 className="text-[16px] font-semibold text-[#0F2C58]">
-                    • Non-Personal Information:
-                  </h4>
-                  <p className="mt-1 text-[15px] leading-relaxed text-[#3A4A5F]">
-                    This information does not identify you as a person or entity. A specific identity or direct method to an identifiable individual. This may include pseudonymized identifiers, device information, browser type, operating system, user geolocation, and information collected through cookies and tracking technologies. Importantly, Opho Tech does not use Personal Information to train its models or for any third party AI systems or machine learning services other than as necessary to deliver our services.
+                  <h3 className="text-[24px] font-medium leading-[26px] text-[#111111] capitalize">
+                    Non-Personal Information:
+                  </h3>
+                  <p className="mt-3 text-[16px] leading-normal text-[#454545]">
+                    Any information that does not directly reveal your specific identity or does not relate to an identifiable individual. This may include pseudonymous identifiers, device information, non-precise geolocation, and information collected through cookies and tracking technologies.
+                  </p>
+                  <p className="mt-3 text-[16px] leading-normal text-[#454545]">
+                    Important: Opho Tech does not collect more information than is necessary to provide accurate fraud detection and prevention services.
                   </p>
                 </div>
               </div>
             </div>
 
+            {/* Separator line */}
+            <div className="h-px w-full bg-[#B0B0B0]" />
+
             {/* Data Sharing & Data Processing */}
             <div>
-              <h2 className="text-2xl font-semibold text-[#0B1B2B]">
+              <h2 className="text-[28px] font-medium leading-[38px] text-black">
                 Data Sharing & Data Processing
               </h2>
-              <p className="mt-3 text-[15px] leading-relaxed text-[#3A4A5F]">
-                Clients using our services may provide Opho Tech with transactional information, which can include IP addresses, email addresses, billing details, phone numbers, and other user interaction events. Opho Tech only uses this data to deliver the Service and perform fraud detection. Our AI and Machine Learning models analyze these indicators and transaction patterns within the scope of our client&apos;s contractual agreement. Opho Tech does not sell or license personal data-based Data Protection Commitments. Opho Tech does not sell your personal data or personal data of your end users. Any data shared with Opho Tech will not be sold or disclosed under any circumstances other than required by law. For examples of how we secure personal data: please see our DPA for industry security standards and data integrity procedures to ensure data security and compliance.
-              </p>
-              <p className="mt-3 text-[15px] leading-relaxed text-[#3A4A5F]">
-                All data is protected and encrypted both in transit and at rest. Access to personal data is on a strict need-to-know basis in accordance with the principle of least privilege. In addition, Opho Tech may share deidentified data with third parties for the purpose of researching how machine learning modeling reporting, or registering an AI address, or improving service security. This may involve sharing certain data through feedback forms or related features.
-              </p>
+              <div className="mt-5 space-y-3 text-[16px] leading-normal text-[#454545]">
+                <p>
+                  Clients using our services may provide Opho Tech with transactional information, which can include IP addresses, email addresses, billing details, phone numbers, and similar user data. This information is securely processed to detect behavioral intent and analyze the risk profile of transactions and users. The data is used to identify fraud patterns and improve your account's machine learning algorithms.
+                </p>
+                <p>
+                  Data Protection Commitment: Opho Tech does not sell your personal data or the personal data of your end users. Any data shared with Opho Tech will be confidential, securely processed, and maintained in line with industry security standards.
+                </p>
+                <p>
+                  Your account's contact details may be shared with CRMs and marketing platforms that meet our standards for adequate security techniques and data processing safeguards.
+                </p>
+                <p>
+                  As required, Opho Tech may share necessary data with third parties for the purpose of investigating false-positive reports, unblocking or registering an IP address, or improving service accuracy. This may involve sharing certain data through feedback forms or related features.
+                </p>
+              </div>
             </div>
+
+            {/* Separator line */}
+            <div className="h-px w-full bg-[#B0B0B0]" />
 
             {/* Data Processing Agreement */}
             <div>
-              <h2 className="text-2xl font-semibold text-[#0B1B2B]">
+              <h2 className="text-[28px] font-medium leading-[38px] text-black">
                 Data Processing Agreement
               </h2>
-              <p className="mt-3 text-[15px] leading-relaxed text-[#3A4A5F]">
-                Please refer to our full Data Processing Agreement for further details on how Opho Tech handles personal data in accordance with applicable privacy laws (including the General Data Protection Regulation (GDPR) and the California Consumer Privacy Act (CCPA)).
+              <p className="mt-5 text-[16px] leading-normal text-[#454545]">
+                Please refer to our full Data Processing Agreement for further details on how Opho Tech handles personal data, in accordance with applicable privacy laws including the General Data Protection Regulation (GDPR) and California Consumer Privacy Act (CCPA).
               </p>
             </div>
 
+            {/* Separator line */}
+            <div className="h-px w-full bg-[#B0B0B0]" />
+
             {/* Data Security */}
             <div>
-              <h2 className="text-2xl font-semibold text-[#0B1B2B]">Data Security</h2>
-              <p className="mt-3 text-[15px] leading-relaxed text-[#3A4A5F]">
+              <h2 className="text-[28px] font-medium leading-[38px] text-black">
+                Data Security
+              </h2>
+              <p className="mt-5 text-[16px] leading-normal text-[#454545]">
                 Opho Tech takes reasonable and appropriate measures to protect all data collected from unauthorized access, breaches, loss, manipulation, falsification, destruction, or unauthorized disclosure.
               </p>
             </div>
 
+            {/* Separator line */}
+            <div className="h-px w-full bg-[#B0B0B0]" />
+
             {/* Your Privacy Rights & Access to Information */}
             <div>
-              <h2 className="text-2xl font-semibold text-[#0B1B2B]">
+              <h2 className="text-[28px] font-medium leading-[38px] text-black">
                 Your Privacy Rights & Access to Information
               </h2>
-              <p className="mt-3 text-[15px] leading-relaxed text-[#3A4A5F]">
-                Depending on your location, local laws may provide you with the option to access or your personal information we may have collected about you. Opho Tech can provide a copy of your stored personal data upon request. However, please note that California Consumer Privacy Act (CCPA) or General Data Protection Regulation (GDPR) requests may only be fulfilled once we verify and validate to submit all personal data erasure requests.
+              <p className="mt-5 text-[16px] leading-normal text-[#454545]">
+                You have the right to request access to any personal information we may have collected about you. Opho Tech can provide a copy of your stored personal data upon request. To fulfill your request, we may ask you to verify your identity. Please contact us at{" "}
+                <a
+                  href="mailto:info@ophotech.com"
+                  className="underline decoration-solid hover:text-[#333]"
+                >
+                  info@ophotech.com
+                </a>{" "}
+                to submit a personal information request.
               </p>
             </div>
+
+            {/* Separator line */}
+            <div className="h-px w-full bg-[#B0B0B0]" />
 
             {/* Information Correction & Deletion */}
             <div>
-              <h2 className="text-2xl font-semibold text-[#0B1B2B]">
+              <h2 className="text-[28px] font-medium leading-[38px] text-black">
                 Information Correction & Deletion
               </h2>
-              <p className="mt-3 text-[15px] leading-relaxed text-[#3A4A5F]">
-                If you believe any personal information Opho Tech stores about you is not current or outdated, or if you would like to delete correct us or opt-out, update it, or keep your data accurate. You also have the right to withdraw your consent at any time. If you wish to request updates or delete inaccurate information, please contact info@ophotech.com to request information deletion.
+              <p className="mt-5 text-[16px] leading-normal text-[#454545]">
+                If you believe the information we have about you is incorrect, please contact us so we can update it and keep your data accurate. You also have the right to request deletion of your information. In order to comply, we may require you to verify your identity. Please contact{" "}
+                <a
+                  href="mailto:info@ophotech.com"
+                  className="underline decoration-solid hover:text-[#333]"
+                >
+                  info@ophotech.com
+                </a>{" "}
+                to request information deletion.
               </p>
             </div>
+
+            {/* Separator line */}
+            <div className="h-px w-full bg-[#B0B0B0]" />
 
             {/* SMS Terms and Conditions */}
             <div>
-              <h2 className="text-2xl font-semibold text-[#0B1B2B]">
+              <h2 className="text-[28px] font-medium leading-[38px] text-black">
                 SMS Terms and Conditions
               </h2>
-              <p className="mt-3 text-[15px] leading-relaxed text-[#3A4A5F]">
-                Upon messaging opt-in, the end user agrees to receive messages from Opho Tech regarding account alerts, communications, marketing and similar notifications. End users may receive transactional notifications or request more information through SMS or push to help facilitate their inquiry. All SMS data rates and charges apply. Users may opt-out at any time by texting "STOP" or adjusting settings in their user profile for our customer support. Mobile Privacy - Mobile Information we will be shared with third parties or affiliates for marketing or promotional purposes unrelated to Opho Tech.
-              </p>
+              <div className="mt-5 space-y-3 text-[16px] leading-normal text-[#454545]">
+                <p>
+                  Upon messaging opt-in, the end user agrees to receive messages from Opho Tech regarding account alerts, communications, marketing, and similar notifications. End users can opt-out by replying STOP or request more information by replying HELP. Message frequency varies. Message and data rates may apply. For assistance or questions about our SMS service, reply HELP to any message or contact our customer support team at{" "}
+                  <a
+                    href="tel:18885796686"
+                    className="underline decoration-solid hover:text-[#333]"
+                  >
+                    +18885796686
+                  </a>
+                  .
+                </p>
+                <p>
+                  Mobile Privacy: Mobile information will not be shared with third parties or affiliates for marketing or promotional purposes unrelated to Opho Tech.
+                </p>
+              </div>
             </div>
+
+            {/* Separator line */}
+            <div className="h-px w-full bg-[#B0B0B0]" />
 
             {/* CCPA Opt-Out */}
             <div>
-              <h2 className="text-2xl font-semibold text-[#0B1B2B]">
+              <h2 className="text-[28px] font-medium leading-[38px] text-black">
                 CCPA Opt-Out — "Do Not Sell Or Share My Personal Information"
               </h2>
-              <p className="mt-3 text-[15px] leading-relaxed text-[#3A4A5F]">
-                Opho Tech is subject to the California Consumer Privacy Act (CCPA) and the Virginia Consumer Data Privacy Act (VCDPA) which affords residents of certain jurisdictions the right to opt out of the sale or sharing of personal information, including transfers to third parties for advertising or profiling purposes. To comply with your right, we may require you to verify your identity by contacting support.dataprivacy.com to submit your Do Not Sell request.
-              </p>
+              <div className="mt-5 space-y-3 text-[16px] leading-normal text-[#454545]">
+                <p>
+                  Privacy laws such as the California Consumer Privacy Act (CCPA) and the Virginia Consumer Data Privacy Act (VCDPA) afford residents of certain jurisdictions the right to opt out of the sale or sharing of personal information, including transfers to third parties for advertising or profiling purposes.
+                </p>
+                <p>
+                  To comply with your "do not share" request, we may require you to verify your identity. Please contact{" "}
+                  <a
+                    href="mailto:info@ophotech.com"
+                    className="underline decoration-solid hover:text-[#333]"
+                  >
+                    info@ophotech.com
+                  </a>{" "}
+                  to submit your request or use our support form.
+                </p>
+              </div>
             </div>
+
+            {/* Separator line */}
+            <div className="h-px w-full bg-[#B0B0B0]" />
 
             {/* Data Compliance Officer */}
             <div>
-              <h2 className="text-2xl font-semibold text-[#0B1B2B]">
+              <h2 className="text-[28px] font-medium leading-[38px] text-black">
                 Data Compliance Officer
               </h2>
-              <p className="mt-3 text-[15px] leading-relaxed text-[#3A4A5F]">
-                If you have questions related to privacy or would like to contact our Data Compliance Officer, please use the contact information below:
-              </p>
-              <div className="mt-4 text-[15px] text-[#3A4A5F]">
-                <p className="font-medium">Attn: Data Protection Officer</p>
-                <p>OphoTech Canada Service</p>
-                <p>2345 - 235 Queens Quay W Downtown, Toronto M5J0A3 Canada</p>
-                <p className="mt-2">
+              <div className="mt-5 text-[16px] leading-normal text-[#454545]">
+                <p>If you have questions related to privacy or would like to contact our Data Compliance Officer, please use the contact information below:</p>
+                <p className="mt-3">ATTN: Data Compliance Officer</p>
+                <p>Opho Tech Inc.</p>
+                <p>2302 – 228 Queens Quay W Downtown, Toronto M5J2X1 Canada</p>
+                <p className="mt-4 font-medium text-[#111111]">
                   Email:{" "}
                   <a
                     href="mailto:info@ophotech.com"
-                    className="text-[#FF6A3D] hover:underline"
+                    className="text-[#e45412] underline decoration-solid hover:text-[#d14a0f]"
                   >
                     info@ophotech.com
                   </a>
