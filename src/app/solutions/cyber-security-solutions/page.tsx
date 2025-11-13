@@ -139,9 +139,6 @@ export default function CyberSecuritySolutions() {
                   key={c.title}
                   className="rounded-xl border border-[#F2E8E1] bg-white p-6 shadow-[0_6px_18px_-8px_rgba(15,44,88,0.12)]"
                 >
-                  <div className="mb-4 h-7 w-7">
-                    <Image src="/placeholder.svg" alt="icon" width={28} height={28} />
-                  </div>
                   <h4 className="text-[16px] font-semibold text-[#0F2C58]">{c.title}</h4>
                   <p className="mt-2 text-[14px] text-[#3A4A5F]">{c.body}</p>
                 </div>
@@ -281,12 +278,6 @@ export default function CyberSecuritySolutions() {
             </button>
           </div>
         </section>
-
-        {/* Bottom wave band for footer continuity */}
-        <div className="relative overflow-hidden">
-          <div className="h-10 w-full bg-[conic-gradient(from_190deg_at_10%_120%,#FBE0D6,transparent_30%)]" />
-          <div className="h-28 w-full bg-[radial-gradient(1200px_500px_at_50%_100px,#0F2C58_30%,#071A38_75%)]" />
-        </div>
       </main>
 
       <Footer />

@@ -6,7 +6,7 @@ import Image from "next/image";
 // Import team member images
 const bhavneetImage = "/images/aboutus/walia.png";
 const shivenderImage = "/images/aboutus/sofat.png";
-const rajveerImage = "/images/aboutus/singh.png";
+const rajveerImage = "/images/aboutus/Singh.png";
 const vijayImage = "/images/aboutus/varadi.png";
 
 export default function Team() {

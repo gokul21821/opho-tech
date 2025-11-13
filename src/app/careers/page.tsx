@@ -1,6 +1,7 @@
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { HeroSection } from "@/components/ui/HeroSection";
+import Image from "next/image";
 
 export default function Careers() {
   return (
@@ -57,21 +58,35 @@ export default function Careers() {
         <section className="py-20 px-6 text-center">
           <h2 className="text-3xl font-semibold mb-12">Work with Us</h2>
           <div className="grid md:grid-cols-5 gap-8 max-w-6xl mx-auto">
-            {["Innovation First", "Cutting-Edge Tools", "Collaborative Culture", "Global Impact", "Continuous Learning"].map(
-              (title, i) => (
-                <div key={i} className="p-6 rounded-xl bg-orange-50 hover:bg-orange-100 transition">
-                  <div className="mx-auto mb-4 w-10 h-10 bg-gray-300 rounded-full"></div>
-                  <h3 className="font-semibold mb-2">{title}</h3>
-                  <p className="text-sm text-gray-600">
-                    {title === "Innovation First" && "Every project starts with research, giving you space to explore and create."}
-                    {title === "Cutting-Edge Tools" && "Work with AI/ML, cloud-native platforms, and next-gen software stacks."}
-                    {title === "Collaborative Culture" && "We believe in Connect – Create – Evolve not just for clients, but also for our teams."}
-                    {title === "Global Impact" && "Serve clients across North America, Europe, and Asia while shaping industries worldwide."}
-                    {title === "Continuous Learning" && "Training, certifications, and mentorship programs to help you grow."}
-                  </p>
+            {[{
+              title: "Innovation First",
+              icon: "/images/icons/intelligent.svg",
+              description: "Every project starts with research, giving you space to explore and create."
+            }, {
+              title: "Cutting-Edge Tools",
+              icon: "/images/icons/ai-agent.svg",
+              description: "Work with AI/ML, cloud-native platforms, and next-gen software stacks."
+            }, {
+              title: "Collaborative Culture",
+              icon: "/images/icons/handshake.svg",
+              description: "We believe in Connect – Create – Evolve not just for clients, but also for our teams."
+            }, {
+              title: "Global Impact",
+              icon: "/images/icons/cloud-db.svg",
+              description: "Serve clients across North America, Europe, and Asia while shaping industries worldwide."
+            }, {
+              title: "Continuous Learning",
+              icon: "/images/icons/paper-analysis.svg",
+              description: "Training, certifications, and mentorship programs to help you grow."
+            }].map((item, i) => (
+              <div key={i} className="p-6 rounded-xl bg-orange-50 hover:bg-orange-100 transition">
+                <div className="mx-auto mb-4 h-11 w-11 rounded-full bg-[#FFE3D3] grid place-items-center">
+                  <Image src={item.icon} alt={`${item.title} icon`} width={22} height={22} className="h-5 w-5" />
                 </div>
-              )
-            )}
+                <h3 className="font-semibold mb-2">{item.title}</h3>
+                <p className="text-sm text-gray-600">{item.description}</p>
+              </div>
+            ))}
           </div>
         </section>
 
@@ -84,22 +99,33 @@ export default function Careers() {
           </p>
 
           <div className="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto">
-            {["Hybrid & Flexible Work Options", "R&D-Focused Projects With Global Clients", "Regular Hackathons & Innovation Sprints", "Inclusive, Diverse, And Growth-Oriented Culture", "Recognition And Rewards For Excellence"].map((title, i) => (
+            {[{
+              title: "Hybrid & Flexible Work Options",
+              icon: "/images/icons/smart-work.svg",
+              description: "We understand that innovation doesn't just happen at a desk. That's why we offer hybrid work models and flexible schedules that empower you to balance work and life. Whether you prefer collaborating in our offices or contributing remotely, we make sure you stay connected and supported."
+            }, {
+              title: "R&D-Focused Projects With Global Clients",
+              icon: "/images/icons/globe.svg",
+              description: "Here, you won't just work on routine tasks. You'll engage in cutting-edge research and development projects that have a real-world impact across North America, Europe, and Asia. From AI-driven platforms to scalable cloud architectures, every project challenges you to push boundaries."
+            }, {
+              title: "Regular Hackathons & Innovation Sprints",
+              icon: "/images/icons/monitor-bulb.svg",
+              description: "We thrive on creativity. Our hackathons and innovation sprints give teams the chance to experiment, prototype, and showcase new ideas. Many of our most impactful solutions started as hackathon concepts that evolved into client-ready innovations."
+            }, {
+              title: "Inclusive, Diverse, And Growth-Oriented Culture",
+              icon: "/images/icons/growth.svg",
+              description: "We know the best ideas come from diverse perspectives. Our culture embraces inclusivity and collaboration, ensuring every voice is heard. We invest in mentorship, training, and personal development so that every team member grows along with the company."
+            }, {
+              title: "Recognition And Rewards For Excellence",
+              icon: "/images/icons/badge.svg",
+              description: "Your hard work deserves to be celebrated. From performance-based rewards to peer recognition programs, we ensure contributions never go unnoticed. We believe success is best when it's shared."
+            }].map((item, i) => (
               <div key={i} className="p-8 bg-white rounded-xl shadow-md">
-                <div className="mx-auto mb-4 w-10 h-10 bg-gray-300 rounded-full"></div>
-                <h3 className="font-semibold mb-3">{title}</h3>
-                <p className="text-sm text-gray-600">
-                  {title === "Hybrid & Flexible Work Options" &&
-                    "We understand that innovation doesn’t just happen at a desk. That’s why we offer hybrid work models and flexible schedules that empower you to balance work and life. Whether you prefer collaborating in our offices or contributing remotely, we make sure you stay connected and supported."}
-                  {title === "R&D-Focused Projects With Global Clients" &&
-                    "Here, you won’t just work on routine tasks. You’ll engage in cutting-edge research and development projects that have a real-world impact across North America, Europe, and Asia. From AI-driven platforms to scalable cloud architectures, every project challenges you to push boundaries."}
-                  {title === "Regular Hackathons & Innovation Sprints" &&
-                    "We thrive on creativity. Our hackathons and innovation sprints give teams the chance to experiment, prototype, and showcase new ideas. Many of our most impactful solutions started as hackathon concepts that evolved into client-ready innovations."}
-                  {title === "Inclusive, Diverse, And Growth-Oriented Culture" &&
-                    "We know the best ideas come from diverse perspectives. Our culture embraces inclusivity and collaboration, ensuring every voice is heard. We invest in mentorship, training, and personal development so that every team member grows along with the company."}
-                  {title === "Recognition And Rewards For Excellence" &&
-                    "Your hard work deserves to be celebrated. From performance-based rewards to peer recognition programs, we ensure contributions never go unnoticed. We believe success is best when it’s shared."}
-                </p>
+                <div className="mx-auto mb-4 h-11 w-11 rounded-full bg-[#FFE3D3] grid place-items-center">
+                  <Image src={item.icon} alt={`${item.title} icon`} width={22} height={22} className="h-5 w-5" />
+                </div>
+                <h3 className="font-semibold mb-3">{item.title}</h3>
+                <p className="text-sm text-gray-600">{item.description}</p>
               </div>
             ))}
           </div>

@@ -49,40 +49,23 @@ export default function AISolutionsAndServices() {
 
         {/* AI Solutions & Services */}
         <section className="py-20 px-6">
-          <div className="grid md:grid-cols-2 gap-10 max-w-6xl mx-auto items-center mb-16">
-            <div>
-              <h2 className="text-3xl font-semibold mb-4">AI Solutions & Services</h2>
-              <p className="text-gray-600">
-                Strategic AI: Adding Value to Data Beyond Simple Automation. We implement AI solutions that are deeply
-                embedded in your core workflows, transforming how decisions are made.
-              </p>
-            </div>
-            <Image
-              src="/images/ai_solutions/aisolution.png"
-              alt="AI solutions illustration"
-              width={520}
-              height={380}
-              className="h-auto w-[320px] sm:w-[380px] md:w-[420px] rounded-xl shadow-[0_10px_30px_-10px_rgba(15,44,88,0.3)]"
-              priority
-            />
-          </div>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {[{
               title: 'Intelligent Automation',
-              icon: '/images/icons/gear.svg',
-              impact: 'Automate complex, rule-based, and high-volume processes (e.g., invoice processing, customer routing). ',
-              outcome: 'Reduced operational costs, faster processing times, and reallocation of human capital to strategic tasks. '
+              icon: '/images/data-monetize/gear.svg',
+              impact: 'Automate complex, rule-based, and high-volume processes (e.g., invoice processing, customer routing). ',
+              outcome: 'Reduced operational costs, faster processing times, and reallocation of human capital to strategic tasks. '
             }, {
               title: 'Predictive Forecasting',
-              icon: '/images/icons/sparkle.svg',
-              impact: 'Use sophisticated models to anticipate market shifts, customer behavior, and equipment failures. ',
-              outcome: 'Reduced inventory risk, optimized pricing, and proactive maintenance (less downtime). .'
+              icon: '/images/cloud-integrations/sparkle.svg',
+              impact: 'Use sophisticated models to anticipate market shifts, customer behavior, and equipment failures. ',
+              outcome: 'Reduced inventory risk, optimized pricing, and proactive maintenance (less downtime). .'
             }, {
               title: 'Personalized Engagement',
-              icon: '/images/icons/lightning.svg',
+              icon: '/images/ai_solutions/lightning.svg',
               impact: 'Deploy AI to tailor every interaction, from marketing to product recommendations.',
-              outcome: 'Increased customer loyalty, higher conversion rates, and growth in Customer Lifetime Value (CLV). '
+              outcome: 'Increased customer loyalty, higher conversion rates, and growth in Customer Lifetime Value (CLV). '
             }].map((item, i) => (
               <div key={i} className="p-6 bg-white shadow-md rounded-xl border border-gray-200 text-left">
                 <div className="mb-4 h-7 w-7">
@@ -193,7 +176,15 @@ export default function AISolutionsAndServices() {
               We bridge the gap between data science and production-ready AI that delivers tangible business impact.
             </p>
           </div>
-          <div className="w-full h-64 bg-gray-300 rounded-lg"></div>
+          <div className="justify-self-center">
+            <Image
+              src="/images/ai_solutions/aisolution.png"
+              alt="AI solutions illustration"
+              width={520}
+              height={380}
+              className="h-auto w-[320px] sm:w-[380px] md:w-[420px] rounded-xl shadow-[0_10px_30px_-10px_rgba(15,44,88,0.3)]"
+            />
+          </div>
         </section>
 
         {/* Get Started */}

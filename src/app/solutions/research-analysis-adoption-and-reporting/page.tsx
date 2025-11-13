@@ -225,12 +225,6 @@ export default function RAARPage() {
           </button>
         </div>
       </section>
-
-      {/* Bottom wave band hint for footer continuity */}
-      <div className="relative overflow-hidden">
-        <div className="h-10 w-full bg-[conic-gradient(from_190deg_at_10%_120%,#FBE0D6,transparent_30%)]" />
-        <div className="h-28 w-full bg-[radial-gradient(1200px_500px_at_50%_100px,#0F2C58_30%,#071A38_75%)]" />
-      </div>
     </main>
 
     <Footer />

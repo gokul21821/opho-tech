@@ -188,36 +188,9 @@ const AboutPage = () => {
               </div>
             </div>
 
-            <div className="lg:w-1/2 flex justify-center relative">
-              <div className="relative">
-                <div className="absolute inset-0 bg-orange-500 rounded-full opacity-20 w-64 h-64"></div>
-                <Image
-                  src="/placeholder.png"
-                  alt="Mission Vision Graphic"
-                  width={300}
-                  height={300}
-                  className="relative z-10 rounded-full shadow-lg"
-                />
-              </div>
-            </div>
+
           </div>
 
-          {/* Arrow graphic */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 hidden lg:block">
-            <svg
-              className="w-32 h-32 text-orange-500"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M13 7l5 5m0 0l-5 5m5-5H6"
-              />
-            </svg>
-          </div>
         </section>
 
         {/* Our Values Section */}
@@ -409,6 +382,9 @@ const AboutPage = () => {
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
               <div className="text-center p-6">
+              <h3 className="text-xl font-semibold mb-4 text-blue-900">
+                  Outcome maps, then build
+                </h3>
                 <p className="text-gray-600 mb-4">
                   Engineered for your operating model. We design around your
                   processes, KPIs, users, and risk profile—not generic templates.
