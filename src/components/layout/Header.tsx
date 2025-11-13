@@ -15,7 +15,7 @@ const NAV_SECTIONS = [
   {
     label: "Company",
     key: "company",
-    items: ["About Us", "Team", "Career"],
+    items: ["About Us", "Team", "Careers"],
   },
   {
     label: "Solutions",
@@ -23,7 +23,7 @@ const NAV_SECTIONS = [
     items: [
       "Research, Analysis, Adoption & Reporting",
       "Data Monetization",
-      "Cloud Integration & Architecture",
+      "Cloud Integration",
       "AI Solutions & Services",
       "AI Agent Development",
       "Cyber Security Solutions",
@@ -136,7 +136,7 @@ export function Header() {
         key: section.key,
         items: section.items.map((item) => ({
           label: item,
-          href: slugify(item),
+          href: section.key === "solutions" ? `/solutions${slugify(item)}` : slugify(item),
         })),
       })),
     [],

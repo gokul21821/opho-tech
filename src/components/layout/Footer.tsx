@@ -17,7 +17,7 @@ const RESOURCE_LINKS = ["Blogs", "Newsletters", "Case Studies"];
 const SOLUTION_LINKS = [
   "RAAR",
   "Data Monetization",
-  "Cloud Integration & Architecture",
+  "Cloud Integration",
   "AI Solutions & Services",
   "AI Agent Development",
   "Cyber Security Solutions",
@@ -54,93 +54,58 @@ const XIcon = () => (
 );
 
 export function Footer() {
-  const curveHeight = 60; // Height of the curve area in pixels
-  
   return (
-    <footer className="relative w-full overflow-x-clip text-white">
-      {/* SVG definition for the clip path */}
-      <svg className="absolute size-0">
-        <defs>
-          <clipPath id="footer-clip" clipPathUnits="objectBoundingBox">
-            <path d="M 0 0.05 Q 0.5 0 1 0.05 L 1 1 L 0 1 Z" />
-          </clipPath>
-        </defs>
-      </svg>
-
-      {/* Background container with clip path */}
-      <div
-        className="absolute inset-x-0 bottom-0"
-        style={{ 
-          top: `-${curveHeight}px`,
-          clipPath: "url(#footer-clip)"
-        }}
-      >
-        {/* Wave pattern background image */}
-        <div className="absolute inset-0">
-          <Image
-            src="/images/footer-background.png"
-            alt=""
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover"
-          />
+    <footer className="relative w-full overflow-hidden">
+      {/* Background Layer */}
+      <div className="absolute inset-0 pointer-events-none">
+        {/* Orange ellipse - positioned to show curved top portion */}
+        <div className="absolute -top-[50px] left-1/2 h-[600px] w-[150%] -translate-x-1/2 md:-top-[80px] md:h-[800px] lg:-top-[100px] lg:h-[1000px]">
+          <div className="relative h-full w-full">
+            <Image
+              src="/images/footer/footer-elipse.svg"
+              alt=""
+              fill
+              priority
+              sizes="150vw"
+              className="object-contain object-top"
+            />
+          </div>
         </div>
         
-        {/* Dark overlay */}
-        <div className="absolute inset-0 bg-[#0A1A3A]/95" />
-        
-        {/* Blue radial gradients overlay */}
-        <div
-          aria-hidden="true"
-          className="absolute inset-0"
-          style={{
-            background:
-              "radial-gradient(120% 60% at 50% 10%, rgba(59, 130, 246, 0.15), transparent 60%), " +
-              "radial-gradient(120% 50% at 50% 70%, rgba(37, 99, 235, 0.12), transparent 65%)",
-          }}
-        />
-      </div>
-
-      {/* Top curved orange border - matches the clip path exactly */}
-      <div
-        aria-hidden="true"
-        className="absolute left-0 right-0 z-20"
-        style={{ top: `-${curveHeight}px`, height: `${curveHeight}px` }}
-      >
-        <svg
-          className="h-full w-full"
-          viewBox="0 0 1 1"
-          preserveAspectRatio="none"
-        >
-          <path
-            d="M 0 0.42 Q 0.6 0 1 0.42"
-            fill="none"
-            stroke="#E66A2C"
-            strokeWidth="0.4"
-            strokeLinecap="round"
-          />
-        </svg>
+        {/* Blue footer background - overlays ellipse, leaving top curve visible */}
+        <div className="absolute top-[30px] left-0 right-0 bottom-0 md:top-[40px] lg:top-[50px]">
+          <div className="relative h-full w-full">
+            <Image
+              src="/images/footer/footer-bg.png"
+              alt=""
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover object-top"
+            />
+          </div>
+        </div>
       </div>
 
       {/* Content */}
-      <div className="relative z-10 mx-auto max-w-7xl px-6 pb-12 pt-20 md:px-8 lg:px-12">
+      <div className="relative z-10 mx-auto max-w-7xl px-6 pb-8 pt-24 md:px-8 lg:px-12 lg:pt-32">
         {/* Main grid */}
-        <div className="grid gap-12 md:grid-cols-[2fr_1fr_1fr_1fr] lg:gap-16">
+        <div className="grid gap-12 md:grid-cols-[2fr_1fr_1fr_1fr] md:gap-8 lg:gap-16">
           {/* Company Info */}
           <div className="flex flex-col justify-between space-y-8">
-            <div className="space-y-4">
+            <div className="space-y-6">
               <Link href="/" className="inline-block">
-                <Image
-                  src="/images/logo/logo.svg"
-                  alt="OphoTech"
-                  width={184}
-                  height={39}
-                  priority
-                  className="h-auto w-44"
-                />
+                <div className="relative h-[39px] w-[184px]">
+                  <Image
+                    src="/images/logo/logo.svg"
+                    alt="OphoTech"
+                    fill
+                    priority
+                    className="object-contain object-left"
+                  />
+                </div>
               </Link>
-              <p className="max-w-sm text-sm leading-relaxed text-blue-100">
+              <p className="max-w-md text-sm leading-relaxed text-blue-50/90">
                 OphoTech is a research and technology partner for enterprises,
                 delivering business audits, AI-driven insights, and scalable
                 SaaS/PaaS solutions. We help leaders make confident decisions,
@@ -149,10 +114,10 @@ export function Footer() {
             </div>
             
             {/* Social Links */}
-            <div className="flex items-center gap-3.5">
+            <div className="flex items-center gap-3">
               <Link
                 aria-label="Visit OphoTech on LinkedIn"
-                className="inline-flex items-center justify-center rounded-lg bg-white/10 p-1.5 transition hover:bg-white/20"
+                className="inline-flex items-center justify-center rounded-lg bg-white/10 p-2 transition-all hover:bg-white/20 hover:scale-105"
                 href="https://www.linkedin.com/company/ophotech/"
                 target="_blank"
                 rel="noreferrer"
@@ -161,7 +126,7 @@ export function Footer() {
               </Link>
               <Link
                 aria-label="Visit OphoTech on X"
-                className="inline-flex items-center justify-center rounded-lg bg-white/10 p-1.5 transition hover:bg-white/20"
+                className="inline-flex items-center justify-center rounded-lg bg-white/10 p-2 transition-all hover:bg-white/20 hover:scale-105"
                 href="https://x.com/opho_tech"
                 target="_blank"
                 rel="noreferrer"
@@ -178,13 +143,13 @@ export function Footer() {
           <FooterColumn title="Resources" links={RESOURCE_LINKS} />
           
           {/* Solutions Links */}
-          <FooterColumn title="Solutions" links={SOLUTION_LINKS} />
+          <FooterColumn title="Solutions" links={SOLUTION_LINKS} hrefPrefix="/solutions" />
         </div>
 
         {/* Copyright Section */}
-        <div className="mt-10 space-y-4">
+        <div className="mt-12 space-y-6 lg:mt-16">
           {/* Divider line */}
-          <div className="h-px w-full bg-blue-100/20" />
+          <div className="h-px w-full bg-white/10" />
           
           {/* Copyright text */}
           <p className="text-center text-sm text-white/50">
@@ -200,27 +165,27 @@ export function Footer() {
 type FooterColumnProps = {
   title: string;
   links: string[];
+  hrefPrefix?: string;
 };
 
-function FooterColumn({ title, links }: FooterColumnProps) {
+function FooterColumn({ title, links, hrefPrefix }: FooterColumnProps) {
   return (
-    <div className="space-y-6">
-      <h3 className="border-b border-orange-500 pb-2 text-lg font-medium capitalize">
+    <nav className="space-y-5">
+      <h3 className="relative pb-2 text-base font-medium text-white after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-12 after:bg-orange-500">
         {title}
       </h3>
-      <ul className="space-y-3 text-sm text-blue-100">
+      <ul className="space-y-3 text-sm text-blue-50/80">
         {links.map((link) => (
           <li key={link}>
             <Link
-              className="transition-colors hover:text-white"
-              href={slugify(link)}
+              className="inline-block transition-colors hover:text-white hover:underline hover:underline-offset-2"
+              href={hrefPrefix ? `${hrefPrefix}${slugify(link)}` : slugify(link)}
             >
               {link}
             </Link>
           </li>
         ))}
       </ul>
-    </div>
+    </nav>
   );
 }
-
