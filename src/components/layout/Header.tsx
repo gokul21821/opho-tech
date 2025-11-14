@@ -136,7 +136,7 @@ export function Header() {
         key: section.key,
         items: section.items.map((item) => ({
           label: item,
-          href: section.key === "solutions" ? `/solutions${slugify(item)}` : slugify(item),
+          href: section.key === "solutions" ? `/solutions${slugify(item)}` : section.key === "company" ? `/company${slugify(item)}` : slugify(item),
         })),
       })),
     [],

@@ -141,13 +141,29 @@ export function Footer() {
           </div>
 
           {/* Company Links */}
-          <FooterColumn title="Company" links={COMPANY_LINKS} onContactClick={() => setIsModalOpen(true)} />
+          <FooterColumn
+            title="Company"
+            links={COMPANY_LINKS}
+            onContactClick={() => setIsModalOpen(true)}
+            hrefMapper={(link) => {
+              if (link === "About Us") return "/company/about-us";
+              if (link === "Careers") return "/company/careers";
+              return slugify(link);
+            }}
+          />
           
           {/* Resources Links */}
           <FooterColumn title="Resources" links={RESOURCE_LINKS} />
           
           {/* Solutions Links */}
-          <FooterColumn title="Solutions" links={SOLUTION_LINKS} hrefPrefix="/solutions" />
+          <FooterColumn
+            title="Solutions"
+            links={SOLUTION_LINKS}
+            hrefMapper={(link) => {
+              if (link === "RAAR") return "/solutions/research-analysis-adoption-and-reporting";
+              return `/solutions${slugify(link)}`;
+            }}
+          />
         </div>
 
         {/* Copyright Section */}
@@ -172,9 +188,10 @@ type FooterColumnProps = {
   links: string[];
   hrefPrefix?: string;
   onContactClick?: () => void;
+  hrefMapper?: (link: string) => string;
 };
 
-function FooterColumn({ title, links, hrefPrefix, onContactClick }: FooterColumnProps) {
+function FooterColumn({ title, links, hrefPrefix, onContactClick, hrefMapper }: FooterColumnProps) {
   return (
     <nav className="space-y-5">
       <h3 className="relative pb-2 text-base font-medium text-white after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-12 after:bg-orange-500">
@@ -193,7 +210,7 @@ function FooterColumn({ title, links, hrefPrefix, onContactClick }: FooterColumn
             ) : (
               <Link
                 className="inline-block transition-colors hover:text-white hover:underline hover:underline-offset-2"
-                href={hrefPrefix ? `${hrefPrefix}${slugify(link)}` : slugify(link)}
+                href={hrefMapper ? hrefMapper(link) : hrefPrefix ? `${hrefPrefix}${slugify(link)}` : slugify(link)}
               >
                 {link}
               </Link>

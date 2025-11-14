@@ -39,7 +39,7 @@ export function ValuePropositionSection() {
 
   return (
     <>
-      <section className="relative overflow-hidden border-b-2 border-[#FEEFDF] px-6 py-16 md:px-[110px] md:py-16">
+      <section className="relative overflow-hidden border-b-2 border-[#FEEFDF] px-12 py-16 md:px-[180px] md:py-16">
         {/* Background with gradient and pattern */}
         <div className="absolute inset-0 -z-10">
           <div className="absolute inset-0 bg-gradient-to-b from-white from-[38.524%] to-[#FEECD6] to-[171.52%]" />
@@ -125,15 +125,15 @@ export function ValuePropositionSection() {
 
           {/* Main Content */}
           <div className="flex flex-col gap-8 lg:flex-row lg:items-stretch lg:gap-12">
-            <div className="flex flex-col gap-8 lg:flex-1 lg:flex-row">
+            <div className="flex flex-col gap-8 lg:flex-[0_0_100%] lg:flex-row">
               {/* Stepper */}
               <div className="relative flex w-full flex-col gap-8 lg:h-full lg:w-auto">
                 <div className="absolute -left-8 top-0 h-full w-[2px] bg-gradient-to-b from-[#E45412] to-[#FEECD6]" />
                 {features.map((feature, index) => (
                   <div key={feature.id} className="relative">
-                    {/* Circle - positioned outside button */}
+                    {/* Circle - positioned outside button, centered on line */}
                     <div
-                      className={`absolute -left-[34px] top-1/2 -translate-y-1/2 flex size-5 items-center justify-center rounded-full border-[3px] border-white transition-all ${
+                      className={`absolute -left-[42px] top-1/2 z-10 -translate-y-1/2 flex size-5 items-center justify-center rounded-full border-[3px] border-white transition-all ${
                         activeStep === feature.id ? 'bg-[#E45412]' : index === 0 ? 'bg-[#E45412] opacity-40' : 'bg-[#FEECD6]'
                       }`}
                     />
@@ -182,7 +182,7 @@ export function ValuePropositionSection() {
               <div className="flex flex-1 items-stretch rounded-2xl bg-white p-6 lg:h-full">
                 <div className="flex w-full flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
                   <div className="flex flex-col gap-4">
-                    <p className="w-full max-w-[520px] font-poppins text-lg leading-normal text-[#4F4F4F]">
+                    <p className="w-full max-w-[500px] font-poppins text-lg leading-normal text-[#4F4F4F]">
                       {activeFeature.description}
                     </p>
                     <button

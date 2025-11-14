@@ -194,7 +194,7 @@ export function HeroSection() {
           <PrimaryButton onClick={() => setIsModalOpen(true)}>Let&apos;s Start</PrimaryButton>
         </div>
 
-        <div className="relative max-w-2xl flex-1">
+        <div className="relative max-w-3xl flex-1">
           <div className="relative overflow-hidden rounded-[30px] bg-orange-25/40 p-3 shadow-[0_30px_80px_-50px_rgba(0,0,0,0.8)] backdrop-blur">
             <div
               className="relative h-[418px] w-full overflow-hidden rounded-[24px] bg-white"
@@ -211,7 +211,7 @@ export function HeroSection() {
                 onPlay={() => setIsPlaying(true)}
                 onPause={() => setIsPlaying(false)}
               >
-                <source src="/videos/OphotechVideo.mp4" type="video/mp4" />
+                <source src="/videos/Ophotech.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
 
