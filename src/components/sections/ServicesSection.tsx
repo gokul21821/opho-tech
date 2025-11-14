@@ -4,6 +4,15 @@ import Link from "next/link";
 import { ServiceIcon } from "@/components/icons/ServiceIcon";
 import { slugify } from "@/lib/utils";
 
+// Mapping of service titles to their solution page paths
+const SERVICE_TO_PATH: Record<string, string> = {
+  "Research, Analysis, Adoption & Reporting": "/solutions/research-analysis-adoption-and-reporting",
+  "Data Monetization": "/solutions/data-monetization",
+  "Cloud Integration & Architecture": "/solutions/cloud-integration",
+  "AI Solutions & Services": "/solutions/ai-solutions-and-services",
+  "AI Agent Development": "/solutions/ai-agent-development",
+  "Cyber Security Solutions": "/solutions/cyber-security-solutions",
+};
 
 const SERVICES = [
   {
@@ -78,53 +87,93 @@ export function ServicesSection() {
 type ServiceCardProps = (typeof SERVICES)[number];
 
 function ServiceCard({ title, tagline, description, icon }: ServiceCardProps) {
-  const href = slugify(title);
+  const href = SERVICE_TO_PATH[title] || slugify(title);
 
   return (
     <Link
       href={href}
-      className="group relative flex h-full flex-col gap-6 overflow-hidden rounded-[28px] border border-[#f4d6c4] bg-white p-8 shadow-[0_28px_60px_-40px_rgba(228,84,18,0.45)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_36px_80px_-52px_rgba(228,84,18,0.55)] after:absolute after:inset-0 after:z-0 after:rounded-[28px] after:bg-[radial-gradient(circle,_rgba(243,113,33,0.16)_1px,transparent_1px)] after:opacity-80 after:[background-size:20px_20px]"
+      className="
+        service-card group relative flex h-full flex-col overflow-visible
+        bg-[#fffaf5] p-[42px]
+        transition-all duration-300
+      "
     >
-      <span className="pointer-events-none absolute -right-1 -top-1 z-[2]">
+      {/* dotted pattern background */}
+      <div
+        className="
+          pointer-events-none absolute inset-0 z-0
+          [background-image:radial-gradient(#d9d9d9_1px,transparent_1px)]
+          [background-size:18px_18px]
+          opacity-[0.9]
+        "
+      />
+
+      {/* top-right orange icon (SVG from public) */}
+      <div
+        className="
+          pointer-events-none absolute top-[-18] right-[-20] z-[3]
+          flex h-10 w-10 items-center justify-center rounded-full"
+      >
         <Image
           alt=""
-          height={10}
           src="/images/servicessection/toparrow.svg"
-          width={10}
+          width={15}
+          height={15}
+          className="text-orange-500"
         />
-      </span>
+      </div>
 
-      <div className="relative z-[1] flex h-full flex-col gap-6">
-        <div className="flex items-start gap-4">
+      {/* content */}
+      <div className="relative z-[2] flex flex-col gap-6">
+        <div className="flex items-start gap-6">
           <div className="flex-1">
             <h3 className="text-xl font-semibold leading-[1.2] text-gray-900">
               {title}
             </h3>
-            <p className="mt-3 text-xs font-medium text-gray-800 md:text-xs">
+
+            <p className="mt-3 text-[13px] text-gray-800">
               {tagline}
             </p>
           </div>
+
           <ServiceIcon
             name={icon}
-            className="relative shrink-0 rounded-full bg-orange-50 p-3 text-orange-500 transition-transform duration-300 group-hover:scale-105"
+            className="
+              shrink-0 rounded-full bg-orange-50 p-4 
+              text-orange-500 transition-all duration-300
+              group-hover:scale-105
+            "
           />
         </div>
 
-        <p className="text-sm leading-relaxed text-gray-600 md:text-[15px] md:leading-7">
+        <p className="text-xs leading-[1.7] text-gray-700">
           {description}
         </p>
       </div>
 
-      <span className="pointer-events-none absolute bottom-0 right-1 size-[120px] translate-x-1/2 translate-y-1/2 rounded-full bg-[#fdf9f6]" />
-      <span className="pointer-events-none absolute bottom-6 right-7 z-[2] flex size-[44px] translate-x-[60%] translate-y-[60%] items-center justify-center rounded-full bg-white shadow-[0_18px_26px_-24px_rgba(228,84,18,0.55)] transition-transform duration-300 group-hover:translate-x-[70%]">
+      {/* arrow button - positioned in the cutout area */}
+      <button
+        aria-hidden="true"
+        className="
+          absolute bottom-3 right-2 z-[4]
+          translate-x-[30%] translate-y-[30%]
+          flex h-[52px] w-[52px] items-center justify-center
+          rounded-full bg-white shadow-[0_10px_30px_-10px_rgba(0,0,0,0.25)]
+          transition-transform duration-300
+          group-hover:scale-110
+        "
+      >
         <Image
           alt=""
-          className="size-[12px] transition-transform duration-300 group-hover:rotate-45"
-          height={16}
           src="/images/servicessection/arrow.svg"
-          width={16}
+          width={15}
+          height={15}
+          className="
+            transition-transform duration-300
+            group-hover:rotate-45
+          "
         />
-      </span>
+      </button>
     </Link>
   );
 }

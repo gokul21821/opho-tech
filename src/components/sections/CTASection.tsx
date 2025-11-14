@@ -22,7 +22,6 @@ export function CTASection() {
           className="object-cover"
         />
       </div>
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#141f44]/90 via-[#152752]/70 to-[#15224a]/60" />
 
       <div className="relative mx-auto max-w-4xl px-6 text-center md:px-8">
         <h2 className="text-3xl font-semibold md:text-[38px] md:leading-[48px]">

@@ -1,11 +1,13 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { HeroSection } from "@/components/ui/HeroSection";
 import { ContactModal } from "@/components/forms/ContactModal";
+import { PrimaryButton } from "@/components/ui/Button";
+import BackgroundDots from "@/components/ui/background";
 
 export default function CloudIntegrationPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -27,196 +29,387 @@ export default function CloudIntegrationPage() {
       />
 
       <main className="bg-white text-gray-800">
-    
-          {/* Overview Section */}
-          <section className="py-20 px-6 bg-gradient-to-b from-white to-orange-50">
-            <div className="grid md:grid-cols-2 gap-10 max-w-6xl mx-auto items-center">
-              <Image
-                src="/images/cloud-integrations/cloud.png"
-                alt="Cloud integration illustration"
-                width={520}
-                height={360}
-                className="h-auto w-[320px] sm:w-[380px] md:w-[460px] rounded-xl shadow-[0_10px_30px_-10px_rgba(15,44,88,0.3)]"
-                priority
-              />
-              <div>
-                <p className="text-sm text-gray-600 mb-6">
-                  <strong>For the Business Leaders:</strong> Cloud is not just an IT cost center; it is the platform for
-                  innovation, agility, and scale. Cloud Integration & Architecture services ensure technology strategy directly
-                  supports business goals, minimizes risk, and maximizes competitive speed.
+
+        {/* Overview Section */}
+      {/* Overview Section */}
+<section className="py-20 px-6 bg-white">
+  <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] max-w-6xl mx-auto items-center gap-12">
+
+    {/* LEFT — Illustration */}
+    <div className="flex justify-center md:justify-start">
+      <Image
+        src="/images/cloud-integrations/orange-cloud.png"
+        alt="Cloud integration illustration"
+        width={520}
+        height={360}
+        className="h-auto w-[320px] sm:w-[380px] md:w-[460px] rounded-xl"
+        priority
+      />
+    </div>
+
+    {/* CENTER — Vertical Divider */}
+    <div className="flex justify-center">
+      <Image
+        src="/images/raar/lineraar.svg"
+        alt=""
+        width={2}
+        height={200}
+        className="h-[350px] w-auto"
+        aria-hidden
+      />
+    </div>
+
+    {/* RIGHT — Text */}
+    <div className="text-sm text-gray-600 flex flex-col justify-center max-w-md">
+
+      <p className="mb-6">
+        <strong>For the Business Leaders:</strong> Cloud is not just an IT cost center; it is the 
+        <strong> platform for innovation, agility, and scale.</strong> Cloud Integration & Architecture 
+        services ensure technology strategy directly supports business goals, minimizes risk, and maximizes competitive speed.
+      </p>
+
+      <p>
+        <strong>For the Chief Cloud Architect and Integration Expert:</strong> We focus on modern, scalable, 
+        and secure system design—breaking down data silos and enabling real-time analytics across your enterprise.
+      </p>
+
+    </div>
+
+  </div>
+</section>
+
+
+        {/* How Cloud Integration & Architecture Works */}
+        <BackgroundDots
+          className="py-16 px-6 md:px-[110px]"
+          spacing={36}
+          dotSize={2.5}
+          backgroundColor=""
+          dotColor="#D9D9D9"
+          style={{
+            background: "linear-gradient(to bottom, #ffffff 38.524%, #feecd6 171.52%)",
+          }}
+        >
+          <section className="max-w-7xl mx-auto">
+            {/* How It Works Section */}
+            <div className="flex flex-col gap-10 items-center mb-16">
+              <div className="flex flex-col gap-8 items-center">
+                <h2 className="text-[32px] md:text-[38px] font-medium leading-[40px] md:leading-[48px] text-[#111111] text-center">
+                  How Cloud Integration & Architecture Works
+                </h2>
+                <div className="flex justify-center w-full">
+                  <Image
+                    src="/images/horizontalline.svg"
+                    alt=""
+                    width={1200}
+                    height={3}
+                    className="w-full max-w-5xl"
+                    aria-hidden
+                  />
+                </div>
+                <div className="flex flex-col gap-5 items-center text-center max-w-[924px] px-4">
+                  <h3 className="text-[24px] md:text-[28px] font-medium leading-[32px] md:leading-[38px] text-[#454545]">
+                    The Strategic Imperative: Agility and Resilience
+                  </h3>
+                  <p className="text-[16px] md:text-[18px] font-normal leading-normal text-[#454545]">
+                    In today's market, speed and flexibility are paramount. Our approach ensures your cloud environment is not only cost-effective but an active enabler of business transformation.
+                  </p>
+                </div>
+              </div>
+
+              {/* Three Challenge Cards */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
+                {[{
+                  title: 'Siloed Data Across Various Systems And Platforms',
+                  icon: '/images/cloud-integrations/paper.svg',
+                  solution: 'Unified Data Fabric/Mesh architecture.',
+                  outcome: 'Single source of truth for reliable decision-making and AI.'
+                }, {
+                  title: 'Slow Scaling To Meet Peak Demand Or New Markets',
+                  icon: '/images/cloud-integrations/sparkle.svg',
+                  solution: 'Hyper-Scalable Cloud Infrastructure (AWS, Azure, GCP and local partners).',
+                  outcome: 'Agility to enter new markets or handle massive growth instantly.'
+                }, {
+                  title: 'High Maintenance Costs And Security Complexity',
+                  icon: '/images/data-monetize/money.svg',
+                  solution: 'Managed Services & Infrastructure-as-Code (IaC).',
+                  outcome: 'Reduced operational overhead and enhanced compliance/security posture.'
+                }].map((item, i) => (
+                  <div
+                    key={i}
+                    className="border border-[#fcd5ac] rounded-2xl p-5 bg-white relative overflow-hidden"
+                  >
+                    <div className="relative z-10 flex flex-col gap-4">
+                      <div className="h-12 w-12 relative">
+                        <Image
+                          src={item.icon}
+                          alt={`${item.title} icon`}
+                          width={48}
+                          height={48}
+                          className="h-12 w-12"
+                        />
+                      </div>
+                      <h4 className="text-[20px] md:text-[24px] font-medium leading-[26px] text-[#111111]">
+                        {item.title}
+                      </h4>
+                      <div className="flex flex-col gap-2">
+                        <div className="bg-[#f6f6f6] rounded-lg px-2.5 py-1.5 inline-flex items-center justify-center w-fit">
+                          <span className="text-[14px] font-medium text-[#111111]">
+                            Strategic Cloud Solution
+                          </span>
+                        </div>
+                        <p className="text-[14px] md:text-[16px] font-normal leading-normal text-[#454545]">
+                          {item.solution}
+                        </p>
+                      </div>
+                      <div className="flex flex-col gap-2">
+                        <div className="bg-[#f6f6f6] rounded-lg px-2.5 py-1.5 inline-flex items-center justify-center w-fit">
+                          <span className="text-[14px] font-medium text-[#111111]">
+                            Business Outcome
+                          </span>
+                        </div>
+                        <p className="text-[14px] md:text-[16px] font-normal leading-normal text-[#454545]">
+                          {item.outcome}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* From Complex Challenge to Clear Opportunity */}
+            <div className="flex flex-col gap-10 mt-10">
+              <div className="flex flex-col gap-5 items-center text-center px-4">
+                <h3 className="text-[24px] md:text-[28px] font-medium leading-[32px] md:leading-[38px] text-[#454545]">
+                  From Complex Challenge to Clear Opportunity
+                </h3>
+                <p className="text-[16px] md:text-[18px] font-normal leading-normal text-[#454545] max-w-[860px]">
+                  Our core expertise is <span className="font-semibold text-[#111111]">translating complex business challenges into clear technology opportunities.</span> We don't implement technology for its own sake; we align it with your revenue targets and operational requirements.
                 </p>
-                <p className="text-sm text-gray-600">
-                  <strong>For the Chief Cloud Architect and Integration Expert:</strong> We focus on modern, scalable, and secure
-                  system design—breaking down data silos and enabling real-time analytics across your enterprise.
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
+                {[{
+                  challenge: 'Product Development Cycle Is Too Slow.',
+                  solution: 'Design a cloud-native DevOps pipeline and integrate development tools to cut time-to-market significantly.'
+                }, {
+                  challenge: 'Cannot Get A 360-Degree View Of The Customer.',
+                  solution: 'Implement a secure, real-time API integration strategy to connect CRM, ERP, and marketing platforms, instantly enabling personalized customer experiences.'
+                }].map((item, i) => (
+                  <div
+                    key={i}
+                    className="border border-[#fcd5ac] rounded-2xl p-5 bg-white relative overflow-hidden"
+                  >
+                    <div className="relative z-10 flex flex-col gap-4">
+                      <div className="flex flex-col gap-2">
+                        <div className="bg-[#f6f6f6] rounded-lg px-2.5 py-1.5 inline-flex items-center justify-center w-fit">
+                          <span className="text-[14px] font-medium text-[#111111]">
+                            Business Challenge
+                          </span>
+                        </div>
+                        <h4 className="text-[18px] md:text-[20px] font-semibold leading-[26px] text-[#e45412]">
+                          {item.challenge}
+                        </h4>
+                      </div>
+                      <div className="flex flex-col gap-2">
+                        <div className="bg-[#f6f6f6] rounded-lg px-2.5 py-1.5 inline-flex items-center justify-center w-fit">
+                          <span className="text-[14px] font-medium text-[#111111]">
+                            Solution
+                          </span>
+                        </div>
+                        <p className="text-[14px] md:text-[16px] font-normal leading-normal text-[#454545]">
+                          {item.solution}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Leadership Focus */}
+            <div className="flex flex-col gap-10 mt-10">
+              <div className="flex flex-col gap-5 items-center text-center px-4">
+                <h3 className="text-[24px] md:text-[28px] font-medium leading-[32px] md:leading-[38px] text-[#454545]">
+                  Leadership Focus: Stability, Security, and Speed
+                </h3>
+                <p className="text-[16px] md:text-[18px] font-normal leading-normal text-[#454545] max-w-[860px]">
+                  As leaders in Cloud Architecture and Integration, we prioritize the three pillars necessary for long-term digital success.
                 </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
+                {[{
+                  title: 'Optimal Architecture Design',
+                  desc: 'We focus on cost-optimization and governance from the start, ensuring your cloud expenditure (FinOps) is efficient and aligned with business value. We select the right services (IaaS, PaaS, or SaaS) for your needs.'
+                }, {
+                  title: 'Seamless Integration Expertise',
+                  desc: 'We specialize in modernizing legacy systems, migrating applications, and establishing robust data pipelines that ensure data flows securely and reliably across your entire ecosystem.'
+                }, {
+                  title: 'Security By Design',
+                  desc: 'We implement enterprise-grade security controls, identity and access management (IAM), and compliance frameworks to protect your assets in the cloud environment.'
+                }].map((item, i) => (
+                  <div
+                    key={i}
+                    className="border border-[#fcd5ac] rounded-2xl p-5 bg-white relative overflow-hidden"
+                  >
+                    <div className="relative z-10 flex flex-col gap-4">
+                      <h4 className="text-[20px] md:text-[24px] font-medium leading-[26px] text-[#111111]">
+                        {item.title}
+                      </h4>
+                      <p className="text-[14px] md:text-[16px] font-normal leading-normal text-[#454545]">
+                        {item.desc}
+                      </p>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </section>
-    
-          {/* How It Works */}
-          <section className="py-20 px-6 text-center">
-            <h2 className="text-3xl font-semibold mb-4">How Cloud Integration & Architecture Works</h2>
-            <p className="text-gray-600 mb-12 max-w-3xl mx-auto">
-              The Strategic Imperative: Agility and Resilience. In today’s market, speed and flexibility are paramount. Our
-              approach ensures your cloud environment is not only cost-effective but an active enabler of business
-              transformation.
-            </p>
-    
-            <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-              {[{
-                title: 'Siloed Data Across Various Systems And Platforms',
-                solution: 'Unified Data Fabric/Mesh architecture.',
-                outcome: 'Single source of truth for reliable decision-making and AI.',
-                icon: '/images/cloud-integrations/paper.svg'
-              }, {
-                title: 'Slow Scaling To Meet Peak Demand Or New Markets',
-                solution: 'Hyper-Scalable Cloud Infrastructure (AWS, Azure, GCP and local partners).',
-                outcome: 'Agility to enter new markets or handle massive growth instantly.',
-                icon: '/images/cloud-integrations/sparkle.svg'
-              }, {
-                title: 'High Maintenance Costs And Security Complexity',
-                solution: 'Managed Services & Infrastructure-as-Code (IaC).',
-                outcome: 'Reduced operational overhead and enhanced compliance/security posture.',
-                icon: '/images/data-monetize/money.svg'
-              }].map((item, i) => (
-                <div key={i} className="p-6 bg-white shadow-md rounded-xl border border-gray-200 text-left">
-                  <div className="mb-4 h-7 w-7">
+        </BackgroundDots>
+
+        {/* Cloud Architecture - Benefits */}
+        <section className="mx-auto max-w-7xl px-6 py-16">
+          <h2 className="text-center text-[32px] font-medium leading-[48px] text-[#0B1B2B]">
+            Cloud Architecture - Benefits
+          </h2>
+
+          <div className="mt-10 flex flex-col gap-8 lg:flex-row lg:items-stretch lg:justify-center lg:gap-6">
+            {[
+              {
+                title: "Unified Data Environment For Reliable Analytics",
+                text: "",
+                icon: "/images/icons/shield.svg",
+              },
+              {
+                title: "Scalable And Compliant Architecture",
+                text: "",
+                icon: "/images/icons/settings-phone.svg",
+              },
+              {
+                title: "Reduced Operational Costs And Maintenance",
+                text: "",
+                icon: "/images/icons/settings-money.svg",
+              },
+              {
+                title: "Governance And FinOps Efficiency",
+                text: "",
+                icon: "/images/icons/monitor.svg",
+              },
+              {
+                title: "Faster Market Entry And Innovation Cycles",
+                text: "",
+                icon: "/images/icons/monitor-rocket.svg",
+              },
+            ].map((item, index, array) => (
+              <Fragment key={item.title}>
+                <article className="flex-1 rounded-[20px] px-6 py-10 text-center">
+                  <div className="mx-auto mb-4 grid h-20 w-20 place-items-center rounded-full bg-[#FFE6D5] ">
                     <Image
                       src={item.icon}
                       alt={`${item.title} icon`}
-                      width={28}
-                      height={28}
-                      className="h-7 w-7"
+                      width={40}
+                      height={40}
+                      className="h-10 w-10"
                     />
                   </div>
-                  <h3 className="font-semibold mb-2">{item.title}</h3>
-                  <p className="text-sm text-gray-700 mb-1"><strong>Strategic Cloud Solution</strong>: {item.solution}</p>
-                  <p className="text-sm text-gray-700"><strong>Business Outcome</strong>: {item.outcome}</p>
-                </div>
-              ))}
-            </div>
-          </section>
-    
-          {/* Business Challenges */}
-          <section className="py-16 px-6 bg-orange-50">
-            <h3 className="text-2xl font-semibold text-center mb-6">From Complex Challenge to Clear Opportunity</h3>
-            <p className="text-center text-gray-600 mb-12 max-w-3xl mx-auto">
-              Our core expertise is translating complex business challenges into clear technology opportunities. We don’t
-              implement technology for its own sake; we align it with your revenue targets and operational requirements.
-            </p>
-    
-            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-              {[{
-                challenge: 'Product Development Cycle Is Too Slow.',
-                solution: 'Design a cloud-native DevOps pipeline and integrate development tools to cut time-to-market significantly.'
-              }, {
-                challenge: 'Cannot Get A 360-Degree View Of The Customer.',
-                solution: 'Implement a secure, real-time API integration strategy to connect CRM, ERP, and marketing platforms.'
-              }].map((item, i) => (
-                <div key={i} className="p-6 bg-white rounded-xl border border-gray-200 shadow-sm">
-                  <p className="text-orange-600 font-semibold mb-1">Business Challenge</p>
-                  <h4 className="font-medium mb-3">{item.challenge}</h4>
-                  <p className="text-sm text-gray-700"><strong>Solution:</strong> {item.solution}</p>
-                </div>
-              ))}
-            </div>
-          </section>
-    
-          {/* Leadership Focus */}
-          <section className="py-20 px-6 text-center">
-            <h3 className="text-2xl font-semibold mb-10">Leadership Focus: Stability, Security, and Speed</h3>
-            <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-              {[{
-                title: 'Optimal Architecture Design',
-                desc: 'We focus on cost-optimization and governance from the start, ensuring your cloud expenditure (FinOps) is efficient and aligned with business value. We select the right services (IaaS, PaaS, or SaaS) for your needs. '
-              }, {
-                title: 'Seamless Integration Expertise',
-                desc: 'We specialize in modernizing legacy systems, migrating applications, and establishing robust data pipelines that ensure data flows securely and reliably across your entire ecosystem. '
-              }, {
-                title: 'Security By Design',
-                desc: 'We implement enterprise-grade security controls, identity and access management (IAM), and compliance frameworks to protect your assets in the cloud environment. '
-              }].map((item, i) => (
-                <div key={i} className="p-6 bg-white rounded-xl border border-gray-200 shadow-sm">
-                  <h4 className="font-semibold mb-2">{item.title}</h4>
-                  <p className="text-sm text-gray-600">{item.desc}</p>
-                </div>
-              ))}
-            </div>
-          </section>
-    
-          {/* Benefits */}
-          <section className="py-20 px-6 bg-gradient-to-b from-white to-orange-50 text-center">
-            <h2 className="text-3xl font-semibold mb-12">Cloud Architecture - Benefits</h2>
-            <div className="grid md:grid-cols-5 gap-8 max-w-6xl mx-auto">
-              {[
-                {
-                  title: "Unified Data Environment For Reliable Analytics",
-                  icon: "/images/icons/shield.svg"
-                },
-                {
-                  title: "Scalable And Compliant Architecture",
-                  icon: "/images/icons/settings-phone.svg"
-                },
-                {
-                  title: "Reduced Operational Costs And Maintenance",
-                  icon: "/images/icons/settings-money.svg"
-                },
-                {
-                  title: "Governance And FinOps Efficiency",
-                  icon: "/images/icons/monitor.svg"
-                },
-                {
-                  title: "Faster Market Entry And Innovation Cycles",
-                  icon: "/images/icons/monitor-rocket.svg"
-                }
-              ].map((benefit, i) => (
-                <div key={i} className="p-6 bg-white rounded-xl shadow-sm">
-                  <div className="mx-auto mb-4 w-10 h-10 rounded-full bg-[#FFE3D3] grid place-items-center">
-                    <Image src={benefit.icon} alt={`${benefit.title} icon`} width={22} height={22} className="h-5 w-5" />
-                  </div>
-                  <p className="text-sm font-medium text-gray-700">{benefit.title}</p>
-                </div>
-              ))}
-            </div>
-          </section>
-    
-          {/* Final Section */}
-          <section className="py-20 px-6 grid md:grid-cols-2 gap-10 items-center max-w-6xl mx-auto">
-            <div>
-              <h2 className="text-2xl font-semibold mb-3">Cloud Integration & Architecture</h2>
-              <p className="text-sm text-gray-600 leading-relaxed">
-                Enable and translate complex business challenges into clear technology opportunities, enabling stability,
-                security, and speed.
-              </p>
-            </div>
-              <Image
-                src="/images/cloud-integrations/blue-cloud.png"
-                alt="Cloud architecture illustration"
-                width={520}
-                height={360}
-                className="h-auto w-[320px] sm:w-[380px] md:w-[460px] rounded-xl shadow-[0_10px_30px_-10px_rgba(15,44,88,0.3)]"
-              />
-          </section>
-    
-          {/* Get Started */}
-          <section className="py-20 px-6 text-center">
-            <h2 className="text-2xl font-semibold mb-3">Get Started</h2>
-            <p className="text-sm text-gray-600 mb-6 max-w-2xl mx-auto">
-              Connect with our team for a quick Cloud Readiness Review and uncover the fastest, most cost-efficient path to
-              modernization.
-            </p>
-            <button
-              onClick={() => setIsModalOpen(true)}
-              className="px-6 py-3 bg-orange-500 text-white rounded-lg hover:bg-orange-600"
-            >
-              Schedule a Call →
-            </button>
-          </section>
-        </main>
+                  <p className="text-[16px] font-medium leading-[24px] text-[#0F2C58]">
+                    {item.title}
+                  </p>
+                  <p className="mt-3 text-sm leading-[22px] text-[#3A4A5F]">
+                    {item.text}
+                  </p>
+                </article>
 
-        <Footer />
-        <ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
-      </div>
-    );
-  }
-    
+                {index < array.length - 1 && (
+                  <div className="hidden items-center lg:flex">
+                    <Image
+                      src="/images/raar/lineraar.svg"
+                      alt=""
+                      width={2}
+                      height={200}
+                      className="h-[180px] w-auto"
+                      aria-hidden
+                    />
+                  </div>
+                )}
+              </Fragment>
+            ))}
+          </div>
+
+        </section>
+
+        {/* Cloud Integration & Architecture */}
+        <BackgroundDots
+          className="py-16 px-6 md:px-[110px]"
+          spacing={36}
+          dotSize={2.5}
+          backgroundColor=""
+          dotColor="#D9D9D9"
+          style={{
+            background: "linear-gradient(to bottom, #ffffff 38.524%, #feecd6 171.52%)",
+          }}
+        >
+          <section className="mx-auto max-w-7xl px-6">
+            <div className="grid items-center gap-10 md:grid-cols-3">
+              <div>
+                <h2 className="text-4xl text-[#0B1B2B]">Cloud Integration & Architecture</h2>
+                <p className="mt-5 text-lg text-[#3A4A5F]">
+                  Enable and translate complex business challenges into clear technology opportunities, enabling stability, security, and speed.
+                </p>
+              </div>
+
+              <div className="flex justify-center">
+                <Image
+                  src="/images/raar/lineraar.svg"
+                  alt=""
+                  width={2}
+                  height={320}
+                  className="h-[320px] w-[2px]"
+                />
+              </div>
+
+              <div className="justify-self-center">
+                <Image
+                  src="/images/cloud-integrations/analyzing.png"
+                  alt="Cloud architecture illustration"
+                  width={520}
+                  height={360}
+                  className="h-auto w-[320px] sm:w-[380px] md:w-[460px] rounded-xl shadow-[0_12px_32px_-10px_rgba(15,44,88,0.3)]"
+                />
+              </div>
+            </div>
+
+          </section>
+
+        </BackgroundDots>
+        <div className=" flex justify-center">
+          <Image
+            src="/images/horizontalline.svg"
+            alt=""
+            width={1200}
+            height={3}
+            className="w-full max-w-5xl"
+            aria-hidden
+          />
+        </div>
+
+        {/* Get Started */}
+        <section className="py-20 px-6 text-center">
+          <h2 className="text-2xl font-semibold mb-3">Get Started</h2>
+          <p className="text-sm text-gray-600 mb-6 max-w-2xl mx-auto">
+            Connect with our team for a quick Cloud Readiness Review and uncover the fastest, most cost-efficient path to
+            modernization.
+          </p>
+          <PrimaryButton onClick={() => setIsModalOpen(true)}>
+            Schedule a Call 
+          </PrimaryButton>
+        </section>
+      </main>
+
+      <Footer />
+      <ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+    </div>
+  );
+}

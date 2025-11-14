@@ -2,11 +2,13 @@
 
 // app/cyber-security-solutions/page.tsx
 import Image from "next/image";
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { HeroSection } from "@/components/ui/HeroSection";
 import { ContactModal } from "@/components/forms/ContactModal";
+import { PrimaryButton } from "@/components/ui/Button";
+import BackgroundDots from "@/components/ui/background";
 
 export default function CyberSecuritySolutions() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -30,244 +32,387 @@ export default function CyberSecuritySolutions() {
       <main className="flex-1">
 
         {/* Intro split */}
-        <section className="mx-auto max-w-7xl px-6 py-14">
-          <div className="grid items-center gap-10 md:grid-cols-2">
-            <div className="justify-self-center">
-              <Image
-                src="/images/cyber/cyber.png"
-                alt="Cyber security illustration"
-                width={520}
-                height={380}
-                className="h-auto w-[320px] sm:w-[380px] md:w-[420px] rounded-xl shadow-[0_10px_30px_-10px_rgba(15,44,88,0.3)]"
-                priority
-              />
-            </div>
-            <div className="text-[15.5px] text-[#3A4A5F]">
-              <p>
-                <span className="font-semibold text-[#0F2C58]">Cyber Security environment</span> is under attack by AI‑driven adversaries who operate at machine speed, enabling mass personalization, rapid reconnaissance, and cross‑language deception. Legacy, rule‑based defenses are no longer sufficient against these adaptive threats.
-              </p>
-              <p className="mt-4">
-                We don’t offer generic security; we build <span className="font-semibold text-[#0F2C58]">AI‑driven, agentic security architectures</span> that provide <span className="font-semibold">autonomous resilience</span>—a fusion of human judgment and AI precision.
-              </p>
-            </div>
-          </div>
-        </section>
+        <section className="mx-auto max-w-7xl px-6 py-20">
+  <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-center gap-12">
 
-        {/* Dotted background sections */}
-        <section className="relative">
-          <div
-            className="absolute inset-0 -z-10"
-            aria-hidden
-            style={{
-              backgroundImage: "radial-gradient(#F0F3F8 1px, transparent 1px)",
-              backgroundSize: "18px 18px",
-            }}
-          />
+    {/* LEFT — Illustration */}
+    <div className="flex justify-center md:justify-start">
+      <Image
+        src="/images/cyber/secure.png"
+        alt="Cyber security illustration"
+        width={520}
+        height={380}
+        className="h-auto w-[320px] sm:w-[380px] md:w-[420px] rounded-xl"
+        priority
+      />
+    </div>
 
-          {/* Cyber Threat in the AI Era */}
-          <div className="mx-auto max-w-7xl px-6 py-12">
-            <h2 className="text-center text-2xl font-semibold text-[#0B1B2B]">
-              Cyber Threat in the AI Era
-            </h2>
-            <p className="mx-auto mt-2 max-w-3xl text-center text-[14.5px] text-[#3A4A5F]">
-              AI adversaries can weaponize phishing to strategic, systemic attacks.
-            </p>
+    {/* CENTER — Vertical Divider */}
+    <div className="flex justify-center">
+      <Image
+        src="/images/raar/lineraar.svg"
+        alt=""
+        width={2}
+        height={200}
+        className="h-[350px] w-auto"
+        aria-hidden
+      />
+    </div>
 
-            <div className="mt-8 grid gap-6 md:grid-cols-3">
-              {[
-                {
-                  title: "AI‑Generated Phishing & Deepfakes",
-                  icon: "/images/data-monetize/gear.svg",
-                  k: "Business impact (Risk & Cost)",
-                  body:
-                    "High Likelihood, Critical Impact: Enables $25.6M deepfake fraud incidents and dominates basic web‑app breach patterns.",
-                },
-                {
-                  title: "Living‑Off‑The‑Land (LotL) & Identity Abuse",
-                  icon: "/images/cloud-integrations/paper.svg",
-                  k: "Business impact (Risk & Cost)",
-                  body:
-                    "High Likelihood: Stolen credentials are a primary pivot point, driving the global average cost per breach to $4.40M.",
-                },
-                {
-                  title: "Ransomware/ Extortion",
-                  icon: "/images/cyber/bag.svg",
-                  k: "Business impact (Risk & Cost)",
-                  body:
-                    "Critical Impact: Downtime is the largest driver of loss. Healthcare crises have showed >50% revenue disruption for providers.",
-                },
-              ].map((c) => (
-                <div
-                  key={c.title}
-                  className="rounded-xl border border-[#F2E8E1] bg-white p-6 shadow-[0_6px_18px_-8px_rgba(15,44,88,0.12)]"
-                >
-                  <div className="mb-4 h-7 w-7">
-                    <Image src={c.icon} alt={`${c.title} icon`} width={28} height={28} className="h-7 w-7" />
+    {/* RIGHT — Text */}
+    <div className="text-[15.5px] text-[#3A4A5F] max-w-md flex flex-col justify-center">
+
+      <p>
+        <span className="font-semibold text-[#0F2C58]">Cyber Security environment</span> is under attack by AI-driven adversaries who operate at machine speed, enabling 
+        <span className="font-semibold"> mass personalization, rapid reconnaissance, and cross-language deception. Legacy, rule-based defenses </span>
+        are no longer sufficient against these adaptive threats.
+      </p>
+
+      <p className="mt-4">
+        We don't offer generic security; we build 
+        <span className="font-semibold text-[#0F2C58]"> AI-driven, agentic security architectures</span> that provide 
+        <span className="font-semibold"> autonomous resilience</span>—a fusion of human judgment and AI precision.
+      </p>
+
+    </div>
+
+  </div>
+</section>
+
+
+        {/* AI-Driven Cyber Security Framework */}
+        <BackgroundDots
+          className="py-16 px-6 md:px-[110px]"
+          spacing={36}
+          dotSize={2.5}
+          backgroundColor="#FEECD6"
+          dotColor="#D9D9D9"
+          style={{
+            background: "linear-gradient(to bottom, #ffffff 38.524%, #feecd6 171.52%)",
+          }}
+        >
+          <section className="max-w-7xl mx-auto">
+            {/* Cyber Threat in the AI Era */}
+            <div className="flex flex-col gap-10 items-center mb-16">
+              <div className="flex flex-col gap-8 items-center">
+                <h2 className="text-[32px] md:text-[38px] font-medium leading-[40px] md:leading-[48px] text-[#111111] text-center">
+                  Cyber Threat in the AI Era
+                </h2>
+                <div className="flex justify-center w-full">
+                  <Image
+                    src="/images/horizontalline.svg"
+                    alt=""
+                    width={1200}
+                    height={3}
+                    className="w-full max-w-5xl"
+                    aria-hidden
+                  />
+                </div>
+                <div className="flex flex-col gap-5 items-center text-center max-w-[924px] px-4">
+                  <p className="text-[16px] md:text-[18px] font-normal leading-normal text-[#454545]">
+                    A clear escalation from simple phishing to strategic, systemic attacks.
+                  </p>
+                </div>
+              </div>
+
+              {/* Three Risk Cards */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
+                {[{
+                  title: 'AI-Generated Phishing & Deepfakes',
+                  icon: '/images/data-monetize/gear.svg',
+                  impact: 'High Likelihood, Critical Impact: Enables $25.6M deepfake fraud incidents and dominates basic web-app breach patterns.'
+                }, {
+                  title: 'Living-Off-The-Land (LotL) & Identity Abuse',
+                  icon: '/images/cloud-integrations/paper.svg',
+                  impact: 'High Likelihood: Stolen credentials are a primary pivot point, driving the global average cost per breach to $4.40M.'
+                }, {
+                  title: 'Ransomware/Extortion',
+                  icon: '/images/cyber/bag.svg',
+                  impact: 'Critical Impact: Downtime is the largest driver of loss. Healthcare crises have showed >50% revenue disruption for providers.'
+                }].map((item, i) => (
+                  <div
+                    key={i}
+                    className="border border-[#fcd5ac] rounded-2xl p-5 bg-white relative overflow-hidden"
+                  >
+                    <div className="relative z-10 flex flex-col gap-4">
+                      <div className="h-12 w-12 relative">
+                        <Image
+                          src={item.icon}
+                          alt={`${item.title} icon`}
+                          width={48}
+                          height={48}
+                          className="h-12 w-12"
+                        />
+                      </div>
+                      <h4 className="text-[20px] md:text-[24px] font-medium leading-[26px] text-[#111111]">
+                        {item.title}
+                      </h4>
+                      <div className="flex flex-col gap-2">
+                        <div className="bg-[#f6f6f6] rounded-lg px-2.5 py-1.5 inline-flex items-center justify-center w-fit">
+                          <span className="text-[14px] font-medium text-[#111111]">
+                            Business Impact (Risk & Cost)
+                          </span>
+                        </div>
+                        <p className="text-[14px] md:text-[16px] font-normal leading-normal text-[#454545]">
+                          {item.impact}
+                        </p>
+                      </div>
+                    </div>
                   </div>
-                  <h3 className="text-[16.5px] font-semibold text-[#0F2C58]">{c.title}</h3>
-                  <p className="mt-1 text-xs font-medium uppercase tracking-wide text-[#0F2C58]/70">
-                    {c.k}
-                  </p>
-                  <p className="mt-2 text-[14px] text-[#3A4A5F]">{c.body}</p>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-          </div>
 
-          {/* AI-Driven Cyber Resilience Framework */}
-          <div className="mx-auto max-w-7xl px-6 pb-10">
-            <h2 className="text-center text-2xl font-semibold text-[#0B1B2B]">
-              The AI‑Driven Cyber Resilience Framework
-            </h2>
-            <p className="mx-auto mt-2 max-w-3xl text-center text-[14.5px] text-[#3A4A5F]">
-              We implement a layered model to counter these threats, shifting your SOC from a reactive model to an agent‑based intelligence system.
-            </p>
+            {/* The AI-Driven Cyber Resilience Framework */}
+            <div className="flex flex-col gap-10 mt-10">
+              <div className="flex flex-col gap-5 items-center text-center px-4">
+                <h3 className="text-[24px] md:text-[28px] font-medium leading-[32px] md:leading-[38px] text-[#454545]">
+                  The AI-Driven Cyber Resilience Framework
+                </h3>
+                <p className="text-[16px] md:text-[18px] font-normal leading-normal text-[#454545] max-w-[860px]">
+                  We implement a layered model to counter these threats, shifting your Security Operations Center (SOC) from a reactive model to an <span className="font-semibold text-[#111111]">agent-based intelligence</span> system.
+                </p>
+              </div>
 
-            <div className="mt-8 grid gap-6 md:grid-cols-3">
-              {[
-                {
-                  title: "Perception (Detection)",
-                  body:
-                    "AI agents ingest and correlate telemetry across your entire environment (endpoint, identity, network). They use continuous behavioral baselining to detect anomalies and use NLP models for deepfake detection.",
-                },
-                {
-                  title: "Cognition (Reasoning)",
-                  body:
-                    "We deploy agentic AI co‑pilots embedded in your SIEM/SOAR to interpret complex alerts and autonomously correlate signals to infer patterns without static signatures.",
-                },
-                {
-                  title: "Action (Response)",
-                  body:
-                    "This is the game‑changer. Reinforcement‑learning (RL) responders execute rapid containment across identities, rotating keys/tokens, and blocking command‑and‑control (C2) in seconds.",
-                },
-              ].map((c) => (
-                <div
-                  key={c.title}
-                  className="rounded-xl border border-[#F2E8E1] bg-white p-6 shadow-[0_6px_18px_-8px_rgba(15,44,88,0.12)]"
-                >
-                  <h4 className="text-[16px] font-semibold text-[#0F2C58]">{c.title}</h4>
-                  <p className="mt-2 text-[14px] text-[#3A4A5F]">{c.body}</p>
-                </div>
-              ))}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
+                {[{
+                  title: 'Perception',
+                  subtitle: '(Detection)',
+                  desc: 'AI Agents ingest and correlate telemetry across your entire environment (endpoint, identity, cloud). They use continuous behavioral baselining to flag credential abuse and use NLP models for deepfake detection.'
+                }, {
+                  title: 'Cognition',
+                  subtitle: '(Reasoning)',
+                  desc: 'We deploy analyst co-pilots embedded in your SIEM/SOAR to interpret complex alerts and autonomous correlation engines to infer patterns without static signatures.'
+                }, {
+                  title: 'Action',
+                  subtitle: '(Response)',
+                  desc: 'This is the game-changer. Reinforcement-learning (RL) responders execute rapid containment actions: isolating endpoints, revoking tokens, and blocking command-and-control (C2) in seconds.'
+                }].map((item, i) => (
+                  <div
+                    key={i}
+                    className="border border-[#fcd5ac] rounded-2xl p-5 bg-white relative overflow-hidden"
+                  >
+                    <div className="relative z-10 flex flex-col gap-4">
+                      <h4 className="text-[20px] md:text-[24px] font-medium leading-[26px] text-[#111111]">
+                        {item.title} <span className="font-normal text-[#454545]">{item.subtitle}</span>
+                      </h4>
+                      <p className="text-[14px] md:text-[16px] font-normal leading-normal text-[#454545]">
+                        {item.desc}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
 
-          {/* Executive-Focused Roadmap */}
-          <div className="mx-auto max-w-7xl px-6 pb-12">
-            <h2 className="text-center text-2xl font-semibold text-[#0B1B2B]">
-              A Clear, Executive‑Focused Roadmap
-            </h2>
-            <p className="mx-auto mt-2 max-w-3xl text-center text-[14.5px] text-[#3A4A5F]">
-              We provide a phased roadmap to transition from legacy defense to autonomous resilience.
-            </p>
+            {/* Executive-Focused Roadmap */}
+            <div className="flex flex-col gap-10 mt-10">
+              <div className="flex flex-col gap-5 items-center text-center px-4">
+                <h3 className="text-[24px] md:text-[28px] font-medium leading-[32px] md:leading-[38px] text-[#454545]">
+                  A Clear, Executive-Focused Roadmap
+                </h3>
+                <p className="text-[16px] md:text-[18px] font-normal leading-normal text-[#454545] max-w-[860px]">
+                  We provide a phased roadmap to transition from legacy defense to autonomous resilience.
+                </p>
+              </div>
 
-            <div className="mt-8 grid gap-6 md:grid-cols-3">
-              {[
-                {
-                  chip: "Stabilize",
-                  focus: "Foundation & Core Risk",
-                  action:
-                    "Deploy Phishing‑Resistant MFA (FIDO2/WebAuthn) and enforce out‑of‑band verification for payments to counter deepfakes.",
-                },
-                {
-                  chip: "Integrate",
-                  focus: "Automation & Supply Chain",
-                  action:
-                    "Integrate AI co‑pilots into SIEM/SOAR to automate Tier‑1 triage. Implement SBOM policy and vendor SLAs for supply‑chain control.",
-                },
-                {
-                  chip: "Automate",
-                  focus: "Autonomous Defense",
-                  action:
-                    "Deploy an Agent Swarm (e.g., Identity Guard, RL Responder) to achieve rapid containment.",
-                },
-              ].map((card) => (
-                <div
-                  key={card.chip}
-                  className="rounded-xl border border-[#F6D8C8] bg-[#FFF8F3] p-5"
-                >
-                  <span className="inline-block rounded-full border border-[#FFBFA8] bg-[#FFF3EE] px-3 py-1 text-xs font-medium text-[#FF6A3D]">
-                    {card.chip}
-                  </span>
-                  <p className="mt-3 text-xs font-medium uppercase tracking-wide text-[#0F2C58]/70">
-                    Focus Area
-                  </p>
-                  <p className="text-[15px] font-semibold text-[#0F2C58]">{card.focus}</p>
-                  <p className="mt-2 text-[14px] text-[#3A4A5F]">{card.action}</p>
-                </div>
-              ))}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
+                {[{
+                  chip: 'Stabilize',
+                  chipColor: 'text-[#e45412] bg-[#fff3ee] border-[#ffbfa8]',
+                  focusArea: 'Foundation & Core Risk',
+                  action: 'Deploy Phishing-Resistant MFA (FIDO2/WebAuthn) and enforce out-of-band verification for payments to counter deepfakes.'
+                }, {
+                  chip: 'Integrate',
+                  chipColor: 'text-[#e45412] bg-[#fff3ee] border-[#ffbfa8]',
+                  focusArea: 'Automation & Supply Chain',
+                  action: 'Integrate AI co-pilots into SIEM/SOAR to automate Tier-1 triage. Implement SBOM policy and vendor SLAs for supply-chain control.'
+                }, {
+                  chip: 'Automate',
+                  chipColor: 'text-[#e45412] bg-[#fff3ee] border-[#ffbfa8]',
+                  focusArea: 'Autonomous Defense',
+                  action: 'Deploy an Agent Swarm (e.g., Identity Guard, RL Responder) to achieve rapid containment.'
+                }].map((item, i) => (
+                  <div
+                    key={i}
+                    className="border border-[#fcd5ac] rounded-2xl p-5 bg-white relative overflow-hidden"
+                  >
+                    <div className="relative z-10 flex flex-col gap-4">
+                      <div className={`rounded-lg px-2.5 py-1.5 inline-flex items-center justify-center w-fit border ${item.chipColor}`}>
+                        <span className="text-[14px] font-medium">
+                          {item.chip}
+                        </span>
+                      </div>
+                      <div className="flex flex-col gap-2">
+                        <div className="bg-[#f6f6f6] rounded-lg px-2.5 py-1.5 inline-flex items-center justify-center w-fit">
+                          <span className="text-[14px] font-medium text-[#111111]">
+                            Focus Area
+                          </span>
+                        </div>
+                        <p className="text-[16px] md:text-[18px] font-semibold leading-normal text-[#111111]">
+                          {item.focusArea}
+                        </p>
+                      </div>
+                      <div className="flex flex-col gap-2">
+                        <div className="bg-[#f6f6f6] rounded-lg px-2.5 py-1.5 inline-flex items-center justify-center w-fit">
+                          <span className="text-[14px] font-medium text-[#111111]">
+                            Key Action
+                          </span>
+                        </div>
+                        <p className="text-[14px] md:text-[16px] font-normal leading-normal text-[#454545]">
+                          {item.action}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        </BackgroundDots>
 
         {/* Our Solutions */}
-        <section className="mx-auto max-w-7xl px-6 py-14">
-          <h2 className="text-center text-2xl font-semibold text-[#0B1B2B]">Our Solutions</h2>
-          <div className="mx-auto mt-8 grid max-w-5xl grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-5">
+        <section className="mx-auto max-w-7xl px-6 py-16">
+          <h2 className="text-center text-[32px] font-medium leading-[48px] text-[#0B1B2B]">
+            Our Solutions
+          </h2>
+
+          <div className="mt-10 flex flex-col gap-8 lg:flex-row lg:items-stretch lg:justify-center lg:gap-6">
             {[
-              { label: "AI‑Driven Detection And Rapid Response", icon: "/images/icons/settings-phone.svg" },
-              { label: "Resilience Roadmap With Measurable KPIs", icon: "/images/icons/people-search.svg" },
-              { label: "Reduced Breach Costs And Recovery Times", icon: "/images/icons/settings-money.svg" },
-              { label: "Compliance And Governance Integration", icon: "/images/icons/settings-code.svg" },
-              { label: "Continuous Autonomous Protection", icon: "/images/icons/connection.svg" },
-            ].map((item) => (
-              <div
-                key={item.label}
-                className="flex flex-col items-center rounded-xl border border-[#F2E8E1] bg-white p-6 text-center"
-              >
-                <div className="mb-3 h-11 w-11 rounded-full bg-[#FFE3D3] grid place-items-center">
-                  <Image src={item.icon} alt={`${item.label} icon`} width={22} height={22} className="h-5 w-5" />
-                </div>
-                <p className="text-[13.5px] text-[#0F2C58]">{item.label}</p>
-              </div>
+              {
+                title: "AI‑Driven Detection And Rapid Response",
+                text: "",
+                icon: "/images/icons/settings-phone.svg",
+              },
+              {
+                title: "Resilience Roadmap With Measurable KPIs",
+                text: "",
+                icon: "/images/icons/people-search.svg",
+              },
+              {
+                title: "Reduced Breach Costs And Recovery Times",
+                text: "",
+                icon: "/images/icons/settings-money.svg",
+              },
+              {
+                title: "Compliance And Governance Integration",
+                text: "",
+                icon: "/images/icons/settings-code.svg",
+              },
+              {
+                title: "Continuous Autonomous Protection",
+                text: "",
+                icon: "/images/icons/connection.svg",
+              },
+            ].map((item, index, array) => (
+              <Fragment key={item.title}>
+                <article className="flex-1 rounded-[20px] px-6 py-10 text-center">
+                  <div className="mx-auto mb-4 grid h-20 w-20 place-items-center rounded-full bg-[#FFE6D5] ">
+                    <Image
+                      src={item.icon}
+                      alt={`${item.title} icon`}
+                      width={40}
+                      height={40}
+                      className="h-10 w-10"
+                    />
+                  </div>
+                  <p className="text-[16px] font-medium leading-[24px] text-[#0F2C58]">
+                    {item.title}
+                  </p>
+                  <p className="mt-3 text-sm leading-[22px] text-[#3A4A5F]">
+                    {item.text}
+                  </p>
+                </article>
+
+                {index < array.length - 1 && (
+                  <div className="hidden items-center lg:flex">
+                    <Image
+                      src="/images/raar/lineraar.svg"
+                      alt=""
+                      width={2}
+                      height={200}
+                      className="h-[180px] w-auto"
+                      aria-hidden
+                    />
+                  </div>
+                )}
+              </Fragment>
             ))}
           </div>
+
         </section>
 
-        {/* Advantages with side illustration */}
-        <section className="relative">
-          <div
-            className="absolute inset-0 -z-10"
-            aria-hidden
-            style={{
-              backgroundImage: "radial-gradient(#F0F3F8 1px, transparent 1px)",
-              backgroundSize: "18px 18px",
-            }}
-          />
-          <div className="mx-auto max-w-7xl px-6 py-14">
-            <h2 className="text-2xl font-semibold text-[#0B1B2B]">Advantages</h2>
-            <p className="mt-2 text-[14.5px] text-[#3A4A5F]">
-              Measuring Success: KPIs for the Board
-            </p>
+       {/* Advantages */}
+       <BackgroundDots
+         className="py-14"
+         spacing={25}
+         dotSize={3}
+         backgroundColor="#FFF6EB"
+         dotColor="#D9D9D9"
+         style={{
+          background: "linear-gradient(to bottom, #ffffff 38.524%, #feecd6 171.52%)",
+        }}
+       >
+         <section className="mx-auto max-w-7xl px-6">
+           <div className="grid items-center gap-10 md:grid-cols-3">
+             <div>
+               <h2 className="text-4xl text-[#0B1B2B]">Advantages</h2>
+               <p className="mt-5 text-lg font-semibold text-[#0F2C58]">
+                 Measuring Success: KPIs for the Board
+               </p>
+               <p className="mt-3 text-base text-[#3A4A5F]">
+                 Security is a business function. Our framework aligns with loss avoidance and resilience metrics:
+               </p>
+               <ul className="mt-5 space-y-4 text-lg text-[#3A4A5F]">
+                 <li className="pl-6 relative">
+                   <span className="absolute left-0 top-2 h-2 w-2 rounded-full bg-gray-500" />
+                   <span className="font-medium text-black">Loss Avoidance:</span> Target a reduction in loss within 12 months by achieving faster containment.
+                 </li>
+                 <li className="pl-6 relative">
+                   <span className="absolute left-0 top-2 h-2 w-2 rounded-full bg-gray-500" />
+                   <span className="font-medium text-black">Containment Speed (MTTI/MTTC):</span> Reduce mean days, with an ultimate goal of days.
+                 </li>
+                 <li className="pl-6 relative">
+                   <span className="absolute left-0 top-2 h-2 w-2 rounded-full bg-gray-500" />
+                   <span className="font-medium text-black">Ransomware Resilience:</span> Aim for time to restore and increase the percentage of recovery without paying the ransom.
+                 </li>
+               </ul>
+             </div>
 
-            <div className="mt-8 grid items-start gap-10 md:grid-cols-2">
-              <ul className="space-y-4 text-[14.5px] text-[#3A4A5F]">
-                <li className="pl-6 relative">
-                  <span className="absolute left-0 top-2 h-2 w-2 rounded-full bg-[#FF6A3D]" />
-                  <span className="font-medium text-[#0F2C58]">Loss Avoidance:</span> Target a reduction in loss within 12 months by achieving faster containment.
-                </li>
-                <li className="pl-6 relative">
-                  <span className="absolute left-0 top-2 h-2 w-2 rounded-full bg-[#FF6A3D]" />
-                  <span className="font-medium text-[#0F2C58]">Containment Speed (MTTI/MTTC):</span> Reduce mean days, with an ultimate goal of days.
-                </li>
-                <li className="pl-6 relative">
-                  <span className="absolute left-0 top-2 h-2 w-2 rounded-full bg-[#FF6A3D]" />
-                  <span className="font-medium text-[#0F2C58]">Ransomware Resilience:</span> Aim for time to restore and increase the percentage of recovery without paying the ransom.
-                </li>
-              </ul>
+             <div className="flex justify-center">
+               <Image
+                 src="/images/raar/lineraar.svg"
+                 alt=""
+                 width={2}
+                 height={320}
+                 className="h-[320px] w-[2px]"
+               />
+             </div>
 
-              <div className="justify-self-center">
-                <Image
-                  src="/images/cyber/cyber2.png"
-                  alt="Security dashboard illustration"
-                  width={520}
-                  height={360}
-                  className="h-auto w-[320px] sm:w-[380px] md:w-[460px] rounded-xl shadow-[0_12px_32px_-10px_rgba(15,44,88,0.25)]"
-                />
-              </div>
-            </div>
-          </div>
-        </section>
+             <div className="justify-self-center">
+               <Image
+                 src="/images/cyber/whychoose.png"
+                 alt="Security dashboard illustration"
+                 width={520}
+                 height={360}
+                 className="h-auto w-[320px] sm:w-[380px] md:w-[460px] rounded-xl shadow-[0_12px_32px_-10px_rgba(15,44,88,0.25)]"
+               />
+             </div>
+           </div>
+
+         </section>
+
+       </BackgroundDots>
+       <div className=" flex justify-center">
+         <Image
+           src="/images/horizontalline.svg"
+           alt=""
+           width={1200}
+           height={3}
+           className="w-full max-w-5xl"
+           aria-hidden
+         />
+       </div>
 
         {/* CTA */}
         <section className="mx-auto max-w-7xl px-6 py-16">
@@ -276,13 +421,9 @@ export default function CyberSecuritySolutions() {
             Understand how AI‑driven defense can cut breach costs, strengthen compliance, and protect your business from evolving threats in real time.
           </p>
           <div className="mt-8 flex justify-center">
-            <button
-              onClick={() => setIsModalOpen(true)}
-              className="rounded-full bg-[#FF6A3D] px-6 py-3 text-white text-sm font-medium shadow-[0_8px_20px_-6px_rgba(255,106,61,0.6)] hover:brightness-110 transition"
-              type="button"
-            >
-              Activate AI‑driven defense →
-            </button>
+            <PrimaryButton onClick={() => setIsModalOpen(true)}>
+              Activate AI‑driven defense 
+            </PrimaryButton>
           </div>
         </section>
       </main>

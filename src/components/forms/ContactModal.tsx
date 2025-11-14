@@ -103,7 +103,29 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
 
   return (
     <Modal open={isOpen} onClose={onClose} labelledBy="contact-modal-title">
-      <div className="flex w-full overflow-hidden rounded-2xl border-[1.5px] border-orange-400 bg-white">
+      <div className="relative flex w-full overflow-hidden rounded-2xl border-[1.5px] border-orange-400 bg-white">
+        <button
+          type="button"
+          onClick={onClose}
+          aria-label="Close modal"
+          className="absolute right-4 top-4 z-20 flex size-8 items-center justify-center rounded-full bg-gray-100 text-gray-600 transition-colors hover:bg-gray-200 lg:right-5 lg:top-5 lg:size-10"
+        >
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            fill="none"
+            stroke="currentColor"
+          >
+            <path
+              d="M15 5L5 15M5 5l10 10"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </button>
+
         {/* Left Side - Dark Background */}
         <div className="relative hidden w-[475px] flex-shrink-0 flex-col justify-between overflow-hidden rounded-l-2xl bg-gradient-to-r from-[#1e2f62] via-[#1b2760] to-[#101b3f] p-8 lg:flex">
           {/* Background Image */}
@@ -196,28 +218,6 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
 
         {/* Right Side - Form */}
         <div className="relative flex w-full flex-col bg-white p-5 lg:w-[420px] lg:flex-shrink-0">
-          <button
-            type="button"
-            onClick={onClose}
-            aria-label="Close modal"
-            className="absolute right-4 top-4 z-10 flex size-8 items-center justify-center rounded-full bg-gray-100 text-gray-600 transition-colors hover:bg-gray-200 lg:size-10"
-          >
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 20 20"
-              fill="none"
-              stroke="currentColor"
-            >
-              <path
-                d="M15 5L5 15M5 5l10 10"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </button>
-
           <form onSubmit={handleSubmit} className="mt-2 flex flex-col gap-2.5">
             {/* Name */}
             <div className="flex flex-col gap-1">

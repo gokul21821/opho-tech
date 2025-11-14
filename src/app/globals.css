@@ -69,3 +69,41 @@ body {
 @utility animate-modal-in {
   animation: modal-in 0.3s ease forwards;
 }
+
+.service-card {
+  --service-card-border-color: rgb(254 243 199); /* orange-200 */
+  isolation: isolate;
+  position: relative;
+}
+
+/* Card shape mask using inline SVG as mask-image */
+.service-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: inherit;
+  z-index: -1;
+  mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 387 275' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'%3E%3Cpath d='M371 0C379.837 0 387 7.16345 387 16V226.481C382.475 224.253 377.384 223 372 223C353.222 223 338 238.222 338 257C338 263.611 339.889 269.78 343.153 275H16C7.16345 275 0 267.837 0 259V16C0 7.16344 7.16344 0 16 0H371Z' fill='white'/%3E%3C/svg%3E");
+  mask-size: 100% 100%;
+  mask-repeat: no-repeat;
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 387 275' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'%3E%3Cpath d='M371 0C379.837 0 387 7.16345 387 16V226.481C382.475 224.253 377.384 223 372 223C353.222 223 338 238.222 338 257C338 263.611 339.889 269.78 343.153 275H16C7.16345 275 0 267.837 0 259V16C0 7.16344 7.16344 0 16 0H371Z' fill='white'/%3E%3C/svg%3E");
+  -webkit-mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+}
+
+/* Border using SVG stroke with proper scaling */
+.service-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 387 275' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'%3E%3Cpath d='M371 0C379.837 0 387 7.16345 387 16V226.481C382.475 224.253 377.384 223 372 223C353.222 223 338 238.222 338 257C338 263.611 339.889 269.78 343.153 275H16C7.16345 275 0 267.837 0 259V16C0 7.16344 7.16344 0 16 0H371Z' fill='none' stroke='rgb(254 243 199)' stroke-width='1.5' /%3E%3C/svg%3E");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  transition: background-image 0.3s ease;
+  z-index: 1;
+}
+
+.service-card:hover::before {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 387 275' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'%3E%3Cpath d='M371 0C379.837 0 387 7.16345 387 16V226.481C382.475 224.253 377.384 223 372 223C353.222 223 338 238.222 338 257C338 263.611 339.889 269.78 343.153 275H16C7.16345 275 0 267.837 0 259V16C0 7.16344 7.16344 0 16 0H371Z' fill='none' stroke='rgb(249 115 22)' stroke-width='1.5' /%3E%3C/svg%3E");
+}

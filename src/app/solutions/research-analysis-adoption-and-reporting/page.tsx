@@ -2,11 +2,14 @@
 
 // app/raar/page.tsx
 import Image from "next/image";
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { HeroSection } from "@/components/ui/HeroSection";
 import { ContactModal } from "@/components/forms/ContactModal";
+import { PrimaryButton } from "@/components/ui/Button";
+import BackgroundDots from "@/components/ui/background";
+
 
 export default function RAARPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -30,97 +33,122 @@ export default function RAARPage() {
       <main className="bg-white text-[#0B1B2B]">
 
       {/* Intro split */}
-      <section className="mx-auto max-w-7xl px-6 py-16">
-        <div className="grid items-center gap-10 md:grid-cols-2">
-          <div className="justify-self-center">
-            <Image
-              src="/images/raar/brain.png"
-              alt="RAAR illustration"
-              width={520}
-              height={380}
-              className="h-auto w-[320px] sm:w-[380px] md:w-[420px] rounded-xl shadow-[0_10px_30px_-10px_rgba(15,44,88,0.3)]"
-              priority
-            />
-          </div>
-          <div>
-            <p className="text-[#0F2C58] font-semibold">RAAR</p>
-            <p className="mt-2 text-[17px] text-[#3A4A5F]">
-              is a decision intelligence software that helps you compare, evaluate, and optimize your tools with precision, speed, and accuracy.
-            </p>
-          </div>
-        </div>
-      </section>
+      <section className="mx-auto max-w-7xl px-6 py-20">
+  <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-center gap-12">
 
-      {/* Dotted background */}
-      <section className="relative">
-        <div
-          className="absolute inset-0 -z-10"
-          aria-hidden
+    {/* LEFT — Illustration Cluster */}
+    <div className="flex justify-center md:justify-start">
+      <Image
+        src="/images/raar/research.png" // your combined illustration
+        alt="RAAR illustration"
+        width={600}
+        height={450}
+        className="w-[320px] sm:w-[420px] md:w-[500px] h-auto"
+        priority
+      />
+    </div>
+
+    {/* CENTER — Line Divider */}
+    <div className="flex justify-center">
+      <Image
+        src="/images/raar/lineraar.svg"
+        alt=""
+        width={2}
+        height={200}
+        className="h-[350px] w-auto"
+        aria-hidden
+      />
+    </div>
+
+    {/* RIGHT — Text Block */}
+    <div className="flex flex-col justify-center text-left md:pl-4">
+      <p className="mt-3 text-[17px] text-[#3A4A5F] leading-relaxed max-w-md">
+      <strong>RAAR</strong> is a decision intelligence software that helps you compare,
+        evaluate, and optimize your tools with precision, speed, and
+        accuracy.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+      {/* How RAAR Works Section */}
+      <BackgroundDots
+          className="py-16 px-6 md:px-[110px]"
+          spacing={36}
+          dotSize={2.5}
+          backgroundColor=""
+          dotColor="#D9D9D9"
           style={{
-            backgroundImage:
-              "radial-gradient(#F0F3F8 1px, transparent 1px)",
-            backgroundSize: "18px 18px",
+            background: "linear-gradient(to bottom, #ffffff 38.524%, #feecd6 171.52%)",
           }}
-        />
-        <div className="mx-auto max-w-7xl px-6 py-14">
-          <h2 className="text-center text-2xl font-semibold text-[#0B1B2B]">How RAAR Works</h2>
+        >
+        <section className="mx-auto max-w-7xl px-6">
+          <div className="flex flex-col gap-10 items-center">
+            <h2 className="text-center text-[38px] font-medium leading-[48px] text-[#111111]">
+              How RAAR Works
+            </h2>
 
-          {/* Four cards */}
-          <div className="mt-8 grid gap-6 md:grid-cols-4">
-            {[
-              {
-                title: "Research",
-                text:
-                  "Pulls data from vendor contracts, licensing records, usage logs, cost reports, and integration documentation. Cleans, Secure and Validates data for analysis.",
-                icon: "/images/raar/research.svg",
-              },
-              {
-                title: "Analysis",
-                text:
-                  "AI agents evaluate tools across Features, Security, Integration, Cost Efficiency, Performance, and Market Position. Builds SWOT profiles, identifies capability gaps, and benchmarks against industry standards.",
-                icon: "/images/raar/analyze.svg",
-              },
-              {
-                title: "Adoption",
-                text:
-                  "Tracks user adoption rates, identifies underutilized tools, and measures organizational readiness for new technology implementations.",
-                icon: "/images/raar/star.svg",
-              },
-              {
-                title: "Reporting",
-                text:
-                  "Delivers persona-specific insights. Strategic dashboards for executives, integration scores for architects, vendor intelligence for procurement, compliance & secure reports for regulators, & usability metrics for end users.",
-                icon: "/images/raar/notepad.svg",
-              },
-            ].map((item) => (
-              <div
-                key={item.title}
-                className="rounded-xl border border-[#F2E8E1] bg-white p-6 shadow-[0_6px_18px_-8px_rgba(15,44,88,0.15)]"
-              >
-                <div className="mb-4 h-7 w-7">
-                  <Image
-                    src={item.icon}
-                    alt={`${item.title} icon`}
-                    width={28}
-                    height={28}
-                    className="h-7 w-7"
-                  />
+            {/* Four cards */}
+            <div className="flex flex-col gap-6 md:flex-row md:gap-6 w-full">
+              {[
+                {
+                  title: "Research",
+                  text:
+                    "Pulls data from vendor contracts, licensing records, usage logs, cost reports, and integration documentation. Cleans, Secure and Validates data for analysis.",
+                  icon: "/images/raar/research.svg",
+                },
+                {
+                  title: "Analysis",
+                  text:
+                    "AI agents evaluate tools across Features, Security, Integration, Cost Efficiency, Performance, and Market Position. Builds SWOT profiles, identifies capability gaps, and benchmarks against industry standards.",
+                  icon: "/images/raar/analyze.svg",
+                },
+                {
+                  title: "Adoption",
+                  text:
+                    "Tracks user adoption rates, identifies underutilized tools, and measures organizational readiness for new technology implementations.",
+                  icon: "/images/raar/star.svg",
+                },
+                {
+                  title: "Reporting",
+                  text:
+                    "Delivers persona-specific insights. Strategic dashboards for executives, integration scores for architects, vendor intelligence for procurement, compliance & secure reports for regulators, & usability metrics for end users.",
+                  icon: "/images/raar/notepad.svg",
+                },
+              ].map((item) => (
+                <div
+                  key={item.title}
+                  className="flex-1 rounded-2xl border border-[#fcd5ac] bg-white p-5 flex flex-col gap-4 items-start"
+                >
+                  <div className="h-12 w-12 flex-shrink-0">
+                    <Image
+                      src={item.icon}
+                      alt={`${item.title} icon`}
+                      width={48}
+                      height={48}
+                      className="h-12 w-12"
+                    />
+                  </div>
+                  <h3 className="text-[24px] font-medium leading-[26px] text-[#111111] capitalize">
+                    {item.title}
+                  </h3>
+                  <p className="text-[16px] leading-normal text-[#454545]">{item.text}</p>
                 </div>
-                <h3 className="text-[17px] font-semibold text-[#0F2C58]">
-                  {item.title}
-                </h3>
-                <p className="mt-2 text-[14.5px] text-[#3A4A5F]">{item.text}</p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </BackgroundDots>
 
       {/* What You Get */}
       <section className="mx-auto max-w-7xl px-6 py-16">
-        <h2 className="text-center text-2xl font-semibold text-[#0B1B2B]">What You Get</h2>
+        <h2 className="text-center text-[32px] font-medium leading-[48px] text-[#0B1B2B]">
+          What You Get
+        </h2>
 
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
+        <div className="mt-10 flex flex-col gap-8 lg:flex-row lg:items-stretch lg:justify-center lg:gap-6">
           {[
             {
               title: "Full Visibility",
@@ -152,69 +180,109 @@ export default function RAARPage() {
                 "Compliance trails and governance reports for regulators and boards",
               icon: "/images/icons/take-notes.svg",
             },
-          ].map((item) => (
-            <div
-              key={item.title}
-              className="rounded-xl border border-[#FBE8DD] bg-[#FFF8F3] p-6 text-center"
-            >
-              <div className="mx-auto mb-3 h-10 w-10 rounded-full bg-[#FFE3D3] grid place-items-center">
-                <Image
-                  src={item.icon}
-                  alt={`${item.title} icon`}
-                  width={20}
-                  height={20}
-                  className="h-5 w-5"
-                />
-              </div>
-              <p className="text-[15px] font-semibold text-[#0F2C58]">{item.title}</p>
-              <p className="mt-2 text-[13.5px] text-[#3A4A5F]">{item.text}</p>
-            </div>
+          ].map((item, index, array) => (
+            <Fragment key={item.title}>
+              <article className="flex-1 rounded-[20px] px-6 py-10 text-center">
+                <div className="mx-auto mb-4 grid h-20 w-20 place-items-center rounded-full bg-[#FFE6D5] ">
+                  <Image
+                    src={item.icon}
+                    alt={`${item.title} icon`}
+                    width={40}
+                    height={40}
+                    className="h-10 w-10"
+                  />
+                </div>
+                <p className="text-[16px] font-medium leading-[24px] text-[#0F2C58]">
+                  {item.title}
+                </p>
+                <p className="mt-3 text-sm leading-[22px] text-[#3A4A5F]">
+                  {item.text}
+                </p>
+              </article>
+
+              {index < array.length - 1 && (
+                <div className="hidden items-center lg:flex">
+                  <Image
+                    src="/images/raar/lineraar.svg"
+                    alt=""
+                    width={2}
+                    height={200}
+                    className="h-[180px] w-auto"
+                    aria-hidden
+                  />
+                </div>
+              )}
+            </Fragment>
           ))}
         </div>
+
       </section>
 
-      {/* Why Choose RAAR with image */}
-      <section className="relative">
-        <div
-          className="absolute inset-0 -z-10"
-          aria-hidden
-          style={{
-            backgroundImage:
-              "radial-gradient(#F0F3F8 1px, transparent 1px)",
-            backgroundSize: "18px 18px",
-          }}
+     {/* Why Choose RAAR with image */}
+     <BackgroundDots
+  className="py-14"
+  spacing={25}
+  dotSize={3}
+  backgroundColor="#FFF6EB"
+  dotColor="#D9D9D9"
+  style={{
+    background: "linear-gradient(to bottom, #ffffff 38.524%, #feecd6 171.52%)",
+  }}
+>
+  <section className="mx-auto max-w-7xl px-6">
+    <div className="grid items-center gap-10 md:grid-cols-3">
+      <div>
+        <h2 className="text-4xl text-[#0B1B2B]">Why Choose RAAR</h2>
+        <ul className="mt-5 space-y-3 text-lg text-[#3A4A5F]">
+          <li className="pl-6 relative">
+            <span className="absolute left-0 top-2 h-2 w-2 rounded-full bg-gray-500" />
+            Understand which tools are worth keeping
+          </li>
+          <li className="pl-6 relative">
+            <span className="absolute left-0 top-2 h-2 w-2 rounded-full bg-gray-500" />
+            Get insights into better-fit software
+          </li>
+          <li className="pl-6 relative">
+            <span className="absolute left-0 top-2 h-2 w-2 rounded-full bg-gray-500" />
+            Measure integration complexity, calculate tech debt, and identify which investments drive business outcomes.
+          </li>
+        </ul>
+      </div>
+
+      <div className="flex justify-center">
+        <Image
+          src="/images/raar/lineraar.svg"
+          alt=""
+          width={2}
+          height={320}
+          className="h-[320px] w-[2px]"
         />
-        <div className="mx-auto max-w-7xl px-6 py-14">
-          <div className="grid items-center gap-10 md:grid-cols-2">
-            <div>
-              <h2 className="text-2xl font-semibold text-[#0B1B2B]">Why Choose RAAR</h2>
-              <ul className="mt-5 space-y-3 text-[14.5px] text-[#3A4A5F]">
-                <li className="pl-6 relative">
-                  <span className="absolute left-0 top-2 h-2 w-2 rounded-full bg-[#FF6A3D]" />
-                  Understand which tools are worth keeping
-                </li>
-                <li className="pl-6 relative">
-                  <span className="absolute left-0 top-2 h-2 w-2 rounded-full bg-[#FF6A3D]" />
-                  Get insights into better-fit software
-                </li>
-                <li className="pl-6 relative">
-                  <span className="absolute left-0 top-2 h-2 w-2 rounded-full bg-[#FF6A3D]" />
-                  Measure integration complexity, calculate tech debt, and identify which investments drive business outcomes.
-                </li>
-              </ul>
-            </div>
-            <div className="justify-self-center">
-              <Image
-                src="/images/raar/in-depth-analysis.png"
-                alt="Dashboard illustration"
-                width={520}
-                height={360}
-                className="h-auto w-[320px] sm:w-[380px] md:w-[460px] rounded-xl shadow-[0_12px_32px_-10px_rgba(15,44,88,0.25)]"
-              />
-            </div>
-          </div>
+      </div>
+
+      <div className="justify-self-center">
+        <Image
+          src="/images/raar/raar-analysis.png"
+          alt="Dashboard illustration"
+          width={520}
+          height={360}
+          className="h-auto w-[320px] sm:w-[380px] md:w-[460px] rounded-xl shadow-[0_12px_32px_-10px_rgba(15,44,88,0.25)]"
+        />
+      </div>
+    </div>
+    
+  </section>
+  
+</BackgroundDots>
+<div className=" flex justify-center">
+          <Image
+            src="/images/horizontalline.svg"
+            alt=""
+            width={1200}
+            height={3}
+            className="w-full max-w-5xl"
+            aria-hidden
+          />
         </div>
-      </section>
 
       {/* Get Started CTA */}
       <section className="mx-auto max-w-7xl px-6 py-16">
@@ -223,13 +291,9 @@ export default function RAARPage() {
           From capability gaps to consolidation opportunities, RAAR transforms software spend into strategic decisions.
         </p>
         <div className="mt-8 flex justify-center">
-          <button
-            onClick={() => setIsModalOpen(true)}
-            className="rounded-full bg-[#FF6A3D] px-6 py-3 text-white text-sm font-medium shadow-[0_8px_20px_-6px_rgba(255,106,61,0.6)] hover:brightness-110 transition"
-            type="button"
-          >
-            Schedule RAAR Assessment →
-          </button>
+          <PrimaryButton onClick={() => setIsModalOpen(true)}>
+            Schedule RAAR Assessment 
+          </PrimaryButton>
         </div>
       </section>
     </main>

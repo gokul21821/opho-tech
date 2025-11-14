@@ -2,14 +2,93 @@
 
 // app/ai-agent-development/page.tsx
 import Image from "next/image";
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { HeroSection } from "@/components/ui/HeroSection";
 import { ContactModal } from "@/components/forms/ContactModal";
+import { PrimaryButton } from "@/components/ui/Button";
+import BackgroundDots from "@/components/ui/background";
 
 export default function AIAgentDevelopment() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const strategicValueCards = [
+    {
+      icon: "/images/data-monetize/gear.svg",
+      title: "Simple Task:",
+      subtitle: "Automating a single data entry point.",
+      details: [
+        { type: "badge", text: "AI Agent Development" },
+        {
+          type: "text",
+          label: "Complex Workflow:",
+          copy: "An agent handles customer service from intake to resolution (triage, pulling data, issuing refunds, updating CRM).",
+        },
+        {
+          type: "badgeWithCopy",
+          text: "Business Impact (ROI)",
+          bold: "Massive operational cost reduction",
+          rest: " and guaranteed 24/7 service availability.",
+        },
+      ],
+    },
+    {
+      icon: "/images/cloud-integrations/paper.svg",
+      title: "Reactive:",
+      subtitle: "Analyzing past data for insights.",
+      details: [
+        { type: "badge", text: "AI Agent Development" },
+        {
+          type: "text",
+          label: "Proactive:",
+          copy: "An agent monitors market feeds, identifies a pricing opportunity, models the financial impact, and executes the trade.",
+        },
+        {
+          type: "badgeWithCopy",
+          text: "Business Impact (ROI)",
+          bold: "New revenue generation",
+          rest: " and a significant competitive advantage through speed.",
+        },
+      ],
+    },
+  ];
+
+  const agenticUseCases = [
+    {
+      title: "Planning & Execution",
+      body:
+        'We build agents with the ability to break down a high-level goal (e.g., "Onboard a new vendor") into sequential steps, executing each step and course-correcting based on real-time feedback.',
+    },
+    {
+      title: "Tool Integration",
+      body:
+        "Agents are designed to utilize your existing tools (APIs, databases, enterprise software like ERP/CRM) effectively, ensuring they fit seamlessly into your existing technology stack.",
+    },
+    {
+      title: "Structural Change Enablement",
+      body:
+        "For the team leading structural change, agents directly enable organizational redesign by automating entire departments or functions, allowing highly skilled employees to focus solely on high-value strategy and creativity.",
+    },
+  ];
+
+  const governancePillars = [
+    {
+      title: ["Safety &", "Alignment"],
+      body:
+        "We implement strict safety protocols to ensure agents operate within defined business constraints and ethical guidelines, preventing unintended or harmful actions.",
+    },
+    {
+      title: ["Transparency &", "Auditability"],
+      body:
+        "Every agent action is logged and auditable, providing clarity on the agent's decision-making process and simplifying compliance efforts.",
+    },
+    {
+      title: ["Scalable", "Architecture"],
+      body:
+        "Agents are architected on your secure cloud environment, ensuring they can handle peak loads and integrate cleanly with your MLOps pipeline for continuous improvement.",
+    },
+  ];
 
   return (
     <div className="flex min-h-screen flex-col bg-white text-[#0B1B2B]">
@@ -30,231 +109,335 @@ export default function AIAgentDevelopment() {
       <main className="flex-1">
 
         {/* Intro split */}
-        <section className="mx-auto max-w-7xl px-6 py-14">
-          <div className="grid items-center gap-10 md:grid-cols-2">
-            <div className="justify-self-center">
-              <Image
-                src="/images/ai_agents/aiagents.png"
-                alt="AI agents illustration"
-                width={520}
-                height={380}
-                className="h-auto w-[320px] sm:w-[380px] md:w-[420px] rounded-xl shadow-[0_10px_30px_-10px_rgba(15,44,88,0.3)]"
-                priority
-              />
-            </div>
-            <div className="text-[15.5px] text-[#3A4A5F]">
-              <p>
-                <span className="font-semibold text-[#0F2C58]">AI Agents</span> are not just chatbots; they are sophisticated digital workers capable of performing complex, multi‑step tasks autonomously. Investing in AI Agent development means acquiring a scalable, highly efficient workforce that executes strategic objectives with minimal human oversight, leading to unprecedented <span className="font-semibold">operational efficiency and speed</span>.
-              </p>
-              <p className="mt-4">
-                <span className="font-semibold text-[#0F2C58]">For the Business Leaders:</span> This is about architecting the next generation of AI systems—leveraging Large Language Models (LLMs) with planning, memory, and tool‑use capabilities to automate entire workflows, driving structural change across the organization.
-              </p>
-            </div>
-          </div>
-        </section>
+        <section className="mx-auto max-w-7xl px-6 py-20">
+  <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-center gap-12">
 
-        {/* Dotted field sections */}
+    {/* LEFT — Illustration */}
+    <div className="flex justify-center md:justify-start">
+      <Image
+        src="/images/ai_agents/llm.png"
+        alt="AI agents illustration"
+        width={520}
+        height={380}
+        className="h-auto w-[320px] sm:w-[380px] md:w-[420px] rounded-xl"
+        priority
+      />
+    </div>
+
+    {/* CENTER — Vertical Divider */}
+    <div className="flex justify-center">
+      <Image
+        src="/images/raar/lineraar.svg"
+        alt=""
+        width={2}
+        height={200}
+        className="h-[350px] w-auto"
+        aria-hidden
+      />
+    </div>
+
+    {/* RIGHT — Text Block */}
+    <div className="flex flex-col justify-center text-sm text-[#3A4A5F] max-w-md">
+
+      <p>
+        <span className="font-semibold text-[#0F2C58]">AI Agents</span> are not just chatbots; they are sophisticated digital workers capable of performing complex, multi-step tasks autonomously. 
+        Investing in AI Agent development means acquiring a scalable, highly efficient workforce that executes strategic objectives with minimal human oversight, leading to unprecedented 
+        <span className="font-semibold"> operational efficiency and speed</span>.
+      </p>
+
+      <p className="mt-4">
+        <span className="font-semibold text-[#0F2C58]">For the Business Leaders:</span> 
+        This is about architecting the next generation of AI systems—leveraging Large Language Models (LLMs) with planning, memory, and tool-use capabilities to automate entire workflows, driving structural change across the organization.
+      </p>
+
+    </div>
+
+  </div>
+</section>
+
+
+        {/* AI Agent Development Framework */}
         <section className="relative">
-          <div
-            className="absolute inset-0 -z-10"
-            aria-hidden
-            style={{
-              backgroundImage: "radial-gradient(#F0F3F8 1px, transparent 1px)",
-              backgroundSize: "18px 18px",
-            }}
-          />
+      {/* AI Solutions & Services Section */}
+      <BackgroundDots
+          className="py-16 px-6 md:px-[110px]"
+          spacing={36}
+          dotSize={2.5}
+          backgroundColor=""
+          dotColor="#D9D9D9"
+          style={{
+            background: "linear-gradient(to bottom, #ffffff 38.524%, #feecd6 171.52%)",
+          }}
+        >
+            <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+              <div className="space-y-16">
+                {/* Strategic Value */}
+                <div className="text-center">
+                  <h2 className="text-[34px] font-medium leading-[48px] text-[#111111] sm:text-[38px]">
+                    The Strategic Value of Autonomous Agents
+                  </h2>
+                  <div className="mx-auto mt-4 flex max-w-4xl justify-center">
+                    <Image
+                      src="/images/horizontalline.svg"
+                      alt=""
+                      width={800}
+                      height={4}
+                      className="h-[4px] w-full max-w-3xl"
+                      aria-hidden
+                    />
+                  </div>
+                  <p className="mx-auto mt-4 max-w-3xl text-[16px] text-[#454545] sm:text-[18px]">
+                    AI Agents transform core business functions by moving beyond simple task automation to genuine workflow execution.
+                  </p>
 
-          {/* Strategic Value */}
-          <div className="mx-auto max-w-7xl px-6 py-12">
-            <h2 className="text-center text-2xl font-semibold text-[#0B1B2B]">
-              The Strategic Value of Autonomous Agents
-            </h2>
-            <p className="mx-auto mt-2 max-w-3xl text-center text-[14.5px] text-[#3A4A5F]">
-              AI Agents transform core business functions by moving beyond simple task automation to genuine workflow execution.
-            </p>
+                  <div className="mt-10 grid gap-6 md:grid-cols-2">
+                    {strategicValueCards.map((card) => (
+                      <div
+                        key={card.title}
+                        className="relative rounded-2xl border border-[#FCD5AC] bg-white/90 p-6 text-left shadow-[0_10px_30px_-18px_rgba(15,44,88,0.35)]"
+                      >
+                        <div className="mb-4 h-12 w-12 rounded-xl bg-[#FFF4EB] p-3">
+                          <Image src={card.icon} alt={`${card.title} icon`} width={32} height={32} className="h-6 w-6" />
+                        </div>
+                        <div className="space-y-3">
+                          <div>
+                            <h3 className="text-[22px] font-medium text-[#111111]">{card.title}</h3>
+                            <p className="text-[16px] text-[#555555]">{card.subtitle}</p>
+                          </div>
 
-            <div className="mt-8 grid gap-6 md:grid-cols-2">
-              {/* Simple Task */}
-              <div className="rounded-xl border border-[#F2E8E1] bg-white p-6 shadow-[0_6px_18px_-8px_rgba(15,44,88,0.12)]">
-                <div className="mb-4 h-7 w-7">
-                  <Image src="/images/data-monetize/gear.svg" alt="icon" width={28} height={28} className="h-7 w-7" />
+                          {card.details.map((detail, detailIndex) => {
+                            if (detail.type === "badge") {
+                              return (
+                                <div
+                                  key={`${card.title}-badge-${detailIndex}`}
+                                  className="inline-flex rounded-lg bg-[#F6F6F6] px-3 py-1 text-[14px] font-medium text-[#111111]"
+                                >
+                                  {detail.text}
+                                </div>
+                              );
+                            }
+
+                            if (detail.type === "badgeWithCopy") {
+                              return (
+                                <div key={`${card.title}-badgecopy-${detailIndex}`} className="space-y-2">
+                                  <div className="inline-flex rounded-lg bg-[#F6F6F6] px-3 py-1 text-[14px] font-medium text-[#111111]">
+                                    {detail.text}
+                                  </div>
+                                  <p className="text-[16px] text-[#454545]">
+                                    <span className="font-medium text-[#111111]">{detail.bold}</span>
+                                    {detail.rest}
+                                  </p>
+                                </div>
+                              );
+                            }
+
+                            return (
+                              <p key={`${card.title}-text-${detailIndex}`} className="text-[16px] text-[#454545]">
+                                <span className="font-medium text-[#111111]">{detail.label} </span>
+                                {detail.copy}
+                              </p>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-                <h3 className="text-[16.5px] font-semibold text-[#0F2C58]">
-                  Simple Task:
-                </h3>
-                <p className="mt-1 text-[14.5px] text-[#0F2C58]/80">
-                  Automating a single data entry point.
-                </p>
-                <div className="mt-4 space-y-3 text-[14px] text-[#3A4A5F]">
-                  <p>
-                    <span className="font-medium text-[#0F2C58]">AI Agent Development</span>
+
+                {/* Agentic AI – Uses */}
+                <div className="text-center">
+                  <h3 className="text-[26px] font-medium leading-[38px] text-[#111111] sm:text-[28px]">Agentic AI - Uses</h3>
+                  <p className="mx-auto mt-4 max-w-4xl text-[16px] text-[#454545] sm:text-[18px]">
+                    Our focus is on{" "}
+                    <span className="font-semibold text-[#0B1B2B]">
+                      translating complex business challenges into clear technology opportunities
+                    </span>{" "}
+                    by building agents that are reliable, governed, and integrated into your current systems.
                   </p>
-                  <p>
-                    <span className="font-medium text-[#0F2C58]">Complex Workflow:</span> An agent handles customer service from intake to resolution (triage, pulling data, issuing refunds, updating CRM).
+
+                  <div className="mt-10 grid gap-6 md:grid-cols-3">
+                    {agenticUseCases.map((useCase) => (
+                      <div
+                        key={useCase.title}
+                        className="rounded-2xl border border-[#FCD5AC] bg-white/90 p-6 text-left shadow-[0_10px_30px_-18px_rgba(15,44,88,0.35)]"
+                      >
+                        <h4 className="text-[22px] font-medium text-[#111111]">{useCase.title}</h4>
+                        <p className="mt-3 text-[16px] text-[#454545]">{useCase.body}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Building Trustworthy and Governed Agents */}
+                <div className="text-center">
+                  <h3 className="text-[26px] font-medium leading-[38px] text-[#111111] sm:text-[28px]">
+                    Building Trustworthy and Governed Agents
+                  </h3>
+                  <p className="mx-auto mt-4 max-w-4xl text-[16px] text-[#454545] sm:text-[18px]">
+                    As leaders in AI we prioritize a governance framework essential for scaling autonomous systems.
                   </p>
-                  <p>
-                    <span className="font-medium text-[#0F2C58]">Business impact (RoI):</span> Massive operational cost reduction and guaranteed 24/7 service availability.
-                  </p>
+
+                  <div className="mt-10 rounded-2xl border border-[#FCD5AC] bg-white/90 p-6 shadow-[0_10px_30px_-18px_rgba(15,44,88,0.35)] sm:p-10">
+                    <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between">
+                      {governancePillars.map((pillar, index) => (
+                        <Fragment key={pillar.title.join(" ")}>
+                          <div className="flex-1 text-left">
+                            <h4 className="text-[22px] font-medium leading-[26px] text-[#E45412]">
+                              {pillar.title.map((line) => (
+                                <span key={line} className="block">
+                                  {line}
+                                </span>
+                              ))}
+                            </h4>
+                            <p className="mt-4 text-base text-[#454545] lg:text-base">{pillar.body}</p>
+                          </div>
+                          {index < governancePillars.length - 1 && (
+                            <div className="hidden lg:flex lg:h-full lg:w-[2px] lg:justify-center">
+                              <Image
+                                src="/images/raar/lineraar.svg"
+                                alt=""
+                                width={2}
+                                height={180}
+                                className="h-[200px] w-[2px]"
+                                aria-hidden
+                              />
+                            </div>
+                          )}
+                        </Fragment>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </div>
-
-              {/* Reactive */}
-              <div className="rounded-xl border border-[#F2E8E1] bg-white p-6 shadow-[0_6px_18px_-8px_rgba(15,44,88,0.12)]">
-                <div className="mb-4 h-7 w-7">
-                  <Image src="/images/cloud-integrations/paper.svg" alt="icon" width={28} height={28} className="h-7 w-7" />
-                </div>
-                <h3 className="text-[16.5px] font-semibold text-[#0F2C58]">
-                  Reactive:
-                </h3>
-                <p className="mt-1 text-[14.5px] text-[#0F2C58]/80">
-                  Analyzing past data for insights.
-                </p>
-                <div className="mt-4 space-y-3 text-[14px] text-[#3A4A5F]">
-                  <p>
-                    <span className="font-medium text-[#0F2C58]">AI Agent Development</span>
-                  </p>
-                  <p>
-                    <span className="font-medium text-[#0F2C58]">Proactive:</span> An agent monitors market feeds, identifies a pricing opportunity, models the financial impact, and executes the trade.
-                  </p>
-                  <p>
-                    <span className="font-medium text-[#0F2C58]">Business impact (RoI):</span> New revenue generation and a significant competitive advantage through speed.
-                  </p>
-                </div>
-              </div>
             </div>
-          </div>
-
-          {/* Agentic AI – Uses */}
-          <div className="mx-auto max-w-7xl px-6 pb-10">
-            <h3 className="text-center text-[18px] font-semibold text-[#0B1B2B]">
-              Agentic AI – Uses
-            </h3>
-            <p className="mx-auto mt-2 max-w-3xl text-center text-[14.5px] text-[#3A4A5F]">
-              Our focus is on translating complex business challenges into clear technology opportunities by building agents that are reliable, governed, and integrated into your current systems.
-            </p>
-
-            <div className="mt-8 grid gap-6 md:grid-cols-3">
-              {[
-                {
-                  title: "Planning & Execution",
-                  body:
-                    "We build agents with the ability to break down a high‑level goal, set up prompts, ‘onboard a new vendor’, into sequential steps, executing each step and course‑correcting based on real‑time feedback.",
-                },
-                {
-                  title: "Tool Integration",
-                  body:
-                    "Agents are designed to utilize your existing tools (APIs, databases, enterprise software like ERP/CRM) effectively, ensuring they fit seamlessly into your existing technology stack.",
-                },
-                {
-                  title: "Structural Change Enablement",
-                  body:
-                    "For the team leading structural change, agents directly augment organizational redesign by automating entire departments of functions, allowing highly skilled employees to focus solely on high‑value strategy and creativity.",
-                },
-              ].map((c) => (
-                <div
-                  key={c.title}
-                  className="rounded-xl border border-[#F2E8E1] bg-white p-6 shadow-[0_6px_18px_-8px_rgba(15,44,88,0.12)]"
-                >
-                  <h4 className="text-[16px] font-semibold text-[#0F2C58]">{c.title}</h4>
-                  <p className="mt-2 text-[14px] text-[#3A4A5F]">{c.body}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Building Trustworthy and Governed Agents */}
-          <div className="mx-auto max-w-7xl px-6 pb-12">
-            <h2 className="text-center text-2xl font-semibold text-[#0B1B2B]">
-              Building Trustworthy and Governed Agents
-            </h2>
-            <p className="mx-auto mt-2 max-w-3xl text-center text-[14.5px] text-[#3A4A5F]">
-              As leaders in AI governance, we build agents that operate within your defined business constraints.
-            </p>
-
-            <div className="mt-8 grid gap-6 md:grid-cols-3">
-              {[
-                {
-                  title: "Safety & Alignment",
-                  body:
-                    "We implement strict safety protocols to ensure agents operate within defined business constraints and ethical guidelines, preventing unintended or harmful actions.",
-                },
-                {
-                  title: "Transparency & Auditability",
-                  body:
-                    "Every agent action is logged and auditable, providing clarity on the agent’s decision‑making process and simplifying compliance efforts.",
-                },
-                {
-                  title: "Scalable Architecture",
-                  body:
-                    "Agents are architected on your secure cloud environment, ensuring they can handle peak loads and integrate cleanly with your MLOps pipeline for continuous improvement.",
-                },
-              ].map((c) => (
-                <div
-                  key={c.title}
-                  className="rounded-xl border border-[#F2E8E1] bg-white p-6 shadow-[0_6px_18px_-8px_rgba(15,44,88,0.12)]"
-                >
-                  <h4 className="text-xl font-semibold text-orange-500">{c.title}</h4>
-                  <p className="mt-2 text-[14px] text-[#3A4A5F]">{c.body}</p>
-                </div>
-              ))}
-            </div>
-          </div>
+          </BackgroundDots>
         </section>
 
         {/* What You Get */}
-        <section className="mx-auto max-w-7xl px-6 py-14">
-          <h2 className="text-center text-2xl font-semibold text-[#0B1B2B]">What You Get</h2>
-          <div className="mx-auto mt-8 grid max-w-5xl grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-5">
+        <section className="mx-auto max-w-7xl px-6 py-16">
+          <h2 className="text-center text-[32px] font-medium leading-[48px] text-[#0B1B2B]">
+            What You Get
+          </h2>
+
+          <div className="mt-10 flex flex-col gap-8 lg:flex-row lg:items-stretch lg:justify-center lg:gap-6">
             {[
-              { label: "Autonomous, Intelligent Digital Workforce", icon: "/images/icons/settings-code.svg" },
-              { label: "End‑To‑End Workflow Automation", icon: "/images/icons/loader-cube.svg" },
-              { label: "Transparent And Governed AI Operations", icon: "/images/icons/cloud-phone.svg" },
-              { label: "Scalable Cloud‑Native Agent Architecture", icon: "/images/icons/cloud-db.svg" },
-              { label: "Enhanced Organizational Efficiency", icon: "/images/icons/coding-phone.svg" },
-            ].map((item) => (
-              <div
-                key={item.label}
-                className="flex flex-col items-center rounded-xl border border-[#F2E8E1] bg-white p-6 text-center"
-              >
-                <div className="mb-3 h-11 w-11 rounded-full bg-[#FFE3D3] grid place-items-center">
-                  <Image src={item.icon} alt={`${item.label} icon`} width={22} height={22} className="h-5 w-5" />
-                </div>
-                <p className="text-[13.5px] text-[#0F2C58]">{item.label}</p>
-              </div>
+              {
+                title: "Autonomous, Intelligent Digital Workforce",
+                text: "",
+                icon: "/images/icons/settings-code.svg",
+              },
+              {
+                title: "End‑To‑End Workflow Automation",
+                text: "",
+                icon: "/images/icons/loader-cube.svg",
+              },
+              {
+                title: "Transparent And Governed AI Operations",
+                text: "",
+                icon: "/images/icons/cloud-phone.svg",
+              },
+              {
+                title: "Scalable Cloud‑Native Agent Architecture",
+                text: "",
+                icon: "/images/icons/cloud-db.svg",
+              },
+              {
+                title: "Enhanced Organizational Efficiency",
+                text: "",
+                icon: "/images/icons/coding-phone.svg",
+              },
+            ].map((item, index, array) => (
+              <Fragment key={item.title}>
+                <article className="flex-1 rounded-[20px] px-6 py-10 text-center">
+                  <div className="mx-auto mb-4 grid h-20 w-20 place-items-center rounded-full bg-[#FFE6D5] ">
+                    <Image
+                      src={item.icon}
+                      alt={`${item.title} icon`}
+                      width={40}
+                      height={40}
+                      className="h-10 w-10"
+                    />
+                  </div>
+                  <p className="text-[16px] font-medium leading-[24px] text-[#0F2C58]">
+                    {item.title}
+                  </p>
+                  <p className="mt-3 text-sm leading-[22px] text-[#3A4A5F]">
+                    {item.text}
+                  </p>
+                </article>
+
+                {index < array.length - 1 && (
+                  <div className="hidden items-center lg:flex">
+                    <Image
+                      src="/images/raar/lineraar.svg"
+                      alt=""
+                      width={2}
+                      height={200}
+                      className="h-[180px] w-auto"
+                      aria-hidden
+                    />
+                  </div>
+                )}
+              </Fragment>
             ))}
           </div>
+
         </section>
 
-        {/* Agentic AI for Business */}
-        <section className="relative">
-          <div
-            className="absolute inset-0 -z-10"
-            aria-hidden
-            style={{
-              backgroundImage: "radial-gradient(#F0F3F8 1px, transparent 1px)",
-              backgroundSize: "18px 18px",
-            }}
-          />
-          <div className="mx-auto max-w-7xl px-6 py-14">
-            <div className="grid items-center gap-10 md:grid-cols-2">
-              <div>
-                <h2 className="text-2xl font-semibold text-[#0B1B2B]">Agentic AI for Business</h2>
-                <p className="mt-3 text-[14.5px] text-[#3A4A5F]">
-                  We design safe, governed agents that execute strategic objectives autonomously while preserving control and trust.
-                </p>
-              </div>
-              <div className="justify-self-center">
-                <Image
-                  src="/images/ai_agents/aiagentsworking.png"
-                  alt="Agentic AI for business illustration"
-                  width={520}
-                  height={360}
-                  className="h-auto w-[320px] sm:w-[380px] md:w-[460px] rounded-xl shadow-[0_12px_32px_-10px_rgba(15,44,88,0.25)]"
-                />
-              </div>
-            </div>
-          </div>
-        </section>
+       {/* Agentic AI for Business */}
+       <BackgroundDots
+         className="py-14"
+         spacing={25}
+         dotSize={3}
+         backgroundColor="#FFF6EB"
+         dotColor="#D9D9D9"
+         style={{
+          background: "linear-gradient(to bottom, #ffffff 38.524%, #feecd6 171.52%)",
+        }}
+       >
+         <section className="mx-auto max-w-7xl px-6">
+           <div className="grid items-center gap-10 md:grid-cols-3">
+             <div>
+               <h2 className="text-4xl text-[#0B1B2B]">Agentic AI for Business</h2>
+               <p className="mt-5 text-lg text-[#3A4A5F]">
+                 We design safe, governed agents that execute strategic objectives autonomously while preserving control and trust.
+               </p>
+             </div>
+
+             <div className="flex justify-center">
+               <Image
+                 src="/images/raar/lineraar.svg"
+                 alt=""
+                 width={2}
+                 height={320}
+                 className="h-[320px] w-[2px]"
+               />
+             </div>
+
+             <div className="justify-self-center">
+               <Image
+                 src="/images/ai_agents/workingAI.png"
+                 alt="Agentic AI for business illustration"
+                 width={520}
+                 height={360}
+                 className="h-auto w-[320px] sm:w-[380px] md:w-[460px] rounded-xl shadow-[0_12px_32px_-10px_rgba(15,44,88,0.25)]"
+               />
+             </div>
+           </div>
+
+         </section>
+
+       </BackgroundDots>
+       <div className=" flex justify-center">
+         <Image
+           src="/images/horizontalline.svg"
+           alt=""
+           width={1200}
+           height={3}
+           className="w-full max-w-5xl"
+           aria-hidden
+         />
+       </div>
 
         {/* CTA */}
         <section className="mx-auto max-w-7xl px-6 py-16">
@@ -263,13 +446,9 @@ export default function AIAgentDevelopment() {
             Discover the key frameworks and system requirements to build your first AI Agent prototype and see how autonomous intelligence can accelerate real business outcomes.
           </p>
           <div className="mt-8 flex justify-center">
-            <button
-              onClick={() => setIsModalOpen(true)}
-              className="rounded-full bg-[#FF6A3D] px-6 py-3 text-white text-sm font-medium shadow-[0_8px_20px_-6px_rgba(255,106,61,0.6)] hover:brightness-110 transition"
-              type="button"
-            >
-              Build Autonomous Workflows →
-            </button>
+            <PrimaryButton onClick={() => setIsModalOpen(true)}>
+              Build Autonomous Workflows 
+            </PrimaryButton>
           </div>
         </section>
       </main>

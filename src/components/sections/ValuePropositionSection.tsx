@@ -124,10 +124,10 @@ export function ValuePropositionSection() {
           </div>
 
           {/* Main Content */}
-          <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:gap-12">
+          <div className="flex flex-col gap-8 lg:flex-row lg:items-stretch lg:gap-12">
             <div className="flex flex-col gap-8 lg:flex-1 lg:flex-row">
               {/* Stepper */}
-              <div className="relative flex w-full flex-col gap-8 lg:w-auto">
+              <div className="relative flex w-full flex-col gap-8 lg:h-full lg:w-auto">
                 <div className="absolute -left-8 top-0 h-full w-[2px] bg-gradient-to-b from-[#E45412] to-[#FEECD6]" />
                 {features.map((feature, index) => (
                   <div key={feature.id} className="relative">
@@ -140,7 +140,7 @@ export function ValuePropositionSection() {
                     {/* Button */}
                     <button
                       onClick={() => setActiveStep(feature.id)}
-                      className={`relative flex w-full items-center justify-between rounded-lg px-5 py-4 text-left transition-all ${
+                      className={`relative flex w-full items-center justify-between gap-3 rounded-lg px-5 py-4 text-left transition-all ${
                         activeStep === feature.id
                           ? 'bg-gradient-to-br from-[#F68E41] to-[#BD3E11]'
                           : 'bg-white hover:bg-[#FFF6ED]'
@@ -168,7 +168,9 @@ export function ValuePropositionSection() {
                           alt={feature.title}
                           width={40}
                           height={40}
-                          className="size-10"
+                          className={`size-10 ${
+                            activeStep === feature.id ? 'invert brightness-0' : ''
+                          }`}
                         />
                       </div>
                     </button>
@@ -177,10 +179,10 @@ export function ValuePropositionSection() {
               </div>
 
               {/* Content Card */}
-              <div className="flex flex-1 items-center rounded-2xl bg-white p-8">
-                <div className="flex w-full flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
-                  <div className="flex flex-col justify-between gap-8">
-                    <p className="w-full max-w-[520px] font-poppins text-base leading-normal text-[#4F4F4F]">
+              <div className="flex flex-1 items-stretch rounded-2xl bg-white p-6 lg:h-full">
+                <div className="flex w-full flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
+                  <div className="flex flex-col gap-4">
+                    <p className="w-full max-w-[520px] font-poppins text-lg leading-normal text-[#4F4F4F]">
                       {activeFeature.description}
                     </p>
                     <button
@@ -211,9 +213,9 @@ export function ValuePropositionSection() {
                     <Image
                       src="/images/valuesection/world.svg"
                       alt="Global connectivity"
-                      width={400}
-                      height={400}
-                      className="h-auto w-full max-w-[400px] lg:max-w-[500px]"
+                      width={250}
+                      height={250}
+                      className="h-auto w-full max-w-[250px] lg:max-w-[300px]"
                     />
                   </div>
                 </div>
