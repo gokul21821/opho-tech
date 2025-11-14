@@ -120,7 +120,7 @@ export default function RAARPage() {
               ].map((item) => (
                 <div
                   key={item.title}
-                  className="flex-1 rounded-2xl border border-[#fcd5ac] bg-white p-5 flex flex-col gap-4 items-start"
+                  className="flex-1 rounded-2xl border border-[#fcd5ac] bg-white/30 p-5 flex flex-col gap-4 items-start"
                 >
                   <div className="h-12 w-12 flex-shrink-0">
                     <Image

@@ -137,7 +137,7 @@ export default function CloudIntegrationPage() {
                 }].map((item, i) => (
                   <div
                     key={i}
-                    className="border border-[#fcd5ac] rounded-2xl p-5 bg-white relative overflow-hidden"
+                    className="border border-[#fcd5ac] rounded-2xl p-5 bg-white/30 relative overflow-hidden"
                   >
                     <div className="relative z-10 flex flex-col gap-4">
                       <div className="h-12 w-12 relative">
@@ -199,7 +199,7 @@ export default function CloudIntegrationPage() {
                 }].map((item, i) => (
                   <div
                     key={i}
-                    className="border border-[#fcd5ac] rounded-2xl p-5 bg-white relative overflow-hidden"
+                    className="border border-[#fcd5ac] rounded-2xl p-5 bg-white/30 relative overflow-hidden"
                   >
                     <div className="relative z-10 flex flex-col gap-4">
                       <div className="flex flex-col gap-2">
@@ -252,7 +252,7 @@ export default function CloudIntegrationPage() {
                 }].map((item, i) => (
                   <div
                     key={i}
-                    className="border border-[#fcd5ac] rounded-2xl p-5 bg-white relative overflow-hidden"
+                    className="border border-[#fcd5ac] rounded-2xl p-5 bg-white/30 relative overflow-hidden"
                   >
                     <div className="relative z-10 flex flex-col gap-4">
                       <h4 className="text-[20px] md:text-[24px] font-medium leading-[26px] text-[#111111]">

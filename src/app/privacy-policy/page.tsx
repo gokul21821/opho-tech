@@ -1,10 +1,17 @@
+"use client";
+
 // app/privacy-policy/page.tsx
 import Image from "next/image";
+import { useState } from "react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { HeroSection } from "@/components/ui/HeroSection";
+import { ContactModal } from "@/components/forms/ContactModal";
+import { PrimaryButton } from "@/components/ui/Button";
 
 export default function PrivacyPolicy() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <div className="flex min-h-screen flex-col bg-white text-[#0B1B2B]">
       {/* Hero background behind header */}
@@ -295,30 +302,22 @@ export default function PrivacyPolicy() {
             </div>
 
             {/* CTA section */}
-            <div className="rounded-2xl border border-[#F2E8E1] bg-[#FAFBFC] p-8 text-center">
-              <h2 className="text-2xl font-semibold text-[#0B1B2B]">
+            <div className="rounded-2xl  bg-white p-8 text-center">
+              <h2 className="text-4xl font-medium text-[#0B1B2B]">
                 Ready to Solve
                 <br />
                 What&apos;s Next With OphoTech?
               </h2>
-              <button
-                className="mt-6 rounded-full bg-[#FF6A3D] px-6 py-3 text-white text-sm font-medium shadow-[0_8px_20px_-6px_rgba(255,106,61,0.6)] hover:brightness-110 transition"
-                type="button"
-              >
+              <PrimaryButton className="mt-6" onClick={() => setIsModalOpen(true)}>
                 Get Started
-              </button>
+              </PrimaryButton>
             </div>
           </div>
         </section>
-
-        {/* Bottom wave band for footer continuity */}
-        <div className="relative overflow-hidden">
-          <div className="h-10 w-full bg-[conic-gradient(from_190deg_at_10%_120%,#FBE0D6,transparent_30%)]" />
-          <div className="h-28 w-full bg-[radial-gradient(1200px_500px_at_50%_100px,#0F2C58_30%,#071A38_75%)]" />
-        </div>
       </main>
 
       <Footer />
+      <ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </div>
   );
 }

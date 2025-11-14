@@ -38,11 +38,11 @@ export default function CyberSecuritySolutions() {
     {/* LEFT — Illustration */}
     <div className="flex justify-center md:justify-start">
       <Image
-        src="/images/cyber/secure.png"
+        src="/images/cyber/brainimage.png"
         alt="Cyber security illustration"
-        width={520}
+        width={600}
         height={380}
-        className="h-auto w-[320px] sm:w-[380px] md:w-[420px] rounded-xl"
+        className="h-auto w-[500px] sm:w-[500px] md:w-[500px] rounded-xl"
         priority
       />
     </div>
@@ -132,7 +132,7 @@ export default function CyberSecuritySolutions() {
                 }].map((item, i) => (
                   <div
                     key={i}
-                    className="border border-[#fcd5ac] rounded-2xl p-5 bg-white relative overflow-hidden"
+                    className="border border-[#fcd5ac] rounded-2xl p-5 bg-white/30 relative overflow-hidden"
                   >
                     <div className="relative z-10 flex flex-col gap-4">
                       <div className="h-12 w-12 relative">
@@ -235,7 +235,7 @@ export default function CyberSecuritySolutions() {
                 }].map((item, i) => (
                   <div
                     key={i}
-                    className="border border-[#fcd5ac] rounded-2xl p-5 bg-white relative overflow-hidden"
+                    className="border border-[#fcd5ac] rounded-2xl p-5 bg-white/30 relative overflow-hidden"
                   >
                     <div className="relative z-10 flex flex-col gap-4">
                       <div className={`rounded-lg px-2.5 py-1.5 inline-flex items-center justify-center w-fit border ${item.chipColor}`}>
@@ -395,7 +395,7 @@ export default function CyberSecuritySolutions() {
                  alt="Security dashboard illustration"
                  width={520}
                  height={360}
-                 className="h-auto w-[320px] sm:w-[380px] md:w-[460px] rounded-xl shadow-[0_12px_32px_-10px_rgba(15,44,88,0.25)]"
+                 className="h-auto w-[320px] sm:w-[380px] md:w-[460px] rounded-xl "
                />
              </div>
            </div>

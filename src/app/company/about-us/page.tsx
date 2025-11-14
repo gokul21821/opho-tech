@@ -442,8 +442,10 @@ const AboutPage = () => {
             </h2>
 
             {/* Subtitle */}
+            <p className="max-w-none mx-auto text-center text-base text-[#3A4A5F]">
+              Engineered for your operating model. We design around your processes, KPIs, users, and risk profile—not generic templates.
+            </p>
             <p className="max-w-3xl mx-auto text-center text-base text-[#3A4A5F] leading-relaxed mb-10">
-              Engineered for your operating model. We design around your processes, KPIs, users, and risk profile—not generic templates. 
               Every build aligns data, controls, and experience to how your organization actually runs.
             </p>
 

@@ -132,7 +132,7 @@ export default function AISolutionsAndServices() {
                 }].map((item, i) => (
                   <div
                     key={i}
-                    className="border border-[#fcd5ac] rounded-2xl p-5 bg-white relative overflow-hidden"
+                    className="border border-[#fcd5ac] rounded-2xl p-5 bg-white/30 relative overflow-hidden"
                   >
                     <div className="relative z-10 flex flex-col gap-4">
                       <div className="h-12 w-12 relative">
@@ -200,7 +200,7 @@ export default function AISolutionsAndServices() {
                 }].map((item, i) => (
                   <div
                     key={i}
-                    className="border border-[#fcd5ac] rounded-2xl p-5 bg-white relative overflow-hidden"
+                    className="border border-[#fcd5ac] rounded-2xl p-5 bg-white/30 relative overflow-hidden"
                   >
                     <div className="relative z-10 flex flex-col gap-4">
                       <h4 className="text-[20px] md:text-[24px] font-medium leading-[26px] text-[#111111] capitalize">
@@ -226,7 +226,7 @@ export default function AISolutionsAndServices() {
                 </p>
               </div>
 
-              <div className="border border-[#fcd5ac] rounded-2xl px-6 md:px-10 py-5 bg-white relative overflow-hidden">
+              <div className="border border-[#fcd5ac] rounded-2xl px-6 md:px-10 py-5 bg-white/30 relative overflow-hidden">
                 <div className="relative z-10 flex flex-col md:flex-row gap-6 md:gap-10 md:items-center">
                   <div className="flex-1 flex flex-col gap-4">
                     <h4 className="text-[20px] md:text-[24px] font-medium leading-[26px] text-[#e45412] capitalize">

@@ -153,7 +153,7 @@ export default function DataMonetizationPage() {
                 ].map((c) => (
                   <div
                     key={c.title}
-                    className="relative rounded-2xl border border-[#FCD5AC] bg-white p-5"
+                    className="relative rounded-2xl border border-[#FCD5AC] bg-white/30 p-5"
                   >
                     <div className="flex flex-col gap-4 items-start">
                       <h3 className="capitalize text-[24px] font-medium leading-[26px] text-[#111111]">
@@ -207,7 +207,7 @@ export default function DataMonetizationPage() {
                 ].map((b) => (
                   <div
                     key={b.title}
-                    className="relative rounded-2xl border border-[#FCD5AC] bg-white p-5"
+                    className="relative rounded-2xl border border-[#FCD5AC] bg-white/30 p-5"
                   >
                     <div className="flex flex-col gap-4 items-start">
                       {/* Icon */}
@@ -279,7 +279,7 @@ export default function DataMonetizationPage() {
               </div>
 
               {/* Two-column challenge/services band */}
-              <div className="rounded-2xl border border-[#FCD5AC] bg-white px-6 py-5 md:px-10 w-full">
+              <div className="rounded-2xl border border-[#FCD5AC] bg-white/30 px-6 py-5 md:px-10 w-full">
                 <div className="flex flex-col md:flex-row gap-6 md:gap-10 items-stretch md:items-center min-h-[243px] relative">
                   {/* First Card */}
                   <div className="flex-1 flex flex-col gap-4 items-start justify-center">

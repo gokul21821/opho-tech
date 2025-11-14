@@ -194,7 +194,7 @@ export default function AIAgentDevelopment() {
                     {strategicValueCards.map((card) => (
                       <div
                         key={card.title}
-                        className="relative rounded-2xl border border-[#FCD5AC] bg-white/90 p-6 text-left shadow-[0_10px_30px_-18px_rgba(15,44,88,0.35)]"
+                        className="relative rounded-2xl border border-[#FCD5AC] bg-white/30 p-6 text-left shadow-[0_10px_30px_-18px_rgba(15,44,88,0.35)]"
                       >
                         <div className="mb-4 h-12 w-12 rounded-xl bg-[#FFF4EB] p-3">
                           <Image src={card.icon} alt={`${card.title} icon`} width={32} height={32} className="h-6 w-6" />
@@ -259,7 +259,7 @@ export default function AIAgentDevelopment() {
                     {agenticUseCases.map((useCase) => (
                       <div
                         key={useCase.title}
-                        className="rounded-2xl border border-[#FCD5AC] bg-white/90 p-6 text-left shadow-[0_10px_30px_-18px_rgba(15,44,88,0.35)]"
+                        className="rounded-2xl border border-[#FCD5AC] bg-white/30 p-6 text-left shadow-[0_10px_30px_-18px_rgba(15,44,88,0.35)]"
                       >
                         <h4 className="text-[22px] font-medium text-[#111111]">{useCase.title}</h4>
                         <p className="mt-3 text-[16px] text-[#454545]">{useCase.body}</p>
@@ -277,7 +277,7 @@ export default function AIAgentDevelopment() {
                     As leaders in AI we prioritize a governance framework essential for scaling autonomous systems.
                   </p>
 
-                  <div className="mt-10 rounded-2xl border border-[#FCD5AC] bg-white/90 p-6 shadow-[0_10px_30px_-18px_rgba(15,44,88,0.35)] sm:p-10">
+                  <div className="mt-10 rounded-2xl border border-[#FCD5AC] bg-white/30 p-6 shadow-[0_10px_30px_-18px_rgba(15,44,88,0.35)] sm:p-10">
                     <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between">
                       {governancePillars.map((pillar, index) => (
                         <Fragment key={pillar.title.join(" ")}>
