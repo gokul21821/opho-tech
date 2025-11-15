@@ -43,8 +43,7 @@ export default function CookieConsent() {
         {!showCustomize && (
           <>
             <p className="text-sm leading-6 md:max-w-3xl">
-              We use cookies to improve your browsing experience, analyze traffic, and personalize
-              content. You can accept, decline, or customize your preferences at any time.
+              We use cookies to improve your browsing experience and analyze traffic. By clicking Accept All, you agree to the use of cookies.
             </p>
 
             <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-end">
@@ -57,14 +56,14 @@ export default function CookieConsent() {
 
               <button
                 onClick={rejectAll}
-                className="rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 transition hover:border-gray-400 hover:bg-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                className="rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 transition hover:border-gray-400 hover:bg-gray-100"
               >
                 Reject All
               </button>
 
               <button
                 onClick={acceptAll}
-                className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white transition hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                className="rounded-lg bg-orange-500 px-4 py-2 text-sm font-medium text-white transition hover:bg-orange-600 "
               >
                 Accept All
               </button>
@@ -99,14 +98,14 @@ export default function CookieConsent() {
             <div className="mt-6 flex gap-3 justify-end">
               <button
                 onClick={() => setShowCustomize(false)}
-                className="rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 transition hover:border-gray-400 hover:bg-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                className="rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 transition hover:border-gray-400 hover:bg-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2"
               >
                 Back
               </button>
 
               <button
                 onClick={saveCustom}
-                className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white transition hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                className="rounded-lg bg-orange-500 px-4 py-2 text-sm font-medium text-white transition hover:bg-orange-600 "
               >
                 Save Preferences
               </button>
