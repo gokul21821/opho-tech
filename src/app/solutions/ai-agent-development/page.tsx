@@ -126,14 +126,14 @@ export default function AIAgentDevelopment() {
 
     {/* CENTER — Vertical Divider */}
     <div className="flex justify-center">
-      <Image
-        src="/images/raar/lineraar.svg"
-        alt=""
-        width={2}
-        height={200}
-        className="h-[350px] w-auto"
-        aria-hidden
-      />
+    <Image
+                      src="/images/raar/lineraar.svg"
+                      alt=""
+                      width={2}
+                      height={320}
+                      className="w-auto h-auto"
+                      aria-hidden
+                    />
     </div>
 
     {/* RIGHT — Text Block */}
@@ -194,7 +194,7 @@ export default function AIAgentDevelopment() {
                     {strategicValueCards.map((card) => (
                       <div
                         key={card.title}
-                        className="relative rounded-2xl border border-[#FCD5AC] bg-white/30 p-6 text-left shadow-[0_10px_30px_-18px_rgba(15,44,88,0.35)]"
+                        className="relative rounded-2xl border border-[#FCD5AC] bg-white/30 p-6 text-left shadow-[0_10px_30px_-18px_rgba(15,44,88,0.35)] card-text-smaller"
                       >
                         <div className="mb-4 h-12 w-12 rounded-xl bg-[#FFF4EB] p-3">
                           <Image src={card.icon} alt={`${card.title} icon`} width={32} height={32} className="h-6 w-6" />
@@ -259,7 +259,7 @@ export default function AIAgentDevelopment() {
                     {agenticUseCases.map((useCase) => (
                       <div
                         key={useCase.title}
-                        className="rounded-2xl border border-[#FCD5AC] bg-white/30 p-6 text-left shadow-[0_10px_30px_-18px_rgba(15,44,88,0.35)]"
+                        className="rounded-2xl border border-[#FCD5AC] bg-white/30 p-6 text-left shadow-[0_10px_30px_-18px_rgba(15,44,88,0.35)] card-text-smaller"
                       >
                         <h4 className="text-[22px] font-medium text-[#111111]">{useCase.title}</h4>
                         <p className="mt-3 text-[16px] text-[#454545]">{useCase.body}</p>
@@ -277,7 +277,7 @@ export default function AIAgentDevelopment() {
                     As leaders in AI we prioritize a governance framework essential for scaling autonomous systems.
                   </p>
 
-                  <div className="mt-10 rounded-2xl border border-[#FCD5AC] bg-white/30 p-6 shadow-[0_10px_30px_-18px_rgba(15,44,88,0.35)] sm:p-10">
+                  <div className="mt-10 rounded-2xl border border-[#FCD5AC] bg-white/30 p-6 shadow-[0_10px_30px_-18px_rgba(15,44,88,0.35)] sm:p-10 card-text-smaller">
                     <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between">
                       {governancePillars.map((pillar, index) => (
                         <Fragment key={pillar.title.join(" ")}>
@@ -293,14 +293,14 @@ export default function AIAgentDevelopment() {
                           </div>
                           {index < governancePillars.length - 1 && (
                             <div className="hidden lg:flex lg:h-full lg:w-[2px] lg:justify-center">
-                              <Image
-                                src="/images/raar/lineraar.svg"
-                                alt=""
-                                width={2}
-                                height={180}
-                                className="h-[200px] w-[2px]"
-                                aria-hidden
-                              />
+                             <Image
+                      src="/images/raar/lineraar.svg"
+                      alt=""
+                      width={2}
+                      height={320}
+                      className="w-auto h-auto"
+                      aria-hidden
+                    />
                             </div>
                           )}
                         </Fragment>
@@ -348,7 +348,7 @@ export default function AIAgentDevelopment() {
               },
             ].map((item, index, array) => (
               <Fragment key={item.title}>
-                <article className="flex-1 rounded-[20px] px-6 py-10 text-center">
+                <article className="flex-1 rounded-[20px] px-6 py-10 text-center card-text-smaller">
                   <div className="mx-auto mb-4 grid h-20 w-20 place-items-center rounded-full bg-[#FFE6D5] ">
                     <Image
                       src={item.icon}
@@ -372,10 +372,10 @@ export default function AIAgentDevelopment() {
                       src="/images/raar/lineraar.svg"
                       alt=""
                       width={2}
-                      height={200}
-                      className="h-[180px] w-auto"
-                      aria-hidden
-                    />
+                    height={320}
+                    className="w-auto h-[325px]"
+                    aria-hidden
+                  />
                   </div>
                 )}
               </Fragment>
@@ -405,13 +405,14 @@ export default function AIAgentDevelopment() {
              </div>
 
              <div className="flex justify-center">
-               <Image
-                 src="/images/raar/lineraar.svg"
-                 alt=""
-                 width={2}
-                 height={320}
-                 className="h-[320px] w-[2px]"
-               />
+             <Image
+                      src="/images/raar/lineraar.svg"
+                      alt=""
+                      width={2}
+                      height={320}
+                      className="w-auto h-auto"
+                      aria-hidden
+                    />
              </div>
 
              <div className="justify-self-center">

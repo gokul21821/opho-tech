@@ -1,8 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { CTAArrowIcon } from "@/components/ui/Button";
-
 export function CaseStudiesSection() {
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-[#FFF9F5] to-[#FFFDFB] px-6 py-16 before:absolute before:inset-0 before:z-0 before:bg-[radial-gradient(circle,_rgba(243,113,33,0.12)_1.7px,transparent_1px)] before:bg-repeat before:opacity-80 before:[background-size:20px_20px] before:content-[''] md:px-24 md:py-24">
@@ -59,13 +57,31 @@ export function CaseStudiesSection() {
         <div className="mt-12">
           <Link
             href="#"
-            className="inline-flex items-center gap-2 font-poppins text-base font-medium text-orange-500 transition-all duration-200 hover:text-orange-600"
+            className="inline-flex items-center gap-1.5 rounded-lg bg-orange-25 px-3 py-3 font-poppins text-base font-normal leading-normal text-orange-500 transition-colors hover:bg-orange-50"
           >
-            See All
-            <CTAArrowIcon />
+            <span>See All</span>
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              className="size-4"
+            >
+              <path
+                d="M3 13L13 3M13 3H3M13 3V13"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
           </Link>
         </div>
       </div>
+      
     </section>
+    
   );
+  
+  
 }

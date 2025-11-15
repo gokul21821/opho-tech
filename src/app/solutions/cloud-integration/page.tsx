@@ -137,7 +137,7 @@ export default function CloudIntegrationPage() {
                 }].map((item, i) => (
                   <div
                     key={i}
-                    className="border border-[#fcd5ac] rounded-2xl p-5 bg-white/30 relative overflow-hidden"
+                    className="border border-[#fcd5ac] rounded-2xl p-5 bg-white/30 relative overflow-hidden card-text-smaller"
                   >
                     <div className="relative z-10 flex flex-col gap-4">
                       <div className="h-12 w-12 relative">
@@ -199,7 +199,7 @@ export default function CloudIntegrationPage() {
                 }].map((item, i) => (
                   <div
                     key={i}
-                    className="border border-[#fcd5ac] rounded-2xl p-5 bg-white/30 relative overflow-hidden"
+                    className="border border-[#fcd5ac] rounded-2xl p-5 bg-white/30 relative overflow-hidden card-text-smaller"
                   >
                     <div className="relative z-10 flex flex-col gap-4">
                       <div className="flex flex-col gap-2">
@@ -252,7 +252,7 @@ export default function CloudIntegrationPage() {
                 }].map((item, i) => (
                   <div
                     key={i}
-                    className="border border-[#fcd5ac] rounded-2xl p-5 bg-white/30 relative overflow-hidden"
+                    className="border border-[#fcd5ac] rounded-2xl p-5 bg-white/30 relative overflow-hidden card-text-smaller"
                   >
                     <div className="relative z-10 flex flex-col gap-4">
                       <h4 className="text-[20px] md:text-[24px] font-medium leading-[26px] text-[#111111]">
@@ -304,7 +304,7 @@ export default function CloudIntegrationPage() {
               },
             ].map((item, index, array) => (
               <Fragment key={item.title}>
-                <article className="flex-1 rounded-[20px] px-6 py-10 text-center">
+                <article className="flex-1 rounded-[20px] px-6 py-10 text-center card-text-smaller">
                   <div className="mx-auto mb-4 grid h-20 w-20 place-items-center rounded-full bg-[#FFE6D5] ">
                     <Image
                       src={item.icon}
@@ -324,14 +324,14 @@ export default function CloudIntegrationPage() {
 
                 {index < array.length - 1 && (
                   <div className="hidden items-center lg:flex">
-                    <Image
-                      src="/images/raar/lineraar.svg"
-                      alt=""
-                      width={2}
-                      height={200}
-                      className="h-[180px] w-auto"
-                      aria-hidden
-                    />
+                      <Image
+                        src="/images/raar/lineraar.svg"
+                        alt=""
+                        width={2}
+                        height={320}
+                        className="w-auto h-[325px]"
+                        aria-hidden
+                      />
                   </div>
                 )}
               </Fragment>

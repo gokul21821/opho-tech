@@ -49,14 +49,14 @@ export default function CyberSecuritySolutions() {
 
     {/* CENTER — Vertical Divider */}
     <div className="flex justify-center">
-      <Image
-        src="/images/raar/lineraar.svg"
-        alt=""
-        width={2}
-        height={200}
-        className="h-[350px] w-auto"
-        aria-hidden
-      />
+                   <Image
+                      src="/images/raar/lineraar.svg"
+                      alt=""
+                      width={2}
+                      height={320}
+                      className="w-auto h-auto"
+                      aria-hidden
+                    />
     </div>
 
     {/* RIGHT — Text */}
@@ -126,13 +126,13 @@ export default function CyberSecuritySolutions() {
                   icon: '/images/cloud-integrations/paper.svg',
                   impact: 'High Likelihood: Stolen credentials are a primary pivot point, driving the global average cost per breach to $4.40M.'
                 }, {
-                  title: 'Ransomware/Extortion',
+                  title: 'Ransomware / Extortion',
                   icon: '/images/cyber/bag.svg',
                   impact: 'Critical Impact: Downtime is the largest driver of loss. Healthcare crises have showed >50% revenue disruption for providers.'
                 }].map((item, i) => (
                   <div
                     key={i}
-                    className="border border-[#fcd5ac] rounded-2xl p-5 bg-white/30 relative overflow-hidden"
+                    className="border border-[#fcd5ac] rounded-2xl p-5 bg-white/30 relative overflow-hidden card-text-smaller"
                   >
                     <div className="relative z-10 flex flex-col gap-4">
                       <div className="h-12 w-12 relative">
@@ -190,7 +190,7 @@ export default function CyberSecuritySolutions() {
                 }].map((item, i) => (
                   <div
                     key={i}
-                    className="border border-[#fcd5ac] rounded-2xl p-5 bg-white relative overflow-hidden"
+                    className="border border-[#fcd5ac] rounded-2xl p-5 bg-white relative overflow-hidden card-text-smaller"
                   >
                     <div className="relative z-10 flex flex-col gap-4">
                       <h4 className="text-[20px] md:text-[24px] font-medium leading-[26px] text-[#111111]">
@@ -235,7 +235,7 @@ export default function CyberSecuritySolutions() {
                 }].map((item, i) => (
                   <div
                     key={i}
-                    className="border border-[#fcd5ac] rounded-2xl p-5 bg-white/30 relative overflow-hidden"
+                    className="border border-[#fcd5ac] rounded-2xl p-5 bg-white/30 relative overflow-hidden card-text-smaller"
                   >
                     <div className="relative z-10 flex flex-col gap-4">
                       <div className={`rounded-lg px-2.5 py-1.5 inline-flex items-center justify-center w-fit border ${item.chipColor}`}>
@@ -306,7 +306,7 @@ export default function CyberSecuritySolutions() {
               },
             ].map((item, index, array) => (
               <Fragment key={item.title}>
-                <article className="flex-1 rounded-[20px] px-6 py-10 text-center">
+                <article className="flex-1 rounded-[20px] px-6 py-10 text-center card-text-smaller">
                   <div className="mx-auto mb-4 grid h-20 w-20 place-items-center rounded-full bg-[#FFE6D5] ">
                     <Image
                       src={item.icon}
@@ -328,12 +328,12 @@ export default function CyberSecuritySolutions() {
                   <div className="hidden items-center lg:flex">
                     <Image
                       src="/images/raar/lineraar.svg"
-                      alt=""
-                      width={2}
-                      height={200}
-                      className="h-[180px] w-auto"
-                      aria-hidden
-                    />
+                    alt=""
+                    width={2}
+                    height={320}
+                    className="w-auto h-[340px]"
+                    aria-hidden
+                  />
                   </div>
                 )}
               </Fragment>
@@ -380,13 +380,14 @@ export default function CyberSecuritySolutions() {
              </div>
 
              <div className="flex justify-center">
-               <Image
-                 src="/images/raar/lineraar.svg"
-                 alt=""
-                 width={2}
-                 height={320}
-                 className="h-[320px] w-[2px]"
-               />
+             <Image
+                      src="/images/raar/lineraar.svg"
+                      alt=""
+                      width={2}
+                      height={320}
+                      className="w-auto h-auto"
+                      aria-hidden
+                    />
              </div>
 
              <div className="justify-self-center">

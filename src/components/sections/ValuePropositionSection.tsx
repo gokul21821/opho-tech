@@ -52,66 +52,6 @@ export function ValuePropositionSection() {
           />
         </div>
 
-        {/* Top-right illustration */}
-        <div className="pointer-events-none absolute right-6 top-8 hidden lg:block">
-          <div className="relative size-[110px]">
-            <Image
-              src="/images/valuesection/messagebox.svg"
-              alt=""
-              width={110}
-              height={110}
-              className="size-full"
-            />
-            <div className="absolute left-[14.61%] top-[8.66%] h-[82.41%] w-[79.28%]">
-              <Image
-                src="/images/valuesection/robot.png"
-                alt="Global connectivity"
-                width={85}
-                height={85}
-                className="size-full object-contain"
-              />
-            </div>
-            <div className="absolute bottom-[13.99%] left-[13.56%] h-[74.18%] w-[72.3%]">
-              <Image
-                src="/images/valuesection/vector.svg"
-                alt=""
-                width={82}
-                height={82}
-                className="size-full"
-              />
-            </div>
-          </div>
-        </div>
-        <div className="pointer-events-none absolute right-4 top-6 lg:hidden">
-          <div className="relative size-[64px]">
-            <Image
-              src="/images/valuesection/messagebox.svg"
-              alt=""
-              width={64}
-              height={64}
-              className="size-full"
-            />
-            <div className="absolute left-[14.61%] top-[8.66%] h-[82.41%] w-[79.28%]">
-              <Image
-                src="/images/valuesection/robot.png"
-                alt="Global connectivity"
-                width={48}
-                height={48}
-                className="size-full object-contain"
-              />
-            </div>
-            <div className="absolute bottom-[13.99%] left-[13.56%] h-[74.18%] w-[72.3%]">
-              <Image
-                src="/images/valuesection/vector.svg"
-                alt=""
-                width={46}
-                height={46}
-                className="size-full"
-              />
-            </div>
-          </div>
-        </div>
-
         <div className="mx-auto max-w-[1440px]">
           {/* Heading */}
           <div className="mb-10 text-center">
@@ -225,7 +165,16 @@ export function ValuePropositionSection() {
           </div>
         </div>
       </section>
-
+      <div className=" flex justify-center">
+         <Image
+           src="/images/horizontalline.svg"
+           alt=""
+           width={1200}
+           height={3}
+           className="w-full max-w-5xl"
+           aria-hidden
+         />
+       </div>
       <ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </>
   );

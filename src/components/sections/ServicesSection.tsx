@@ -156,8 +156,8 @@ function ServiceCard({ title, tagline, description, icon }: ServiceCardProps) {
         aria-hidden="true"
         className="
           absolute bottom-3 right-2 z-[4]
-          translate-x-[30%] translate-y-[30%]
-          flex h-[52px] w-[52px] items-center justify-center
+          translate-x-[36%] translate-y-[24%] md:translate-x-[40%] md:translate-y-[30%] lg:translate-x-[30%]
+          flex h-10 w-10 md:h-[52px] md:w-[52px] items-center justify-center
           rounded-full bg-white shadow-[0_10px_30px_-10px_rgba(0,0,0,0.25)]
           transition-transform duration-300
           group-hover:scale-110

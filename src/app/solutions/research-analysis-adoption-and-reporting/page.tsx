@@ -50,14 +50,14 @@ export default function RAARPage() {
 
     {/* CENTER — Line Divider */}
     <div className="flex justify-center">
-      <Image
-        src="/images/raar/lineraar.svg"
-        alt=""
-        width={2}
-        height={200}
-        className="h-[350px] w-auto"
-        aria-hidden
-      />
+                      <Image
+                      src="/images/raar/lineraar.svg"
+                      alt=""
+                      width={2}
+                      height={320}
+                      className="w-auto h-auto"
+                      aria-hidden
+                    />
     </div>
 
     {/* RIGHT — Text Block */}
@@ -91,7 +91,7 @@ export default function RAARPage() {
             </h2>
 
             {/* Four cards */}
-            <div className="flex flex-col gap-6 md:flex-row md:gap-6 w-full">
+            <div className="flex flex-col gap-6 md:flex-row md:gap-6 md:justify-center w-full">
               {[
                 {
                   title: "Research",
@@ -120,7 +120,7 @@ export default function RAARPage() {
               ].map((item) => (
                 <div
                   key={item.title}
-                  className="flex-1 rounded-2xl border border-[#fcd5ac] bg-white/30 p-5 flex flex-col gap-4 items-start"
+                  className="flex-1 rounded-2xl border border-[#fcd5ac] bg-white/30 p-5 flex flex-col gap-4 items-start card-text-smaller"
                 >
                   <div className="h-12 w-12 flex-shrink-0">
                     <Image
@@ -182,7 +182,7 @@ export default function RAARPage() {
             },
           ].map((item, index, array) => (
             <Fragment key={item.title}>
-              <article className="flex-1 rounded-[20px] px-6 py-10 text-center">
+              <article className="flex-1 rounded-[20px] px-6 py-10 text-center card-text-smaller">
                 <div className="mx-auto mb-4 grid h-20 w-20 place-items-center rounded-full bg-[#FFE6D5] ">
                   <Image
                     src={item.icon}
@@ -203,13 +203,13 @@ export default function RAARPage() {
               {index < array.length - 1 && (
                 <div className="hidden items-center lg:flex">
                   <Image
-                    src="/images/raar/lineraar.svg"
-                    alt=""
-                    width={2}
-                    height={200}
-                    className="h-[180px] w-auto"
-                    aria-hidden
-                  />
+                      src="/images/raar/lineraar.svg"
+                      alt=""
+                      width={2}
+                      height={320}
+                      className="w-auto h-[325px]"
+                      aria-hidden
+                    />
                 </div>
               )}
             </Fragment>
@@ -250,13 +250,14 @@ export default function RAARPage() {
       </div>
 
       <div className="flex justify-center">
-        <Image
-          src="/images/raar/lineraar.svg"
-          alt=""
-          width={2}
-          height={320}
-          className="h-[320px] w-[2px]"
-        />
+      <Image
+                      src="/images/raar/lineraar.svg"
+                      alt=""
+                      width={2}
+                      height={320}
+                      className="w-auto h-auto"
+                      aria-hidden
+                    />
       </div>
 
       <div className="justify-self-center">

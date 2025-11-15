@@ -44,12 +44,12 @@ const SEARCH_RESULTS = [
   },
   {
     id: "newsletter-weekly-1",
-    title: "Ophotech Weekly: AI × Industry",
+    title: "Ophotech Weekly: AI ",
     tag: "Newsletter",
   },
   {
     id: "newsletter-weekly-2",
-    title: "Ophotech Weekly: AI × Industry 2",
+    title: "Ophotech Weekly",
     tag: "Newsletter",
   },
   {
@@ -122,7 +122,6 @@ export function Header() {
   const [contactOpen, setContactOpen] = useState(false);
   const [expandedSection, setExpandedSection] = useState<string | null>(null);
   const [searchOpen, setSearchOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
   const searchContainerRef = useRef<HTMLDivElement | null>(null);
 
   const navLinkBase =
@@ -158,30 +157,19 @@ export function Header() {
       }
     };
 
-    const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      setIsScrolled(scrollTop > 50);
-    };
-
     document.addEventListener("mousedown", handleClickOutside);
     document.addEventListener("keydown", handleEscape);
-    window.addEventListener("scroll", handleScroll);
 
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
       document.removeEventListener("keydown", handleEscape);
-      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
   return (
     <>
-<header
-  className={`relative sticky top-0 z-50 transition-all duration-300 ${
-    isScrolled
-      ? "bg-[#071533]/95 backdrop-blur-md"
-      : "bg-transparent backdrop-blur-sm"
-  } after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-full after:bg-gradient-to-r after:from-white/20 after:via-orange-500 after:to-white/10 after:content-['']`}
+      <header
+  className="relative sticky top-0 z-50 bg-[#052568] after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-full after:bg-gradient-to-r after:from-white/20 after:via-orange-500 after:to-white/10 after:content-['']"
   role="banner"
 >
         <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 md:px-8">
@@ -332,7 +320,7 @@ export function Header() {
 
 function SearchDropdown() {
   return (
-    <div className="absolute right-0 top-[calc(100%+12px)] w-[360px] rounded-2xl bg-white shadow-[0px_4px_4.8px_0px_rgba(0,0,0,0.25)]">
+    <div className="absolute right-0 top-[calc(100%+12px)] z-[60] w-[360px] rounded-2xl bg-white shadow-[0px_4px_4.8px_0px_rgba(0,0,0,0.25)]">
       <div className="space-y-4 p-4">
         <div className="flex items-center gap-3 rounded-lg border border-orange-500 bg-gray-25 px-4 py-3">
           <SearchIcon className="size-5 text-orange-500" />

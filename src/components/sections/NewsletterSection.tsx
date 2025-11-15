@@ -3,9 +3,24 @@ import Image from 'next/image';
 import { ServiceIcon } from '@/components/icons/ServiceIcon';
 
 const newsletters = [
-  { id: 1, edition: 'Edition 003, 2025', title: 'OphoTech Weekly' },
-  { id: 2, edition: 'Edition 002, 2025', title: 'OphoTech Weekly' },
-  { id: 3, edition: 'Edition 001, 2025', title: 'OphoTech Weekly' },
+  {
+    id: 1,
+    title: 'OphoTech Weekly',
+    editionLabel: 'Edition 003',
+    editionYear: '2025',
+  },
+  {
+    id: 2,
+    title: 'OphoTech Weekly',
+    editionLabel: 'Edition 002',
+    editionYear: '2025',
+  },
+  {
+    id: 3,
+    title: 'OphoTech Weekly',
+    editionLabel: 'Edition 001',
+    editionYear: '2025',
+  },
 ];
 
 const industries = [
@@ -106,10 +121,28 @@ export function NewsletterSection() {
                   </h3>
                   <div className="flex items-center justify-between">
                     <div className="rounded-lg bg-gray-25 px-2.5 py-1.5">
-                      <span className="whitespace-nowrap font-poppins text-sm leading-normal text-gray-900">
-                        {newsletter.edition}
+                      <span className="block font-poppins text-[11px] font-medium uppercase leading-tight text-gray-500 lg:text-xs">
+                        {newsletter.editionLabel}
+                      </span>
+                      <span className="block font-poppins text-xs leading-tight text-gray-900 lg:text-sm">
+                        {newsletter.editionYear}
                       </span>
                     </div>
+                  </div>
+
+                  {/* Animated dots overlay */}
+                  <div className="absolute inset-0 overflow-hidden rounded-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                    <div
+                      className="absolute inset-0"
+                      style={{
+                        backgroundImage: `
+                          radial-gradient(circle, rgba(59, 58, 57, 0.33) 1px, transparent 1px),
+                          radial-gradient(circle, rgba(93, 93, 92, 0.15) 1px, transparent 1px)
+                        `,
+                        backgroundSize: '20px 20px',
+                        backgroundPosition: '0 0, 6px 6px',
+                      }}
+                    />
                   </div>
 
                   {/* arrow button */}
@@ -118,7 +151,7 @@ export function NewsletterSection() {
                     className="
                       absolute bottom-8 right-8 z-[4]
                       translate-x-1/2 translate-y-1/2
-                      flex h-[48px] w-[48px] items-center justify-center
+                      flex h-11 w-11 items-center justify-center md:h-10 md:w-10
                       rounded-full bg-white shadow-[0_10px_30px_-10px_rgba(0,0,0,0.25)]
                       transition-transform duration-300
                     "
@@ -126,8 +159,8 @@ export function NewsletterSection() {
                     <Image
                       alt=""
                       src="/images/servicessection/arrow.svg"
-                      width={15}
-                      height={15}
+                      width={14}
+                      height={14}
                       className="
                         transition-transform duration-300
                         group-hover:rotate-45
