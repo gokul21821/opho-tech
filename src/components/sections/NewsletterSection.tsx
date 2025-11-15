@@ -3,9 +3,9 @@ import Image from 'next/image';
 import { ServiceIcon } from '@/components/icons/ServiceIcon';
 
 const newsletters = [
-  { id: 1, edition: 'Edition 003, 2025', title: 'OphoTech Weekly:\nAI x Industry' },
-  { id: 2, edition: 'Edition 002, 2025', title: 'OphoTech Weekly:\nAI x Industry' },
-  { id: 3, edition: 'Edition 001, 2025', title: 'OphoTech Weekly:\nAI x Industry' },
+  { id: 1, edition: 'Edition 003, 2025', title: 'OphoTech Weekly' },
+  { id: 2, edition: 'Edition 002, 2025', title: 'OphoTech Weekly' },
+  { id: 3, edition: 'Edition 001, 2025', title: 'OphoTech Weekly' },
 ];
 
 const industries = [

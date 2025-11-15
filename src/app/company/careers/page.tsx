@@ -2,6 +2,7 @@ import {Footer} from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { HeroSection } from "@/components/ui/HeroSection";
 import Image from "next/image";
+import { Fragment } from "react";
 
 export default function Careers() {
   return (
@@ -55,39 +56,71 @@ export default function Careers() {
         </section>
 
         {/* Work With Us */}
-        <section className="py-20 px-6 text-center">
-          <h2 className="text-3xl font-semibold mb-12">Work with Us</h2>
-          <div className="grid md:grid-cols-5 gap-8 max-w-6xl mx-auto">
+        <section className="mx-auto max-w-7xl px-6 py-16">
+          <h2 className="text-center text-3xl font-semibold mb-12">Work with Us</h2>
+
+          <div className="mt-10 flex flex-col gap-8 lg:flex-row lg:items-stretch lg:justify-center lg:gap-6">
             {[{
               title: "Innovation First",
+              text: "",
               icon: "/images/icons/intelligent.svg",
               description: "Every project starts with research, giving you space to explore and create."
             }, {
               title: "Cutting-Edge Tools",
+              text: "",
               icon: "/images/icons/ai-agent.svg",
               description: "Work with AI/ML, cloud-native platforms, and next-gen software stacks."
             }, {
               title: "Collaborative Culture",
+              text: "",
               icon: "/images/icons/handshake.svg",
               description: "We believe in Connect – Create – Evolve not just for clients, but also for our teams."
             }, {
               title: "Global Impact",
+              text: "",
               icon: "/images/icons/cloud-db.svg",
               description: "Serve clients across North America, Europe, and Asia while shaping industries worldwide."
             }, {
               title: "Continuous Learning",
+              text: "",
               icon: "/images/icons/paper-analysis.svg",
               description: "Training, certifications, and mentorship programs to help you grow."
-            }].map((item, i) => (
-              <div key={i} className="p-6 rounded-xl bg-orange-50 hover:bg-orange-100 transition">
-                <div className="mx-auto mb-4 h-11 w-11 rounded-full bg-[#FFE3D3] grid place-items-center">
-                  <Image src={item.icon} alt={`${item.title} icon`} width={22} height={22} className="h-5 w-5" />
-                </div>
-                <h3 className="font-semibold mb-2">{item.title}</h3>
-                <p className="text-sm text-gray-600">{item.description}</p>
-              </div>
+            }].map((item, index, array) => (
+              <Fragment key={item.title}>
+                <article className="flex-1 rounded-[20px] px-6 py-10 text-center">
+                  <div className="mx-auto mb-4 grid h-20 w-20 place-items-center rounded-full bg-[#FFE6D5] ">
+                    <Image
+                      src={item.icon}
+                      alt={`${item.title} icon`}
+                      width={40}
+                      height={40}
+                      className="h-10 w-10"
+                    />
+                  </div>
+                  <p className="text-[16px] font-medium leading-[24px] text-[#0F2C58]">
+                    {item.title}
+                  </p>
+                  <p className="mt-3 text-sm leading-[22px] text-[#3A4A5F]">
+                    {item.description}
+                  </p>
+                </article>
+
+                {index < array.length - 1 && (
+                  <div className="hidden items-center lg:flex">
+                    <Image
+                      src="/images/raar/lineraar.svg"
+                      alt=""
+                      width={2}
+                      height={200}
+                      className="h-[180px] w-auto"
+                      aria-hidden
+                    />
+                  </div>
+                )}
+              </Fragment>
             ))}
           </div>
+
         </section>
 
         {/* Life at Ophotech */}
