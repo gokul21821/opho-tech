@@ -1,0 +1,119 @@
+"use client";
+
+import { useEffect, useState } from "react";
+
+export default function CookieConsent() {
+  const [show, setShow] = useState(false);
+  const [showCustomize, setShowCustomize] = useState(false);
+
+  const [analytics, setAnalytics] = useState(true);
+  const [marketing, setMarketing] = useState(true);
+
+  useEffect(() => {
+    const saved = localStorage.getItem("cookie_prefs");
+
+    if (!saved) {
+      setShow(true);
+    }
+  }, []);
+
+  const savePreferences = (prefs: any) => {
+    localStorage.setItem("cookie_prefs", JSON.stringify(prefs));
+    window.dispatchEvent(new Event("cookie_update"));
+    setShow(false);
+  };
+
+  const acceptAll = () => {
+    savePreferences({ analytics: true, marketing: true });
+  };
+
+  const rejectAll = () => {
+    savePreferences({ analytics: false, marketing: false });
+  };
+
+  const saveCustom = () => {
+    savePreferences({ analytics, marketing });
+  };
+
+  if (!show) return null;
+
+  return (
+    <div className="fixed inset-x-0 bottom-0 z-50 border-t border-gray-200 bg-white shadow-lg">
+      <div className="mx-auto flex w-full max-w-5xl flex-col gap-4 px-4 py-5 text-gray-900 md:flex-row md:items-center md:justify-between md:gap-6">
+        {!showCustomize && (
+          <>
+            <p className="text-sm leading-6 md:max-w-3xl">
+              We use cookies to improve your browsing experience, analyze traffic, and personalize
+              content. You can accept, decline, or customize your preferences at any time.
+            </p>
+
+            <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-end">
+              {/* <button
+                onClick={() => setShowCustomize(true)}
+                className="rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 transition hover:border-gray-400 hover:bg-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+              >
+                Customize
+              </button> */}
+
+              <button
+                onClick={rejectAll}
+                className="rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 transition hover:border-gray-400 hover:bg-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+              >
+                Reject All
+              </button>
+
+              <button
+                onClick={acceptAll}
+                className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white transition hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+              >
+                Accept All
+              </button>
+            </div>
+          </>
+        )}
+
+        {showCustomize && (
+          <>
+            <h3 className="text-base font-semibold">Customize Cookies</h3>
+
+            <div className="space-y-4">
+              <label className="flex items-center justify-between">
+                <span>Analytics Cookies</span>
+                <input
+                  type="checkbox"
+                  checked={analytics}
+                  onChange={(e) => setAnalytics(e.target.checked)}
+                />
+              </label>
+
+              <label className="flex items-center justify-between">
+                <span>Marketing Cookies</span>
+                <input
+                  type="checkbox"
+                  checked={marketing}
+                  onChange={(e) => setMarketing(e.target.checked)}
+                />
+              </label>
+            </div>
+
+            <div className="mt-6 flex gap-3 justify-end">
+              <button
+                onClick={() => setShowCustomize(false)}
+                className="rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 transition hover:border-gray-400 hover:bg-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+              >
+                Back
+              </button>
+
+              <button
+                onClick={saveCustom}
+                className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white transition hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+              >
+                Save Preferences
+              </button>
+            </div>
+          </>
+        )}
+      </div>
+    </div>
+  );
+}

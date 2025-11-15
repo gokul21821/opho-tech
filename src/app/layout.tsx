@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import VoiceflowChatbot from "@/components/chatbot";
+import CookieConsent from "@/components/cookies/CookieConsent";
 
 const poppins = Poppins({
   variable: "--font-sans",
@@ -13,6 +14,9 @@ export const metadata: Metadata = {
   title: "OphoTech | AI-Powered MVP Development in 15 Days",
   description:
     "Transform your vision into production-ready MVPs with OphoTech's AI-driven development approach.",
+  icons: {
+    icon: "/images/logo/logo.svg",
+  },
   openGraph: {
     title: "OphoTech | AI-Powered MVP Development in 15 Days",
     description:
@@ -34,6 +38,7 @@ export default function RootLayout({
       <body className={`${poppins.variable} font-sans antialiased`}>
         {children}
         <VoiceflowChatbot />
+        <CookieConsent />
       </body>
     </html>
   );
