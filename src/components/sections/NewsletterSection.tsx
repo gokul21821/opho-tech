@@ -24,7 +24,7 @@ export function NewsletterSection() {
         {/* Header */}
         <div className="mb-10 text-center md:mb-[40px]">
           <h2 className="font-poppins text-3xl font-medium leading-[48px] text-gray-900 md:text-[38px]">
-            Industry wise Newsletter
+            Ophotech Weekly Newsletter
           </h2>
           <p className="mt-4 font-poppins text-base leading-normal text-gray-700 md:text-lg">
             From Research to Reality — Insights That Power Smarter Decisions.

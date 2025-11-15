@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
+import VoiceflowChatbot from "@/components/chatbot";
 
 const poppins = Poppins({
   variable: "--font-sans",
@@ -32,6 +33,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${poppins.variable} font-sans antialiased`}>
         {children}
+        <VoiceflowChatbot />
       </body>
     </html>
   );
