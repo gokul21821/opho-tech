@@ -8,6 +8,7 @@ const poppins = Poppins({
   variable: "--font-sans",
   weight: ["400", "500", "600"],
   subsets: ["latin"],
+  display: "swap", // Explicit font-display for optimal performance
 });
 
 export const metadata: Metadata = {
@@ -35,6 +36,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        {/* Preconnect to Voiceflow domains for faster connection when chatbot loads */}
+        <link rel="preconnect" href="https://cdn.voiceflow.com" />
+        <link rel="preconnect" href="https://general-runtime.voiceflow.com" />
+        <link rel="preconnect" href="https://runtime-api.voiceflow.com" />
+      </head>
       <body className={`${poppins.variable} font-sans antialiased`}>
         {children}
         <VoiceflowChatbot />

@@ -34,6 +34,7 @@ const features = [
 export function ValuePropositionSection() {
   const [activeStep, setActiveStep] = useState('connect');
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   const activeFeature = features.find((f) => f.id === activeStep) || features[0];
 
@@ -150,12 +151,19 @@ export function ValuePropositionSection() {
                     </button>
                   </div>
                   <div className="flex items-center justify-center lg:flex-1 lg:justify-end">
+                    {!imageLoaded && (
+                      <div className="h-[250px] w-[250px] animate-pulse rounded-lg bg-gray-200 lg:h-[300px] lg:w-[300px]" />
+                    )}
                     <Image
                       src="/images/valuesection/world.svg"
                       alt="Global connectivity"
                       width={250}
                       height={250}
-                      className="h-auto w-full max-w-[250px] lg:max-w-[300px]"
+                      className={`h-auto w-full max-w-[250px] lg:max-w-[300px] ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+                      priority
+                      placeholder="blur"
+                      blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjI1MCIgdmlld0JveD0iMCAwIDI1MCAyNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyNTAiIGhlaWdodD0iMjUwIiBmaWxsPSIjRjNGNEY2Ii8+Cjwvc3ZnPgo="
+                      onLoad={() => setImageLoaded(true)}
                     />
                   </div>
                 </div>
@@ -179,4 +187,5 @@ export function ValuePropositionSection() {
     </>
   );
 }
+
 

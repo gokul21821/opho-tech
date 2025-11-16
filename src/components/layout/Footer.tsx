@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { slugify } from "@/lib/utils";
 import { ContactModal } from "@/components/forms/ContactModal";
 
@@ -57,39 +57,62 @@ const XIcon = () => (
 
 export function Footer() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isFooterVisible, setIsFooterVisible] = useState(false);
+  const footerRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsFooterVisible(true);
+          observer.disconnect();
+        }
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '100px', // Start loading 100px before footer enters viewport
+      }
+    );
+
+    if (footerRef.current) {
+      observer.observe(footerRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <footer className="relative w-full overflow-hidden">
-      {/* Background Layer */}
-      <div className="absolute inset-0 pointer-events-none">
-        {/* Orange ellipse - positioned to show curved top portion */}
-        <div className="absolute -top-[10px] left-1/2 h-[100px] w-[150%] -translate-x-1/2 md:-top-[80px] md:h-[100px] lg:-top-[1px] lg:h-[600px]">
-          <div className="relative h-full w-full">
-            <Image
-              src="/images/footer/footer-elipse.svg"
-              alt=""
-              fill
-              priority
-              sizes="150vw"
-              className="object-contain object-top"
-            />
+    <footer ref={footerRef} className="relative w-full overflow-hidden">
+      {/* Background Layer - Lazy loaded when footer is near viewport */}
+      {isFooterVisible && (
+        <div className="absolute inset-0 pointer-events-none">
+          {/* Orange ellipse - positioned to show curved top portion */}
+          <div className="absolute -top-[10px] left-1/2 h-[100px] w-[150%] -translate-x-1/2 md:-top-[80px] md:h-[100px] lg:-top-[1px] lg:h-[600px]">
+            <div className="relative h-full w-full">
+              <Image
+                src="/images/footer/footer-elipse.svg"
+                alt=""
+                fill
+                sizes="150vw"
+                className="object-contain object-top"
+              />
+            </div>
+          </div>
+
+          {/* Blue footer background - overlays ellipse, leaving top curve visible */}
+          <div className="absolute top-[8px] left-0 right-0 bottom-0 md:top-[7px] lg:top-[5px]">
+            <div className="relative h-full w-full">
+              <Image
+                src="/images/footer/footer-bg.png"
+                alt=""
+                fill
+                sizes="100vw"
+                className="object-cover object-top"
+              />
+            </div>
           </div>
         </div>
-        
-        {/* Blue footer background - overlays ellipse, leaving top curve visible */}
-        <div className="absolute top-[8px] left-0 right-0 bottom-0 md:top-[7px] lg:top-[5px]">
-          <div className="relative h-full w-full">
-            <Image
-              src="/images/footer/footer-bg.png"
-              alt=""
-              fill
-              priority
-              sizes="100vw"
-              className="object-cover object-top"
-            />
-          </div>
-        </div>
-      </div>
+      )}
 
       {/* Content */}
       <div className="relative z-10 mx-auto max-w-7xl px-6 pb-8 pt-24 md:px-8 lg:px-12 lg:pt-32">

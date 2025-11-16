@@ -60,78 +60,6 @@ const VolumeIcon = ({ isMuted }: { isMuted: boolean }) => {
   );
 };
 
-function DottedWorldMap() {
-  // A lightweight, abstract dotted world using an SVG pattern and masked blocks
-  // The dot grid is created with a pattern; landmasses are hinted by grouped rectangles with a mask.
-  return (
-    <svg
-      viewBox="0 0 1200 600"
-      role="img"
-      aria-label="Decorative dotted world background"
-      className="absolute inset-0 h-full w-full"
-      preserveAspectRatio="xMidYMid meet"
-    >
-      <defs>
-        {/* Dot pattern: small gray dots spaced evenly */}
-        <pattern
-          id="dotPattern"
-          x="0"
-          y="0"
-          width="16"
-          height="16"
-          patternUnits="userSpaceOnUse"
-        >
-          <circle cx="2" cy="2" r="1.5" fill="#D1D5DB" opacity="0.75" />
-        </pattern>
-
-        {/* Mask to clip the dots into rough continent shapes */}
-        <mask id="worldMask">
-          <rect width="1200" height="600" fill="black" />
-          {/* Rough abstract land blobs (white in mask = visible) */}
-          {/* Americas */}
-          <g fill="white" opacity="0.9">
-            <rect x="140" y="130" width="160" height="120" rx="24" />
-            <rect x="210" y="240" width="130" height="110" rx="22" />
-            <rect x="260" y="360" width="90" height="80" rx="18" />
-          </g>
-          {/* Europe/Africa */}
-          <g fill="white" opacity="0.9">
-            <rect x="520" y="140" width="150" height="90" rx="22" />
-            <rect x="600" y="240" width="140" height="120" rx="26" />
-            <rect x="570" y="370" width="110" height="130" rx="28" />
-          </g>
-          {/* Asia */}
-          <g fill="white" opacity="0.9">
-            <rect x="740" y="140" width="240" height="120" rx="28" />
-            <rect x="910" y="210" width="170" height="90" rx="22" />
-            <rect x="800" y="260" width="220" height="110" rx="26" />
-          </g>
-          {/* Australia */}
-          <g fill="white" opacity="0.9">
-            <rect x="960" y="420" width="120" height="70" rx="18" />
-          </g>
-          {/* Scattered islands */}
-          <g fill="white" opacity="0.7">
-            <rect x="880" y="380" width="40" height="30" rx="8" />
-            <rect x="1040" y="320" width="30" height="24" rx="6" />
-            <rect x="1080" y="360" width="34" height="26" rx="6" />
-          </g>
-        </mask>
-      </defs>
-
-      {/* Background fill (white) */}
-      <rect width="1200" height="600" fill="white" />
-
-      {/* Dot layer clipped to world mask */}
-      <rect
-        width="1200"
-        height="600"
-        fill="url(#dotPattern)"
-        mask="url(#worldMask)"
-      />
-    </svg>
-  );
-}
 
 export function HeroSection() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -174,6 +102,7 @@ export function HeroSection() {
           fill
           sizes="100vw"
           className="object-cover"
+          priority
         />
       </div>
 
@@ -208,6 +137,7 @@ export function HeroSection() {
                 muted={isMuted}
                 loop
                 playsInline
+                preload="none"
                 onPlay={() => setIsPlaying(true)}
                 onPause={() => setIsPlaying(false)}
               >
@@ -215,14 +145,11 @@ export function HeroSection() {
                 Your browser does not support the video tag.
               </video>
 
-              {/* Paused State with Dotted World Map and Logo */}
+              {/* Paused State with Logo */}
               {!isPlaying && (
                 <div className="absolute inset-0 flex items-center justify-center bg-white">
-                  {/* Dotted world background */}
-                  <DottedWorldMap />
-
-                  {/* Centered logo on top */}
-                  <div className="relative z-10 h-[39px] w-[184px]">
+                  {/* Centered logo */}
+                  <div className="relative h-[39px] w-[184px]">
                     <Image
                       src={LOGO_PATH_WHITE}
                       alt="OphoTech"
