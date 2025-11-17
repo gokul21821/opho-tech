@@ -81,6 +81,7 @@ export function VideoPlayer({
   const [isMobile, setIsMobile] = useState(false);
   const [isTablet, setIsTablet] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [showMobileControls, setShowMobileControls] = useState(false);
 
   // Detect device type
   useEffect(() => {
@@ -104,6 +105,11 @@ export function VideoPlayer({
         await videoRef.current.play();
         setIsPlaying(true);
         setHasStarted(true);
+
+        // Show controls temporarily on mobile when play starts
+        if (isMobile) {
+          showControlsTemporarily();
+        }
       } catch (error) {
         console.error('Play failed:', error);
         setIsLoading(false);
@@ -116,6 +122,15 @@ export function VideoPlayer({
       videoRef.current.pause();
       setIsPlaying(false);
       setIsLoading(false);
+    }
+  };
+
+  const showControlsTemporarily = () => {
+    if (isMobile) {
+      setShowMobileControls(true);
+      setTimeout(() => {
+        setShowMobileControls(false);
+      }, 2000); // Hide after 2 seconds
     }
   };
 
@@ -138,6 +153,7 @@ export function VideoPlayer({
         className="relative overflow-hidden rounded-[24px] bg-white aspect-video"
         onMouseEnter={() => !isMobile && setIsHovered(true)}
         onMouseLeave={() => !isMobile && setIsHovered(false)}
+        onTouchStart={() => showControlsTemporarily()}
       >
         {/* Video Element */}
         <video
@@ -186,7 +202,7 @@ export function VideoPlayer({
         )}
 
         {/* Play Button Overlay - When paused */}
-        {!isPlaying && (isHovered || isMobile) && (
+        {!isPlaying && (isHovered || isMobile || showMobileControls) && (
           <div className="absolute inset-0 z-20 flex items-center justify-center bg-gray-900/70 transition-opacity">
             <button
               type="button"
@@ -201,7 +217,7 @@ export function VideoPlayer({
         )}
 
         {/* Pause Button Overlay - When playing */}
-        {isPlaying && (isHovered || isMobile) && (
+        {isPlaying && (isHovered || showMobileControls) && (
           <div className="absolute inset-0 z-20 flex items-center justify-center bg-gray-900/50 transition-opacity">
             <button
               type="button"

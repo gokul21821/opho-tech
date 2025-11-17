@@ -28,38 +28,14 @@ export default function VoiceflowChatbot() {
   const [shouldLoad, setShouldLoad] = useState(false);
 
   useEffect(() => {
-    let scrollTriggered = false;
-    let timeTriggered = false;
-
-    // Trigger 1: Load after 10 seconds of user activity
+    // Load after 1 second of user activity
     const timeoutId = setTimeout(() => {
-      if (!scrollTriggered) {
-        timeTriggered = true;
-        setShouldLoad(true);
-      }
-    }, 10000);
-
-    // Trigger 2: Load when user scrolls 80% down the page
-    const handleScroll = () => {
-      if (scrollTriggered || timeTriggered) return;
-
-      const scrollPercentage =
-        (window.scrollY + window.innerHeight) /
-        document.documentElement.scrollHeight;
-
-      if (scrollPercentage >= 0.8) {
-        scrollTriggered = true;
-        setShouldLoad(true);
-        window.removeEventListener('scroll', handleScroll);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
+      setShouldLoad(true);
+    }, 1000);
 
     // Cleanup
     return () => {
       clearTimeout(timeoutId);
-      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
