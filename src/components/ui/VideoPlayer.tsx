@@ -66,7 +66,7 @@ interface VideoPlayerProps {
 
 export function VideoPlayer({
   src,
-  poster = "/images/logo/logo-blue-black.svg",
+  poster = "/images/logo/logo.svg",
   className = "",
   autoplay = false,
   muted = true

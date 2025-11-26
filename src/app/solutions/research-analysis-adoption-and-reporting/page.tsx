@@ -33,7 +33,7 @@ export default function RAARPage() {
       <main className="bg-white text-[#0B1B2B]">
 
       {/* Intro split */}
-      <section className="mx-auto max-w-7xl px-6 py-20">
+      <section className="mx-auto max-w-7xl px-[5%] py-20">
   <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-center gap-12">
 
     {/* LEFT — Illustration Cluster */}
@@ -61,8 +61,8 @@ export default function RAARPage() {
     </div>
 
     {/* RIGHT — Text Block */}
-    <div className="flex flex-col justify-center text-left md:pl-4">
-      <p className="mt-3 text-[17px] text-[#3A4A5F] leading-relaxed max-w-md">
+    <div className="flex flex-col justify-center text-left md:pl-10">
+      <p className="mt-3 text-[17px] text-[#3A4A5F] leading-relaxed max-w-4xl">
       <strong>RAAR</strong> is a decision intelligence software that helps you compare,
         evaluate, and optimize your tools with precision, speed, and
         accuracy.
@@ -75,7 +75,7 @@ export default function RAARPage() {
 
       {/* How RAAR Works Section */}
       <BackgroundDots
-          className="py-16 px-6 md:px-[110px]"
+          className="py-16 "
           spacing={36}
           dotSize={2.5}
           backgroundColor=""
@@ -84,66 +84,69 @@ export default function RAARPage() {
             background: "linear-gradient(to bottom, #ffffff 38.524%, #feecd6 171.52%)",
           }}
         >
-        <section className="mx-auto max-w-7xl px-6">
+        <section className="mx-auto max-w-7xl p-12 px-[5%]">
           <div className="flex flex-col gap-10 items-center">
             <h2 className="text-center text-[38px] font-medium leading-[48px] text-[#111111]">
               How RAAR Works
             </h2>
 
             {/* Four cards */}
-            <div className="flex flex-col gap-6 md:flex-row md:gap-6 md:justify-center w-full">
-              {[
-                {
-                  title: "Research",
-                  text:
-                    "Pulls data from vendor contracts, licensing records, usage logs, cost reports, and integration documentation. Cleans, Secure and Validates data for analysis.",
-                  icon: "/images/raar/research.svg",
-                },
-                {
-                  title: "Analysis",
-                  text:
-                    "AI agents evaluate tools across Features, Security, Integration, Cost Efficiency, Performance, and Market Position. Builds SWOT profiles, identifies capability gaps, and benchmarks against industry standards.",
-                  icon: "/images/raar/analyze.svg",
-                },
-                {
-                  title: "Adoption",
-                  text:
-                    "Tracks user adoption rates, identifies underutilized tools, and measures organizational readiness for new technology implementations.",
-                  icon: "/images/raar/star.svg",
-                },
-                {
-                  title: "Reporting",
-                  text:
-                    "Delivers persona-specific insights. Strategic dashboards for executives, integration scores for architects, vendor intelligence for procurement, compliance & secure reports for regulators, & usability metrics for end users.",
-                  icon: "/images/raar/notepad.svg",
-                },
-              ].map((item) => (
-                <div
-                  key={item.title}
-                  className="flex-1 rounded-2xl border border-[#fcd5ac] bg-white/30 p-5 flex flex-col gap-4 items-start card-text-smaller"
-                >
-                  <div className="h-12 w-12 flex-shrink-0">
-                    <Image
-                      src={item.icon}
-                      alt={`${item.title} icon`}
-                      width={48}
-                      height={48}
-                      className="h-12 w-12"
-                    />
-                  </div>
-                  <h3 className="text-[24px] font-medium leading-[26px] text-[#111111] capitalize">
-                    {item.title}
-                  </h3>
-                  <p className="text-[16px] leading-normal text-[#454545]">{item.text}</p>
-                </div>
-              ))}
-            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8 lg:gap-10 xl:gap-12 w-full">
+  {[
+    {
+      title: "Research",
+      text:
+        "Pulls data from vendor contracts, licensing records, usage logs, cost reports, and integration documentation. Cleans, Secure and Validates data for analysis.",
+      icon: "/images/raar/research.svg",
+    },
+    {
+      title: "Analysis",
+      text:
+        "AI agents evaluate tools across Features, Security, Integration, Cost Efficiency, Performance, and Market Position. Builds SWOT profiles, identifies capability gaps, and benchmarks against industry standards.",
+      icon: "/images/raar/analyze.svg",
+    },
+    {
+      title: "Adoption",
+      text:
+        "Tracks user adoption rates, identifies underutilized tools, and measures organizational readiness for new technology implementations.",
+      icon: "/images/raar/star.svg",
+    },
+    {
+      title: "Reporting",
+      text:
+        "Delivers persona-specific insights. Strategic dashboards for executives, integration scores for architects, vendor intelligence for procurement, compliance & secure reports for regulators, & usability metrics for end users.",
+      icon: "/images/raar/notepad.svg",
+    },
+  ].map((item) => (
+    <div key={item.title} className="h-full">
+      <div
+        className="h-full min-w-[220px] md:min-w-[220px] lg:min-w-[230px] xl:min-w-[250px] rounded-2xl border border-[#fcd5ac] bg-white/30 p-2 flex flex-col gap-4 items-start card-text-smaller"
+      >
+        <div className="h-12 w-12 flex-shrink-0">
+          <Image
+            src={item.icon}
+            alt={`${item.title} icon`}
+            width={48}
+            height={48}
+            className="h-12 w-12"
+          />
+        </div>
+        <h3 className="text-[24px] font-medium leading-[26px] text-[#111111] capitalize">
+          {item.title}
+        </h3>
+        <p className="text-[16px] leading-normal text-[#454545]">{item.text}</p>
+      </div>
+    </div>
+  ))}
+</div>
+
+
           </div>
         </section>
       </BackgroundDots>
 
       {/* What You Get */}
-      <section className="mx-auto max-w-7xl px-6 py-16">
+      <section className="mx-auto max-w-7xl px-[5%] py-16">
         <h2 className="text-center text-[32px] font-medium leading-[48px] text-[#0B1B2B]">
           What You Get
         </h2>
@@ -229,7 +232,7 @@ export default function RAARPage() {
     background: "linear-gradient(to bottom, #ffffff 38.524%, #feecd6 171.52%)",
   }}
 >
-  <section className="mx-auto max-w-7xl px-6">
+  <section className="mx-auto max-w-7xl px-[5%]">
     <div className="grid items-center gap-10 md:grid-cols-3">
       <div>
         <h2 className="text-4xl text-[#0B1B2B]">Why Choose RAAR</h2>
@@ -288,10 +291,10 @@ export default function RAARPage() {
       {/* Get Started CTA */}
       <section className="mx-auto max-w-7xl px-6 py-16">
         <h2 className="text-center text-2xl font-semibold text-[#0B1B2B]">Get Started</h2>
-        <p className="mx-auto mt-3 max-w-3xl text-center text-[15px] text-[#3A4A5F]">
+        <p className="mx-auto mt-5 max-w-xl text-center text-[15px] text-[#3A4A5F]">
           From capability gaps to consolidation opportunities, RAAR transforms software spend into strategic decisions.
         </p>
-        <div className="mt-8 flex justify-center">
+        <div className="mt-6 flex justify-center">
           <PrimaryButton onClick={() => setIsModalOpen(true)}>
             Schedule RAAR Assessment 
           </PrimaryButton>

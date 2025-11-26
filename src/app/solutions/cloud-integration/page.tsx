@@ -13,7 +13,7 @@ export default function CloudIntegrationPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <div className="flex min-h-screen flex-col bg-white text-gray-900">
+    <div className="flex min-h-screen flex-col bg-white text-gray-900 ">
       <Header />
 
       {/* HERO SECTION */}
@@ -30,9 +30,8 @@ export default function CloudIntegrationPage() {
 
       <main className="bg-white text-gray-800">
 
-        {/* Overview Section */}
       {/* Overview Section */}
-<section className="py-20 px-6 bg-white">
+<section className="py-20 px-6 bg-white px-[5%]">
   <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] max-w-6xl mx-auto items-center gap-12">
 
     {/* LEFT — Illustration */}
@@ -60,15 +59,15 @@ export default function CloudIntegrationPage() {
     </div>
 
     {/* RIGHT — Text */}
-    <div className="text-sm text-gray-600 flex flex-col justify-center max-w-md">
+    <div className="text-sm text-gray-600 flex flex-col justify-center max-w-4xl">
 
-      <p className="mb-6">
+      <p className="mb-6 px-20">
         <strong>For the Business Leaders:</strong> Cloud is not just an IT cost center; it is the 
         <strong> platform for innovation, agility, and scale.</strong> Cloud Integration & Architecture 
         services ensure technology strategy directly supports business goals, minimizes risk, and maximizes competitive speed.
       </p>
 
-      <p>
+      <p className="px-20">
         <strong>For the Chief Cloud Architect and Integration Expert:</strong> We focus on modern, scalable, 
         and secure system design—breaking down data silos and enabling real-time analytics across your enterprise.
       </p>
@@ -81,7 +80,7 @@ export default function CloudIntegrationPage() {
 
         {/* How Cloud Integration & Architecture Works */}
         <BackgroundDots
-          className="py-16 px-6 md:px-[110px]"
+          className="py-16 "
           spacing={36}
           dotSize={2.5}
           backgroundColor=""
@@ -90,7 +89,7 @@ export default function CloudIntegrationPage() {
             background: "linear-gradient(to bottom, #ffffff 38.524%, #feecd6 171.52%)",
           }}
         >
-          <section className="max-w-7xl mx-auto">
+          <section className="max-w-7xl mx-auto px-[5%]">
             {/* How It Works Section */}
             <div className="flex flex-col gap-10 items-center mb-16">
               <div className="flex flex-col gap-8 items-center">
@@ -118,7 +117,7 @@ export default function CloudIntegrationPage() {
               </div>
 
               {/* Three Challenge Cards */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6  w-full">
                 {[{
                   title: 'Siloed Data Across Various Systems And Platforms',
                   icon: '/images/cloud-integrations/paper.svg',
@@ -342,7 +341,7 @@ export default function CloudIntegrationPage() {
 
         {/* Cloud Integration & Architecture */}
         <BackgroundDots
-          className="py-16 px-6 md:px-[110px]"
+          className="py-16 "
           spacing={36}
           dotSize={2.5}
           backgroundColor=""
@@ -351,7 +350,7 @@ export default function CloudIntegrationPage() {
             background: "linear-gradient(to bottom, #ffffff 38.524%, #feecd6 171.52%)",
           }}
         >
-          <section className="mx-auto max-w-7xl px-6">
+          <section className="mx-auto max-w-7xl px-[5%]">
             <div className="grid items-center gap-10 md:grid-cols-3">
               <div>
                 <h2 className="text-4xl text-[#0B1B2B]">Cloud Integration & Architecture</h2>

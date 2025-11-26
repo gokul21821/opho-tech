@@ -57,7 +57,7 @@ const AboutPage = () => {
 
         {/* Our Story Section */}
         <BackgroundDots
-          className="py-20 px-6 md:px-[110px]"
+          className="py-20 "
           spacing={36}
           dotSize={2.5}
           backgroundColor=""
@@ -66,10 +66,10 @@ const AboutPage = () => {
             background: "linear-gradient(to bottom, #ffffff 38.524%, #feecd6 171.52%)",
           }}
         >
-          <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
+          <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-10 px-[5%]">
             <div className="md:w-1/2">
               <h2 className="text-3xl font-bold mb-6 text-gray-800">Our Story</h2>
-              <p className="text-lg text-gray-600 mb-4">
+              <p className="text-lg text-gray-600">
                 We began with a simple challenge: <strong>make decisions clearer, sooner,
                 and safer to act on</strong>. Early projects proved a pattern—when teams see
                 the right signals up front, momentum compounds and risk falls. That
@@ -96,7 +96,7 @@ const AboutPage = () => {
         </BackgroundDots>
 
         {/* Our Philosophy Section */}
-        <section className="mx-auto max-w-7xl px-6 py-16 pb-20">
+        <section className="mx-auto max-w-7xl px-[5%] py-16 pb-20">
           <h2 className="text-center text-[32px] font-medium leading-[48px] text-[#0B1B2B]">
             Our Philosophy
           </h2>
@@ -285,12 +285,12 @@ const AboutPage = () => {
               "linear-gradient(to bottom, #ffffff 38.524%, #feecd6 171.52%)",
           }}
         >
-          <section className="mx-auto max-w-7xl px-6 py-20">
+          <section className="mx-auto max-w-7xl px-[5%] py-20">
             <h2 className="text-3xl font-bold mb-12 text-center text-gray-800">
               Our Values
             </h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2">
               {[
                 {
                   icon: analysisIcon,
@@ -343,7 +343,7 @@ const AboutPage = () => {
               ].map((card) => (
                 <article
                   key={card.title}
-                  className="flex flex-col items-start text-left gap-3 p-6 bg-white/50 rounded-lg border border-orange-200"
+                  className="flex flex-col items-start text-left gap-3 p-3 bg-white/50 rounded-lg border border-orange-200"
                 >
                   <Image
                     src={card.icon}
@@ -362,11 +362,11 @@ const AboutPage = () => {
           </section>
         </BackgroundDots>
         {/* How We Deliver Impact Section */}
-        <section className="py-20 px-8 bg-white">
-          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-center gap-12">
+        <section className="py-20 bg-white px-[13%]">
+          <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
 
             {/* LEFT — Text */}
-            <div className="max-w-xl">
+            <div className="flex-1 max-w-xl">
               <h2 className="text-3xl font-bold mb-6 text-gray-800">
                 How We Deliver Impact
               </h2>
@@ -395,8 +395,8 @@ const AboutPage = () => {
               </p>
             </div>
 
-            {/* CENTER — Vertical Divider */}
-            <div className="flex justify-center">
+            {/* CENTER — Vertical Divider - Hidden on mobile */}
+            <div className="hidden md:flex justify-center">
               <Image
                 src="/images/raar/lineraar.svg"
                 alt=""
@@ -408,13 +408,13 @@ const AboutPage = () => {
             </div>
 
             {/* RIGHT — Illustration */}
-            <div className="flex justify-center">
+            <div className="flex-1 flex justify-center">
               <Image
                 src={impactImage}
                 alt="AI Impact Visual"
                 width={500}
                 height={300}
-                className="rounded-lg"
+                className="rounded-lg max-w-full h-auto"
               />
             </div>
 
@@ -434,7 +434,7 @@ const AboutPage = () => {
               "linear-gradient(to bottom, #ffffff 38.524%, #feecd6 171.52%)",
           }}
         >
-          <section className="mx-auto max-w-7xl px-6">
+          <section className="mx-auto max-w-7xl px-[5%]">
 
             {/* Heading */}
             <h2 className="text-4xl font-bold text-[#0B1B2B] text-center mb-4">
@@ -450,7 +450,7 @@ const AboutPage = () => {
             </p>
 
             {/* 3-Column Layout */}
-            <div className="grid items-start gap-10 md:grid-cols-3">
+            <div className="grid items-start md:grid-cols-3">
 
               {/* Left Column */}
               <div className="max-w-none">
@@ -498,7 +498,7 @@ const AboutPage = () => {
 
               {/* Right Column */}
               <div className="max-w-none">
-                <ul className="space-y-4 text-base text-[#3A4A5F] list-disc pl-5">
+                <ul className="space-y-4 text-base text-[#3A4A5F] list-disc ">
                   <li>
                     <span className="font-semibold text-[#0B1B2B]">
                       Audit-ready from day one.

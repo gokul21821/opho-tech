@@ -106,22 +106,22 @@ export function NewsletterSection() {
           {/* Newsletter Cards */}
           <div className="flex w-full flex-col gap-6 lg:w-auto lg:gap-6">
             {/* Cards Row */}
-            <div className="flex flex-col gap-6 sm:flex-row sm:gap-[29px]">
+            <div className="flex flex-col gap-6 sm:flex-row sm:gap-4 md:gap-6 lg:gap-[29px]">
               {newsletters.map((newsletter) => (
                 <Link
                   key={newsletter.id}
                   href="/placeholder"
-                  className="group relative flex w-full flex-col gap-4 overflow-visible rounded-2xl border border-orange-100 bg-white hover:bg-orange-25 p-5 transition-shadow duration-300 hover:shadow-lg sm:w-[296px]"
+                  className="group relative flex w-full flex-col gap-4 overflow-visible rounded-2xl border border-orange-100 bg-white hover:bg-orange-25 p-5 transition-shadow duration-300 hover:shadow-lg sm:w-[250px] md:w-[280px] lg:w-[296px]"
                 >
                   <div className="flex size-11 items-center justify-center overflow-hidden">
                     <ServiceIcon name="cloud-integration" className="size-11" />
                   </div>
-                  <h3 className="min-h-[3.5rem] whitespace-pre-line font-poppins text-lg font-medium capitalize leading-normal text-gray-900">
+                  <h3 className="min-h-[3.5rem] whitespace-pre-line font-poppins text-base font-medium capitalize leading-normal text-gray-900 sm:text-lg">
                     {newsletter.title}
                   </h3>
                   <div className="flex items-center justify-between">
                     <div className="rounded-lg bg-gray-25 px-2.5 py-1.5">
-                      <span className="block font-poppins text-[11px] font-medium uppercase leading-tight text-gray-500 lg:text-xs">
+                      <span className="block font-poppins text-[10px] font-medium uppercase leading-tight text-gray-500 sm:text-[11px] lg:text-xs">
                         {newsletter.editionLabel}
                       </span>
                       <span className="block font-poppins text-xs leading-tight text-gray-900 lg:text-sm">

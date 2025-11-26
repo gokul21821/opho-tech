@@ -31,7 +31,7 @@ export default function AISolutionsAndServices() {
       <main className="flex flex-1 flex-col">
 
         {/* Overview Section */}
-        <section className="py-20 px-6 bg-white">
+        <section className="py-20 px-6 bg-white px-[5%]">
           <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] max-w-6xl mx-auto items-center gap-12">
 
             {/* LEFT — Illustration */}
@@ -76,7 +76,7 @@ export default function AISolutionsAndServices() {
 
         {/* AI Solutions & Services Section */}
         <BackgroundDots
-          className="py-16 px-6 md:px-[110px]"
+          className="py-16 "
           spacing={36}
           dotSize={2.5}
           backgroundColor=""
@@ -85,7 +85,7 @@ export default function AISolutionsAndServices() {
             background: "linear-gradient(to bottom, #ffffff 38.524%, #feecd6 171.52%)",
           }}
         >
-          <section className="max-w-7xl mx-auto">
+          <section className="max-w-7xl mx-auto px-[5%]">
             {/* Top Section: Heading, Line, Subtitle, Description */}
             <div className="flex flex-col gap-10 items-center mb-10">
               <div className="flex flex-col gap-8 items-center">
@@ -261,7 +261,7 @@ export default function AISolutionsAndServices() {
         </BackgroundDots>
 
         {/* AI Enablement - How You Lead */}
-        <section className="mx-auto max-w-7xl px-6 py-16">
+        <section className="mx-auto max-w-7xl px-[5%] py-16">
           <h2 className="text-center text-[32px] font-medium leading-[48px] text-[#0B1B2B]">
             AI Enablement - How You Lead
           </h2>
@@ -342,7 +342,7 @@ export default function AISolutionsAndServices() {
           background: "linear-gradient(to bottom, #ffffff 38.524%, #feecd6 171.52%)",
         }}
        >
-         <section className="mx-auto max-w-7xl px-6">
+         <section className="mx-auto max-w-7xl px-[5%]">
            <div className="grid items-center gap-10 md:grid-cols-3">
              <div>
                <h2 className="text-4xl text-[#0B1B2B]">AI Solutions & Services</h2>

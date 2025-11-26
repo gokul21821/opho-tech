@@ -182,7 +182,7 @@ export default function Careers() {
             background: "linear-gradient(to bottom, #ffffff 38.524%, #feecd6 171.52%)",
           }}
         >
-          <section className="flex flex-col gap-10 items-center px-6 py-20 max-w-7xl mx-auto text-center">
+          <section className="flex flex-col gap-10 items-center px-20 py-20 max-w-7xl mx-auto text-center">
             {/* Header */}
             <div className="flex flex-col gap-5 items-center">
               <h2 className="text-[38px] font-medium leading-[48px] text-[#111111]">

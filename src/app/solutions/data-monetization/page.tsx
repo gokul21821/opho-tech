@@ -32,7 +32,7 @@ export default function DataMonetizationPage() {
       <main className="bg-white text-[#0B1B2B]">
 
       {/* Intro split */}
-      <section className="mx-auto max-w-7xl px-6 py-20">
+      <section className="mx-auto max-w-7xl px-[5%] py-20">
   <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-center gap-12">
 
     {/* LEFT — Illustration */}
@@ -60,7 +60,7 @@ export default function DataMonetizationPage() {
     </div>
 
     {/* RIGHT — Text Block */}
-    <div className="flex flex-col justify-center text-[15.5px] text-[#3A4A5F] max-w-md">
+    <div className="flex flex-col justify-center ml-25 text-[15.5px] text-[#3A4A5F] max-w-md">
 
       <p className="font-semibold">
         As a business leader, you know your data is a critical asset.
@@ -83,7 +83,7 @@ export default function DataMonetizationPage() {
 
       {/* How Data Monetization Works Section */}
       <BackgroundDots
-          className="py-16 px-6 md:px-[110px]"
+          className="py-16 "
           spacing={36}
           dotSize={2.5}
           backgroundColor=""
@@ -92,7 +92,7 @@ export default function DataMonetizationPage() {
             background: "linear-gradient(to bottom, #ffffff 38.524%, #feecd6 171.52%)",
           }}
         >
-        <section className="mx-auto max-w-7xl px-6">
+        <section className="mx-auto max-w-7xl px-[5%]">
           <div className="flex flex-col gap-8 items-center">
             {/* Main Heading */}
             <div className="flex flex-col gap-8 items-center w-full">
@@ -270,7 +270,7 @@ export default function DataMonetizationPage() {
             {/* Data Monetization - From Problem to Profit */}
             <div className="flex flex-col gap-10 items-start w-full">
               <div className="flex flex-col gap-5 items-center w-full">
-                <h3 className="text-center text-[28px] font-medium leading-[38px] text-[#454545]">
+                <h3 className="text-center text-xl font-medium leading-[38px] text-[#454545]">
                   Data Monetization - <span className="text-[#2A73B5]">From Problem to Profit</span>
                 </h3>
                 <p className="max-w-[860px] mx-auto text-center text-[18px] font-normal leading-normal text-[#454545]">
@@ -348,7 +348,7 @@ export default function DataMonetizationPage() {
       </BackgroundDots>
 
       {/* Derived Value */}
-      <section className="mx-auto max-w-7xl px-6 py-16">
+      <section className="mx-auto max-w-7xl px-[5%] py-16">
         <h2 className="text-center text-[32px] font-medium leading-[48px] text-[#0B1B2B]">
           Derived Value
         </h2>
@@ -410,7 +410,7 @@ export default function DataMonetizationPage() {
 
      {/* Data Monetization – Goal */}
      <BackgroundDots
-          className="py-16 px-6 md:px-[110px]"
+          className="py-16 "
           spacing={36}
           dotSize={2.5}
           backgroundColor=""
@@ -420,38 +420,43 @@ export default function DataMonetizationPage() {
           }}
         >
      
-       <section className="mx-auto max-w-7xl px-6">
-         <div className="grid items-center gap-10 md:grid-cols-3">
-           <div>
-             <h2 className="text-4xl text-[#0B1B2B]">Data Monetization – Goal</h2>
-             <p className="mt-5 text-lg text-[#3A4A5F]">
-               To help you realize the maximum financial value of your enterprise data while ensuring governance, security, and ethical compliance are built into the foundation.
-             </p>
-           </div>
+     <section className="relative mx-auto max-w-7xl px-[5%]">
+  {/* Divider line */}
+  <Image
+    src="/images/raar/lineraar.svg"
+    alt=""
+    width={2}
+    height={320}
+    className="hidden md:block absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+    aria-hidden
+  />
 
-           <div className="flex justify-center">
-           <Image
-                      src="/images/raar/lineraar.svg"
-                      alt=""
-                      width={2}
-                      height={320}
-                      className="w-auto h-auto"
-                      aria-hidden
-                    />
-           </div>
+  <div className="grid md:grid-cols-2 items-center gap-10">
+    {/* Left: Text */}
+    <div>
+      <h2 className=" text-4xl text-[#0B1B2B] ">
+        Data Monetization – Goal
+      </h2>
+      <p className="mt-5 text-lg text-[#3A4A5F]">
+        To help you realize the maximum financial value of your enterprise data
+        while ensuring governance, security, and ethical compliance are built
+        into the foundation.
+      </p>
+    </div>
 
-           <div className="justify-self-center">
-             <Image
-               src="/images/data-monetize/cube.png"
-               alt="Cube vault illustration"
-               width={520}
-               height={360}
-               className="h-auto w-[320px] sm:w-[380px] md:w-[460px] rounded-xl shadow-[0_12px_32px_-10px_rgba(15,44,88,0.25)]"
-             />
-           </div>
-         </div>
+    {/* Right: Image */}
+    <div className="justify-self-center">
+      <Image
+        src="/images/data-monetize/cube.png"
+        alt="Cube vault illustration"
+        width={520}
+        height={360}
+        className="h-auto w-[320px] sm:w-[380px] md:w-[460px] rounded-xl shadow-[0_12px_32px_-10px_rgba(15,44,88,0.25)]"
+      />
+    </div>
+  </div>
+</section>
 
-       </section>
 
      </BackgroundDots>
      <div className=" flex justify-center">

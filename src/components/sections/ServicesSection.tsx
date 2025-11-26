@@ -61,10 +61,10 @@ const SERVICES = [
 
 export function ServicesSection() {
   return (
-    <section className="relative overflow-hidden bg-[#fdf9f6] py-24">
+    <section className="relative overflow-hidden bg-white py-24">
       <div className="pointer-events-none absolute inset-x-0 top-8 mx-auto h-40 w-[60%] rounded-full bg-orange-100/30 blur-[100px]" />
 
-      <div className="relative mx-auto max-w-7xl px-6 md:px-8">
+      <div className="relative mx-auto max-w-7xl px-[5%] md:px-8">
         <div className="text-center">
           <h2 className="text-3xl font-semibold text-gray-900 md:text-[38px] md:leading-[48px]">
             What We Do for You

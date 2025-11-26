@@ -65,8 +65,8 @@ export function ValuePropositionSection() {
           </div>
 
           {/* Main Content */}
-          <div className="flex flex-col gap-8 lg:flex-row lg:items-stretch lg:gap-12">
-            <div className="flex flex-col gap-8 lg:flex-[0_0_100%] lg:flex-row">
+          <div className="flex flex-col gap-10 lg:flex-row lg:items-stretch lg:gap-12 px-[5%]">
+            <div className="flex flex-col gap-8 lg:flex-[0_0_100%] lg:flex-row lg:gap-20">
               {/* Stepper */}
               <div className="relative flex w-full flex-col gap-8 lg:h-full lg:w-auto">
                 <div className="absolute -left-8 top-0 h-full w-[2px] bg-gradient-to-b from-[#E45412] to-[#FEECD6]" />

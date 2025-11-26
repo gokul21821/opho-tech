@@ -67,7 +67,7 @@ const leaderProfiles = [
 ];
 
 const baseDotsProps = {
-  className: "py-16 px-6 md:px-[110px]",
+    className: "py-16 ",
   spacing: 36,
   dotSize: 2.5,
   dotColor: "#D9D9D9",
@@ -105,7 +105,9 @@ export default function Team() {
 
       <main className="bg-white text-gray-800">
       <BackgroundDots {...gradientBackground}>
-  <section className="mx-auto flex max-w-[1220px] flex-col gap-10">
+
+        
+  <section className="mx-auto flex max-w-[1220px] flex-col gap-10 px-[3%]">
     <div className="flex flex-col items-center gap-12 lg:flex-row lg:items-start lg:justify-between">
 
       {teamMembers.map((member, index) => (
@@ -161,45 +163,66 @@ export default function Team() {
           return (
             <BackgroundDots key={profile.name} {...backgroundProps}>
               <section
-                className={`mx-auto flex w-full max-w-[1400px] flex-col gap-6 lg:items-center ${
-                  profile.reverse ? "lg:flex-row-reverse" : "lg:flex-row"
+              className={`mx-auto flex w-full flex-col px-[5%]  ${
+                profile.reverse ? "lg:flex-row-reverse" : "lg:flex-row"
+              }`}
+            >
+              {/* TEXT AREA */}
+              <div
+                className={`lg:flex-[0.65] flex-1 space-y-3 ${
+                  profile.reverse ? "lg:pr-5" : "lg:pl-12"
                 }`}
               >
-                <div className={`flex-1 space-y-3 ${profile.reverse ? 'lg:pr-0' : 'lg:pl-12'}`}>
-                  <h3 className="text-[28px] font-semibold text-gray-900">{profile.name}</h3>
-                  <p className="text-2xl font-medium text-orange-500">{profile.title}</p>
-                  <div className="space-y-4 text-base leading-relaxed text-gray-600">
-                    {profile.description.map((paragraph, idx) => (
-                      <p key={idx}>{paragraph}</p>
-                    ))}
-                  </div>
+                <h3 className="text-[28px] mt-10 font-semibold text-gray-900">
+                  {profile.name}
+                </h3>
+                <p className="text-2xl font-medium text-orange-500">{profile.title}</p>
+
+                <div className="space-y-4 text-base leading-relaxed text-gray-600">
+                  {profile.description.map((paragraph, idx) => (
+                    <p key={idx}>{paragraph}</p>
+                  ))}
+                </div>
+              </div>
+
+              {/* IMAGE + DIVIDER AREA */}
+              <div
+                className={`lg:flex-[0.35] flex flex-1 flex-col items-center gap-10 lg:flex-row ${
+                  profile.reverse ? "lg:justify-start" : "lg:justify-end"
+                }`}
+              >
+                <div
+                  className={`hidden lg:block ${
+                    profile.reverse ? "lg:order-2" : "lg:order-1"
+                  }`}
+                >
+                  <Image
+                    src={dividerLine}
+                    alt="Divider"
+                    width={2}
+                    height={348}
+                    className="h-[400px] w-15px"
+                  />
                 </div>
 
                 <div
-                  className={`flex flex-1 flex-col items-center gap-6 lg:flex-row ${
-                    profile.reverse ? "lg:justify-start" : "lg:justify-end"
+                  className={`rounded-2xl border border-[#FCD5AC] bg-[#FFF6ED]  shadow-[0px_12px_30px_rgba(228,84,18,0.08)] ${
+                    profile.reverse ? "lg:order-1" : "lg:order-2"
                   }`}
                 >
-                  <div className={`hidden lg:block ${profile.reverse ? "lg:order-2" : "lg:order-1"}`}>
-                    <Image src={dividerLine} alt="Divider" width={2} height={348} className="h-[400px] w-15px" />
-                  </div>
-                  <div
-                    className={`rounded-2xl border border-[#FCD5AC] bg-[#FFF6ED] p-4 shadow-[0px_12px_30px_rgba(228,84,18,0.08)] ${
-                      profile.reverse ? "lg:order-1" : "lg:order-2"
-                    }`}
-                  >
-                    <div className="relative h-[300px] w-[260px]">
-                      <Image
-                        src={profile.image}
-                        alt={`${profile.name} portrait`}
-                        fill
-                        sizes="260px"
-                        className="rounded-2xl object-cover"
-                      />
-                    </div>
+                  <div className="relative h-[300px] w-[260px]">
+                    <Image
+                      src={profile.image}
+                      alt={`${profile.name} portrait`}
+                      fill
+                      sizes="260px"
+                      className="rounded-2xl object-cover"
+                    />
                   </div>
                 </div>
-              </section>
+              </div>
+            </section>
+
             </BackgroundDots>
           );
         })}

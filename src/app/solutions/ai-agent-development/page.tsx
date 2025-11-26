@@ -109,7 +109,7 @@ export default function AIAgentDevelopment() {
       <main className="flex-1">
 
         {/* Intro split */}
-        <section className="mx-auto max-w-7xl px-6 py-20">
+        <section className="mx-auto max-w-7xl px-[5%] py-20">
   <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-center gap-12">
 
     {/* LEFT — Illustration */}
@@ -160,7 +160,7 @@ export default function AIAgentDevelopment() {
         <section className="relative">
       {/* AI Solutions & Services Section */}
       <BackgroundDots
-          className="py-16 px-6 md:px-[110px]"
+          className="py-16 "
           spacing={36}
           dotSize={2.5}
           backgroundColor=""
@@ -169,7 +169,7 @@ export default function AIAgentDevelopment() {
             background: "linear-gradient(to bottom, #ffffff 38.524%, #feecd6 171.52%)",
           }}
         >
-            <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+            <div className="mx-auto max-w-6xl ">
               <div className="space-y-16">
                 {/* Strategic Value */}
                 <div className="text-center">
@@ -314,7 +314,7 @@ export default function AIAgentDevelopment() {
         </section>
 
         {/* What You Get */}
-        <section className="mx-auto max-w-7xl px-6 py-16">
+        <section className="mx-auto max-w-7xl px-[5%] py-16">
           <h2 className="text-center text-[32px] font-medium leading-[48px] text-[#0B1B2B]">
             What You Get
           </h2>
@@ -395,7 +395,7 @@ export default function AIAgentDevelopment() {
           background: "linear-gradient(to bottom, #ffffff 38.524%, #feecd6 171.52%)",
         }}
        >
-         <section className="mx-auto max-w-7xl px-6">
+         <section className="mx-auto max-w-7xl px-[5%]">
            <div className="grid items-center gap-10 md:grid-cols-3">
              <div>
                <h2 className="text-4xl text-[#0B1B2B]">Agentic AI for Business</h2>

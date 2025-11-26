@@ -32,7 +32,7 @@ export default function CyberSecuritySolutions() {
       <main className="flex-1">
 
         {/* Intro split */}
-        <section className="mx-auto max-w-7xl px-6 py-20">
+        <section className="mx-auto max-w-7xl px-[5%] py-20">
   <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-center gap-12">
 
     {/* LEFT — Illustration */}
@@ -82,7 +82,7 @@ export default function CyberSecuritySolutions() {
 
         {/* AI-Driven Cyber Security Framework */}
         <BackgroundDots
-          className="py-16 px-6 md:px-[110px]"
+          className="py-16 "
           spacing={36}
           dotSize={2.5}
           backgroundColor="#FEECD6"
@@ -91,7 +91,7 @@ export default function CyberSecuritySolutions() {
             background: "linear-gradient(to bottom, #ffffff 38.524%, #feecd6 171.52%)",
           }}
         >
-          <section className="max-w-7xl mx-auto">
+          <section className="max-w-7xl mx-auto px-[5%]">
             {/* Cyber Threat in the AI Era */}
             <div className="flex flex-col gap-10 items-center mb-16">
               <div className="flex flex-col gap-8 items-center">
@@ -272,7 +272,7 @@ export default function CyberSecuritySolutions() {
         </BackgroundDots>
 
         {/* Our Solutions */}
-        <section className="mx-auto max-w-7xl px-6 py-16">
+        <section className="mx-auto max-w-7xl px-[5%] py-16">
           <h2 className="text-center text-[32px] font-medium leading-[48px] text-[#0B1B2B]">
             Our Solutions
           </h2>
@@ -353,55 +353,59 @@ export default function CyberSecuritySolutions() {
           background: "linear-gradient(to bottom, #ffffff 38.524%, #feecd6 171.52%)",
         }}
        >
-         <section className="mx-auto max-w-7xl px-6">
-           <div className="grid items-center gap-10 md:grid-cols-3">
-             <div>
-               <h2 className="text-4xl text-[#0B1B2B]">Advantages</h2>
-               <p className="mt-5 text-lg font-semibold text-[#0F2C58]">
-                 Measuring Success: KPIs for the Board
-               </p>
-               <p className="mt-3 text-base text-[#3A4A5F]">
-                 Security is a business function. Our framework aligns with loss avoidance and resilience metrics:
-               </p>
-               <ul className="mt-5 space-y-4 text-lg text-[#3A4A5F]">
-                 <li className="pl-6 relative">
-                   <span className="absolute left-0 top-2 h-2 w-2 rounded-full bg-gray-500" />
-                   <span className="font-medium text-black">Loss Avoidance:</span> Target a reduction in loss within 12 months by achieving faster containment.
-                 </li>
-                 <li className="pl-6 relative">
-                   <span className="absolute left-0 top-2 h-2 w-2 rounded-full bg-gray-500" />
-                   <span className="font-medium text-black">Containment Speed (MTTI/MTTC):</span> Reduce mean days, with an ultimate goal of days.
-                 </li>
-                 <li className="pl-6 relative">
-                   <span className="absolute left-0 top-2 h-2 w-2 rounded-full bg-gray-500" />
-                   <span className="font-medium text-black">Ransomware Resilience:</span> Aim for time to restore and increase the percentage of recovery without paying the ransom.
-                 </li>
-               </ul>
-             </div>
+        <section className="mx-auto max-w-7xl px-[5%]">
+  <div className="grid items-center gap-10 md:grid-cols-[1.6fr_auto_1fr]">
+    <div>
+      <h2 className="text-4xl text-[#0B1B2B]">Advantages</h2>
+      <p className="mt-5 text-lg font-semibold text-[#0F2C58]">
+        Measuring Success: KPIs for the Board
+      </p>
+      <p className="mt-3 text-base text-[#3A4A5F]">
+        Security is a business function. Our framework aligns with loss
+        avoidance and resilience metrics:
+      </p>
+      <ul className="mt-5 space-y-4 text-lg text-[#3A4A5F]">
+        <li className="relative pl-6">
+          <span className="absolute left-0 top-2 h-2 w-2 rounded-full bg-gray-500" />
+          <span className="font-medium text-black">Loss Avoidance:</span> Target a reduction 
+          in loss within 12 months by achieving faster containment.
+        </li>
+        <li className="relative pl-6">
+          <span className="absolute left-0 top-2 h-2 w-2 rounded-full bg-gray-500" />
+          <span className="font-medium text-black">Containment Speed (MTTI/MTTC):</span> 
+          Reduce mean days, with an ultimate goal of days.
+        </li>
+        <li className="relative pl-6">
+          <span className="absolute left-0 top-2 h-2 w-2 rounded-full bg-gray-500" />
+          <span className="font-medium text-black">Ransomware Resilience:</span> Aim for 
+          time to restore and increase recovery percentage without ransom.
+        </li>
+      </ul>
+    </div>
 
-             <div className="flex justify-center">
-             <Image
-                      src="/images/raar/lineraar.svg"
-                      alt=""
-                      width={2}
-                      height={320}
-                      className="w-auto h-auto"
-                      aria-hidden
-                    />
-             </div>
+    <div className="flex justify-center">
+      <Image
+        src="/images/raar/lineraar.svg"
+        alt=""
+        width={2}
+        height={320}
+        className="w-auto h-auto"
+        aria-hidden
+      />
+    </div>
 
-             <div className="justify-self-center">
-               <Image
-                 src="/images/cyber/whychoose.png"
-                 alt="Security dashboard illustration"
-                 width={520}
-                 height={360}
-                 className="h-auto w-[320px] sm:w-[380px] md:w-[460px] rounded-xl "
-               />
-             </div>
-           </div>
+    <div className="justify-self-center">
+      <Image
+        src="/images/cyber/whychoose.png"
+        alt="Security dashboard illustration"
+        width={520}
+        height={360}
+        className="h-auto w-[320px] sm:w-[380px] md:w-[460px] rounded-xl"
+      />
+    </div>
+  </div>
+</section>
 
-         </section>
 
        </BackgroundDots>
        <div className=" flex justify-center">
