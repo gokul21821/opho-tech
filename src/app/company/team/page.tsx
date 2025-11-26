@@ -115,18 +115,19 @@ export default function Team() {
           <div className="flex w-full flex-1 flex-col items-center">
             
             {/* --- ORANGE CARD WITH ONLY IMAGE --- */}
-            <div className="w-full max-w-[220px] rounded-2xl border border-[#FCD5AC] bg-[#FFF6ED] p-4 shadow-[0px_12px_30px_rgba(228,84,18,0.08)]">
-              <div className="relative mx-auto size-[170px]">
-                <Image
-                  src={member.image}
-                  alt={`${member.name} portrait`}
-                  fill
-                  sizes="300px"
-                  className="rounded-xl object-contain" 
-                  /* object-contain → ensures image fits fully, no cropping */
-                />
-              </div>
-            </div>
+            <div className="w-full max-w-[220px] rounded-2xl border border-[#FCD5AC] bg-[#FFF6ED] shadow-[0px_12px_30px_rgba(228,84,18,0.08)]">
+  <div className="relative w-full aspect-[3/4] overflow-hidden rounded-2xl">
+    <Image
+      src={member.image}
+      alt={`${member.name} portrait`}
+      fill
+      sizes="220px"
+      className="object-cover"
+    />
+  </div>
+</div>
+
+
 
             {/* --- NAME & TITLE OUTSIDE CARD --- */}
             <h3 className="mt-4 text-lg font-semibold text-gray-900 text-center">
@@ -163,14 +164,14 @@ export default function Team() {
           return (
             <BackgroundDots key={profile.name} {...backgroundProps}>
               <section
-              className={`mx-auto flex w-full flex-col px-[5%]  ${
+              className={`mx-auto flex w-full flex-col px-[13%]  ${
                 profile.reverse ? "lg:flex-row-reverse" : "lg:flex-row"
               }`}
             >
               {/* TEXT AREA */}
               <div
                 className={`lg:flex-[0.65] flex-1 space-y-3 ${
-                  profile.reverse ? "lg:pr-5" : "lg:pl-12"
+                  profile.reverse ? "lg:pr-4" : "lg:pl-2"
                 }`}
               >
                 <h3 className="text-[28px] mt-10 font-semibold text-gray-900">
@@ -210,7 +211,7 @@ export default function Team() {
                     profile.reverse ? "lg:order-1" : "lg:order-2"
                   }`}
                 >
-                  <div className="relative h-[300px] w-[260px]">
+                  <div className="relative h-[250px] w-[220px]">
                     <Image
                       src={profile.image}
                       alt={`${profile.name} portrait`}
