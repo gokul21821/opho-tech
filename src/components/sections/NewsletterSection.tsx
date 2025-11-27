@@ -34,7 +34,7 @@ const industries = [
 
 export function NewsletterSection() {
   return (
-    <section className="bg-white px-6 py-16 md:px-[110px] md:py-16">
+    <section className="bg-white px-[8%] py-16  md:py-16">
       <div className="mx-auto max-w-7xl">
         {/* Header */}
         <div className="mb-10 text-center md:mb-[40px]">
@@ -106,12 +106,12 @@ export function NewsletterSection() {
           {/* Newsletter Cards */}
           <div className="flex w-full flex-col gap-6 lg:w-auto lg:gap-6">
             {/* Cards Row */}
-            <div className="flex flex-col gap-6 sm:flex-row sm:gap-4 md:gap-6 lg:gap-[29px]">
+            <div className="flex flex-col gap-6 sm:flex-row sm:gap-4 md:gap-6 lg:gap-[10px]">
               {newsletters.map((newsletter) => (
                 <Link
                   key={newsletter.id}
                   href="/placeholder"
-                  className="group relative flex w-full flex-col gap-4 overflow-visible rounded-2xl border border-orange-100 bg-white hover:bg-orange-25 p-5 transition-shadow duration-300 hover:shadow-lg sm:w-[250px] md:w-[280px] lg:w-[296px]"
+                  className="group relative flex w-full flex-col gap-4 overflow-visible rounded-2xl border border-orange-100 bg-white hover:bg-orange-25 p-5 transition-shadow duration-300 hover:shadow-lg sm:flex-1 sm:min-w-0 md:w-[280px] lg:w-[250px]"
                 >
                   <div className="flex size-11 items-center justify-center overflow-hidden">
                     <ServiceIcon name="cloud-integration" className="size-11" />

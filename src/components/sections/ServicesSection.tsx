@@ -64,7 +64,7 @@ export function ServicesSection() {
     <section className="relative overflow-hidden bg-white py-24">
       <div className="pointer-events-none absolute inset-x-0 top-8 mx-auto h-40 w-[60%] rounded-full bg-orange-100/30 blur-[100px]" />
 
-      <div className="relative mx-auto max-w-7xl px-[5%] md:px-8">
+      <div className="relative mx-auto max-w-7xl px-[5%] ">
         <div className="text-center">
           <h2 className="text-3xl font-semibold text-gray-900 md:text-[38px] md:leading-[48px]">
             What We Do for You
@@ -74,7 +74,9 @@ export function ServicesSection() {
           </p>
         </div>
 
-        <div className="mt-14 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+        <div className="mt-14 grid grid-cols-1 justify-items-center gap-15 sm:grid-cols-2 lg:grid-cols-3">
+
+
           {SERVICES.map((service) => (
             <ServiceCard key={service.title} {...service} />
           ))}
@@ -93,8 +95,8 @@ function ServiceCard({ title, tagline, description, icon }: ServiceCardProps) {
     <Link
       href={href}
       className="
-        service-card group relative flex h-full flex-col overflow-visible
-        bg-[#fffaf5] p-[42px]
+        service-card group relative flex h-full w-[320px] sm:w-[350px] lg:w-[320px] flex-col overflow-visible
+        bg-[#fffaf5] p-[10%]
         transition-all duration-300
       "
     >
@@ -127,11 +129,11 @@ function ServiceCard({ title, tagline, description, icon }: ServiceCardProps) {
       <div className="relative z-[2] flex flex-col gap-6">
         <div className="flex items-start gap-6">
           <div className="flex-1">
-            <h3 className="text-xl font-semibold leading-[1.2] text-gray-900">
+            <h3 className="text-base font-semibold leading-[1.2] text-gray-900">
               {title}
             </h3>
 
-            <p className="mt-3 text-[13px] text-gray-800">
+            <p className="mt-2 text-[13px] text-gray-800">
               {tagline}
             </p>
           </div>
@@ -155,9 +157,9 @@ function ServiceCard({ title, tagline, description, icon }: ServiceCardProps) {
       <button
         aria-hidden="true"
         className="
-          absolute bottom-3 right-2 z-[4]
+          absolute bottom-3 right-3 z-[4] lg:bottom-4 lg:right-1 
           translate-x-[36%] translate-y-[24%] md:translate-x-[40%] md:translate-y-[30%] lg:translate-x-[30%]
-          flex h-10 w-10 md:h-[52px] md:w-[52px] items-center justify-center
+          flex h-10 w-10 md:h-[46px] md:w-[46px] items-center justify-center sm:bottom-4 sm:right-3
           rounded-full bg-white shadow-[0_10px_30px_-10px_rgba(0,0,0,0.25)]
           transition-transform duration-300
           group-hover:scale-110
