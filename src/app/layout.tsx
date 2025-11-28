@@ -3,12 +3,13 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import VoiceflowChatbot from "@/components/chatbot";
 import CookieConsent from "@/components/cookies/CookieConsent";
+import { GoogleTagManager } from "@next/third-parties/google";
 
 const poppins = Poppins({
   variable: "--font-sans",
   weight: ["400", "500", "600"],
   subsets: ["latin"],
-  display: "swap", // Explicit font-display for optimal performance
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -36,12 +37,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      {/* GTM — loads only in production */}
+      {process.env.NODE_ENV === "production" && (
+        <GoogleTagManager gtmId="GTM-KQRTLRFZ" />
+      )}
+
       <head>
-        {/* Preconnect to Voiceflow domains for faster connection when chatbot loads */}
+        {/* Preconnect for chatbot */}
         <link rel="preconnect" href="https://cdn.voiceflow.com" />
         <link rel="preconnect" href="https://general-runtime.voiceflow.com" />
         <link rel="preconnect" href="https://runtime-api.voiceflow.com" />
       </head>
+
       <body className={`${poppins.variable} font-sans antialiased`}>
         {children}
         <VoiceflowChatbot />
