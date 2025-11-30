@@ -64,7 +64,7 @@ export function ServicesSection() {
     <section className="relative overflow-hidden bg-white py-24">
       <div className="pointer-events-none absolute inset-x-0 top-8 mx-auto h-40 w-[60%] rounded-full bg-orange-100/30 blur-[100px]" />
 
-      <div className="relative mx-auto max-w-7xl px-[5%] ">
+      <div className="relative mx-auto max-w-7xl px-[4%] ">
         <div className="text-center">
           <h2 className="text-3xl font-semibold text-gray-900 md:text-[38px] md:leading-[48px]">
             What We Do for You

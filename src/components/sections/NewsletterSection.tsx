@@ -111,7 +111,7 @@ export function NewsletterSection() {
                 <Link
                   key={newsletter.id}
                   href="/placeholder"
-                  className="group relative flex w-full flex-col gap-4 overflow-visible rounded-2xl border border-orange-100 bg-white hover:bg-orange-25 p-5 transition-shadow duration-300 hover:shadow-lg sm:flex-1 sm:min-w-0 md:w-[280px] lg:w-[250px]"
+                  className="group relative flex w-full flex-col gap-4 overflow-visible rounded-2xl border border-orange-100 bg-white hover:bg-orange-25 p-5 transition-shadow duration-300 hover:shadow-lg sm:flex-1 sm:min-w-0 md:w-[280px] lg:w-[210px]"
                 >
                   <div className="flex size-11 items-center justify-center overflow-hidden">
                     <ServiceIcon name="cloud-integration" className="size-11" />

@@ -186,7 +186,7 @@ px-[5%]">
             />
           </Link>
 
-          <nav className="hidden items-center gap-8 md:flex">
+          <nav className="hidden items-center gap-8 lg:flex">
             <Link
               href="/"
               className={`${navLinkBase} ${
@@ -212,7 +212,7 @@ px-[5%]">
             })}
           </nav>
 
-          <div className="hidden items-center gap-4 md:flex">
+          <div className="hidden items-center gap-4 lg:flex">
             <div ref={searchContainerRef} className="relative">
               <button
                 type="button"
@@ -235,7 +235,7 @@ px-[5%]">
           <button
             type="button"
             aria-label="Toggle navigation"
-            className="flex items-center justify-center rounded-xl border border-white/10 p-2 text-orange-25 md:hidden"
+            className="flex items-center justify-center rounded-xl border border-white/10 p-2 text-orange-25 lg:hidden"
             onClick={() => setMobileOpen((prev) => !prev)}
           >
             <MenuIcon open={mobileOpen} />
@@ -243,7 +243,7 @@ px-[5%]">
         </div>
 
         <div
-          className={`md:hidden transition-[max-height,opacity] duration-300 ${
+          className={`lg:hidden transition-[max-height,opacity] duration-300 ${
             mobileOpen ? "max-h-[480px] opacity-100" : "max-h-0 opacity-0"
           } overflow-hidden border-t border-white/10 bg-[#151722]/95`}
         >
