@@ -96,13 +96,14 @@ function ServiceCard({ title, tagline, description, icon }: ServiceCardProps) {
       href={href}
       className="
         service-card group relative flex h-full w-[320px] sm:w-[350px] lg:w-[320px] flex-col overflow-visible
-        bg-[#fffaf5] p-[10%]
+        px-6 py-8
         transition-all duration-300
       "
     >
       {/* dotted pattern background */}
       <div
         className="
+          service-card-dots
           pointer-events-none absolute inset-0 z-0
           [background-image:radial-gradient(#d9d9d9_1px,transparent_1px)]
           [background-size:18px_18px]
@@ -126,16 +127,22 @@ function ServiceCard({ title, tagline, description, icon }: ServiceCardProps) {
       </div>
 
       {/* content */}
-      <div className="relative z-[2] flex flex-col gap-6">
-        <div className="flex items-start gap-6">
-          <div className="flex-1">
-            <h3 className="text-base font-semibold leading-[1.2] text-gray-900">
-              {title}
-            </h3>
+      <div className="relative z-[2] flex flex-col">
+        <div className="flex items-start gap-6 mb-5">
+          <div className="flex-1 min-w-0 flex flex-col">
+            {/* Fixed height container for title - accommodates up to 2 lines, ensures alignment */}
+            <div className="h-[52px] flex items-start mb-3">
+              <h3 className="text-sm font-semibold leading-[1.2] text-gray-900">
+                {title}
+              </h3>
+            </div>
 
-            <p className="mt-2 text-[13px] text-gray-800">
-              {tagline}
-            </p>
+            {/* Fixed height container for tagline - accommodates wrapped taglines, ensures alignment */}
+            <div className="h-[40px] flex items-start">
+              <p className="text-[11px] text-gray-800 leading-[1.4]">
+                {tagline}
+              </p>
+            </div>
           </div>
 
           <ServiceIcon
@@ -148,6 +155,7 @@ function ServiceCard({ title, tagline, description, icon }: ServiceCardProps) {
           />
         </div>
 
+        {/* Description starts at fixed position after tagline section - ensures descriptions align */}
         <p className="text-xs leading-[1.7] text-gray-700">
           {description}
         </p>
@@ -157,9 +165,8 @@ function ServiceCard({ title, tagline, description, icon }: ServiceCardProps) {
       <button
         aria-hidden="true"
         className="
-          absolute bottom-3 right-3 z-[4] lg:bottom-4 lg:right-1 
-          translate-x-[36%] translate-y-[24%] md:translate-x-[40%] md:translate-y-[30%] lg:translate-x-[30%]
-          flex h-10 w-10 md:h-[46px] md:w-[46px] items-center justify-center sm:bottom-4 sm:right-3
+          absolute bottom-[-2] left-71 z-[4] md:bottom-[-6] md:left-79 lg:bottom-[-3] lg:left-71 sm:bottom-[-6] sm:left-78
+          flex h-11 w-11 items-center justify-center
           rounded-full bg-white shadow-[0_10px_30px_-10px_rgba(0,0,0,0.25)]
           transition-transform duration-300
           group-hover:scale-110
