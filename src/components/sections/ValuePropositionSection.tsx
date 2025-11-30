@@ -40,7 +40,7 @@ export function ValuePropositionSection() {
 
   return (
     <>
-      <section className="relative overflow-hidden border-b-2 border-[#FEEFDF] py-16 px-[8%] md:py-16">
+      <section className="relative overflow-hidden border-b-2 border-[#FEEFDF] py-12 px-4 sm:py-14 sm:px-6 md:py-16 md:px-[8%]">
         {/* Background with gradient and pattern */}
         <div className="absolute inset-0 -z-10">
           <div className="absolute inset-0 bg-gradient-to-b from-white from-[38.524%] to-[#FEECD6] to-[171.52%]" />
@@ -55,27 +55,27 @@ export function ValuePropositionSection() {
 
         <div className="mx-auto max-w-[1440px]">
           {/* Heading */}
-          <div className="mb-10 text-center">
-            <h2 className="font-poppins text-[38px] font-medium leading-[48px] text-[#111111]">
+          <div className="mb-8 sm:mb-9 md:mb-10 text-center">
+            <h2 className="font-poppins text-2xl sm:text-3xl md:text-[38px] font-medium leading-tight sm:leading-[40px] md:leading-[48px] text-[#111111] px-2">
               From Ideas to Impact, <span className="text-[#2A73B5]">MVP in 15 Days</span>
             </h2>
-            <p className="mx-auto mt-5 w-full max-w-[860px] font-poppins text-lg leading-normal text-[#454545]">
+            <p className="mx-auto mt-4 sm:mt-5 w-full max-w-[860px] font-poppins text-base sm:text-lg leading-normal text-[#454545] px-2">
               End-to-End Support: From Discovery to Deployment, Designed for Measurable Impact.
             </p>
           </div>
 {/* Main Content */}
-<div className="flex flex-col gap-10 lg:flex-row lg:items-stretch lg:gap-6 px-[1%]">
-  <div className="flex w-full flex-col gap-8 lg:flex-row lg:gap-10">
+<div className="flex flex-col gap-8 sm:gap-9 md:gap-10 lg:flex-row lg:items-stretch lg:gap-6 ml-10">
+  <div className="flex w-full flex-col gap-6 sm:gap-7 md:gap-8 lg:flex-row lg:gap-10">
 
     {/* Stepper */}
-    <div className="relative flex w-full flex-col gap-8 lg:w-[300px] lg:shrink-0">
-      <div className="absolute -left-8 top-0 h-full w-[2px] bg-gradient-to-b from-[#E45412] to-[#FEECD6]" />
+    <div className="relative flex w-full flex-col gap-6 sm:gap-7 md:gap-8 lg:w-[300px] lg:shrink-0">
+      <div className="absolute -left-6 sm:-left-7 md:-left-8 top-0 h-full w-[2px] bg-gradient-to-b from-[#E45412] to-[#FEECD6]" />
 
       {features.map((feature, index) => (
         <div key={feature.id} className="relative">
           {/* Circle */}
           <div
-            className={`absolute -left-[42px] top-1/2 z-10 -translate-y-1/2 flex size-5 items-center justify-center rounded-full border-[3px] border-white transition-all ${
+            className={`absolute -left-[30px] sm:-left-[34px] md:-left-[42px] top-1/2 z-10 -translate-y-1/2 flex size-4 sm:size-[18px] md:size-5 items-center justify-center rounded-full border-2 sm:border-[2.5px] md:border-[3px] border-white transition-all ${
               activeStep === feature.id
                 ? 'bg-[#E45412]'
                 : index === 0
@@ -87,22 +87,22 @@ export function ValuePropositionSection() {
           {/* Button */}
           <button
             onClick={() => setActiveStep(feature.id)}
-            className={`relative flex w-full items-center justify-between gap-3 rounded-lg px-5 py-4 text-left transition-all ${
+            className={`relative flex w-full items-center justify-between gap-2 sm:gap-3 rounded-lg px-4 md:px-5 py-3 md:py-4 text-left transition-all ${
               activeStep === feature.id
                 ? 'bg-gradient-to-br from-[#F68E41] to-[#BD3E11]'
                 : 'bg-white hover:bg-[#FFF6ED]'
             }`}
           >
-            <div className="flex flex-col gap-1">
+            <div className="flex flex-col gap-0.5 sm:gap-1 min-w-0 flex-1">
               <div
-                className={`font-poppins text-sm font-medium ${
+                className={`font-poppins text-xs sm:text-sm font-medium ${
                   activeStep === feature.id ? 'text-[#FFF6ED]' : 'text-[#6D6D6D]'
                 }`}
               >
                 {feature.subtitle}
               </div>
               <div
-                className={`font-poppins text-lg font-semibold ${
+                className={`font-poppins text-base sm:text-lg font-semibold ${
                   activeStep === feature.id ? 'text-white' : 'text-[#2A73B5]'
                 }`}
               >
@@ -110,13 +110,13 @@ export function ValuePropositionSection() {
               </div>
             </div>
 
-            <div className="flex size-10 items-center justify-center">
+            <div className="flex size-8 sm:size-9 md:size-10 items-center justify-center shrink-0">
               <Image
                 src={feature.icon}
                 alt={feature.title}
                 width={40}
                 height={40}
-                className={`size-10 ${
+                className={`w-full h-full ${
                   activeStep === feature.id ? 'invert brightness-0' : ''
                 }`}
               />
@@ -127,20 +127,20 @@ export function ValuePropositionSection() {
     </div>
 
     {/* Content Card */}
-    <div className="flex w-full max-w-[800px] items-stretch rounded-2xl bg-white p-6">
-      <div className="flex w-full flex-col gap-8 min-[1152px]:flex-row min-[1152px]:items-start min-[1152px]:gap-10">
+    <div className="flex w-full max-w-[800px] items-stretch rounded-2xl bg-white p-4 sm:p-5 md:p-6 overflow-hidden">
+      <div className="flex w-full flex-col gap-6 sm:gap-7 md:gap-8 min-[1152px]:flex-row min-[1152px]:items-start min-[1152px]:gap-10">
 
         {/* Text Side */}
-        <div className="flex flex-col gap-4 min-w-[350px]">
-          <p className="font-poppins text-lg leading-normal text-[#4F4F4F]">
+        <div className="flex flex-col gap-4 w-full md:min-w-[300px] lg:min-w-[350px]">
+          <p className="font-poppins text-base sm:text-lg leading-normal text-[#4F4F4F] break-words">
             {activeFeature.description}
           </p>
 
           <button
             onClick={() => setIsModalOpen(true)}
-            className="group flex w-fit items-center gap-1.5 rounded-lg bg-[#FFF6ED] px-3 py-3 transition-all hover:bg-[#FFE8D1]"
+            className="group flex w-fit items-center gap-1.5 rounded-lg bg-[#FFF6ED] px-3 md:px-4 py-2.5 md:py-3 transition-all hover:bg-[#FFE8D1]"
           >
-            <span className="font-poppins text-base leading-none text-[#E45412]">
+            <span className="font-poppins text-sm sm:text-base leading-none text-[#E45412]">
               Let&apos;s Connect
             </span>
             <svg
@@ -162,9 +162,9 @@ export function ValuePropositionSection() {
         </div>
 
         {/* Image Side */}
-        <div className="flex items-center justify-center min-[1152px]:flex-1 min-[1152px]:justify-end min-w-[260px]">
+        <div className="flex items-center justify-center w-full sm:w-auto min-[1152px]:flex-1 min-[1152px]:justify-end md:min-w-[260px]">
           {!imageLoaded && (
-            <div className="h-[260px] w-[260px] animate-pulse rounded-lg bg-gray-200" />
+            <div className="h-[200px] w-[200px] sm:h-[240px] sm:w-[240px] md:h-[260px] md:w-[260px] animate-pulse rounded-lg bg-gray-200" />
           )}
 
           <Image
@@ -172,7 +172,7 @@ export function ValuePropositionSection() {
             alt="Global connectivity"
             width={340}
             height={340}
-            className={`h-auto w-full max-w-[340px] min-w-[240px] ${
+            className={`h-auto w-full max-w-[200px] sm:max-w-[240px] md:max-w-[300px] lg:max-w-[340px] ${
               imageLoaded ? 'opacity-100' : 'opacity-0'
             }`}
             priority
