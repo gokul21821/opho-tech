@@ -25,7 +25,7 @@ export async function fetchContentList(
 ): Promise<ContentItem[]> {
   try {
     const response = await fetch(`${API_BASE_URL}/api/${contentType}`, {
-      next: { revalidate: 3600 }, // Revalidate every 60s for fresher content
+      next: { revalidate: 60 }, // Revalidate every 60s for fresher content
     });
 
     if (!response.ok) {
