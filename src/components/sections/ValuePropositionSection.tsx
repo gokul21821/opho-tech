@@ -53,7 +53,7 @@ export function ValuePropositionSection() {
           />
         </div>
 
-        <div className="mx-auto max-w-[1440px]">
+        <div className="mx-auto max-w-[1200px]">
           {/* Heading */}
           <div className="mb-8 sm:mb-9 md:mb-10 text-center">
             <h2 className="font-poppins text-2xl sm:text-3xl md:text-[38px] font-medium leading-tight sm:leading-[40px] md:leading-[48px] text-[#111111] px-2">

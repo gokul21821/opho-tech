@@ -14,7 +14,7 @@ export function HeroSection() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <section className="relative -mt-20 overflow-hidden pb-0 pt-20 text-white md:-mt-24 md:pt-24 px-[7%]">
+    <section className="relative -mt-20 overflow-hidden pb-0 pt-20 text-white md:-mt-24 md:pt-24 ">
       <div className="pointer-events-none absolute inset-0">
         <Image
           src={HERO_BACKGROUND_WAVES}
@@ -26,7 +26,7 @@ export function HeroSection() {
         />
       </div>
 
-      <div className="relative mx-auto flex min-h-[680px] max-w-7xl flex-col gap-16  pb-24 pt-36 lg:flex-row lg:items-center lg:justify-between lg:gap-20 lg:min-h-[720px]">
+      <div className="relative mx-auto flex min-h-[680px] max-w-[1120px] flex-col gap-16  pb-24 pt-36 lg:flex-row lg:items-center lg:justify-between lg:gap-20 lg:min-h-[720px]">
         <div className="max-w-xl space-y-8">
           <div className="space-y-3">
             <p className="text-4xl font-medium text-orange-500 sm:text-5xl">
@@ -43,7 +43,7 @@ export function HeroSection() {
           <PrimaryButton onClick={() => setIsModalOpen(true)}>Let&apos;s Start</PrimaryButton>
         </div>
 
-        <div className="relative max-w-3xl flex-1">
+        <div className="relative max-w-7xl flex-1">
           <VideoPlayer
             src="/videos/Ophotech.mp4"
             poster={LOGO_PATH_WHITE}

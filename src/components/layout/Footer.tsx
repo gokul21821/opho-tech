@@ -115,7 +115,7 @@ export function Footer() {
       )}
 
       {/* Content */}
-      <div className="relative z-10 mx-auto max-w-7xl px-6 pb-8 pt-24 md:px-8 lg:px-12 lg:pt-32">
+      <div className="relative z-10 mx-auto max-w-[1200px] px-6 pb-8 pt-24 md:px-8 lg:px-12 lg:pt-32">
         {/* Main grid */}
         <div className="grid gap-12 md:grid-cols-[2fr_1fr_1fr_1fr] md:gap-8 lg:gap-16">
           {/* Company Info */}
@@ -176,7 +176,16 @@ export function Footer() {
           />
           
           {/* Resources Links */}
-          <FooterColumn title="Resources" links={RESOURCE_LINKS} />
+          <FooterColumn
+            title="Resources"
+            links={RESOURCE_LINKS}
+            hrefMapper={(link) => {
+              if (link === "Newsletters") return "/newsletters";
+              if (link === "Case Studies") return "/case-studies";
+              if (link === "Blogs") return "/blogs";
+              return slugify(link);
+            }}
+          />
           
           {/* Solutions Links */}
           <FooterColumn

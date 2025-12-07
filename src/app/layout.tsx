@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   description:
     "Transform your vision into production-ready MVPs with OphoTech's AI-driven development approach.",
   icons: {
-    icon: "/images/logo/logo.svg",
+    icon: "/images/icons/titlebar.svg",
   },
   openGraph: {
     title: "OphoTech | AI-Powered MVP Development in 15 Days",
