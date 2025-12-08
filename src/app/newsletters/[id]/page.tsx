@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { fetchContentById, formatDate } from "@/lib/api";
 import { notFound } from "next/navigation";
@@ -59,6 +60,23 @@ export default async function NewsletterDetailPage({
               </span>
             </div>
           </header>
+
+          {newsletter.imageUrl ? (
+            <div className="mb-8 overflow-hidden rounded-xl bg-white">
+  <div className="relative w-full h-[400px]"> 
+    <Image
+      src={newsletter.imageUrl}
+      alt={`${newsletter.title} image`}
+      fill
+      className="object-contain"
+      sizes="100vw"
+      priority
+    />
+  </div>
+</div>
+
+
+          ) : null}
 
           <div
             className="prose prose-lg max-w-none"

@@ -2,7 +2,9 @@ import { ContentSection } from "@/components/content/ContentSection";
 import { fetchContentList } from "@/lib/api";
 
 export async function CaseStudiesSection() {
-  const caseStudies = await fetchContentList("case-studies");
+  const caseStudies = await fetchContentList("case-studies", {
+    cache: "no-store", // always fetch fresh data on landing page
+  });
 
   return (
     <ContentSection

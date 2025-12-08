@@ -5,6 +5,8 @@ export interface ContentItem {
   date: string; // ISO date string
   createdAt: string;
   updatedAt: string;
+  imagePath?: string | null;
+  imageUrl?: string | null;
   author: {
     id: string;
     username: string;

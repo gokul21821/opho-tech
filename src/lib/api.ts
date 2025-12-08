@@ -20,13 +20,29 @@ function decodeHtmlEntities(html: string | undefined | null) {
   );
 }
 
+type FetchOptions = {
+  cache?: RequestCache;
+  revalidate?: number;
+};
+
 export async function fetchContentList(
   contentType: ContentType,
+  opts: FetchOptions = {},
 ): Promise<ContentItem[]> {
+  const { cache, revalidate = 60 } = opts;
+  const fetchOptions: RequestInit & { next?: { revalidate: number } } = {
+    cache,
+  };
+
+  if (cache !== "no-store") {
+    fetchOptions.next = { revalidate };
+  }
+
   try {
-    const response = await fetch(`${API_BASE_URL}/api/${contentType}`, {
-      next: { revalidate: 60 }, // Revalidate every 60s for fresher content
-    });
+    const response = await fetch(
+      `${API_BASE_URL}/api/${contentType}`,
+      fetchOptions,
+    );
 
     if (!response.ok) {
       throw new Error("Failed to fetch content list");
@@ -48,11 +64,22 @@ export async function fetchContentList(
 export async function fetchContentById(
   contentType: ContentType,
   id: string,
+  opts: FetchOptions = {},
 ): Promise<ContentItem | null> {
+  const { cache, revalidate = 60 } = opts;
+  const fetchOptions: RequestInit & { next?: { revalidate: number } } = {
+    cache,
+  };
+
+  if (cache !== "no-store") {
+    fetchOptions.next = { revalidate };
+  }
+
   try {
-    const response = await fetch(`${API_BASE_URL}/api/${contentType}/${id}`, {
-      next: { revalidate: 60 }, // Revalidate every 60s for fresher content
-    });
+    const response = await fetch(
+      `${API_BASE_URL}/api/${contentType}/${id}`,
+      fetchOptions,
+    );
 
     if (!response.ok) {
       throw new Error("Failed to fetch content item");

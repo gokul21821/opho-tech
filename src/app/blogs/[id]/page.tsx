@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { fetchContentById, formatDate } from "@/lib/api";
 import { notFound } from "next/navigation";
@@ -57,6 +58,22 @@ export default async function BlogDetailPage({
               <span className="font-poppins text-sm">By {blog.author.username}</span>
             </div>
           </header>
+
+          {blog.imageUrl ? (
+            <div className="mb-8 overflow-hidden rounded-xl bg-white">
+  <div className="relative w-full h-[400px]"> 
+              <Image
+                src={blog.imageUrl}
+                alt={`${blog.title} image`}
+                className="w-full h-auto object-contain"
+      sizes="100vw"
+      priority
+    />
+  </div>
+</div>
+
+
+          ) : null}
 
           <div
             className="prose prose-lg max-w-none"
