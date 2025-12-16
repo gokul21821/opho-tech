@@ -4,6 +4,7 @@ import { fetchContentById, formatDate } from "@/lib/api";
 import { notFound } from "next/navigation";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { RichTextRenderer } from "@/components/Common/RichTextRenderer";
 
 export default async function NewsletterDetailPage({
   params,
@@ -78,10 +79,7 @@ export default async function NewsletterDetailPage({
 
           ) : null}
 
-          <div
-            className="prose prose-lg max-w-none"
-            dangerouslySetInnerHTML={{ __html: newsletter.description }}
-          />
+          <RichTextRenderer content={newsletter.description} />
         </article>
       </main>
       <Footer />

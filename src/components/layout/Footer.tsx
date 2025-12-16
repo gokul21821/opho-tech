@@ -87,7 +87,7 @@ export function Footer() {
       {isFooterVisible && (
         <div className="absolute inset-0 pointer-events-none">
           {/* Orange ellipse - positioned to show curved top portion */}
-          <div className="absolute -top-[10px] left-1/2 h-[100px] w-[150%] -translate-x-1/2 md:-top-[10px] md:h-[100px] lg:-top-[1px] lg:h-[600px]">
+          <div className="absolute left-1/2 w-[150%] -translate-x-1/2  h-[140px] top-[1x] sm:h-[200px] md:h-[320px]  lg:h-[500px] xl:h-[620px] 2xl:h-[2000px]">
             <div className="relative h-full w-full">
               <Image
                 src="/images/footer/footer-elipse.svg"
