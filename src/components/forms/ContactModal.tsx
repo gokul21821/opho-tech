@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Modal } from '@/components/ui/Modal';
@@ -55,6 +55,77 @@ const EmailIcon = () => (
   </svg>
 );
 
+const ClockIcon = ({ className }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M5.31917 2.05347C5.31917 1.88778 5.18485 1.75347 5.01917 1.75347C4.85348 1.75347 4.71917 1.88778 4.71917 2.05347H5.01917H5.31917ZM5.01917 5.27262H4.71917C4.71917 5.37067 4.76708 5.46253 4.84749 5.51864L5.01917 5.27262ZM7.08775 7.08196C7.22362 7.17677 7.41063 7.14349 7.50545 7.00761C7.60026 6.87174 7.56698 6.68473 7.43111 6.58991L7.25943 6.83594L7.08775 7.08196ZM9.26101 4.99989H8.96101C8.96101 7.18769 7.18745 8.96125 4.99965 8.96125V9.26125V9.56125C7.51882 9.56125 9.56101 7.51906 9.56101 4.99989H9.26101ZM4.99965 9.26125V8.96125C2.81184 8.96125 1.03828 7.18769 1.03828 4.99989H0.738281H0.438281C0.438281 7.51906 2.48047 9.56125 4.99965 9.56125V9.26125ZM0.738281 4.99989H1.03828C1.03828 2.81209 2.81184 1.03853 4.99965 1.03853V0.738525V0.438525C2.48047 0.438525 0.438281 2.48072 0.438281 4.99989H0.738281ZM4.99965 0.738525V1.03853C7.18745 1.03853 8.96101 2.81209 8.96101 4.99989H9.26101H9.56101C9.56101 2.48072 7.51882 0.438525 4.99965 0.438525V0.738525ZM5.01917 2.05347H4.71917V5.27262H5.01917H5.31917V2.05347H5.01917ZM5.01917 5.27262L4.84749 5.51864L7.08775 7.08196L7.25943 6.83594L7.43111 6.58991L5.19085 5.0266L5.01917 5.27262Z" fill="currentColor"/>
+  </svg>
+);
+
+// Generate time slots from 12:00 to 11:30 (24 options instead of 48)
+const TIME_SLOTS = Array.from({ length: 24 }, (_, i) => {
+  const hour = i < 2 ? 12 : Math.floor(i / 2); // 12, 12, 1, 1, 2, 2, ..., 11, 11
+  const minute = i % 2 === 0 ? '00' : '30';
+  const displayHour = hour === 0 ? 12 : hour > 12 ? hour - 12 : hour;
+  return `${displayHour.toString().padStart(2, '0')}:${minute}`;
+});
+
+// Helper function to convert time + period to 24-hour format
+const convertTo24Hour = (time12: string, period: string): string => {
+  if (!time12) return '';
+
+  const [hourStr, minute] = time12.split(':');
+  let hour = parseInt(hourStr);
+
+  // Convert to 24-hour format
+  if (period === 'AM') {
+    if (hour === 12) hour = 0; // 12 AM is 00
+  } else { // PM
+    if (hour !== 12) hour += 12; // Add 12 for PM (except 12 PM which stays 12)
+  }
+
+  return `${hour.toString().padStart(2, '0')}:${minute}`;
+};
+
+// Helper function to convert 24-hour time to 12-hour format with AM/PM
+const formatTime12Hour = (time24: string): string => {
+  if (!time24 || time24 === '--:--') return '--:--';
+
+  // Create a dummy date to use the native Intl formatter
+  const [hours, minutes] = time24.split(':');
+  const date = new Date();
+  date.setHours(parseInt(hours), parseInt(minutes));
+
+  return new Intl.DateTimeFormat('en-US', {
+    hour: 'numeric',
+    minute: 'numeric',
+    hour12: true
+  }).format(date);
+};
+
+// Helper function to compare times for validation
+const isEndTimeValid = (startTime24: string, startPeriod: string, endTime24: string, endPeriod: string): boolean => {
+  if (!startTime24 || !endTime24) return true;
+
+  const start24 = convertTo24Hour(startTime24, startPeriod);
+  const end24 = convertTo24Hour(endTime24, endPeriod);
+
+  const [startHour, startMin] = start24.split(':').map(Number);
+  const [endHour, endMin] = end24.split(':').map(Number);
+
+  const startMinutes = startHour * 60 + startMin;
+  const endMinutes = endHour * 60 + endMin;
+
+  return endMinutes > startMinutes;
+};
+
+const COUNTRIES = [
+  { value: 'CA', label: 'Canada' },
+  { value: 'US', label: 'US' },
+  { value: 'UK', label: 'UK' },
+  { value: 'IN', label: 'India' },
+  { value: 'ES', label: 'Spain' },
+];
+
 const CTA_BACKGROUND = "/images/hero/hero-background-waves.png";
 
 export function ContactModal({ isOpen, onClose }: ContactModalProps) {
@@ -65,14 +136,136 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
     phone: '',
     country: '',
     date: '',
-    time: '',
+    startTime: '',
+    startPeriod: 'AM',
+    endTime: '',
+    endPeriod: 'AM',
     brief: '',
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isTimePickerOpen, setIsTimePickerOpen] = useState(false);
+  const timePickerRef = useRef<HTMLDivElement>(null);
+  const [isCountryPickerOpen, setIsCountryPickerOpen] = useState(false);
+  const countryPickerRef = useRef<HTMLDivElement>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+  // Close time picker when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        isTimePickerOpen &&
+        timePickerRef.current &&
+        !timePickerRef.current.contains(event.target as Node)
+      ) {
+        setIsTimePickerOpen(false);
+      }
+    };
+
+    if (isTimePickerOpen) {
+      // Use setTimeout to ensure the event listener is added after the current click event
+      setTimeout(() => {
+        document.addEventListener('mousedown', handleClickOutside);
+      }, 0);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isTimePickerOpen]);
+
+  // Close country picker when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        isCountryPickerOpen &&
+        countryPickerRef.current &&
+        !countryPickerRef.current.contains(event.target as Node)
+      ) {
+        setIsCountryPickerOpen(false);
+      }
+    };
+
+    if (isCountryPickerOpen) {
+      setTimeout(() => {
+        document.addEventListener('mousedown', handleClickOutside);
+      }, 0);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isCountryPickerOpen]);
+
+  const handleTimeSelect = (type: 'start' | 'end', field: 'time' | 'period', value: string) => {
+    const newFormData = {
+      ...formData,
+      [type === 'start' ? (field === 'time' ? 'startTime' : 'startPeriod') : (field === 'time' ? 'endTime' : 'endPeriod')]: value,
+    };
+
+    // Validate that end time is after start time
+    if (type === 'end' && field === 'time' && newFormData.startTime && newFormData.startPeriod) {
+      if (!isEndTimeValid(newFormData.startTime, newFormData.startPeriod, value, newFormData.endPeriod)) {
+        // Don't update if end time is before start time
+        return;
+      }
+    }
+
+    if (type === 'end' && field === 'period' && newFormData.startTime && newFormData.startPeriod && newFormData.endTime) {
+      if (!isEndTimeValid(newFormData.startTime, newFormData.startPeriod, newFormData.endTime, value)) {
+        // Don't update if end time is before start time
+        return;
+      }
+    }
+
+    if ((type === 'start' && field === 'time') || (type === 'start' && field === 'period')) {
+      // Check if new start time makes current end time invalid
+      if (newFormData.endTime && newFormData.endPeriod) {
+        if (!isEndTimeValid(newFormData.startTime, newFormData.startPeriod, newFormData.endTime, newFormData.endPeriod)) {
+          // Clear end time if new start time/period is after current end time
+          newFormData.endTime = '';
+          newFormData.endPeriod = 'AM';
+        }
+      }
+    }
+
+    setFormData(newFormData);
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    onClose();
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setSubmitStatus('success');
+        // Optional: Reset form after successful submission
+        // setFormData({ name: '', organization: '', email: '', phone: '', country: '', date: '', startTime: '', startPeriod: 'AM', endTime: '', endPeriod: 'AM', brief: '' });
+        
+        // Close modal after 2 seconds
+        setTimeout(() => {
+          onClose();
+          setSubmitStatus('idle');
+        }, 2000);
+      } else {
+        setSubmitStatus('error');
+        console.error('Submission failed:', result.error);
+      }
+    } catch (error) {
+      console.error('Submission error:', error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (
@@ -339,28 +532,63 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
             </div>
 
             {/* Country */}
-            <div className="flex flex-col gap-1">
+            <div ref={countryPickerRef} className="relative flex flex-col gap-1">
               <label
                 htmlFor="country"
                 className="font-poppins text-sm text-gray-900"
               >
                 Country
               </label>
-              <select
+              <button
+                type="button"
                 id="country"
-                name="country"
-                value={formData.country}
-                onChange={handleChange}
-                className="rounded-md bg-[#f0f0f0] px-3 py-2.5 font-poppins text-xs text-gray-900 focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-100"
+                onClick={() => setIsCountryPickerOpen(!isCountryPickerOpen)}
+                className="flex w-full items-center justify-between rounded-md bg-[#f0f0f0] px-3 py-2.5 font-poppins text-xs text-gray-900 focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-100"
               >
-                <option value="">Select country</option>
-                <option value="US">United States</option>
-                <option value="UK">United Kingdom</option>
-                <option value="CA">Canada</option>
-                <option value="AU">Australia</option>
-                <option value="IN">India</option>
-                <option value="other">Other</option>
-              </select>
+                <span className={!formData.country ? "text-gray-300" : ""}>
+                  {formData.country || 'Select country'}
+                </span>
+                <svg
+                  className={`size-4 text-gray-500 transition-transform ${isCountryPickerOpen ? 'rotate-180' : ''}`}
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+
+              {isCountryPickerOpen && (
+                <div className="absolute top-full left-0 z-50 mt-0 w-full overflow-hidden rounded-lg border border-gray-200 bg-white shadow-lg">
+                  <div className="flex flex-col p-1">
+                    {COUNTRIES.map((country) => (
+                      <button
+                        key={country.value}
+                        type="button"
+                        onClick={() => {
+                          setFormData((prev) => ({
+                            ...prev,
+                            country: country.label,
+                          }));
+                          setIsCountryPickerOpen(false);
+                        }}
+                        className={`rounded-md px-3 py-2.5 text-left font-poppins text-xs transition-colors ${
+                          formData.country === country.label
+                            ? 'bg-orange-500 text-white'
+                            : 'bg-[#f0f0f0] text-gray-900 hover:bg-gray-200'
+                        }`}
+                      >
+                        {country.label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
 
             {/* Date and Time */}
@@ -381,46 +609,161 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                   className="rounded-md bg-[#f0f0f0] px-3 py-2.5 font-poppins text-xs text-gray-900 focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-100"
                 />
               </div>
-              <div className="flex flex-1 flex-col gap-1">
+              <div ref={timePickerRef} className="relative flex flex-1 flex-col gap-1">
                 <label
-                  htmlFor="time"
                   className="font-poppins text-sm text-gray-900 opacity-0"
                 >
                   Preferred Time Slot
                 </label>
-                <input
-                  type="time"
-                  id="time"
-                  name="time"
-                  value={formData.time}
-                  onChange={handleChange}
-                  className="rounded-md bg-[#f0f0f0] px-3 py-2.5 font-poppins text-xs text-gray-900 focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-100"
-                />
+                <button
+                  type="button"
+                  onClick={() => setIsTimePickerOpen(!isTimePickerOpen)}
+                  className="flex w-full items-center justify-between rounded-md bg-[#f0f0f0] px-3 py-2.5 font-poppins text-xs text-gray-900 focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-100"
+                >
+                  <span className={!formData.startTime && !formData.endTime ? "text-gray-300" : ""}>
+                    {formData.startTime || formData.endTime
+                      ? (() => {
+                          const start24 = formData.startTime ? convertTo24Hour(formData.startTime, formData.startPeriod) : '';
+                          const end24 = formData.endTime ? convertTo24Hour(formData.endTime, formData.endPeriod) : '';
+                          return `${formatTime12Hour(start24 || '--:--')} - ${formatTime12Hour(end24 || '--:--')}`;
+                        })()
+                      : 'Select Time'}
+                  </span>
+                  <ClockIcon className="size-4 text-gray-500" />
+                </button>
+
+                {isTimePickerOpen && (
+                  <div className="absolute bottom-full -left-10 z-50 -mb-5 flex w-[180%] flex-col overflow-hidden rounded-lg border border-gray-200 bg-white shadow-lg sm:flex-row">
+                    {/* Start Time Column */}
+                    <div className="flex flex-1 flex-col border-b border-gray-100 sm:border-b-0 sm:border-r">
+                      <div className="flex items-center gap-2 border-b border-gray-100 bg-gray-50 px-3 py-2">
+                        <ClockIcon className="size-3 text-gray-500" />
+                        <span className="font-poppins text-xs font-medium text-gray-700">Start Time</span>
+                      </div>
+                      {/* Time Slots */}
+                      <div className="max-h-[150px] overflow-y-auto p-1 [&::-webkit-scrollbar]:w-1 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-gray-600">
+                        {TIME_SLOTS.map((time) => (
+                          <button
+                            key={`start-time-${time}`}
+                            type="button"
+                            onClick={() => handleTimeSelect('start', 'time', time)}
+                            className={`w-full rounded px-2 py-1.5 text-left font-poppins text-xs transition-colors ${
+                              formData.startTime === time
+                                ? 'bg-orange-500 text-white'
+                                : 'text-gray-900 hover:bg-gray-100'
+                            }`}
+                          >
+                            {time}
+                          </button>
+                        ))}
+                      </div>
+                      {/* AM/PM Toggle */}
+                      <div className="flex border-t border-gray-100">
+                        {['AM', 'PM'].map((period) => (
+                          <button
+                            key={`start-period-${period}`}
+                            type="button"
+                            onClick={() => handleTimeSelect('start', 'period', period)}
+                            className={`flex-1 px-2 py-2 text-center font-poppins text-xs transition-colors ${
+                              formData.startPeriod === period
+                                ? 'bg-orange-500 text-white'
+                                : 'bg-gray-50 text-gray-700 hover:bg-gray-100'
+                            }`}
+                          >
+                            {period}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* End Time Column */}
+                    <div className="flex flex-1 flex-col">
+                      <div className="flex items-center gap-2 border-b border-gray-100 bg-gray-50 px-3 py-2">
+                        <ClockIcon className="size-3 text-gray-500" />
+                        <span className="font-poppins text-xs font-medium text-gray-700">End Time</span>
+                      </div>
+                      {/* Time Slots */}
+                      <div className="max-h-[150px] overflow-y-auto p-1 [&::-webkit-scrollbar]:w-1 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-gray-600">
+                        {TIME_SLOTS.map((time) => {
+                          const isDisabled = !!(formData.startTime && formData.startPeriod && !isEndTimeValid(formData.startTime, formData.startPeriod, time, formData.endPeriod));
+                          return (
+                            <button
+                              key={`end-time-${time}`}
+                              type="button"
+                              onClick={() => handleTimeSelect('end', 'time', time)}
+                              disabled={isDisabled}
+                              className={`w-full rounded px-2 py-1.5 text-left font-poppins text-xs transition-colors ${
+                                formData.endTime === time
+                                  ? 'bg-orange-500 text-white'
+                                  : isDisabled
+                                  ? 'text-gray-400 cursor-not-allowed'
+                                  : 'text-gray-900 hover:bg-gray-100'
+                              }`}
+                            >
+                              {time}
+                            </button>
+                          );
+                        })}
+                      </div>
+                      {/* AM/PM Toggle */}
+                      <div className="flex border-t border-gray-100">
+                        {['AM', 'PM'].map((period) => {
+                          const isDisabled = !!(formData.startTime && formData.startPeriod && formData.endTime && !isEndTimeValid(formData.startTime, formData.startPeriod, formData.endTime, period));
+                          return (
+                            <button
+                              key={`end-period-${period}`}
+                              type="button"
+                              onClick={() => handleTimeSelect('end', 'period', period)}
+                              disabled={isDisabled}
+                              className={`flex-1 px-2 py-2 text-center font-poppins text-xs transition-colors ${
+                                formData.endPeriod === period
+                                  ? 'bg-orange-500 text-white'
+                                  : isDisabled
+                                  ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
+                                  : 'bg-gray-50 text-gray-700 hover:bg-gray-100'
+                              }`}
+                            >
+                              {period}
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
 
             {/* Submit Button */}
-            <button
-              type="submit"
-              className="flex w-fit items-center justify-start gap-1.5 rounded-lg bg-orange-500 px-3 py-2 font-poppins text-sm text-white transition-colors hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
-            >
-              <span>Submit Now</span>
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 16 16"
-                fill="none"
-                className="rotate-180"
+            <div className="flex flex-col gap-2">
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="flex w-fit items-center justify-start gap-1.5 rounded-lg bg-orange-500 px-3 py-2 font-poppins text-sm text-white transition-colors hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                <path
-                  d="M6 12L10 8L6 4"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </button>
+                <span>{isSubmitting ? 'Sending...' : 'Submit Now'}</span>
+                {!isSubmitting && (
+                  <img
+                    src="/right-arrow.svg"
+                    alt="arrow"
+                    width="16"
+                    height="16"
+                  />
+                )}
+              </button>
+              
+              {/* Status Messages */}
+              {submitStatus === 'success' && (
+                <p className="font-poppins text-sm text-green-600">
+                  ✓ Details sent successfully!
+                </p>
+              )}
+              {submitStatus === 'error' && (
+                <p className="font-poppins text-sm text-red-600">
+                  ✗ Something went wrong. Please try again.
+                </p>
+              )}
+            </div>
           </form>
           </div>
         </div>
