@@ -2,6 +2,7 @@
 
 // app/cyber-security-solutions/page.tsx
 import Image from "next/image";
+import Link from "next/link";
 import { Fragment, useState } from "react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
@@ -21,12 +22,11 @@ export default function CyberSecuritySolutions() {
       <HeroSection
         breadcrumb={[
           { label: "Home", href: "/" },
-          { label: "Solutions", href: "/" },
           { label: "Cyber Security Solutions" },
         ]}
         title="Cyber Security Solutions"
         subtitle="Autonomous Defense for the AI Age"
-        contentAlignment="center"
+        video="/videos/Ophotech.mp4"
       />
 
       <main className="flex-1">
@@ -63,16 +63,67 @@ export default function CyberSecuritySolutions() {
     <div className="text-[15.5px] text-[#3A4A5F] max-w-md flex flex-col justify-center">
 
       <p>
-        <span className="font-semibold text-[#0F2C58]">Cyber Security environment</span> is under attack by AI-driven adversaries who operate at machine speed, enabling 
+        <span className="font-semibold text-[#0F2C58]">Cyber Security environment</span> is under attack by AI-driven adversaries who operate at machine speed, enabling
         <span className="font-semibold"> mass personalization, rapid reconnaissance, and cross-language deception. Legacy, rule-based defenses </span>
         are no longer sufficient against these adaptive threats.
       </p>
 
       <p className="mt-4">
-        We don't offer generic security; we build 
-        <span className="font-semibold text-[#0F2C58]"> AI-driven, agentic security architectures</span> that provide 
+        We don't offer generic security; we build
+        <span className="font-semibold text-[#0F2C58]"> AI-driven, agentic security architectures</span> that provide
         <span className="font-semibold"> autonomous resilience</span>—a fusion of human judgment and AI precision.
       </p>
+
+      <div className="mt-8">
+    <h2 className="text-[24px] font-bold text-[#0B1B2B]">Our Tech Stack</h2>
+    <div className="flex flex-wrap gap-4">
+      <div className="w-20 h-12 flex items-center justify-center">
+        <Image
+          src="/images/tech-stack-logos/afetrust.svg"
+          alt="AFETRUST logo"
+          width={48}
+          height={48}
+          className="w-full h-full object-contain"
+        />
+      </div>
+      <div className="w-20 h-12 flex items-center justify-center">
+        <Image
+          src="/images/tech-stack-logos/mcafee.svg"
+          alt="mcafee logo"
+          width={48}
+          height={48}
+          className="w-full h-full object-contain"
+        />
+      </div>
+      <div className="w-20 h-12 flex items-center justify-center">
+        <Image
+          src="/images/tech-stack-logos/mco.svg"
+          alt="mco logo"
+          width={48}
+          height={48}
+          className="w-full h-full object-contain"
+        />
+      </div>
+      <div className="w-20 h-12 flex items-center justify-center">
+        <Image
+          src="/images/tech-stack-logos/nordvpn.svg"
+          alt="nordvpn logo"
+          width={48}
+          height={48}
+          className="w-full h-full object-contain"
+        />
+      </div>
+      <div className="w-15 h-12 flex items-center justify-center">
+        <Image
+          src="/images/tech-stack-logos/concentrix.svg"
+          alt="concentrix logo"
+          width={48}
+          height={48}
+          className="w-full h-full object-contain"
+        />
+      </div>
+    </div>
+  </div>
 
     </div>
 
@@ -419,15 +470,39 @@ export default function CyberSecuritySolutions() {
          />
        </div>
 
-        {/* CTA */}
-        <section className="mx-auto max-w-7xl px-6 py-16">
-          <h2 className="text-center text-2xl font-semibold text-[#0B1B2B]">Get Started</h2>
+        {/* Navigation */}
+        <section className="mx-auto max-w-7xl px-20 py-16">
+          <div className="mb-6">
+            <Link
+              href="/solutions/ai-agent-development"
+              className="inline-flex items-center gap-2 font-poppins text-sm font-medium text-orange-500 transition-colors hover:text-orange-600"
+            >
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                className="size-4"
+              >
+                <path
+                  d="M13 8H3M3 8L7 12M3 8L7 4"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+              <span>Previous</span>
+            </Link>
+          </div>
+          <h2 className="text-center text-2xl font-semibold text-[#0B1B2B]">Ready to Solve</h2>
+          <h2 className="text-center text-2xl font-semibold text-[#0B1B2B]">What's Next With OphoTech?</h2>
           <p className="mx-auto mt-3 max-w-3xl text-center text-[15px] text-[#3A4A5F]">
-            Understand how AI‑driven defense can cut breach costs, strengthen compliance, and protect your business from evolving threats in real time.
+            Together, we connect, create, and evolve.
           </p>
           <div className="mt-8 flex justify-center">
             <PrimaryButton onClick={() => setIsModalOpen(true)}>
-              Activate AI‑driven defense 
+              Let's Start
             </PrimaryButton>
           </div>
         </section>

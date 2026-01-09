@@ -9,10 +9,10 @@ import { HeroSection } from "@/components/ui/HeroSection";
 import Image from "next/image";
 import { Fragment, useState } from "react";
 
-const bhavneetImage = "/images/aboutus/walia.png";
-const shivenderImage = "/images/aboutus/sofat.png";
-const rajveerImage = "/images/aboutus/Singh.png";
-const vijayImage = "/images/aboutus/varadi.png";
+const bhavneetImage = "/images/aboutus/walia-image.png";
+const shivenderImage = "/images/aboutus/sofat-image.png";
+const rajveerImage = "/images/aboutus/singh-image.png";
+const vijayImage = "/images/aboutus/varadi-image.png";
 const dividerLine = "/images/raar/lineraar.svg";
 
 const teamMembers = [

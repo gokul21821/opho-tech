@@ -2,6 +2,7 @@
 
 // app/ai-agent-development/page.tsx
 import Image from "next/image";
+import Link from "next/link";
 import { Fragment, useState } from "react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
@@ -98,12 +99,11 @@ export default function AIAgentDevelopment() {
       <HeroSection
         breadcrumb={[
           { label: "Home", href: "/" },
-          { label: "Solutions", href: "/" },
           { label: "AI Agent Development" },
         ]}
         title="AI Agent Development"
         subtitle="The Future of Autonomous Business Operations"
-        contentAlignment="center"
+        video="/videos/Ophotech.mp4"
       />
 
       <main className="flex-1">
@@ -140,15 +140,66 @@ export default function AIAgentDevelopment() {
     <div className="flex flex-col justify-center text-sm text-[#3A4A5F] max-w-md">
 
       <p>
-        <span className="font-semibold text-[#0F2C58]">AI Agents</span> are not just chatbots; they are sophisticated digital workers capable of performing complex, multi-step tasks autonomously. 
-        Investing in AI Agent development means acquiring a scalable, highly efficient workforce that executes strategic objectives with minimal human oversight, leading to unprecedented 
+        <span className="font-semibold text-[#0F2C58]">AI Agents</span> are not just chatbots; they are sophisticated digital workers capable of performing complex, multi-step tasks autonomously.
+        Investing in AI Agent development means acquiring a scalable, highly efficient workforce that executes strategic objectives with minimal human oversight, leading to unprecedented
         <span className="font-semibold"> operational efficiency and speed</span>.
       </p>
 
       <p className="mt-4">
-        <span className="font-semibold text-[#0F2C58]">For the Business Leaders:</span> 
+        <span className="font-semibold text-[#0F2C58]">For the Business Leaders:</span>
         This is about architecting the next generation of AI systems—leveraging Large Language Models (LLMs) with planning, memory, and tool-use capabilities to automate entire workflows, driving structural change across the organization.
       </p>
+
+      <div className="mt-8">
+    <h2 className="text-[24px] font-bold text-[#0B1B2B]">Our Tech Stack</h2>
+    <div className="flex flex-wrap gap-4">
+      <div className="w-20 h-12 flex items-center justify-center">
+        <Image
+          src="/images/tech-stack-logos/langchain.svg"
+          alt="langchain logo"
+          width={48}
+          height={48}
+          className="w-full h-full object-contain"
+        />
+      </div>
+      <div className="w-20 h-12 flex items-center justify-center">
+        <Image
+          src="/images/tech-stack-logos/haystack.svg"
+          alt="haystack logo"
+          width={48}
+          height={48}
+          className="w-full h-full object-contain"
+        />
+      </div>
+      <div className="w-20 h-12 flex items-center justify-center">
+        <Image
+          src="/images/tech-stack-logos/pinecone.svg"
+          alt="Pinecone logo"
+          width={48}
+          height={48}
+          className="w-full h-full object-contain"
+        />
+      </div>
+      <div className="w-20 h-12 flex items-center justify-center">
+        <Image
+          src="/images/tech-stack-logos/llamaindex.svg"
+          alt="llamaindex logo"
+          width={48}
+          height={48}
+          className="w-full h-full object-contain"
+        />
+      </div>
+      <div className="w-15 h-12 flex items-center justify-center">
+        <Image
+          src="/images/tech-stack-logos/gemini.svg"
+          alt="gemini logo"
+          width={48}
+          height={48}
+          className="w-full h-full object-contain"
+        />
+      </div>
+    </div>
+  </div>
 
     </div>
 
@@ -440,16 +491,38 @@ export default function AIAgentDevelopment() {
          />
        </div>
 
-        {/* CTA */}
-        <section className="mx-auto max-w-7xl px-6 py-16">
-          <h2 className="text-center text-2xl font-semibold text-[#0B1B2B]">Get Started</h2>
-          <p className="mx-auto mt-3 max-w-3xl text-center text-[15px] text-[#3A4A5F]">
-            Discover the key frameworks and system requirements to build your first AI Agent prototype and see how autonomous intelligence can accelerate real business outcomes.
-          </p>
+        {/* Navigation */}
+        <section className="mx-auto max-w-7xl px-20 py-16">
+          <div className="mb-6">
+            <Link
+              href="/solutions/ai-solutions-and-services"
+              className="inline-flex items-center gap-2 font-poppins text-sm font-medium text-orange-500 transition-colors hover:text-orange-600"
+            >
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                className="size-4"
+              >
+                <path
+                  d="M13 8H3M3 8L7 12M3 8L7 4"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+              <span>Previous</span>
+            </Link>
+          </div>
+          <h2 className="text-center text-2xl font-semibold text-[#0B1B2B]">Discover Next Step of Your AI Journey</h2>
           <div className="mt-8 flex justify-center">
-            <PrimaryButton onClick={() => setIsModalOpen(true)}>
-              Build Autonomous Workflows 
-            </PrimaryButton>
+            <Link href="/solutions/cyber-security-solutions">
+              <PrimaryButton>
+                Cyber Security Solutions
+              </PrimaryButton>
+            </Link>
           </div>
         </section>
       </main>

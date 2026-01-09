@@ -47,7 +47,7 @@ export default function PrivacyPolicy() {
             {/* Intro paragraph */}
             <div>
               <p className="text-[16px] leading-normal text-[#454545]">
-                Opho Tech ("Opho Tech", "we", or "us") values your privacy and is fully compliant with applicable privacy regulations including GDPR, CCPA, VCDPA, and other similar data protection laws. All data shared with Opho Tech through our API endpoints and online services is securely processed in accordance with ISO 27001 and SOC 2 Type II standards. For further details, please refer to our Data Processing Agreement.
+              This Privacy Policy outlines the privacy measures and practices of OphoTech Inc. (referred to as “OphoTech”, “we”, or “us”) in relation to our website (the “Website”), and any features, products, and online services (“services”) provided by OphoTech. We value the privacy of our visitors and users. This Policy explains the types of data and information we collect, and how we safeguard that data.
               </p>
             </div>
 
@@ -309,7 +309,7 @@ export default function PrivacyPolicy() {
                 What&apos;s Next With OphoTech?
               </h2>
               <PrimaryButton className="mt-6" onClick={() => setIsModalOpen(true)}>
-                Get Started
+                Let's Start
               </PrimaryButton>
             </div>
           </div>

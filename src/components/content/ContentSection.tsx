@@ -8,6 +8,7 @@ interface ContentSectionProps {
   items: ContentItem[];
   contentType: ContentType;
   emptyMessage?: string;
+  hasBackground?: boolean;
 }
 
 export function ContentSection({
@@ -16,11 +17,12 @@ export function ContentSection({
   items,
   contentType,
   emptyMessage = "Not available, stay tuned",
+  hasBackground = true,
 }: ContentSectionProps) {
   const displayItems = items.slice(0, 3);
 
   return (
-    <section className="bg-white px-[8%] py-16 md:py-16">
+    <section className={`${hasBackground ? 'bg-white' : ''} px-[8%] py-16 md:py-16`}>
       <div className="mx-auto max-w-[1100px]">
         <div className="mb-10 text-center md:mb-[40px]">
           <h2 className="font-poppins text-3xl font-medium leading-[48px] text-gray-900 md:text-[38px]">
@@ -37,7 +39,7 @@ export function ContentSection({
           </div>
         ) : (
           <>
-            <div className="flex flex-col justify-center gap-6 sm:flex-row sm:gap-4 md:gap-6 lg:gap-[10px]">
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {displayItems.map((item) => (
                 <ContentCard
                   key={item.id}

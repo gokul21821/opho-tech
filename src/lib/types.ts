@@ -22,3 +22,19 @@ export interface ApiResponse<T> {
   count?: number;
 }
 
+export interface SearchResult extends ContentItem {
+  contentType: ContentType;
+}
+
+export interface AllContentData {
+  newsletters: ContentItem[];
+  blogs: ContentItem[];
+  caseStudies: ContentItem[];
+}
+
+export interface SearchResults {
+  newsletters: ContentItem[];
+  blogs: ContentItem[];
+  caseStudies: ContentItem[];
+  hasResults: boolean;
+}

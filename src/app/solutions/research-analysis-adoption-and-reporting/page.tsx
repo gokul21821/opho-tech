@@ -2,6 +2,7 @@
 
 // app/raar/page.tsx
 import Image from "next/image";
+import Link from "next/link";
 import { Fragment, useState } from "react";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
@@ -22,12 +23,11 @@ export default function RAARPage() {
       <HeroSection
         breadcrumb={[
           { label: "Home", href: "/" },
-          { label: "Solutions", href: "/" },
-          { label: "Research, Analysis, Adoption & Reporting" },
+          { label: "Research, Analysis" },
         ]}
-        title="Research, Analysis, Adoption & Reporting"
-        subtitle="Powered by AI agents. Built for every decision-maker in your organization."
-        contentAlignment="center"
+        title="Research, Analysis"
+        subtitle="AI Journey Starts with In-depth & Diligent Research"
+        video="/videos/Ophotech.mp4"
       />
 
       <main className="bg-white text-[#0B1B2B]">
@@ -67,6 +67,57 @@ export default function RAARPage() {
         evaluate, and optimize your tools with precision, speed, and
         accuracy.
       </p>
+
+      <div className="mt-8">
+    <h2 className="text-[24px] font-bold text-[#0B1B2B]">Our Tech Stack</h2>
+    <div className="flex flex-wrap gap-4">
+      <div className="w-20 h-12 flex items-center justify-center">
+        <Image
+          src="/images/tech-stack-logos/sas.svg"
+          alt="SAS logo"
+          width={48}
+          height={48}
+          className="w-full h-full object-contain"
+        />
+      </div>
+      <div className="w-20 h-12 flex items-center justify-center">
+        <Image
+          src="/images/tech-stack-logos/spss.svg"
+          alt="SPSS logo"
+          width={48}
+          height={48}
+          className="w-full h-full object-contain"
+        />
+      </div>
+      <div className="w-20 h-12 flex items-center justify-center">
+        <Image
+          src="/images/tech-stack-logos/python.svg"
+          alt="Python logo"
+          width={48}
+          height={48}
+          className="w-full h-full object-contain"
+        />
+      </div>
+      <div className="w-20 h-12 flex items-center justify-center">
+        <Image
+          src="/images/tech-stack-logos/power-bi.svg"
+          alt="Power BI logo"
+          width={48}
+          height={48}
+          className="w-full h-full object-contain"
+        />
+      </div>
+      <div className="w-15 h-14 flex items-center justify-center">
+        <Image
+          src="/images/tech-stack-logos/github.svg"
+          alt="GitHub logo"
+          width={48}
+          height={48}
+          className="w-full h-full object-contain"
+        />
+      </div>
+    </div>
+  </div>
     </div>
 
   </div>
@@ -288,16 +339,15 @@ export default function RAARPage() {
           />
         </div>
 
-      {/* Get Started CTA */}
+      {/* Navigation */}
       <section className="mx-auto max-w-7xl px-6 py-16">
-        <h2 className="text-center text-2xl font-semibold text-[#0B1B2B]">Get Started</h2>
-        <p className="mx-auto mt-5 max-w-xl text-center text-[15px] text-[#3A4A5F]">
-          From capability gaps to consolidation opportunities, RAAR transforms software spend into strategic decisions.
-        </p>
+        <h2 className="text-center text-2xl font-semibold text-[#0B1B2B]">Discover Next Step of Your AI Journey</h2>
         <div className="mt-6 flex justify-center">
-          <PrimaryButton onClick={() => setIsModalOpen(true)}>
-            Schedule RAAR Assessment 
-          </PrimaryButton>
+          <Link href="/solutions/data-monetization">
+            <PrimaryButton>
+              Data Structuring & Monetization
+            </PrimaryButton>
+          </Link>
         </div>
       </section>
     </main>

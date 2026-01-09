@@ -27,8 +27,8 @@ export function AnimatedSection({
         }
       },
       {
-        threshold: 0.1,
-        rootMargin: '50px',
+        threshold: 0.3,
+        rootMargin: '0px',
       }
     );
 

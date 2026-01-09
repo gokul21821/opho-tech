@@ -86,24 +86,11 @@ export function Footer() {
       {/* Background Layer - Lazy loaded when footer is near viewport */}
       {isFooterVisible && (
         <div className="absolute inset-0 pointer-events-none">
-          {/* Orange ellipse - positioned to show curved top portion */}
-          <div className="absolute left-1/2 w-[150%] -translate-x-1/2  h-[140px] top-[1x] sm:h-[200px] md:h-[320px]  lg:h-[500px] xl:h-[620px] 2xl:h-[2000px]">
-            <div className="relative h-full w-full">
-              <Image
-                src="/images/footer/footer-elipse.svg"
-                alt=""
-                fill
-                sizes="150vw"
-                className="object-contain object-top"
-              />
-            </div>
-          </div>
-
-          {/* Blue footer background - overlays ellipse, leaving top curve visible */}
+          {/* Blue footer background */}
           <div className="absolute top-[8px] left-0 right-0 bottom-0 md:top-[7px] lg:top-[5px]">
             <div className="relative h-full w-full">
               <Image
-                src="/images/footer/footer-bg.png"
+                src="/images/footer/footer-background.png"
                 alt=""
                 fill
                 sizes="100vw"

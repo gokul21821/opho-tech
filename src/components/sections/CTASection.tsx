@@ -6,7 +6,7 @@ import { useState } from "react";
 import { SecondaryButton } from "@/components/ui/SecondaryButton";
 import { ContactModal } from "@/components/forms/ContactModal";
 
-const CTA_BACKGROUND = "/images/hero/hero-background-waves.png";
+const CTA_BACKGROUND = "/images/hero/hero-background.png";
 
 export function CTASection() {
   const [isModalOpen, setIsModalOpen] = useState(false);

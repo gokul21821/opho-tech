@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { Fragment, useState } from "react";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
@@ -20,19 +21,18 @@ export default function CloudIntegrationPage() {
       <HeroSection
         breadcrumb={[
           { label: "Home", href: "/" },
-          { label: "Solutions", href: "/" },
-          { label: "Cloud Integration" },
+          { label: "Cloud Integration & Architecture" },
         ]}
         title="Cloud Integration & Architecture"
         subtitle="Building the Digital Backbone"
-        contentAlignment="center"
+        video="/videos/Ophotech.mp4"
       />
 
-      <main className="bg-white text-gray-800">
+      <main className="bg-white text-[#0B1B2B]">
 
       {/* Overview Section */}
-<section className="py-20 px-6 bg-white px-[5%]">
-  <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] max-w-6xl mx-auto items-center gap-12">
+<section className="mx-auto max-w-7xl px-[5%] py-20">
+  <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-center gap-12">
 
     {/* LEFT — Illustration */}
     <div className="flex justify-center md:justify-start">
@@ -61,16 +61,66 @@ export default function CloudIntegrationPage() {
     {/* RIGHT — Text */}
     <div className="text-sm text-gray-600 flex flex-col justify-center max-w-4xl">
 
-      <p className="mb-6 px-20">
-        <strong>For the Business Leaders:</strong> Cloud is not just an IT cost center; it is the 
-        <strong> platform for innovation, agility, and scale.</strong> Cloud Integration & Architecture 
+      <p className="mb-6">
+        <strong>For the Business Leaders:</strong> Cloud is not just an IT cost center; it is the
+        <strong> platform for innovation, agility, and scale.</strong> Cloud Integration & Architecture
         services ensure technology strategy directly supports business goals, minimizes risk, and maximizes competitive speed.
       </p>
 
-      <p className="px-20">
-        <strong>For the Chief Cloud Architect and Integration Expert:</strong> We focus on modern, scalable, 
+      <p>
+        <strong>For the Chief Cloud Architect and Integration Expert:</strong> We focus on modern, scalable,
         and secure system design—breaking down data silos and enabling real-time analytics across your enterprise.
       </p>
+      <div className="mt-8">
+    <h2 className="text-[24px] font-bold text-[#0B1B2B]">Our Tech Stack</h2>
+    <div className="flex flex-wrap gap-4">
+      <div className="w-20 h-12 flex items-center justify-center">
+        <Image
+          src="/images/tech-stack-logos/aws.svg"
+          alt="AWS logo"
+          width={48}
+          height={48}
+          className="w-full h-full object-contain"
+        />
+      </div>
+      <div className="w-20 h-12 flex items-center justify-center">
+        <Image
+          src="/images/tech-stack-logos/google-cloud.svg"
+          alt="Google Cloud logo"
+          width={48}
+          height={48}
+          className="w-full h-full object-contain"
+        />
+      </div>
+      <div className="w-20 h-12 flex items-center justify-center">
+        <Image
+          src="/images/tech-stack-logos/kubernetes.svg"
+          alt="Kubernetes logo"
+          width={48}
+          height={48}
+          className="w-full h-full object-contain"
+        />
+      </div>
+      <div className="w-20 h-12 flex items-center justify-center">
+        <Image
+          src="/images/tech-stack-logos/docker.svg"
+          alt="Docker logo"
+          width={48}
+          height={48}
+          className="w-full h-full object-contain"
+        />
+      </div>
+      <div className="w-20 h-12 flex items-center justify-center">
+        <Image
+          src="/images/tech-stack-logos/elastic.svg"
+          alt="Elastic logo"
+          width={48}
+          height={48}
+          className="w-full h-full object-contain"
+        />
+      </div>
+    </div>
+  </div>
 
     </div>
 
@@ -394,16 +444,39 @@ export default function CloudIntegrationPage() {
           />
         </div>
 
-        {/* Get Started */}
-        <section className="py-20 px-6 text-center">
-          <h2 className="text-2xl font-semibold mb-3">Get Started</h2>
-          <p className="text-sm text-gray-600 mb-6 max-w-2xl mx-auto">
-            Connect with our team for a quick Cloud Readiness Review and uncover the fastest, most cost-efficient path to
-            modernization.
-          </p>
-          <PrimaryButton onClick={() => setIsModalOpen(true)}>
-            Schedule a Call 
-          </PrimaryButton>
+        {/* Navigation */}
+        <section className="mx-auto max-w-7xl px-20 py-16">
+          <div className="mb-6">
+            <Link
+              href="/solutions/data-monetization"
+              className="inline-flex items-center gap-2 font-poppins text-sm font-medium text-orange-500 transition-colors hover:text-orange-600"
+            >
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                className="size-4"
+              >
+                <path
+                  d="M13 8H3M3 8L7 12M3 8L7 4"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+              <span>Previous</span>
+            </Link>
+          </div>
+          <h2 className="text-center text-2xl font-semibold text-[#0B1B2B]">Discover Next Step of Your AI Journey</h2>
+          <div className="mt-8 flex justify-center">
+            <Link href="/solutions/ai-solutions-and-services">
+              <PrimaryButton>
+                AI Solutions & Services
+              </PrimaryButton>
+            </Link>
+          </div>
         </section>
       </main>
 

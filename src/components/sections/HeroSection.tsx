@@ -6,7 +6,7 @@ import { PrimaryButton } from "@/components/ui/Button";
 import { ContactModal } from "@/components/forms/ContactModal";
 import { VideoPlayer } from "@/components/ui/VideoPlayer";
 
-const HERO_BACKGROUND_WAVES = "/images/hero/hero-background-waves.png";
+const HERO_BACKGROUND_WAVES = "/images/hero/hero-background.png";
 const LOGO_PATH_WHITE = "/images/logo/logo-blue-black.svg";
 
 
@@ -37,8 +37,7 @@ export function HeroSection() {
             </p>
           </div>
           <p className="max-w-lg text-base leading-relaxed text-blue-100 sm:text-lg">
-            Identify compliance gaps, discover hidden risks, and act before they
-            impact audits or operations.
+            Partnering In Your Journey To AI Enablement.
           </p>
           <PrimaryButton onClick={() => setIsModalOpen(true)}>Let&apos;s Start</PrimaryButton>
         </div>
@@ -46,8 +45,9 @@ export function HeroSection() {
         <div className="relative max-w-7xl flex-1">
           <VideoPlayer
             src="/videos/Ophotech.mp4"
-            poster={LOGO_PATH_WHITE}
+            poster="/videos/thumbnail.png"
             muted={true}
+            showControls={true}
           />
         </div>
       </div>

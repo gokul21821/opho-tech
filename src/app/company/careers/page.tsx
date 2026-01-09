@@ -57,17 +57,16 @@ export default function Careers() {
               {/* Left column */}
               <div className="flex flex-col items-center text-center">
                 <span className="inline-flex items-center justify-center rounded-lg border border-orange-500 px-4 py-1.5 text-base font-semibold text-orange-400 shadow-[inset_0_1px_0_rgba(255,255,255,0.6)]">
-                  Mid Level
+                  Senior Level
                 </span>
                 <h3 className="mt-4 text-3xl font-semibold tracking-tight text-neutral-900">
-                  Cloud Architect
+                  Business Development Manager
                 </h3>
                 <p className="mt-3 mb-10 max-w-md text-neutral-600 leading-relaxed">
-                  As a Cloud Architect, you will design, implement, and evolve secure,
-                  scalable cloud architectures that power…
+                To drive requirement analysis, solution scoping, and business growth for our software development, IT services, and Generative AI solutions
                 </p>
-                <PrimaryButton onClick={() => setIsModalOpen(true)}>
-                  Apply Now 
+                <PrimaryButton onClick={() => window.open('https://forms.gle/1ofoSTv4a54iktecA', '_blank')}>
+                  Apply Now
                 </PrimaryButton>
               </div>
 
@@ -86,16 +85,16 @@ export default function Careers() {
               {/* Right column */}
               <div className="flex flex-col items-center text-center">
                 <span className="inline-flex items-center justify-center rounded-lg border border-orange-500 px-4 py-1.5 text-base font-semibold text-orange-400 shadow-[inset_0_1px_0_rgba(255,255,255,0.6)]">
-                  Senior Level
+                  Mid Level
                 </span>
-                <h3 className="mt-4 text-3xl font-semibold tracking-tight text-neutral-900">
+                <h3 className="mt-10 text-3xl font-semibold tracking-tight text-neutral-900">
                   Data Engineer
                 </h3>
-                <p className="mt-3 mb-10 max-w-md text-neutral-600 leading-relaxed">
+                <p className="mt-10 mb-10 max-w-md text-neutral-600 leading-relaxed">
                   Can build predictive models, AI tools, and automation systems.
                 </p>
-                <PrimaryButton onClick={() => setIsModalOpen(true)}>
-            Apply Now 
+                <PrimaryButton onClick={() => window.open('https://forms.gle/1ofoSTv4a54iktecA', '_blank')}>
+            Apply Now
           </PrimaryButton>
               </div>
             </div>

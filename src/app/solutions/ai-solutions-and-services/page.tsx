@@ -4,6 +4,7 @@ import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { HeroSection } from "@/components/ui/HeroSection";
 import Image from "next/image";
+import Link from "next/link";
 import { Fragment, useState } from "react";
 import { ContactModal } from "@/components/forms/ContactModal";
 import { PrimaryButton } from "@/components/ui/Button";
@@ -20,19 +21,18 @@ export default function AISolutionsAndServices() {
       <HeroSection
         breadcrumb={[
           { label: "Home", href: "/" },
-          { label: "Solutions", href: "/" },
           { label: "AI Solutions & Services" },
         ]}
         title="AI Solutions & Services"
         subtitle="Intelligent Automation and Predictive Advantage"
-        contentAlignment="center"
+        video="/videos/Ophotech.mp4"
       />
 
-      <main className="flex flex-1 flex-col">
+      <main className="bg-white text-[#0B1B2B]">
 
         {/* Overview Section */}
-        <section className="py-20 px-6 bg-white px-[5%]">
-          <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] max-w-6xl mx-auto items-center gap-12">
+        <section className="mx-auto max-w-7xl px-[5%] py-20">
+          <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-center gap-12">
 
             {/* LEFT — Illustration */}
             <div className="flex justify-center md:justify-start">
@@ -68,6 +68,75 @@ export default function AISolutionsAndServices() {
               <p>
                 <strong>For Businesses,</strong> we focus on developing robust, scalable, and ethical AI models that are deployed seamlessly into production, driving real-time decisions and business value.
               </p>
+
+              <div className="mt-8">
+    <h2 className="text-[24px] font-bold text-[#0B1B2B]">Our Tech Stack</h2>
+    <div className="flex flex-wrap gap-4">
+      <div className="w-20 h-12 flex items-center justify-center">
+        <Image
+          src="/images/tech-stack-logos/octoml.svg"
+          alt="OctoML logo"
+          width={48}
+          height={48}
+          className="w-full h-full object-contain"
+        />
+      </div>
+      <div className="w-20 h-12 flex items-center justify-center">
+        <Image
+          src="/images/tech-stack-logos/hugging-face.svg"
+          alt="Hugging Face logo"
+          width={48}
+          height={48}
+          className="w-full h-full object-contain"
+        />
+      </div>
+      <div className="w-20 h-12 flex items-center justify-center">
+        <Image
+          src="/images/tech-stack-logos/openai.svg"
+          alt="OpenAI logo"
+          width={48}
+          height={48}
+          className="w-full h-full object-contain"
+        />
+      </div>
+      <div className="w-20 h-12 flex items-center justify-center">
+        <Image
+          src="/images/tech-stack-logos/mistral-ai.svg"
+          alt="Mistral AI logo"
+          width={48}
+          height={48}
+          className="w-full h-full object-contain"
+        />
+      </div>
+      <div className="w-20 h-12 flex items-center justify-center">
+        <Image
+          src="/images/tech-stack-logos/amazon-bedrock.svg"
+          alt="amazon bedrock logo"
+          width={48}
+          height={48}
+          className="w-full h-full object-contain"
+        />
+      </div>
+      <div className="w-20 h-12 flex items-center justify-center">
+        <Image
+          src="/images/tech-stack-logos/azure-ai-studio.svg"
+          alt="Azure AI Studio logo"
+          width={48}
+          height={48}
+          className="w-full h-full object-contain"
+        />
+      </div>
+      <div className="w-20 h-12 flex items-center justify-center">
+        <Image
+          src="/images/tech-stack-logos/google-ai-studio.svg"
+          alt="google AI Studio logo"
+          width={48}
+          height={48}
+          className="w-full h-full object-contain"
+        />
+      </div>
+    </div>
+  </div>
 
             </div>
 
@@ -387,15 +456,39 @@ export default function AISolutionsAndServices() {
          />
        </div>
 
-        {/* Get Started */}
-        <section className="py-20 px-6 text-center">
-          <h2 className="text-2xl font-semibold mb-3">Get Started</h2>
-          <p className="text-sm text-gray-600 mb-6 max-w-2xl mx-auto">
-            Discover three high-impact AI use cases designed for your industry and pinpoint your fastest path to ROI.
-          </p>
-          <PrimaryButton onClick={() => setIsModalOpen(true)}>
-            Deploy Intelligent Automation 
-          </PrimaryButton>
+        {/* Navigation */}
+        <section className="mx-auto max-w-7xl px-20 py-16">
+          <div className="mb-6">
+            <Link
+              href="/solutions/cloud-integration"
+              className="inline-flex items-center gap-2 font-poppins text-sm font-medium text-orange-500 transition-colors hover:text-orange-600"
+            >
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                className="size-4"
+              >
+                <path
+                  d="M13 8H3M3 8L7 12M3 8L7 4"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+              <span>Previous</span>
+            </Link>
+          </div>
+          <h2 className="text-center text-2xl font-semibold text-[#0B1B2B]">Discover Next Step of Your AI Journey</h2>
+          <div className="mt-8 flex justify-center">
+            <Link href="/solutions/ai-agent-development">
+              <PrimaryButton>
+                AI Agent Development
+              </PrimaryButton>
+            </Link>
+          </div>
         </section>
       </main>
 

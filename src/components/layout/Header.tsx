@@ -7,9 +7,12 @@ import { useEffect, useMemo, useRef, useState } from "react";
 
 import { ContactModal } from "@/components/forms/ContactModal";
 import { Dropdown } from "@/components/layout/Dropdown";
+import { SearchDropdown } from "@/components/layout/SearchDropdown";
 import { PrimaryButton } from "@/components/ui/Button";
 import { SecondaryButton } from "@/components/ui/SecondaryButton";
 import { slugify } from "@/lib/utils";
+import { fetchAllContent } from "@/lib/client-api";
+import { AllContentData } from "@/lib/types";
 
 const NAV_SECTIONS = [
   {
@@ -33,34 +36,6 @@ const NAV_SECTIONS = [
     label: "Resources",
     key: "resources",
     items: ["Newsletters", "Blogs", "Case Studies"],
-  },
-];
-
-const SEARCH_RESULTS = [
-  {
-    id: "ai-bi-roadmaps-support",
-    title: "AI-powered Business Intelligence & Strategic Roadmaps",
-    tag: "IT Support",
-  },
-  {
-    id: "newsletter-weekly-1",
-    title: "Ophotech Weekly: AI ",
-    tag: "Newsletter",
-  },
-  {
-    id: "newsletter-weekly-2",
-    title: "Ophotech Weekly",
-    tag: "Newsletter",
-  },
-  {
-    id: "ai-bi-roadmaps-blog",
-    title: "AI-powered Business Intelligence & Strategic Roadmaps",
-    tag: "Blog",
-  },
-  {
-    id: "enterprise-ai-services",
-    title: "Enterprise AI Enablement & Research Services",
-    tag: "Service",
   },
 ];
 
@@ -122,6 +97,8 @@ export function Header() {
   const [contactOpen, setContactOpen] = useState(false);
   const [expandedSection, setExpandedSection] = useState<string | null>(null);
   const [searchOpen, setSearchOpen] = useState(false);
+  const [allContent, setAllContent] = useState<AllContentData | null>(null);
+  const [isLoadingContent, setIsLoadingContent] = useState(false);
   const searchContainerRef = useRef<HTMLDivElement | null>(null);
 
   const navLinkBase =
@@ -140,6 +117,28 @@ export function Header() {
       })),
     [],
   );
+
+  // Load content when search is opened for the first time
+  const handleSearchToggle = () => {
+    setSearchOpen(!searchOpen);
+  };
+
+  // Lazy load content when search opens
+  useEffect(() => {
+    if (searchOpen && !allContent && !isLoadingContent) {
+      setIsLoadingContent(true);
+      fetchAllContent()
+        .then((data) => {
+          setAllContent(data);
+        })
+        .catch((error) => {
+          console.error("Failed to load search content:", error);
+        })
+        .finally(() => {
+          setIsLoadingContent(false);
+        });
+    }
+  }, [searchOpen, allContent, isLoadingContent]);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -169,7 +168,7 @@ export function Header() {
   return (
     <>
       <header
-  className="relative sticky top-0 z-50 bg-[#052568] after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-full after:bg-gradient-to-r after:from-white/20 after:via-orange-500 after:to-white/10 after:content-['']"
+  className="relative sticky top-0 z-50 bg-gray-900 after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-full after:bg-gradient-to-r after:from-white/20 after:via-orange-500 after:to-white/10 after:content-['']"
   role="banner"
 >
 <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-[5%]">
@@ -217,14 +216,20 @@ export function Header() {
                 type="button"
                 aria-label="Search"
                 className="flex size-10 items-center justify-center rounded-xl bg-orange-25 text-orange-500 transition hover:bg-orange-50"
-                onClick={() => setSearchOpen((prev) => !prev)}
+                onClick={handleSearchToggle}
                 aria-expanded={searchOpen}
                 aria-haspopup="true"
               >
                 <SearchIcon className="size-9" />
               </button>
 
-              {searchOpen ? <SearchDropdown /> : null}
+              {searchOpen ? (
+                <SearchDropdown
+                  allContent={allContent}
+                  isLoading={isLoadingContent}
+                  onClose={() => setSearchOpen(false)}
+                />
+              ) : null}
             </div>
             <PrimaryButton onClick={() => setContactOpen(true)}>
               Contact Us
@@ -297,6 +302,10 @@ export function Header() {
               <SecondaryButton
                 withArrow={false}
                 className="w-full justify-center"
+                onClick={() => {
+                  setMobileOpen(false);
+                  setSearchOpen(true);
+                }}
               >
                 Search
               </SecondaryButton>
@@ -315,35 +324,20 @@ export function Header() {
       </header>
 
       <ContactModal isOpen={contactOpen} onClose={() => setContactOpen(false)} />
+
+      {/* Mobile Search Modal */}
+      {searchOpen && (
+        <div className="fixed inset-0 z-[70] bg-black/50 lg:hidden">
+          <div className="fixed inset-x-0 top-0 bottom-0 z-[71] bg-white shadow-xl overflow-hidden">
+            <SearchDropdown
+              allContent={allContent}
+              isLoading={isLoadingContent}
+              onClose={() => setSearchOpen(false)}
+              isMobile={true}
+            />
+          </div>
+        </div>
+      )}
     </>
   );
 }
-
-function SearchDropdown() {
-  return (
-    <div className="absolute right-0 top-[calc(100%+12px)] z-[60] w-[360px] rounded-2xl bg-white shadow-[0px_4px_4.8px_0px_rgba(0,0,0,0.25)]">
-      <div className="space-y-4 p-4">
-        <div className="flex items-center gap-3 rounded-lg border border-orange-500 bg-gray-25 px-4 py-3">
-          <SearchIcon className="size-5 text-orange-500" />
-          <span className="text-sm font-normal text-gray-900">Search here..</span>
-        </div>
-        <ul className="divide-y divide-gray-100">
-          {SEARCH_RESULTS.map((result) => (
-            <li key={result.id}>
-              <Link
-                href={slugify(result.title)}
-                className="group block px-0 py-3 text-sm text-gray-600 transition-colors hover:text-orange-500"
-              >
-                <span className="block leading-normal">{result.title}</span>
-                <span className="mt-2 inline-flex items-center rounded-md bg-orange-25 px-2.5 py-1 text-xs font-medium text-orange-500 transition-colors group-hover:bg-orange-50">
-                  {result.tag}
-                </span>
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
-  );
-}
-

@@ -47,8 +47,9 @@ const AboutPage = () => {
           { label: "About Us" },
         ]}
         title="Who We Are"
-        subtitle="Opho Tech is a global, R&D-led company founded in 2019. We build SaaS and PaaS solutions that give leaders early, reliable visibility across the full technology lifecycle—strategy through continuous improvement— so decisions are faster, risk is lower, and growth is profitable. Our global team partners with enterprises, governments, and institutions across North America, Europe, and Asia."
-        fullViewport={true}
+        subtitle="Founded in 2019, OphoTech is a global R&D-led SaaS and PaaS solutions company. We partner with enterprises, governments, and institutions to provide early and reliable visibility across the technology lifecycle.
+By accelerating the path to AI enablement, we empower organizations to make faster decisions, minimize risk,
+and drive profitable growth."
         contentAlignment="center"
       />
 
@@ -170,7 +171,7 @@ const AboutPage = () => {
         </section>
 
 
-        <section className="relative w-full text-white pb-16 lg:pb-0 pt-16 lg:pt-[20rem] lg:bg-[url('/images/aboutus/about-us-bg.png')] lg:bg-[length:100%_auto] lg:bg-top lg:bg-no-repeat">
+        <section className="relative w-full text-white pb-16 lg:pb-0 pt-16 lg:pt-[20rem] lg:bg-[url('/images/aboutus/our-mission.png')] lg:bg-[length:100%_auto] lg:bg-top lg:bg-no-repeat">
           {/* Desktop view with SVG decorations (lg and above) */}
           <div className="hidden lg:block relative mx-auto h-[520px] max-w-6xl px-6">
             {/* Outer blurred ring */}

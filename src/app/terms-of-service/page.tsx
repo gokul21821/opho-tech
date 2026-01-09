@@ -51,7 +51,7 @@ export default function TermsOfService() {
               </h2>
               <div className="mt-3 space-y-3 text-[15px] leading-relaxed text-[#3A4A5F]">
                 <p>
-                  Opho Tech Inc. (collectively referred to as "Opho Tech", "We", "Us", or "Our") provides the ophotech.com website and various related services (collectively, the "Site" or "Services") to you, the "User," "Client," or "Customer," subject to your compliance with all the terms, conditions, and notices contained or referenced herein (the "Terms of Use," "Terms and Conditions," "Agreement," or "Terms"), as well as any other written agreement between us and you. When using particular services or materials on this Site, users shall be subject to any posted rules applicable to such services or materials, which may contain additional terms and conditions. All such rules are hereby incorporated by reference.
+                  Opho Tech Inc. (collectively referred to as "OphoTech", "We", "Us", or "Our") provides the ophotech.com website and various related services (collectively, the "Site" or "Services") to you, the "User," "Client," or "Customer," subject to your compliance with all the terms, conditions, and notices contained or referenced herein (the "Terms of Use," "Terms and Conditions," "Agreement," or "Terms"), as well as any other written agreement between us and you. When using particular services or materials on this Site, users shall be subject to any posted rules applicable to such services or materials, which may contain additional terms and conditions. All such rules are hereby incorporated by reference.
                 </p>
                 <p className="font-medium text-[#111111]">
                   BY USING THIS SITE, YOU AGREE TO BE BOUND BY THESE TERMS OF USE. IF YOU DO NOT AGREE, PLEASE EXIT THE SITE. YOUR REMEDY FOR DISSATISFACTION IS TO STOP USING THE SITE AND/OR THE RELATED PRODUCTS OR SERVICES. YOUR AGREEMENT TO THESE TERMS BECOMES EFFECTIVE IMMEDIATELY UPON YOUR FIRST USE OF THIS SITE.
@@ -486,7 +486,7 @@ export default function TermsOfService() {
                 What&apos;s Next With OphoTech?
               </h2>
               <PrimaryButton className="mt-6" onClick={() => setIsModalOpen(true)}>
-                Get Started
+                Let's Start
               </PrimaryButton>
             </div>
           </div>

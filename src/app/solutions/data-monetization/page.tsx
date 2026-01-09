@@ -2,6 +2,7 @@
 
 // app/data-monetization/page.tsx
 import Image from "next/image";
+import Link from "next/link";
 import { Fragment, useState } from "react";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
@@ -21,12 +22,11 @@ export default function DataMonetizationPage() {
       <HeroSection
         breadcrumb={[
           { label: "Home", href: "/" },
-          { label: "Solutions", href: "/" },
-          { label: "Data Monetization" },
+          { label: "Data Structuring & Monetization" },
         ]}
-        title="Data Monetization"
+        title="Data Structuring & Monetization"
         subtitle="Turning Your Information into Revenue"
-        contentAlignment="center"
+        video="/videos/Ophotech.mp4"
       />
 
       <main className="bg-white text-[#0B1B2B]">
@@ -74,6 +74,75 @@ export default function DataMonetizationPage() {
         is a fundamental shift in how your company creates value and secures a
         competitive edge.
       </p>
+
+      <div className="mt-8">
+    <h2 className="text-[24px] font-bold text-[#0B1B2B]">Our Tech Stack</h2>
+    <div className="flex flex-wrap gap-4">
+      <div className="w-20 h-12 flex items-center justify-center">
+        <Image
+          src="/images/tech-stack-logos/kafka.svg"
+          alt="Kafka logo"
+          width={48}
+          height={48}
+          className="w-full h-full object-contain"
+        />
+      </div>
+      <div className="w-20 h-12 flex items-center justify-center">
+        <Image
+          src="/images/tech-stack-logos/spark.svg"
+          alt="Spark logo"
+          width={48}
+          height={48}
+          className="w-full h-full object-contain"
+        />
+      </div>
+      <div className="w-20 h-12 flex items-center justify-center">
+        <Image
+          src="/images/tech-stack-logos/tensorflow.svg"
+          alt="TensorFlow logo"
+          width={48}
+          height={48}
+          className="w-full h-full object-contain"
+        />
+      </div>
+      <div className="w-20 h-12 flex items-center justify-center">
+        <Image
+          src="/images/tech-stack-logos/mongodb.svg"
+          alt="MongoDB logo"
+          width={48}
+          height={48}
+          className="w-full h-full object-contain"
+        />
+      </div>
+      <div className="w-28 h-12 flex items-center justify-center">
+        <Image
+          src="/images/tech-stack-logos/postgresql.svg"
+          alt="PostgreSQL logo"
+          width={48}
+          height={48}
+          className="w-full h-full object-contain"
+        />
+      </div>
+      <div className="w-20 h-12 flex items-center justify-center">
+        <Image
+          src="/images/tech-stack-logos/azure.svg"
+          alt="Azure logo"
+          width={48}
+          height={48}
+          className="w-full h-full object-contain"
+        />
+      </div>
+      <div className="w-20 h-12 flex items-center justify-center">
+        <Image
+          src="/images/tech-stack-logos/sql.svg"
+          alt="sql logo"
+          width={48}
+          height={48}
+          className="w-full h-full object-contain"
+        />
+      </div>
+    </div>
+  </div>
 
     </div>
 
@@ -470,16 +539,38 @@ export default function DataMonetizationPage() {
        />
      </div>
 
-      {/* CTA */}
-      <section className="mx-auto max-w-7xl px-6 py-16">
-        <h2 className="text-center text-2xl font-semibold text-[#0B1B2B]">Get Started</h2>
-        <p className="mx-auto mt-3 max-w-3xl text-center text-[15px] text-[#3A4A5F]">
-          Explore the top Data Monetization models with our experts to find the one that delivers the greatest business impact for your organization.
-        </p>
+      {/* Navigation */}
+      <section className="mx-auto max-w-7xl px-20 py-16">
+        <div className="mb-6">
+          <Link
+            href="/solutions/research-analysis-adoption-and-reporting"
+            className="inline-flex items-center gap-2 font-poppins text-sm font-medium text-orange-500 transition-colors hover:text-orange-600"
+          >
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              className="size-4"
+            >
+              <path
+                d="M13 8H3M3 8L7 12M3 8L7 4"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+            <span>Previous</span>
+          </Link>
+        </div>
+        <h2 className="text-center text-2xl font-semibold text-[#0B1B2B]">Discover Next Step of Your AI Journey</h2>
         <div className="mt-8 flex justify-center">
-          <PrimaryButton onClick={() => setIsModalOpen(true)}>
-            Book a Call 
-          </PrimaryButton>
+          <Link href="/solutions/cloud-integration">
+            <PrimaryButton>
+              Cloud Integration & Architecture
+            </PrimaryButton>
+          </Link>
         </div>
       </section>
     </main>
