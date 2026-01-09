@@ -103,7 +103,7 @@ export default function AIAgentDevelopment() {
         ]}
         title="AI Agent Development"
         subtitle="The Future of Autonomous Business Operations"
-        video="/videos/Ophotech.mp4"
+        video="/videos/AI-Agent.mp4"
       />
 
       <main className="flex-1">

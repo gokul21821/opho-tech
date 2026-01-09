@@ -26,7 +26,7 @@ export default function CyberSecuritySolutions() {
         ]}
         title="Cyber Security Solutions"
         subtitle="Autonomous Defense for the AI Age"
-        video="/videos/Ophotech.mp4"
+        video="/videos/Cyber-Security.mp4"
       />
 
       <main className="flex-1">

@@ -25,7 +25,7 @@ export default function AISolutionsAndServices() {
         ]}
         title="AI Solutions & Services"
         subtitle="Intelligent Automation and Predictive Advantage"
-        video="/videos/Ophotech.mp4"
+        video="/videos/AI-Solutions.mp4"
       />
 
       <main className="bg-white text-[#0B1B2B]">

@@ -27,7 +27,7 @@ export default function RAARPage() {
         ]}
         title="Research, Analysis"
         subtitle="AI Journey Starts with In-depth & Diligent Research"
-        video="/videos/Ophotech.mp4"
+        video="/videos/Research-Analysis.mp4"
       />
 
       <main className="bg-white text-[#0B1B2B]">

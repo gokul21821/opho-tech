@@ -25,7 +25,7 @@ export default function CloudIntegrationPage() {
         ]}
         title="Cloud Integration & Architecture"
         subtitle="Building the Digital Backbone"
-        video="/videos/Ophotech.mp4"
+        video="/videos/Cloud-Integration.mp4"
       />
 
       <main className="bg-white text-[#0B1B2B]">

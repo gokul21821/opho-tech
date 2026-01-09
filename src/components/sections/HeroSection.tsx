@@ -26,7 +26,7 @@ export function HeroSection() {
         />
       </div>
 
-      <div className="relative mx-auto flex min-h-[680px] max-w-[1120px] flex-col gap-16  pb-24 pt-36 lg:flex-row lg:items-center lg:justify-between lg:gap-20 lg:min-h-[720px]">
+      <div className="relative mx-auto flex min-h-[680px] max-w-[1120px] flex-col gap-16 px-6 pb-24 pt-36 md:px-8 lg:flex-row lg:items-center lg:justify-between lg:gap-20 lg:min-h-[720px]">
         <div className="max-w-xl space-y-8">
           <div className="space-y-3">
             <p className="text-4xl font-medium text-orange-500 sm:text-5xl">
@@ -44,7 +44,7 @@ export function HeroSection() {
 
         <div className="relative max-w-7xl flex-1">
           <VideoPlayer
-            src="/videos/Ophotech.mp4"
+            src="/videos/Home-Page.mp4"
             poster="/videos/thumbnail.png"
             muted={true}
             showControls={true}

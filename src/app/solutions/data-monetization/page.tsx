@@ -26,7 +26,7 @@ export default function DataMonetizationPage() {
         ]}
         title="Data Structuring & Monetization"
         subtitle="Turning Your Information into Revenue"
-        video="/videos/Ophotech.mp4"
+        video="/videos/Data-Structuring.mp4"
       />
 
       <main className="bg-white text-[#0B1B2B]">
