@@ -23,9 +23,9 @@ export default function RAARPage() {
       <HeroSection
         breadcrumb={[
           { label: "Home", href: "/" },
-          { label: "Research, Analysis" },
+          { label: "Research & Analysis" },
         ]}
-        title="Research, Analysis"
+        title="Research & Analysis"
         subtitle="AI Journey Starts with In-depth & Diligent Research"
         video="/videos/Research-Analysis.mp4"
       />
@@ -63,9 +63,7 @@ export default function RAARPage() {
     {/* RIGHT — Text Block */}
     <div className="flex flex-col justify-center text-left md:pl-10">
       <p className="mt-3 text-[17px] text-[#3A4A5F] leading-relaxed max-w-4xl">
-      <strong>RAAR</strong> is a decision intelligence software that helps you compare,
-        evaluate, and optimize your tools with precision, speed, and
-        accuracy.
+      An intelligence framework, driven by a team of Senior Data Scientists and AI/ML Engineers to get real-time operational insights and market opportunities. Our Expert and Precise reports address the critical gaps and enable enterprises structure their path to AI enablement. 
       </p>
 
       <div className="mt-8">
@@ -148,44 +146,32 @@ export default function RAARPage() {
       title: "Research",
       text:
         "Pulls data from vendor contracts, licensing records, usage logs, cost reports, and integration documentation. Cleans, Secure and Validates data for analysis.",
-      icon: "/images/raar/research.svg",
     },
     {
       title: "Analysis",
       text:
         "AI agents evaluate tools across Features, Security, Integration, Cost Efficiency, Performance, and Market Position. Builds SWOT profiles, identifies capability gaps, and benchmarks against industry standards.",
-      icon: "/images/raar/analyze.svg",
     },
     {
       title: "Adoption",
       text:
         "Tracks user adoption rates, identifies underutilized tools, and measures organizational readiness for new technology implementations.",
-      icon: "/images/raar/star.svg",
     },
     {
       title: "Reporting",
       text:
         "Delivers persona-specific insights. Strategic dashboards for executives, integration scores for architects, vendor intelligence for procurement, compliance & secure reports for regulators, & usability metrics for end users.",
-      icon: "/images/raar/notepad.svg",
     },
   ].map((item) => (
     <div key={item.title} className="h-full">
       <div
-        className="h-full min-w-[220px] md:min-w-[220px] lg:min-w-[230px] xl:min-w-[250px] rounded-2xl border border-[#fcd5ac] bg-white/30 p-2 flex flex-col gap-4 items-start card-text-smaller"
+        className="h-full min-w-[220px] md:min-w-[220px] lg:min-w-[230px] xl:min-w-[250px] rounded-2xl border border-[#fcd5ac] bg-white/30 p-5 flex flex-col gap-4 items-start card-text-smaller"
       >
-        <div className="h-12 w-12 flex-shrink-0">
-          <Image
-            src={item.icon}
-            alt={`${item.title} icon`}
-            width={48}
-            height={48}
-            className="h-12 w-12"
-          />
-        </div>
+
         <h3 className="text-[24px] font-medium leading-[26px] text-[#111111] capitalize">
           {item.title}
         </h3>
-        <p className="text-[16px] leading-normal text-[#454545]">{item.text}</p>
+        <p className="text-sm leading-normal text-[#454545]">{item.text}</p>
       </div>
     </div>
   ))}
@@ -272,62 +258,7 @@ export default function RAARPage() {
 
       </section>
 
-     {/* Why Choose RAAR with image */}
-     <BackgroundDots
-  className="py-14"
-  spacing={25}
-  dotSize={3}
-  backgroundColor="#FFF6EB"
-  dotColor="#D9D9D9"
-  style={{
-    background: "linear-gradient(to bottom, #ffffff 38.524%, #feecd6 171.52%)",
-  }}
->
-  <section className="mx-auto max-w-7xl px-[5%]">
-    <div className="grid items-center gap-10 md:grid-cols-3">
-      <div>
-        <h2 className="text-4xl text-[#0B1B2B]">Why Choose RAAR</h2>
-        <ul className="mt-5 space-y-3 text-lg text-[#3A4A5F]">
-          <li className="pl-6 relative">
-            <span className="absolute left-0 top-2 h-2 w-2 rounded-full bg-gray-500" />
-            Understand which tools are worth keeping
-          </li>
-          <li className="pl-6 relative">
-            <span className="absolute left-0 top-2 h-2 w-2 rounded-full bg-gray-500" />
-            Get insights into better-fit software
-          </li>
-          <li className="pl-6 relative">
-            <span className="absolute left-0 top-2 h-2 w-2 rounded-full bg-gray-500" />
-            Measure integration complexity, calculate tech debt, and identify which investments drive business outcomes.
-          </li>
-        </ul>
-      </div>
-
-      <div className="flex justify-center">
-      <Image
-                      src="/images/raar/lineraar.svg"
-                      alt=""
-                      width={2}
-                      height={320}
-                      className="w-auto h-auto"
-                      aria-hidden
-                    />
-      </div>
-
-      <div className="justify-self-center">
-        <Image
-          src="/images/raar/raar-analysis.png"
-          alt="Dashboard illustration"
-          width={520}
-          height={360}
-          className="h-auto w-[320px] sm:w-[380px] md:w-[460px] rounded-xl shadow-[0_12px_32px_-10px_rgba(15,44,88,0.25)]"
-        />
-      </div>
-    </div>
-    
-  </section>
-  
-</BackgroundDots>
+     
 <div className=" flex justify-center">
           <Image
             src="/images/horizontalline.svg"
@@ -343,7 +274,7 @@ export default function RAARPage() {
       <section className="mx-auto max-w-7xl px-6 py-16">
         <h2 className="text-center text-2xl font-semibold text-[#0B1B2B]">Discover Next Step of Your AI Journey</h2>
         <div className="mt-6 flex justify-center">
-          <Link href="/solutions/data-monetization">
+          <Link href="/solutions/data-structuring-and-monetization">
             <PrimaryButton>
               Data Structuring & Monetization
             </PrimaryButton>

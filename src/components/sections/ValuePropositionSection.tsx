@@ -10,7 +10,7 @@ const features = [
     title: 'Connect',
     subtitle: 'Executive Strategy Call',
     description:
-      'We work closely with your team to understand your purpose, structure, and growth trajectory. Through in-depth SWOT, gap, and performance analyses, we uncover opportunities and risks that shape the foundation for transformation.',
+      'Our experts align leadership vision with enterprise realities, diagnosing structural gaps and growth constraints to establish a precise, data-driven foundation for scalable AI-powered transformation.',
     icon: '/images/valuesection/connect.svg',
   },
   {
@@ -18,7 +18,7 @@ const features = [
     title: 'Create',
     subtitle: 'AI Discovery Workshop',
     description:
-      'Using AI-powered tools and agile methodologies, we rapidly prototype and develop your solution. Our iterative approach ensures quick turnaround without compromising quality.',
+      'Our intelligent workshops uncover profitability gaps, operational risks, and innovation opportunities, generating actionable roadmaps that accelerate organizational readiness and maximize competitive advantage.',
     icon: '/images/valuesection/create.svg',
   },
   {
@@ -26,7 +26,7 @@ const features = [
     title: 'Evolve',
     subtitle: 'Build & Deploy',
     description:
-      'Launch is just the beginning. We provide ongoing support, monitoring, and enhancements to ensure your solution scales and adapts to changing business needs.',
+      'We deploy enterprise-grade SaaS, AI agents, and secure platforms that scale efficiently, strengthen profitability, and transition organizations into resilient, future-ready, AI-enabled enterprises. ',
     icon: '/images/valuesection/evolve.svg',
   },
 ];
@@ -56,13 +56,14 @@ export function ValuePropositionSection() {
         <div className="mx-auto max-w-[1200px]">
           {/* Heading */}
           <div className="mb-8 sm:mb-9 md:mb-10 text-center">
-            <h2 className="font-poppins text-2xl sm:text-3xl md:text-[38px] font-medium leading-tight sm:leading-[40px] md:leading-[48px] text-[#111111] px-2">
-              From Ideas to Impact, <span className="text-[#2A73B5]">MVP in 15 Days</span>
-            </h2>
-            <p className="mx-auto mt-4 sm:mt-5 w-full max-w-[860px] font-poppins text-base sm:text-lg leading-normal text-[#454545] px-2">
-              End-to-End Support: From Discovery to Deployment, Designed for Measurable Impact.
-            </p>
-          </div>
+          <h2 className="font-poppins text-2xl sm:text-3xl md:text-[38px] font-medium leading-tight sm:leading-[40px] md:leading-[48px] text-[#111111] px-2">
+            How We Work<br />
+            <span className="text-black text-3xl">From Idea To Impact</span>
+          </h2>
+          <p className="mx-auto mt-4 sm:mt-5 w-full max-w-[860px] font-poppins text-base sm:text-lg leading-normal text-[#454545] px-2">
+            End-to-End Support: From Discovery to Deployment, Designed for Measurable Impact.
+          </p>
+        </div>
 {/* Main Content */}
 <div className="flex flex-col gap-8 sm:gap-9 md:gap-10 lg:flex-row lg:items-stretch lg:gap-6 ml-10">
   <div className="flex w-full flex-col gap-6 sm:gap-7 md:gap-8 lg:flex-row lg:gap-10">

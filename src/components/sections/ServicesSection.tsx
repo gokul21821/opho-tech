@@ -6,8 +6,8 @@ import { slugify } from "@/lib/utils";
 
 // Mapping of service titles to their solution page paths
 const SERVICE_TO_PATH: Record<string, string> = {
-  "Research, Analysis, Adoption & Reporting": "/solutions/research-analysis-adoption-and-reporting",
-  "Data Monetization": "/solutions/data-monetization",
+  "Research & Analysis": "/solutions/research-and-analysis",
+  "Data Structuring & Monetization": "/solutions/data-structuring-and-monetization",
   "Cloud Integration & Architecture": "/solutions/cloud-integration",
   "AI Solutions & Services": "/solutions/ai-solutions-and-services",
   "AI Agent Development": "/solutions/ai-agent-development",
@@ -16,14 +16,14 @@ const SERVICE_TO_PATH: Record<string, string> = {
 
 const SERVICES = [
   {
-    title: "Research, Analysis, Adoption & Reporting",
+    title: "Research & Analysis",
     tagline: "Powered by AI agents. Built for every decision-maker in your organization.",
     description:
-      "RAAR is a decision intelligence platform that helps you compare, evaluate, and optimize your tools with precision, speed, and accuracy.",
+      "An intelligence framework, driven by a team of Senior Data Scientists and AI/ML Engineers to get real-time operational insights and market opportunities. Our Expert and Precise reports address the critical gaps and enable enterprises structure their path to AI enablement.",
     icon: "research-analysis" as const,
   },
   {
-    title: "Data Monetization",
+    title: "Data Structuring & Monetization",
     tagline: "Turning Your Information into Revenue",
     description:
       "Transform data from a cost center into a profit generator. We unlock financial potential with revenue-ready data strategies and compliant governance.",
@@ -33,7 +33,7 @@ const SERVICES = [
     title: "Cloud Integration & Architecture",
     tagline: "Building the Digital Backbone",
     description:
-      "For the CEO, SME, and CDO: The cloud is the foundation for innovation, agility, and scale. We align cloud strategy to business goals while minimizing risk.",
+      "The cloud is not just an IT cost center; it is the platform for innovation, agility, and scale. Our Cloud Integration & Architecture services ensure your technology strategy directly supports your business goals, minimizing risk and maximizing competitive speed." ,
     icon: "cloud-integration" as const,
   },
   {
@@ -47,7 +47,7 @@ const SERVICES = [
     title: "AI Agent Development",
     tagline: "The Future of Autonomous Business Operations",
     description:
-      "AI agents are digital workers capable of complex, multi-step tasks. We design agents that execute objectives with minimal oversight for radical efficiency.",
+      "AI Agents are digital workers capable of performing complex, multi-step tasks autonomously. Investing in AI Agent development means acquiring a scalable, highly efficient workforce that executes strategic objectives with minimal human oversight, leading to unprecedented operational efficiency and speed.",
     icon: "ai-agent" as const,
   },
   {
@@ -95,7 +95,7 @@ function ServiceCard({ title, tagline, description, icon }: ServiceCardProps) {
     <Link
       href={href}
       className="
-        service-card group relative flex h-full w-[320px] sm:w-[350px] lg:w-[320px] flex-col overflow-visible
+        service-card group relative flex h-full w-[320px] sm:w-[320px] md:w-[340px] lg:w-[335px] xl:w-[370px] flex-col overflow-visible
         px-6 py-8
         transition-all duration-300
       "
@@ -131,15 +131,15 @@ function ServiceCard({ title, tagline, description, icon }: ServiceCardProps) {
         <div className="flex items-start gap-6 mb-5">
           <div className="flex-1 min-w-0 flex flex-col">
             {/* Fixed height container for title - accommodates up to 2 lines, ensures alignment */}
-            <div className="h-[52px] flex items-start mb-3">
-              <h3 className="text-sm font-semibold leading-[1.2] text-gray-900">
+            <div className="h-[52px] flex items-start mb-10 sm:mb-10 lg:mb-10">
+              <h3 className="text-2xl font-semibold leading-[1.2] text-gray-900">
                 {title}
               </h3>
             </div>
 
             {/* Fixed height container for tagline - accommodates wrapped taglines, ensures alignment */}
             <div className="h-[40px] flex items-start">
-              <p className="text-[11px] text-gray-800 leading-[1.4]">
+              <p className="text-xs text-black leading-[1.4]">
                 {tagline}
               </p>
             </div>
@@ -148,7 +148,7 @@ function ServiceCard({ title, tagline, description, icon }: ServiceCardProps) {
           <ServiceIcon
             name={icon}
             className="
-              shrink-0 rounded-full bg-orange-50 p-4 
+              shrink-0 rounded-full bg-white/10 
               text-orange-500 transition-all duration-300
               group-hover:scale-105
             "
@@ -165,7 +165,7 @@ function ServiceCard({ title, tagline, description, icon }: ServiceCardProps) {
       <button
         aria-hidden="true"
         className="
-          absolute bottom-[-2] left-71 z-[4] md:bottom-[-6] md:left-79 lg:bottom-[-3] lg:left-71 sm:bottom-[-6] sm:left-78
+          absolute bottom-[-1] z-[4]  left-71 sm:left-72 md:left-76 lg:left-[300px] xl:left-[335px]   
           flex h-11 w-11 items-center justify-center
           rounded-full bg-white shadow-[0_10px_30px_-10px_rgba(0,0,0,0.25)]
           transition-transform duration-300

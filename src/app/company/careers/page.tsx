@@ -196,15 +196,15 @@ export default function Careers() {
             <div className="flex flex-col lg:flex-row gap-8 lg:gap-[64px] items-start justify-center w-full">
               {[{
                 title: "Hybrid & Flexible Work Options",
-                icon: "/images/icons/smart-work.svg",
+                icon: "/images/icons/hybrid-work.svg",
                 description: "We understand that innovation doesn't just happen at a desk. That's why we offer hybrid work models and flexible schedules that empower you to balance work and life. Whether you prefer collaborating in our offices or contributing remotely, we make sure you stay connected and supported."
               }, {
                 title: "R&D-Focused Projects With Global Clients",
-                icon: "/images/icons/globe.svg",
+                icon: "/images/icons/global-client.svg",
                 description: "Here, you won't just work on routine tasks. You'll engage in cutting-edge research and development projects that have a real-world impact across North America, Europe, and Asia. From AI-driven platforms to scalable cloud architectures, every project challenges you to push boundaries."
               }, {
                 title: "Regular Hackathons & Innovation Sprints",
-                icon: "/images/icons/monitor-bulb.svg",
+                icon: "/images/icons/hackathon.svg",
                 description: "We thrive on creativity. Our hackathons and innovation sprints give teams the chance to experiment, prototype, and showcase new ideas. Many of our most impactful solutions started as hackathon concepts that evolved into client-ready innovations."
               }].map((item, index, array) => (
                 <Fragment key={item.title}>
@@ -247,11 +247,11 @@ export default function Careers() {
               <div className="flex flex-col lg:flex-row gap-8 lg:gap-[78px] items-start justify-center">
                 {[{
                   title: "Inclusive, Diverse, And Growth-Oriented Culture",
-                  icon: "/images/icons/growth.svg",
+                  icon: "/images/icons/growth-icon.svg",
                   description: "We know the best ideas come from diverse perspectives. Our culture embraces inclusivity and collaboration, ensuring every voice is heard. We invest in mentorship, training, and personal development so that every team member grows along with the company."
                 }, {
                   title: "Recognition And Rewards For Excellence",
-                  icon: "/images/icons/badge.svg",
+                  icon: "/images/icons/badge-icon.svg",
                   description: "Your hard work deserves to be celebrated. From performance-based rewards to peer recognition programs, we ensure contributions never go unnoticed. We believe success is best when it's shared."
                 }].map((item, index, array) => (
                   <Fragment key={item.title}>

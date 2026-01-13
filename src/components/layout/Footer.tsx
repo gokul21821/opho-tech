@@ -17,8 +17,8 @@ const COMPANY_LINKS = [
 const RESOURCE_LINKS = ["Blogs", "Newsletters", "Case Studies"];
 
 const SOLUTION_LINKS = [
-  "RAAR",
-  "Data Monetization",
+  "Research & Analysis",
+  "Data Structuring & Monetization",
   "Cloud Integration",
   "AI Solutions & Services",
   "AI Agent Development",
@@ -178,10 +178,7 @@ export function Footer() {
           <FooterColumn
             title="Solutions"
             links={SOLUTION_LINKS}
-            hrefMapper={(link) => {
-              if (link === "RAAR") return "/solutions/research-analysis-adoption-and-reporting";
-              return `/solutions${slugify(link)}`;
-            }}
+            hrefMapper={(link) => `/solutions${slugify(link)}`}
           />
         </div>
 

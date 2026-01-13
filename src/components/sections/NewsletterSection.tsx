@@ -8,7 +8,7 @@ export async function NewsletterSection() {
 
   return (
     <ContentSection
-      title="Ophotech Weekly Newsletter"
+      title="Newsletter"
       subtitle="From Research to Reality — Insights That Power Smarter Decisions."
       items={newsletters}
       contentType="newsletters"

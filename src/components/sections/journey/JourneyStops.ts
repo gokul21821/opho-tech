@@ -12,6 +12,7 @@ export const JOURNEY_STOPS = [
         title: "Research & Analysis",
         description: "An intelligence framework driven by agentic AI to get real-time operational insights and market opportunities.",
         icon: "/images/journey/research-connector.svg",
+        iconMobile: "/images/icons/research-analysis.svg",
         left: "0.1%",
         top: {
           md: "-20%",
@@ -32,6 +33,7 @@ export const JOURNEY_STOPS = [
         title: "Data Structuring & Monetization",
         description: "Turn Information into Revenue. Enabled by AI-led process to create scalable data products for Direct Revenue, Operational Efficiency and Customer Experience.",
         icon: "/images/journey/data-connector.svg",
+        iconMobile: "/images/icons/data-monetization.svg",
         left: "16.1%",
         top: {
           md: "50%",
@@ -52,6 +54,7 @@ export const JOURNEY_STOPS = [
         title: "Cloud Integration & Architecture",
         description: "Cloud based centralized IT systems and applications to share data and show real-time visibility across functions and processes.",
         icon: "/images/journey/cloud-connector.svg",
+        iconMobile: "/images/icons/cloud-integration.svg",
         left: "32.1%",
         top: {
           md: "-10%",
@@ -72,6 +75,7 @@ export const JOURNEY_STOPS = [
         title: "AI Solutions & Services",
         description: "Integrate AI across core enterprise systems to automate workflows and improve business decisions.",
         icon: "/images/journey/ai-solution-connector.svg",
+        iconMobile: "/images/icons/ai-solutions.svg",
         left: "48.1%",
         top: {
           md: "65%",
@@ -92,6 +96,7 @@ export const JOURNEY_STOPS = [
         title: "AI Agent Development",
         description: "Build intelligent agents that handle repetitive tasks and manage complex business processes. Enabled by autonomous decision-making to reduce costs, increase speed, and drive ROI.",
         icon: "/images/journey/ai-agent-connector.svg",
+        iconMobile: "/images/icons/ai-agent.svg",
         left: "64.1%",
         top: {
           md: "-10%",
@@ -112,6 +117,7 @@ export const JOURNEY_STOPS = [
         title: "Cyber Security Implementation",
         description: "AI-Driven monitoring, threat detection, and response for all cyber security solutions.",
         icon: "/images/journey/cyber-connector.svg",
+        iconMobile: "/images/icons/cyber-security.svg",
         left: "76%",
         top: {
           md: "70%",

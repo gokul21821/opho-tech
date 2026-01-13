@@ -1,6 +1,6 @@
 "use client";
 
-// app/data-monetization/page.tsx
+// app/solutions/data-structuring-and-monetization/page.tsx
 import Image from "next/image";
 import Link from "next/link";
 import { Fragment, useState } from "react";
@@ -78,7 +78,7 @@ export default function DataMonetizationPage() {
       <div className="mt-8">
     <h2 className="text-[24px] font-bold text-[#0B1B2B]">Our Tech Stack</h2>
     <div className="flex flex-wrap gap-4">
-      <div className="w-20 h-12 flex items-center justify-center">
+      <div className="w-15 h-12 flex items-center justify-center">
         <Image
           src="/images/tech-stack-logos/kafka.svg"
           alt="Kafka logo"
@@ -87,7 +87,7 @@ export default function DataMonetizationPage() {
           className="w-full h-full object-contain"
         />
       </div>
-      <div className="w-20 h-12 flex items-center justify-center">
+      <div className="w-15 h-12 flex items-center justify-center">
         <Image
           src="/images/tech-stack-logos/spark.svg"
           alt="Spark logo"
@@ -123,7 +123,7 @@ export default function DataMonetizationPage() {
           className="w-full h-full object-contain"
         />
       </div>
-      <div className="w-20 h-12 flex items-center justify-center">
+      <div className="w-10 h-12 flex items-center justify-center">
         <Image
           src="/images/tech-stack-logos/azure.svg"
           alt="Azure logo"
@@ -132,7 +132,7 @@ export default function DataMonetizationPage() {
           className="w-full h-full object-contain"
         />
       </div>
-      <div className="w-20 h-12 flex items-center justify-center">
+      <div className="w-15 h-12 flex items-center justify-center">
         <Image
           src="/images/tech-stack-logos/sql.svg"
           alt="sql logo"
@@ -259,19 +259,16 @@ export default function DataMonetizationPage() {
                     title: "Direct Revenue",
                     strategicImpact: "Create new products and services based on aggregated insights and industry benchmarks.",
                     tangibleOutcome: "New revenue streams, high-margin data products.",
-                    icon: "/images/data-monetize/money.svg",
                   },
                   {
                     title: "Operational Efficiency",
                     strategicImpact: "Use AI and analytics to optimize core processes and predict future needs.",
                     tangibleOutcome: "Reduced costs, optimized inventory, faster time-to-market.",
-                    icon: "/images/data-monetize/gear.svg",
                   },
                   {
                     title: "Customer Experience",
                     strategicImpact: "Leverage hyper-personalization to drive loyalty and sales.",
                     tangibleOutcome: "Increased Customer Lifetime Value (CLV) and lower churn.",
-                    icon: "/images/data-monetize/laptop.svg",
                   },
                 ].map((b) => (
                   <div
@@ -279,16 +276,7 @@ export default function DataMonetizationPage() {
                     className="relative rounded-2xl border border-[#FCD5AC] bg-white/30 p-5 card-text-smaller"
                   >
                     <div className="flex flex-col gap-4 items-start">
-                      {/* Icon */}
-                      <div className="h-12 w-12 relative">
-                        <Image
-                          src={b.icon}
-                          alt={`${b.title} icon`}
-                          width={48}
-                          height={48}
-                          className="h-12 w-12"
-                        />
-                      </div>
+                      
 
                       {/* Title */}
                       <h3 className="capitalize text-[24px] font-medium leading-[26px] text-[#111111]">
@@ -339,7 +327,7 @@ export default function DataMonetizationPage() {
             {/* Data Monetization - From Problem to Profit */}
             <div className="flex flex-col gap-10 items-start w-full">
               <div className="flex flex-col gap-5 items-center w-full">
-                <h3 className="text-center text-xl font-medium leading-[38px] text-[#454545]">
+                <h3 className="text-center text-3xl font-medium leading-[38px] text-[#454545]">
                   Data Monetization - <span className="text-[#2A73B5]">From Problem to Profit</span>
                 </h3>
                 <p className="max-w-[860px] mx-auto text-center text-[18px] font-normal leading-normal text-[#454545]">
@@ -418,8 +406,8 @@ export default function DataMonetizationPage() {
 
       {/* Derived Value */}
       <section className="mx-auto max-w-7xl px-[5%] py-16">
-        <h2 className="text-center text-[32px] font-medium leading-[48px] text-[#0B1B2B]">
-          Derived Value
+        <h2 className="text-center text-4xl font-bold  text-[#0B1B2B]">
+          Advantages
         </h2>
 
         <div className="mt-10 flex flex-col gap-8 lg:flex-row lg:items-stretch lg:justify-center lg:gap-6">
@@ -465,8 +453,8 @@ export default function DataMonetizationPage() {
                       src="/images/raar/lineraar.svg"
                       alt=""
                       width={2}
-                      height={320}
-                      className="w-auto h-auto"
+                      height={200}
+                      className="w-auto h-[200px]"
                       aria-hidden
                     />
                 </div>
@@ -503,7 +491,7 @@ export default function DataMonetizationPage() {
   <div className="grid md:grid-cols-2 items-center gap-10">
     {/* Left: Text */}
     <div>
-      <h2 className=" text-4xl text-[#0B1B2B] ">
+      <h2 className=" text-4xl font-bold text-[#0B1B2B] ">
         Data Monetization – Goal
       </h2>
       <p className="mt-5 text-lg text-[#3A4A5F]">
@@ -543,7 +531,7 @@ export default function DataMonetizationPage() {
       <section className="mx-auto max-w-7xl px-20 py-16">
         <div className="mb-6">
           <Link
-            href="/solutions/research-analysis-adoption-and-reporting"
+            href="/solutions/research-and-analysis"
             className="inline-flex items-center gap-2 font-poppins text-sm font-medium text-orange-500 transition-colors hover:text-orange-600"
           >
             <svg

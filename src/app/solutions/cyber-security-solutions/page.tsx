@@ -149,16 +149,6 @@ export default function CyberSecuritySolutions() {
                 <h2 className="text-[32px] md:text-[38px] font-medium leading-[40px] md:leading-[48px] text-[#111111] text-center">
                   Cyber Threat in the AI Era
                 </h2>
-                <div className="flex justify-center w-full">
-                  <Image
-                    src="/images/horizontalline.svg"
-                    alt=""
-                    width={1200}
-                    height={3}
-                    className="w-full max-w-5xl"
-                    aria-hidden
-                  />
-                </div>
                 <div className="flex flex-col gap-5 items-center text-center max-w-[924px] px-4">
                   <p className="text-[16px] md:text-[18px] font-normal leading-normal text-[#454545]">
                     A clear escalation from simple phishing to strategic, systemic attacks.
@@ -168,50 +158,39 @@ export default function CyberSecuritySolutions() {
 
               {/* Three Risk Cards */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
-                {[{
-                  title: 'AI-Generated Phishing & Deepfakes',
-                  icon: '/images/data-monetize/gear.svg',
-                  impact: 'High Likelihood, Critical Impact: Enables $25.6M deepfake fraud incidents and dominates basic web-app breach patterns.'
-                }, {
-                  title: 'Living-Off-The-Land (LotL) & Identity Abuse',
-                  icon: '/images/cloud-integrations/paper.svg',
-                  impact: 'High Likelihood: Stolen credentials are a primary pivot point, driving the global average cost per breach to $4.40M.'
-                }, {
-                  title: 'Ransomware / Extortion',
-                  icon: '/images/cyber/bag.svg',
-                  impact: 'Critical Impact: Downtime is the largest driver of loss. Healthcare crises have showed >50% revenue disruption for providers.'
-                }].map((item, i) => (
-                  <div
-                    key={i}
-                    className="border border-[#fcd5ac] rounded-2xl p-5 bg-white/30 relative overflow-hidden card-text-smaller"
-                  >
-                    <div className="relative z-10 flex flex-col gap-4">
-                      <div className="h-12 w-12 relative">
-                        <Image
-                          src={item.icon}
-                          alt={`${item.title} icon`}
-                          width={48}
-                          height={48}
-                          className="h-12 w-12"
-                        />
+              {[{
+                title: 'AI-Generated Phishing & Deepfakes',
+                impact: '<span style="font-weight: 600; color: #111111;">High Likelihood, Critical Impact:</span> Enables <span style="font-weight: 600; color: #111111;">$25.6M</span> deepfake fraud incidents and dominates basic web-app breach patterns.'
+              }, {
+                title: 'Living-Off-The-Land (LotL) & Identity Abuse',
+                impact: '<span style="font-weight: 600; color: #111111;">High Likelihood: Stolen credentials</span> are a primary pivot point, driving the <span style="font-weight: 600; color: #111111;">global average cost per breach to $4.40M.</span>'
+              }, {
+                title: 'Ransomware / Extortion',
+                impact: '<span style="font-weight: 600; color: #111111;">Critical Impact:</span> Downtime is the largest driver of loss. Healthcare crises have showed <span style="font-weight: 600; color: #111111;">>50% revenue disruption</span> for providers.'
+              }].map((item, i) => (
+                <div
+                  key={i}
+                  className="border border-[#fcd5ac] rounded-2xl p-5 bg-white/30 relative overflow-hidden card-text-smaller"
+                >
+                  <div className="relative z-10 flex flex-col gap-4">
+                    <h4 className="text-[20px] md:text-[24px] font-medium leading-[26px] text-[#111111]">
+                      {item.title}
+                    </h4>
+                    <div className="flex flex-col gap-2">
+                      <div className="bg-[#f6f6f6] rounded-lg px-2.5 py-1.5 inline-flex items-center justify-center w-fit">
+                        <span className="text-[14px] font-medium text-[#111111]">
+                          Business Impact (Risk & Cost)
+                        </span>
                       </div>
-                      <h4 className="text-[20px] md:text-[24px] font-medium leading-[26px] text-[#111111]">
-                        {item.title}
-                      </h4>
-                      <div className="flex flex-col gap-2">
-                        <div className="bg-[#f6f6f6] rounded-lg px-2.5 py-1.5 inline-flex items-center justify-center w-fit">
-                          <span className="text-[14px] font-medium text-[#111111]">
-                            Business Impact (Risk & Cost)
-                          </span>
-                        </div>
-                        <p className="text-[14px] md:text-[16px] font-normal leading-normal text-[#454545]">
-                          {item.impact}
-                        </p>
-                      </div>
+                      <p 
+                        className="text-[14px] md:text-[16px] font-normal leading-normal text-[#454545]"
+                        dangerouslySetInnerHTML={{ __html: item.impact }}
+                      />
                     </div>
                   </div>
-                ))}
-              </div>
+                </div>
+              ))}
+            </div>
             </div>
 
             {/* The AI-Driven Cyber Resilience Framework */}
@@ -229,15 +208,15 @@ export default function CyberSecuritySolutions() {
                 {[{
                   title: 'Perception',
                   subtitle: '(Detection)',
-                  desc: 'AI Agents ingest and correlate telemetry across your entire environment (endpoint, identity, cloud). They use continuous behavioral baselining to flag credential abuse and use NLP models for deepfake detection.'
+                  desc: 'AI Agents ingest and correlate telemetry across your entire environment (endpoint, identity, cloud). They use <span style="font-weight: 600; color: #111111;">continuous behavioral baselining</span> to flag credential abuse and use <span style="font-weight: 600; color: #111111;">NLP models</span> for deepfake detection.'
                 }, {
                   title: 'Cognition',
                   subtitle: '(Reasoning)',
-                  desc: 'We deploy analyst co-pilots embedded in your SIEM/SOAR to interpret complex alerts and autonomous correlation engines to infer patterns without static signatures.'
+                  desc: 'We deploy <span style="font-weight: 600; color: #111111;">analyst co-pilots</span> embedded in your SIEM/SOAR to interpret complex alerts and <span style="font-weight: 600; color: #111111;">autonomous correlation engines</span> to infer patterns without static signatures.'
                 }, {
                   title: 'Action',
                   subtitle: '(Response)',
-                  desc: 'This is the game-changer. Reinforcement-learning (RL) responders execute rapid containment actions: isolating endpoints, revoking tokens, and blocking command-and-control (C2) in seconds.'
+                  desc: 'This is the game-changer. <span style="font-weight: 600; color: #111111;">Reinforcement-learning (RL) responders</span> execute rapid containment actions: isolating endpoints, revoking tokens, and blocking command-and-control (C2) in <span style="font-weight: 600; color: #111111;">seconds</span>.'
                 }].map((item, i) => (
                   <div
                     key={i}
@@ -245,11 +224,12 @@ export default function CyberSecuritySolutions() {
                   >
                     <div className="relative z-10 flex flex-col gap-4">
                       <h4 className="text-[20px] md:text-[24px] font-medium leading-[26px] text-[#111111]">
-                        {item.title} <span className="font-normal text-[#454545]">{item.subtitle}</span>
+                        {item.title} <span className="font-medium text-base text-[#111111]">{item.subtitle}</span>
                       </h4>
-                      <p className="text-[14px] md:text-[16px] font-normal leading-normal text-[#454545]">
-                        {item.desc}
-                      </p>
+                      <p 
+                        className="text-[14px] md:text-[16px] font-normal leading-normal text-[#454545]"
+                        dangerouslySetInnerHTML={{ __html: item.desc }}
+                      />
                     </div>
                   </div>
                 ))}
@@ -272,17 +252,17 @@ export default function CyberSecuritySolutions() {
                   chip: 'Stabilize',
                   chipColor: 'text-[#e45412] bg-[#fff3ee] border-[#ffbfa8]',
                   focusArea: 'Foundation & Core Risk',
-                  action: 'Deploy Phishing-Resistant MFA (FIDO2/WebAuthn) and enforce out-of-band verification for payments to counter deepfakes.'
+                  action: 'Deploy <span style="font-weight: 600; color: #111111;">Phishing-Resistant MFA</span> (FIDO2/WebAuthn) and enforce out-of-band verification for payments to counter deepfakes.'
                 }, {
                   chip: 'Integrate',
                   chipColor: 'text-[#e45412] bg-[#fff3ee] border-[#ffbfa8]',
                   focusArea: 'Automation & Supply Chain',
-                  action: 'Integrate AI co-pilots into SIEM/SOAR to automate Tier-1 triage. Implement SBOM policy and vendor SLAs for supply-chain control.'
+                  action: 'Integrate <span style="font-weight: 600; color: #111111;">AI co-pilots</span> into SIEM/SOAR to automate Tier-1 triage. Implement <span style="font-weight: 600; color: #111111;">SBOM policy</span> and vendor SLAs for supply-chain control.'
                 }, {
                   chip: 'Automate',
                   chipColor: 'text-[#e45412] bg-[#fff3ee] border-[#ffbfa8]',
                   focusArea: 'Autonomous Defense',
-                  action: 'Deploy an Agent Swarm (e.g., Identity Guard, RL Responder) to achieve rapid containment.'
+                  action: 'Deploy an <span style="font-weight: 600; color: #111111;">Agent Swarm</span> (e.g., Identity Guard, RL Responder) to achieve rapid containment.'
                 }].map((item, i) => (
                   <div
                     key={i}
@@ -295,24 +275,25 @@ export default function CyberSecuritySolutions() {
                         </span>
                       </div>
                       <div className="flex flex-col gap-2">
-                        <div className="bg-[#f6f6f6] rounded-lg px-2.5 py-1.5 inline-flex items-center justify-center w-fit">
+                        <div className="bg-gray-100 rounded-lg px-2.5 py-1.5 inline-flex items-center justify-center w-fit">
                           <span className="text-[14px] font-medium text-[#111111]">
                             Focus Area
                           </span>
                         </div>
-                        <p className="text-[16px] md:text-[18px] font-semibold leading-normal text-[#111111]">
+                        <p className="text-[16px] md:text-[18px] leading-normal text-gray-600">
                           {item.focusArea}
                         </p>
                       </div>
                       <div className="flex flex-col gap-2">
-                        <div className="bg-[#f6f6f6] rounded-lg px-2.5 py-1.5 inline-flex items-center justify-center w-fit">
+                        <div className="bg-gray-100 rounded-lg px-2.5 py-1.5 inline-flex items-center justify-center w-fit">
                           <span className="text-[14px] font-medium text-[#111111]">
                             Key Action
                           </span>
                         </div>
-                        <p className="text-[14px] md:text-[16px] font-normal leading-normal text-[#454545]">
-                          {item.action}
-                        </p>
+                        <p 
+                          className="text-[14px] md:text-[16px] font-normal leading-normal text-[#454545]"
+                          dangerouslySetInnerHTML={{ __html: item.action }}
+                        />
                       </div>
                     </div>
                   </div>
@@ -324,8 +305,8 @@ export default function CyberSecuritySolutions() {
 
         {/* Our Solutions */}
         <section className="mx-auto max-w-7xl px-[5%] py-16">
-          <h2 className="text-center text-[32px] font-medium leading-[48px] text-[#0B1B2B]">
-            Our Solutions
+          <h2 className="text-center text-4xl font-medium leading-[48px] text-black">
+                Advantages
           </h2>
 
           <div className="mt-10 flex flex-col gap-8 lg:flex-row lg:items-stretch lg:justify-center lg:gap-6">
@@ -382,7 +363,7 @@ export default function CyberSecuritySolutions() {
                     alt=""
                     width={2}
                     height={320}
-                    className="w-auto h-[340px]"
+                    className="w-auto h-[325px]"
                     aria-hidden
                   />
                   </div>
@@ -393,72 +374,7 @@ export default function CyberSecuritySolutions() {
 
         </section>
 
-       {/* Advantages */}
-       <BackgroundDots
-         className="py-14"
-         spacing={25}
-         dotSize={3}
-         backgroundColor="#FFF6EB"
-         dotColor="#D9D9D9"
-         style={{
-          background: "linear-gradient(to bottom, #ffffff 38.524%, #feecd6 171.52%)",
-        }}
-       >
-        <section className="mx-auto max-w-7xl px-[5%]">
-  <div className="grid items-center gap-10 md:grid-cols-[1.6fr_auto_1fr]">
-    <div>
-      <h2 className="text-4xl text-[#0B1B2B]">Advantages</h2>
-      <p className="mt-5 text-lg font-semibold text-[#0F2C58]">
-        Measuring Success: KPIs for the Board
-      </p>
-      <p className="mt-3 text-base text-[#3A4A5F]">
-        Security is a business function. Our framework aligns with loss
-        avoidance and resilience metrics:
-      </p>
-      <ul className="mt-5 space-y-4 text-lg text-[#3A4A5F]">
-        <li className="relative pl-6">
-          <span className="absolute left-0 top-2 h-2 w-2 rounded-full bg-gray-500" />
-          <span className="font-medium text-black">Loss Avoidance:</span> Target a reduction 
-          in loss within 12 months by achieving faster containment.
-        </li>
-        <li className="relative pl-6">
-          <span className="absolute left-0 top-2 h-2 w-2 rounded-full bg-gray-500" />
-          <span className="font-medium text-black">Containment Speed (MTTI/MTTC):</span> 
-          Reduce mean days, with an ultimate goal of days.
-        </li>
-        <li className="relative pl-6">
-          <span className="absolute left-0 top-2 h-2 w-2 rounded-full bg-gray-500" />
-          <span className="font-medium text-black">Ransomware Resilience:</span> Aim for 
-          time to restore and increase recovery percentage without ransom.
-        </li>
-      </ul>
-    </div>
-
-    <div className="flex justify-center">
-      <Image
-        src="/images/raar/lineraar.svg"
-        alt=""
-        width={2}
-        height={320}
-        className="w-auto h-auto"
-        aria-hidden
-      />
-    </div>
-
-    <div className="justify-self-center">
-      <Image
-        src="/images/cyber/whychoose.png"
-        alt="Security dashboard illustration"
-        width={520}
-        height={360}
-        className="h-auto w-[320px] sm:w-[380px] md:w-[460px] rounded-xl"
-      />
-    </div>
-  </div>
-</section>
-
-
-       </BackgroundDots>
+     
        <div className=" flex justify-center">
          <Image
            src="/images/horizontalline.svg"

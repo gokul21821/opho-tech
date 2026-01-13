@@ -24,8 +24,8 @@ const NAV_SECTIONS = [
     label: "Solutions",
     key: "solutions",
     items: [
-      "Research, Analysis, Adoption & Reporting",
-      "Data Monetization",
+      "Research & Analysis",
+      "Data Structuring & Monetization",
       "Cloud Integration",
       "AI Solutions & Services",
       "AI Agent Development",

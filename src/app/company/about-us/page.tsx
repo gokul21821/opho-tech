@@ -20,11 +20,11 @@ const topArrow = "/images/aboutus/top-arrow.svg";
 const arrowCircle = "/images/aboutus/arrow-circle.svg";
 
 // Import icons
-const intelligentIcon = "/images/icons/intelligent.svg";
+const papersearchicon = "/images/icons/paper-analysis.svg";
 const aiAgentIcon = "/images/icons/ai-agent.svg";
-const handshakeIcon = "/images/icons/handshake.svg";
+const resilienticon = "/images/icons/cloud-integration.svg";
 const cloudDbIcon = "/images/icons/cloud-db.svg";
-const paperAnalysisIcon = "/images/icons/paper-analysis.svg";
+const governedicon = "/images/icons/governedicon.svg";
 const analysisIcon = "/images/icons/analysis.svg";
 const peopleSearchIcon = "/images/icons/people-search.svg";
 const securityIcon = "/images/icons/security.svg";
@@ -47,8 +47,8 @@ const AboutPage = () => {
           { label: "About Us" },
         ]}
         title="Who We Are"
-        subtitle="Founded in 2019, OphoTech is a global R&D-led SaaS and PaaS solutions company. We partner with enterprises, governments, and institutions to provide early and reliable visibility across the technology lifecycle.
-By accelerating the path to AI enablement, we empower organizations to make faster decisions, minimize risk,
+        subtitle="Founded in 2019, OphoTech is a global R&D-led SaaS and PaaS solutions company. We partner with enterprises, governments, and institutions to provide early and reliable visibility across the technology lifecycle. 
+By accelerating the path to AI enablement, we empower organizations to make faster decisions, minimize risk, 
 and drive profitable growth."
         contentAlignment="center"
       />
@@ -71,17 +71,7 @@ and drive profitable growth."
             <div className="md:w-1/2">
               <h2 className="text-3xl font-bold mb-6 text-gray-800">Our Story</h2>
               <p className="text-lg text-gray-600">
-                We began with a simple challenge: <strong>make decisions clearer, sooner,
-                and safer to act on</strong>. Early projects proved a pattern—when teams see
-                the right signals up front, momentum compounds and risk falls. That
-                insight became our operating system.
-              </p>
-              <p className="text-lg text-gray-600 mb-4">
-                As we grew, we moved from bespoke builds to reusable accelerators,
-                governance <strong>playbooks,</strong> and delivery <strong>patterns</strong> that turn experimentation
-                into durable capability. We co-create with clients, strengthen what
-                already works, and remove friction where it doesn&apos;t—so progress
-                sticks long after launch.
+              As a purpose-driven, research-led organization, we bring deep expertise in Data Science, Research, and AI. We partner with enterprises to enable confident, responsible decision-making, uncover and address critical gaps, and accelerate business outcomes using proven, scalable methodologies. We work closely with your teams to guide your journey of technology enablement in this new era of AI.
               </p>
             </div>
             <div className="md:w-1/2 flex justify-center">
@@ -108,29 +98,24 @@ and drive profitable growth."
           <div className="mt-10 flex flex-col gap-8 lg:flex-row lg:items-stretch lg:justify-center lg:gap-6">
             {[
               {
-                title: "Intelligent Decisions",
-                text: "Embed analytics and AI where work happens.",
-                icon: intelligentIcon,
+                title: "Evidence Clariy",
+                text: "Decisions grounded in validated data, not assumptions or intuition.",
+                icon: papersearchicon,
               },
               {
-                title: "Clarity Before Code",
-                text: "Align early on the signals that matter.",
+                title: "Proven Intelligence",
+                text: "AI applied only where measurable value and outcomes are demonstrated.",
                 icon: aiAgentIcon,
               },
               {
-                title: "Built for Change",
-                text: "Open, secure, cloud-native by default.",
-                icon: handshakeIcon,
+                title: "Resilient Architecture",
+                text: "Systems engineered for real-world performance, scale, and long-term stability.",
+                icon: resilienticon,
               },
               {
-                title: "Responsible By Design",
-                text: "Privacy, governance, and human oversight built in.",
-                icon: cloudDbIcon,
-              },
-              {
-                title: "Outcomes Over Output",
-                text: "We measure impact—not features.",
-                icon: paperAnalysisIcon,
+                title: "Governed Impact",
+                text: "Privacy, compliance, and quantifiable ROI embedded into every solution. ",
+                icon: governedicon,
               },
             ].map((item, index, array) => (
               <Fragment key={item.title}>
@@ -171,7 +156,7 @@ and drive profitable growth."
         </section>
 
 
-        <section className="relative w-full text-white pb-16 lg:pb-0 pt-16 lg:pt-[20rem] lg:bg-[url('/images/aboutus/our-mission.png')] lg:bg-[length:100%_auto] lg:bg-top lg:bg-no-repeat">
+        <section className="relative w-full text-white pb-16 lg:pb-0 pt-16 lg:pt-[14rem] lg:bg-[url('/images/aboutus/our-mission.png')] lg:bg-[length:100%_auto] lg:bg-top lg:bg-no-repeat">
           {/* Desktop view with SVG decorations (lg and above) */}
           <div className="hidden lg:block relative mx-auto h-[520px] max-w-6xl px-6">
             {/* Outer blurred ring */}
@@ -249,22 +234,22 @@ and drive profitable growth."
           {/* Tablet and mobile card layout (below lg) */}
           <div className="lg:hidden max-w-4xl mx-auto px-6 grid gap-6 sm:grid-cols-2">
             {/* Our Vision Card */}
-            <div className="bg-[#0A1F44] rounded-xl p-6 shadow-lg">
-              <h3 className="text-2xl font-semibold text-white mb-3">
+            <div className="bg-white border border-orange-200 rounded-xl p-6 shadow-lg">
+              <h3 className="text-2xl font-semibold text-black mb-3">
                 Our Vision
               </h3>
-              <p className="text-sm leading-relaxed text-white">
+              <p className="text-sm leading-relaxed text-black">
                 A world where every organization operates on decision-grade
                 intelligence—timely, trusted, and actionable.
               </p>
             </div>
 
             {/* Our Mission Card */}
-            <div className="bg-[#0A1F44] rounded-xl p-6 shadow-lg">
-              <h2 className="text-2xl font-semibold text-white mb-3">
+            <div className="bg-white border border-orange-200 rounded-xl p-6 shadow-lg">
+              <h2 className="text-2xl font-semibold text-black mb-3">
                 Our Mission
               </h2>
-              <p className="text-sm leading-relaxed text-white">
+              <p className="text-sm leading-relaxed text-black">
                 To equip leaders with platforms and practices that surface the
                 right signals early, automate the routine, and scale securely
                 from first hypothesis to production impact.
@@ -344,196 +329,26 @@ and drive profitable growth."
               ].map((card) => (
                 <article
                   key={card.title}
-                  className="flex flex-col items-start text-left gap-3 p-3 bg-white/50 rounded-lg border border-orange-200"
+                  className="flex flex-col items-start text-left max-w-[270px] mb-5 p-4 bg-white/50 rounded-lg border border-orange-200"
                 >
                   <Image
                     src={card.icon}
                     alt={card.alt}
                     width={64}
                     height={64}
-                    className="mb-2 h-16 w-16"
+                    className="mb-3 h-12 w-16"
                   />
-                  <h3 className="text-xl font-semibold text-black">
+                  <h3 className="text-lg font-semibold text-black">
                     {card.title}
                   </h3>
-                  <p className="text-gray-600">{card.text}</p>
+                  <p className="text-gray-600 mt-2 text-sm">{card.text}</p>
                 </article>
               ))}
             </div>
           </section>
         </BackgroundDots>
-        {/* How We Deliver Impact Section */}
-        <section className="py-20 bg-white px-[13%]">
-          <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
 
-            {/* LEFT — Text */}
-            <div className="flex-1 max-w-xl">
-              <h2 className="text-3xl font-bold mb-6 text-gray-800">
-                How We Deliver Impact
-              </h2>
-
-              <ul className="text-lg text-gray-600 mb-6 space-y-3 list-disc pl-6">
-                <li>
-                  <strong>Evidence first.</strong> Diagnose the problem, baseline
-                  outcomes, and set measurable targets.
-                </li>
-                <li>
-                  <strong>Thin-slice to proof.</strong> Ship working increments fast
-                  to validate value, not just intent.
-                </li>
-                <li>
-                  <strong>Industrialize.</strong> Harden for security, reliability,
-                  and scale—with standards, not surprises.
-                </li>
-                <li>
-                  <strong>Enable and transfer.</strong> Upskill teams, codify
-                  practices, and make results repeatable.
-                </li>
-              </ul>
-
-              <p className="text-lg text-gray-600 font-semibold">
-                From a question to a method—that’s our story: turning intelligence into an enduring advantage.
-              </p>
-            </div>
-
-            {/* CENTER — Vertical Divider - Hidden on mobile */}
-            <div className="hidden md:flex justify-center">
-              <Image
-                src="/images/raar/lineraar.svg"
-                alt=""
-                width={2}
-                height={200}
-                className="h-[350px] w-auto"
-                aria-hidden
-              />
-            </div>
-
-            {/* RIGHT — Illustration */}
-            <div className="flex-1 flex justify-center">
-              <Image
-                src={impactImage}
-                alt="AI Impact Visual"
-                width={500}
-                height={300}
-                className="rounded-lg max-w-full h-auto"
-              />
-            </div>
-
-          </div>
-        </section>
-
-
-      {/* Why Choose OphoTech Section — Redesigned Like Section 2 */}
-        <BackgroundDots
-          className="py-14"
-          spacing={25}
-          dotSize={3}
-          backgroundColor="#FFF6EB"
-          dotColor="#D9D9D9"
-          style={{
-            background:
-              "linear-gradient(to bottom, #ffffff 38.524%, #feecd6 171.52%)",
-          }}
-        >
-          <section className="mx-auto max-w-7xl px-[5%]">
-
-            {/* Heading */}
-            <h2 className="text-4xl font-bold text-[#0B1B2B] text-center mb-4">
-              Why Choose OphoTech
-            </h2>
-
-            {/* Subtitle */}
-            <p className="max-w-none mx-auto text-center text-base text-[#3A4A5F]">
-              Engineered for your operating model. We design around your processes, KPIs, users, and risk profile—not generic templates.
-            </p>
-            <p className="max-w-3xl mx-auto text-center text-base text-[#3A4A5F] leading-relaxed mb-10">
-              Every build aligns data, controls, and experience to how your organization actually runs.
-            </p>
-
-            {/* 3-Column Layout */}
-            <div className="grid items-start md:grid-cols-3">
-
-              {/* Left Column */}
-              <div className="max-w-none">
-                <ul className="space-y-4 text-base text-[#3A4A5F] list-disc pl-5">
-                  <li>
-                    <span className="font-semibold text-[#0B1B2B]">
-                      Outcome maps, then build.
-                    </span>{" "}
-                    We translate goals into KPI “north stars,” guardrails, and telemetry before any solutioning.
-                  </li>
-
-                  <li>
-                    <span className="font-semibold text-[#0B1B2B]">
-                      Proof-to-production runway.
-                    </span>{" "}
-                    Working increments ship quickly and graduate to hardened releases without throwaway code.
-                  </li>
-
-                  <li>
-                    <span className="font-semibold text-[#0B1B2B]">
-                      In-flow analytics & automation.
-                    </span>{" "}
-                    Insights and actions live inside the workflow—no swivel-chair between tools.
-                  </li>
-
-                  <li>
-                    <span className="font-semibold text-[#0B1B2B]">
-                      Composable, vendor-neutral stack.
-                    </span>{" "}
-                    Modular architecture that integrates cleanly and avoids lock-in.
-                  </li>
-                </ul>
-              </div>
-
-              {/* Vertical Divider */}
-              <div className="flex justify-center">
-                <Image
-                  src="/images/raar/lineraar.svg"
-                  alt=""
-                  width={2}
-                  height={320}
-                  className="h-[370px] w-auto"
-                />
-              </div>
-
-              {/* Right Column */}
-              <div className="max-w-none">
-                <ul className="space-y-4 text-base text-[#3A4A5F] list-disc ">
-                  <li>
-                    <span className="font-semibold text-[#0B1B2B]">
-                      Audit-ready from day one.
-                    </span>{" "}
-                    Provenance, access controls, and policy packs that satisfy regulated environments.
-                  </li>
-
-                  <li>
-                    <span className="font-semibold text-[#0B1B2B]">
-                      SLO-backed reliability.
-                    </span>{" "}
-                    Runbooks, observability, and safe-rollback to keep services predictable.
-                  </li>
-
-                  <li>
-                    <span className="font-semibold text-[#0B1B2B]">
-                      Value ledger.
-                    </span>{" "}
-                    ROI is tracked continuously with baselines and benefit realisation plans.
-                  </li>
-
-                  <li>
-                    <span className="font-semibold text-[#0B1B2B]">
-                      Enablement that sticks.
-                    </span>{" "}
-                    Playbooks and training sprints transfer capability to your teams.
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-          </section>
-        </BackgroundDots>
-
+      
         {/* Bottom Horizontal Divider */}
         <div className="flex justify-center">
           <Image
@@ -550,7 +365,7 @@ and drive profitable growth."
         {/* What's Next Section */}
         <section className="py-20 px-8 bg-white backdrop-blur-sm text-white text-center">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl text-black font-bold mb-8">Ready to Solve</h2>
+            <h2 className="text-3xl text-black font-bold ">Ready to Solve</h2>
             <h2 className="text-3xl text-black font-bold mb-8">
               What&apos;s Next with Ophotech?
             </h2>

@@ -74,7 +74,16 @@ export default function CloudIntegrationPage() {
       <div className="mt-8">
     <h2 className="text-[24px] font-bold text-[#0B1B2B]">Our Tech Stack</h2>
     <div className="flex flex-wrap gap-4">
-      <div className="w-20 h-12 flex items-center justify-center">
+      <div className="w-10 h-12 flex items-center justify-center">
+        <Image
+          src="/images/tech-stack-logos/azure.svg"
+          alt="azure logo"
+          width={48}
+          height={48}
+          className="w-full h-full object-contain"
+        />
+      </div>
+      <div className="w-12 h-12 flex items-center justify-center">
         <Image
           src="/images/tech-stack-logos/aws.svg"
           alt="AWS logo"
@@ -83,7 +92,7 @@ export default function CloudIntegrationPage() {
           className="w-full h-full object-contain"
         />
       </div>
-      <div className="w-20 h-12 flex items-center justify-center">
+      <div className="w-13 h-12 flex items-center justify-center">
         <Image
           src="/images/tech-stack-logos/google-cloud.svg"
           alt="Google Cloud logo"
@@ -170,17 +179,14 @@ export default function CloudIntegrationPage() {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6  w-full">
                 {[{
                   title: 'Siloed Data Across Various Systems And Platforms',
-                  icon: '/images/cloud-integrations/paper.svg',
                   solution: 'Unified Data Fabric/Mesh architecture.',
                   outcome: 'Single source of truth for reliable decision-making and AI.'
                 }, {
                   title: 'Slow Scaling To Meet Peak Demand Or New Markets',
-                  icon: '/images/cloud-integrations/sparkle.svg',
                   solution: 'Hyper-Scalable Cloud Infrastructure (AWS, Azure, GCP and local partners).',
                   outcome: 'Agility to enter new markets or handle massive growth instantly.'
                 }, {
                   title: 'High Maintenance Costs And Security Complexity',
-                  icon: '/images/data-monetize/money.svg',
                   solution: 'Managed Services & Infrastructure-as-Code (IaC).',
                   outcome: 'Reduced operational overhead and enhanced compliance/security posture.'
                 }].map((item, i) => (
@@ -189,15 +195,6 @@ export default function CloudIntegrationPage() {
                     className="border border-[#fcd5ac] rounded-2xl p-5 bg-white/30 relative overflow-hidden card-text-smaller"
                   >
                     <div className="relative z-10 flex flex-col gap-4">
-                      <div className="h-12 w-12 relative">
-                        <Image
-                          src={item.icon}
-                          alt={`${item.title} icon`}
-                          width={48}
-                          height={48}
-                          className="h-12 w-12"
-                        />
-                      </div>
                       <h4 className="text-[20px] md:text-[24px] font-medium leading-[26px] text-[#111111]">
                         {item.title}
                       </h4>
@@ -238,42 +235,63 @@ export default function CloudIntegrationPage() {
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
-                {[{
-                  challenge: 'Product Development Cycle Is Too Slow.',
-                  solution: 'Design a cloud-native DevOps pipeline and integrate development tools to cut time-to-market significantly.'
-                }, {
-                  challenge: 'Cannot Get A 360-Degree View Of The Customer.',
-                  solution: 'Implement a secure, real-time API integration strategy to connect CRM, ERP, and marketing platforms, instantly enabling personalized customer experiences.'
-                }].map((item, i) => (
-                  <div
-                    key={i}
-                    className="border border-[#fcd5ac] rounded-2xl p-5 bg-white/30 relative overflow-hidden card-text-smaller"
-                  >
-                    <div className="relative z-10 flex flex-col gap-4">
-                      <div className="flex flex-col gap-2">
-                        <div className="bg-[#f6f6f6] rounded-lg px-2.5 py-1.5 inline-flex items-center justify-center w-fit">
-                          <span className="text-[14px] font-medium text-[#111111]">
-                            Business Challenge
-                          </span>
-                        </div>
-                        <h4 className="text-[18px] md:text-[20px] font-semibold leading-[26px] text-[#e45412]">
-                          {item.challenge}
-                        </h4>
+              <div className="border border-[#fcd5ac] rounded-2xl px-6 md:px-10 py-5 bg-white/30 relative overflow-hidden card-text-smaller">
+                <div className="relative z-10 flex flex-col md:flex-row gap-6 md:gap-10 md:items-center">
+                  <div className="flex-1 flex flex-col gap-4">
+                    <div className="flex flex-col gap-2">
+                      <div className="bg-[#f6f6f6] rounded-lg px-2.5 py-1.5 inline-flex items-center justify-center w-fit">
+                        <span className="text-[14px] font-medium text-[#111111]">
+                          Business Challenge
+                        </span>
                       </div>
-                      <div className="flex flex-col gap-2">
-                        <div className="bg-[#f6f6f6] rounded-lg px-2.5 py-1.5 inline-flex items-center justify-center w-fit">
-                          <span className="text-[14px] font-medium text-[#111111]">
-                            Solution
-                          </span>
-                        </div>
-                        <p className="text-[14px] md:text-[16px] font-normal leading-normal text-[#454545]">
-                          {item.solution}
-                        </p>
+                      <h4 className="text-[18px] md:text-[20px] font-semibold leading-[26px] text-[#e45412]">
+                        Product Development Cycle Is Too Slow.
+                      </h4>
+                    </div>
+                    <div className="flex flex-col gap-2">
+                      <div className="bg-[#f6f6f6] rounded-lg px-2.5 py-1.5 inline-flex items-center justify-center w-fit">
+                        <span className="text-[14px] font-medium text-[#111111]">
+                          Solution
+                        </span>
                       </div>
+                      <p className="text-[14px] md:text-[16px] font-normal leading-normal text-[#454545]">
+                        Design a cloud-native DevOps pipeline and integrate development tools to cut time-to-market significantly.
+                      </p>
                     </div>
                   </div>
-                ))}
+                  <div className="hidden md:flex items-center justify-center h-full flex-shrink-0">
+                    <Image
+                      src="/images/raar/lineraar.svg"
+                      alt=""
+                      width={2}
+                      height={320}
+                      className="w-auto h-[200px]"
+                      aria-hidden
+                    />
+                  </div>
+                  <div className="flex-1 flex flex-col gap-4">
+                    <div className="flex flex-col gap-2">
+                      <div className="bg-[#f6f6f6] rounded-lg px-2.5 py-1.5 inline-flex items-center justify-center w-fit">
+                        <span className="text-[14px] font-medium text-[#111111]">
+                          Business Challenge
+                        </span>
+                      </div>
+                      <h4 className="text-[18px] md:text-[20px] font-semibold leading-[26px] text-[#e45412]">
+                        Cannot Get A 360-Degree View Of The Customer.
+                      </h4>
+                    </div>
+                    <div className="flex flex-col gap-2">
+                      <div className="bg-[#f6f6f6] rounded-lg px-2.5 py-1.5 inline-flex items-center justify-center w-fit">
+                        <span className="text-[14px] font-medium text-[#111111]">
+                          Solution
+                        </span>
+                      </div>
+                      <p className="text-[14px] md:text-[16px] font-normal leading-normal text-[#454545]">
+                        Implement a secure, real-time API integration strategy to connect CRM, ERP, and marketing platforms, instantly enabling personalized customer experiences.
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -291,7 +309,11 @@ export default function CloudIntegrationPage() {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
                 {[{
                   title: 'Optimal Architecture Design',
-                  desc: 'We focus on cost-optimization and governance from the start, ensuring your cloud expenditure (FinOps) is efficient and aligned with business value. We select the right services (IaaS, PaaS, or SaaS) for your needs.'
+                  desc: (
+                    <>
+                      We focus on <span className="font-bold text-black">cost-optimization and governance</span> from the start, ensuring your cloud expenditure (FinOps) is efficient and aligned with business value. We select the right services (IaaS, PaaS, or SaaS) for your needs.
+                    </>
+                  )
                 }, {
                   title: 'Seamless Integration Expertise',
                   desc: 'We specialize in modernizing legacy systems, migrating applications, and establishing robust data pipelines that ensure data flows securely and reliably across your entire ecosystem.'
@@ -320,8 +342,8 @@ export default function CloudIntegrationPage() {
 
         {/* Cloud Architecture - Benefits */}
         <section className="mx-auto max-w-7xl px-6 py-16">
-          <h2 className="text-center text-[32px] font-medium leading-[48px] text-[#0B1B2B]">
-            Cloud Architecture - Benefits
+          <h2 className="text-center text-4xl font-medium leading-[48px] text-[#0B1B2B]">
+            Advantages
           </h2>
 
           <div className="mt-10 flex flex-col gap-8 lg:flex-row lg:items-stretch lg:justify-center lg:gap-6">
@@ -448,7 +470,7 @@ export default function CloudIntegrationPage() {
         <section className="mx-auto max-w-7xl px-20 py-16">
           <div className="mb-6">
             <Link
-              href="/solutions/data-monetization"
+              href="/solutions/data-structuring-and-monetization"
               className="inline-flex items-center gap-2 font-poppins text-sm font-medium text-orange-500 transition-colors hover:text-orange-600"
             >
               <svg

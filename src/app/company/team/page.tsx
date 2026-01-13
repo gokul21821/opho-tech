@@ -164,7 +164,7 @@ export default function Team() {
           return (
             <BackgroundDots key={profile.name} {...backgroundProps}>
               <section
-              className={`mx-auto flex w-full flex-col px-[13%]  ${
+              className={`mx-auto flex w-full flex-col px-[7%] xl:px-[6%] 2xl:px-[22%]  ${
                 profile.reverse ? "lg:flex-row-reverse" : "lg:flex-row"
               }`}
             >
