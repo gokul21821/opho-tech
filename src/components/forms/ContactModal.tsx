@@ -1,9 +1,9 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import Image from 'next/image';
 import { Modal } from '@/components/ui/Modal';
-import { CloseIcon, UploadIcon } from './ContactIcons';
+import { CloseIcon } from './ContactIcons';
 import { CustomSelect } from '@/components/ui/CustomSelect';
 import { TimePicker } from './TimePicker';
 import { PhoneInputWrapper } from './PhoneInputWrapper';
@@ -39,6 +39,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [file, setFile] = useState<File | null>(null);
   const [fileError, setFileError] = useState<string>("");
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleTimeSelect = (type: 'start' | 'end', field: 'time' | 'period', value: string) => {
     const newFormData = {
@@ -133,6 +134,14 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
       ...prev,
       [name]: value,
     }));
+  };
+
+  const handleRemoveFile = () => {
+    setFile(null);
+    setFileError("");
+    if (fileInputRef.current) {
+      fileInputRef.current.value = '';
+    }
   };
 
   return (
@@ -303,29 +312,55 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                 <label htmlFor="file-upload" className="font-poppins text-sm text-gray-900">
                   Upload File (PDF/Image, max 10MB)
                 </label>
-                <input
-                  id="file-upload"
-                  type="file"
-                  accept=".pdf, .png, .jpg, .jpeg"
-                  onChange={(e) => {
-                    const selectedFile = e.target.files?.[0];
-                    if (selectedFile) {
-                      if (selectedFile.size > 10 * 1024 * 1024) {
-                        setFileError("File size exceeds 10MB limit.");
-                        setFile(null);
-                      } else {
-                        setFileError("");
-                        setFile(selectedFile);
+                <div className="flex items-center gap-3">
+                  <input
+                    ref={fileInputRef}
+                    id="file-upload"
+                    type="file"
+                    accept=".pdf, .png, .jpg, .jpeg"
+                    onChange={(e) => {
+                      const selectedFile = e.target.files?.[0];
+                      if (selectedFile) {
+                        if (selectedFile.size > 10 * 1024 * 1024) {
+                          setFileError("File size exceeds 10MB limit.");
+                          setFile(null);
+                        } else {
+                          setFileError("");
+                          setFile(selectedFile);
+                        }
                       }
-                    }
-                  }}
-                  className="rounded-md bg-[#f0f0f0] px-3 py-2.5 font-poppins text-xs text-gray-900 focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-100"
-                />
+                    }}
+                    className="sr-only"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => fileInputRef.current?.click()}
+                    className="flex items-center gap-2 rounded-lg bg-orange-100/60 px-4 py-2.5 font-poppins text-sm text-orange-600 transition-colors hover:bg-orange-100"
+                  >
+                    <Image src="/images/icons/upload.svg" alt="Upload" width={16} height={16} />
+                    <span>Choose File</span>
+                  </button>
+                  <div className="flex items-center gap-2">
+                    <span className="font-poppins text-sm text-gray-600">
+                      {file ? file.name : 'No file chosen'}
+                    </span>
+                    {file && (
+                      <button
+                        type="button"
+                        onClick={handleRemoveFile}
+                        aria-label="Remove file"
+                        className="flex items-center justify-center rounded-full text-gray-500 hover:text-gray-700 hover:bg-gray-100 transition-colors p-1"
+                      >
+                        <CloseIcon className="size-4" />
+                      </button>
+                    )}
+                  </div>
+                </div>
                 {fileError && <p className="text-red-500 text-xs">{fileError}</p>}
               </div>
 
               <div className="flex items-center justify-between gap-4">
-                <div className="flex items-start gap-2">
+                <div className="flex items-start gap-2 max-w-[70%]">
                   <input
                     type="checkbox"
                     id="consent"

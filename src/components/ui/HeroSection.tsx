@@ -118,7 +118,7 @@ export function HeroSection({
           </>
         ) : (
           <>
-            <div className={`flex flex-col ${contentAlignment === "center" ? "items-center text-center" : ""} space-y-6 max-w-5xl ${contentAlignment === "left" ? "w-full" : ""}`}>
+            <div className={`flex flex-col ${contentAlignment === "center" ? "items-center text-center" : ""} space-y-6 max-w-7xl ${contentAlignment === "left" ? "w-full" : ""}`}>
               <h1 className={`text-4xl font-bold text-orange-500 sm:text-5xl ${contentAlignment === "center" ? "text-center" : ""}`}>
                 {title}
               </h1>

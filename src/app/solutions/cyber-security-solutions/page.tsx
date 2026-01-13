@@ -348,7 +348,7 @@ export default function CyberSecuritySolutions() {
                       className="h-10 w-10"
                     />
                   </div>
-                  <p className="text-[16px] font-medium leading-[24px] text-[#0F2C58]">
+                  <p className="text-[16px] font-medium leading-[24px] text-black">
                     {item.title}
                   </p>
                   <p className="mt-3 text-sm leading-[22px] text-[#3A4A5F]">

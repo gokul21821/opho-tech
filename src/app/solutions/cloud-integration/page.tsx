@@ -244,7 +244,7 @@ export default function CloudIntegrationPage() {
                           Business Challenge
                         </span>
                       </div>
-                      <h4 className="text-[18px] md:text-[20px] font-semibold leading-[26px] text-[#e45412]">
+                      <h4 className="text-[17px] font-semibold leading-[26px] text-[#e45412]">
                         Product Development Cycle Is Too Slow.
                       </h4>
                     </div>
@@ -276,7 +276,7 @@ export default function CloudIntegrationPage() {
                           Business Challenge
                         </span>
                       </div>
-                      <h4 className="text-[18px] md:text-[20px] font-semibold leading-[26px] text-[#e45412]">
+                      <h4 className="text-[17px] font-semibold leading-[26px] text-[#e45412]">
                         Cannot Get A 360-Degree View Of The Customer.
                       </h4>
                     </div>
@@ -385,7 +385,7 @@ export default function CloudIntegrationPage() {
                       className="h-10 w-10"
                     />
                   </div>
-                  <p className="text-[16px] font-medium leading-[24px] text-[#0F2C58]">
+                  <p className="text-[16px] font-medium leading-[24px] text-black">
                     {item.title}
                   </p>
                   <p className="mt-3 text-sm leading-[22px] text-[#3A4A5F]">

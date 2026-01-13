@@ -200,7 +200,7 @@ export default function AISolutionsAndServices() {
                       className="h-10 w-10"
                     />
                   </div>
-                  <p className="text-[16px] font-medium leading-[24px] text-[#0F2C58]">
+                  <p className="text-[16px] font-medium leading-[24px] text-black">
                     {item.title}
                   </p>
                   <p className="mt-3 text-sm leading-[22px] text-[#3A4A5F]">
@@ -252,35 +252,40 @@ export default function AISolutionsAndServices() {
                 }}
               >
               <div className="border border-[#fcd5ac] rounded-2xl px-6 md:px-10 py-5 bg-white/30 relative overflow-hidden card-text-smaller">
-                <div className="relative z-10 flex flex-col md:flex-row gap-6 md:gap-10 md:items-center">
-                  <div className="flex-1 flex flex-col gap-4">
-                    <h4 className="text-[20px] md:text-[24px] font-medium leading-[26px] text-[#e45412] capitalize">
-                      Scalability & MLOps:
-                    </h4>
-                    <p className="text-[16px] md:text-[18px] font-normal leading-normal text-[#454545]">
-                      We focus on an <span className="font-medium text-[#111111]">MLOps (Machine Learning Operations)</span> framework, treating AI models like enterprise software. This ensures rapid development, automated deployment, and reliable performance at scale.
-                    </p>
-                  </div>
-                  <div className="hidden md:flex items-center justify-center h-full flex-shrink-0">
+              <div className="relative z-10 flex flex-col md:flex-row gap-6 md:gap-10">
+                {/* Left Content */}
+                <div className="flex-1 flex flex-col gap-4">
+                  <h4 className="text-[20px] md:text-[24px] font-medium leading-[26px] text-[#e45412] capitalize">
+                    Scalability & MLOps:
+                  </h4>
+                  <p className="text-[16px] md:text-[18px] font-normal leading-normal text-[#454545]">
+                    We focus on an <span className="font-medium text-[#111111]">MLOps (Machine Learning Operations)</span> framework, treating AI models like enterprise software. This ensures rapid development, automated deployment, and reliable performance at scale.
+                  </p>
+                </div>
+
+                {/* Divider Line */}
+                <div className="hidden md:flex items-stretch justify-center flex-shrink-0">
                   <Image
-                      src="/images/raar/lineraar.svg"
-                      alt=""
-                      width={2}
-                      height={320}
-                      className="w-auto h-auto"
-                      aria-hidden
-                    />
-                  </div>
-                  <div className="flex-1 flex flex-col gap-4">
-                    <h4 className="text-[20px] md:text-[24px] font-medium leading-[26px] text-[#e45412] capitalize">
-                      Ethical AI & Trust:
-                    </h4>
-                    <p className="text-[16px] md:text-[18px] font-normal leading-normal text-[#454545]">
-                      We embed principles of fairness, transparency, and data privacy into every solution. This mitigates risk, ensures regulatory compliance, and builds customer trust.
-                    </p>
-                  </div>
+                    src="/images/raar/lineraar.svg"
+                    alt=""
+                    width={2}
+                    height={320}
+                    className="w-auto h-[190px]"
+                    aria-hidden
+                  />
+                </div>
+
+                {/* Right Content */}
+                <div className="flex-1 flex flex-col gap-4">
+                  <h4 className="text-[20px] md:text-[24px] font-medium leading-[26px] text-[#e45412] capitalize">
+                    Ethical AI & Trust:
+                  </h4>
+                  <p className="text-[16px] md:text-[18px] font-normal leading-normal text-[#454545]">
+                    We embed principles of fairness, transparency, and data privacy into every solution. This mitigates risk, ensures regulatory compliance, and builds customer trust.
+                  </p>
                 </div>
               </div>
+            </div>
               </BackgroundDots>
             </div>
           </section>

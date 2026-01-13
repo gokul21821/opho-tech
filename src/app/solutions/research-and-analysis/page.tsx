@@ -232,8 +232,12 @@ export default function RAARPage() {
                     className="h-10 w-10"
                   />
                 </div>
-                <p className="text-[16px] font-medium leading-[24px] text-[#0F2C58]">
-                  {item.title}
+                <p className="text-[13px] font-bold text-black">
+                  {item.title.split(' ').map((word, wordIndex) => (
+                    <span key={wordIndex} className="block">
+                      {word}
+                    </span>
+                  ))}
                 </p>
                 <p className="mt-3 text-sm leading-[22px] text-[#3A4A5F]">
                   {item.text}

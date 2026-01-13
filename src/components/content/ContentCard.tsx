@@ -19,17 +19,18 @@ export function ContentCard({
   return (
     <Link
       href={`/${contentType}/${id}`}
-      className="group relative flex w-full flex-col gap-4 overflow-visible rounded-2xl border border-orange-100 bg-white p-5 transition-shadow duration-300 hover:bg-orange-25 hover:shadow-lg sm:min-w-0 sm:flex-1 md:w-[280px] lg:w-[210px]"
+      className="group relative flex w-full flex-col gap-4 overflow-visible rounded-2xl border border-orange-100 bg-white p-5 transition-shadow duration-300 hover:bg-orange-25 hover:shadow-lg sm:min-w-0 sm:flex-1 md:w-[280px] lg:w-[330px]"
     >
       <div className="flex size-11 items-center justify-center overflow-hidden">
         <ServiceIcon name="cloud-integration" className="size-11" />
       </div>
 
-      <h3 className="min-h-[3.5rem] whitespace-pre-line font-poppins text-base font-medium capitalize leading-normal text-gray-900 sm:text-lg">
+      <h3 className="min-h-[3.5rem] whitespace-pre-line mb-12 font-poppins text-base font-medium capitalize leading-normal text-gray-900 sm:text-lg">
         {title}
       </h3>
 
-      <div className="flex items-center justify-between">
+     
+      <div className="absolute bottom-4 left-4 z-10">
         <div className="rounded-lg bg-gray-25 px-2.5 py-1.5">
           <span className="block font-poppins text-xs leading-tight text-gray-900">
             {formatDate(date)}
@@ -53,7 +54,7 @@ export function ContentCard({
 
       <button
         aria-hidden="true"
-        className="absolute bottom-8 right-8 z-[4] flex h-11 w-11 translate-x-1/2 translate-y-1/2 items-center justify-center rounded-full bg-white shadow-[0_10px_30px_-10px_rgba(0,0,0,0.25)] transition-transform duration-300 md:h-10 md:w-10"
+        className="absolute bottom-8 right-8 z-[4] flex h-11 w-11 translate-x-1/2 translate-y-1/2 items-center justify-center rounded-lg bg-white shadow-[0_10px_30px_-10px_rgba(0,0,0,0.25)] transition-transform duration-300 md:h-10 md:w-10"
       >
         <Image
           alt=""

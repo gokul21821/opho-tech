@@ -134,7 +134,7 @@ export function JourneyAnimationDesktop() {
   }, [progress]);
 
   return (
-    <div ref={scope} className="relative w-full aspect-[1216/600] hidden lg:block">
+    <div ref={scope} className="relative w-full aspect-[1216/600] hidden lg:block mb-15">
       {/* SVG Path + Plane (single coordinate system) */}
       <div className="absolute inset-0 top-20 flex justify-center pointer-events-none">
         <svg
