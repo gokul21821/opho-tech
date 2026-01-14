@@ -59,7 +59,7 @@ export function Modal({
   const modalContent = (
     <div
       aria-hidden={!open}
-      className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/50 backdrop-blur-sm"
+      className="fixed inset-0 z-[9999] flex min-h-[100dvh] items-start justify-center overflow-y-auto bg-black/50 px-4 pt-[calc(env(safe-area-inset-top)+12px)] pb-[calc(env(safe-area-inset-bottom)+16px)] backdrop-blur-sm sm:items-center sm:px-0 sm:pt-0 sm:pb-0"
     >
       <div
         role="button"
