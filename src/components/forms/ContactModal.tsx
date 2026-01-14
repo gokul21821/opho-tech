@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import { Modal } from '@/components/ui/Modal';
 import { CloseIcon } from './ContactIcons';
@@ -40,6 +40,28 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
   const [file, setFile] = useState<File | null>(null);
   const [fileError, setFileError] = useState<string>("");
   const fileInputRef = useRef<HTMLInputElement>(null);
+
+  // Hide/show chatbot when modal opens/closes
+  useEffect(() => {
+    if (isOpen) {
+      // Hide chatbot when modal opens
+      if (window.voiceflow?.chat?.hide) {
+        window.voiceflow.chat.hide();
+      }
+    } else {
+      // Show chatbot when modal closes
+      if (window.voiceflow?.chat?.show) {
+        window.voiceflow.chat.show();
+      }
+    }
+
+    // Cleanup: ensure chatbot is shown when component unmounts
+    return () => {
+      if (window.voiceflow?.chat?.show) {
+        window.voiceflow.chat.show();
+      }
+    };
+  }, [isOpen]);
 
   const handleTimeSelect = (type: 'start' | 'end', field: 'time' | 'period', value: string) => {
     const newFormData = {

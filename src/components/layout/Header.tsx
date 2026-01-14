@@ -100,6 +100,7 @@ export function Header() {
   const [allContent, setAllContent] = useState<AllContentData | null>(null);
   const [isLoadingContent, setIsLoadingContent] = useState(false);
   const searchContainerRef = useRef<HTMLDivElement | null>(null);
+  const mobileSearchModalRef = useRef<HTMLDivElement | null>(null);
 
   const navLinkBase =
     "relative inline-flex items-center pb-3 text-sm font-medium text-white/80 transition-colors duration-200 after:absolute after:left-1/2 after:bottom-0 after:h-[2px] after:w-0 after:-translate-x-1/2 after:rounded-full after:bg-orange-500 after:transition-all after:duration-200 after:content-[''] hover:text-white hover:after:w-full";
@@ -140,12 +141,22 @@ export function Header() {
     }
   }, [searchOpen, allContent, isLoadingContent]);
 
+  // Close search modal when route changes (navigation completes)
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (
-        searchContainerRef.current &&
-        !searchContainerRef.current.contains(event.target as Node)
-      ) {
+    setSearchOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    const handlePointerDown = (event: PointerEvent) => {
+      const targetNode = event.target as Node | null;
+      if (!targetNode) return;
+
+      const clickedInsideDesktop =
+        searchContainerRef.current?.contains(targetNode) ?? false;
+      const clickedInsideMobile =
+        mobileSearchModalRef.current?.contains(targetNode) ?? false;
+
+      if (!clickedInsideDesktop && !clickedInsideMobile) {
         setSearchOpen(false);
       }
     };
@@ -156,11 +167,11 @@ export function Header() {
       }
     };
 
-    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("pointerdown", handlePointerDown);
     document.addEventListener("keydown", handleEscape);
 
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("pointerdown", handlePointerDown);
       document.removeEventListener("keydown", handleEscape);
     };
   }, []);
@@ -168,11 +179,10 @@ export function Header() {
   return (
     <>
       <header
-  className="relative sticky top-0 z-50 bg-gray-900 after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-full after:bg-gradient-to-r after:from-white/20 after:via-orange-500 after:to-white/10 after:content-['']"
-  role="banner"
->
-<div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-[5%]">
-
+        className="relative sticky top-0 z-50 bg-gray-900 after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-full after:bg-gradient-to-r after:from-white/20 after:via-orange-500 after:to-white/10 after:content-['']"
+        role="banner"
+      >
+        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-[5%]">
           <Link href="/" className="flex items-center">
             <Image
               src="/images/logo/logo.svg"
@@ -328,7 +338,10 @@ export function Header() {
       {/* Mobile Search Modal */}
       {searchOpen && (
         <div className="fixed inset-0 z-[70] bg-black/50 lg:hidden">
-          <div className="fixed inset-x-0 top-0 bottom-0 z-[71] bg-white shadow-xl overflow-hidden">
+          <div
+            ref={mobileSearchModalRef}
+            className="fixed inset-x-0 top-0 bottom-0 z-[71] bg-white shadow-xl overflow-hidden"
+          >
             <SearchDropdown
               allContent={allContent}
               isLoading={isLoadingContent}

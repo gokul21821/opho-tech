@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState, useCallback, useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 import { AllContentData, SearchResults } from "@/lib/types";
 import { searchContentByTitle } from "@/lib/client-api";
 
@@ -78,10 +78,6 @@ export function SearchDropdown({
     return () => clearTimeout(timeoutId);
   }, [searchQuery, allContent]);
 
-  const handleLinkClick = useCallback(() => {
-    onClose?.();
-  }, [onClose]);
-
   const getContentTypeLabel = (type: "newsletters" | "blogs" | "caseStudies") => {
     switch (type) {
       case "newsletters":
@@ -117,10 +113,9 @@ export function SearchDropdown({
               <Link
                 href={`/${getContentTypeUrl(type)}/${item.id}`}
                 className="group block px-0 py-1 text-sm text-gray-600 transition-colors hover:text-orange-500"
-                onClick={handleLinkClick}
               >
                 <span className="block leading-normal">{item.title}</span>
-                <span className=" inline-flex items-center rounded-md bg-orange-25 px-2.5 py-1 text-xs font-medium text-orange-500 transition-colors group-hover:bg-orange-50">
+                <span className="inline-flex items-center rounded-md bg-orange-25 px-2.5 py-1 text-xs font-medium text-orange-500 transition-colors group-hover:bg-orange-50">
                   {getContentTypeLabel(type)}
                 </span>
               </Link>

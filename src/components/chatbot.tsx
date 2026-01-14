@@ -10,6 +10,8 @@ declare global {
     voiceflow?: {
       chat: {
         load: (config: VoiceflowConfig) => void;
+        hide?: () => void;
+        show?: () => void;
       };
     };
   }
