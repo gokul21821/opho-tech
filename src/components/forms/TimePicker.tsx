@@ -65,7 +65,7 @@ export const TimePicker = ({
       </button>
 
       {isOpen && (
-        <div className="absolute bottom-full -left-10 z-50 -mb-5 flex w-[180%] flex-col overflow-hidden rounded-lg border border-gray-200 bg-white shadow-lg sm:flex-row">
+        <div className="absolute bottom-full left-0 z-50 -mb-5 flex w-[85%] max-w-[280px] flex-col overflow-hidden rounded-lg border border-gray-200 bg-white shadow-lg sm:-left-10 sm:w-[180%] sm:max-w-none sm:flex-row">
           {/* Start Time Column */}
           <div className="flex flex-1 flex-col border-b border-gray-100 sm:border-b-0 sm:border-r">
             <div className="flex items-center gap-2 border-b border-gray-100 bg-gray-50 px-3 py-2">

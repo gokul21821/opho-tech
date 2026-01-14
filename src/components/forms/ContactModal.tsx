@@ -149,7 +149,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
       {submitStatus === 'success' ? (
         <SuccessPopup onClose={onClose} />
       ) : (
-        <div className="relative flex max-h-[98vh] w-full max-w-[1200px] flex-col rounded-2xl border border-orange-400  lg:p-5">
+        <div className="relative flex max-h-[98vh] w-full max-w-[1200px] flex-col rounded-2xl border border-orange-400 p-4 lg:p-5">
         <div className="pointer-events-none absolute inset-0">
           <Image
             src={CTA_BACKGROUND}
@@ -168,7 +168,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
           <CloseIcon />
         </button>
 
-        <div className="relative z-10 mb-6 mt-4 lg:mt-0">
+        <div className="relative z-10 mb-6 flex-shrink-0 mt-4 lg:mt-0">
           <div className="flex flex-col gap-2">
             <div className="flex items-start justify-between">
               <div className="flex flex-col ">
@@ -177,7 +177,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                 </p>
                 <h2
                   id="contact-modal-title"
-                  className="font-poppins text-[25px] font-medium leading-[14px] text-white"
+                  className="font-poppins text-[25px] font-medium leading-[26px] text-white"
                 >
                   From Idea To Impact
                 </h2>
@@ -188,209 +188,220 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
             </div>
           </div>
         </div>
-        <div className="relative z-10 w-full">
-          <div className="rounded-[12px] bg-white p-5">
-            <form onSubmit={handleSubmit} className="flex flex-col gap-2.5">
-              <div className="grid grid-cols-1 gap-3 lg:grid-cols-2">
+        
+        <div className="relative z-10 flex flex-1 flex-col min-h-0 overflow-hidden">
+          <form onSubmit={handleSubmit} className="flex flex-1 flex-col min-h-0">
+            <div className="flex-1 overflow-y-auto min-h-0">
+              <div className="rounded-[12px] bg-white p-5 pb-6">
                 <div className="flex flex-col gap-2.5">
+                  <div className="grid grid-cols-1 gap-3 lg:grid-cols-2">
+                    <div className="flex flex-col gap-2.5">
+                      <div className="flex flex-col gap-1">
+                        <label htmlFor="name" className="font-poppins text-sm text-gray-900">Name</label>
+                        <input
+                          type="text"
+                          id="name"
+                          name="name"
+                          required
+                          value={formData.name}
+                          onChange={handleChange}
+                          className="rounded-md bg-[#f0f0f0] px-3 py-2.5 font-poppins text-xs text-gray-900 placeholder:text-gray-300 focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-100"
+                          placeholder="Enter your name"
+                        />
+                      </div>
+
+                      <CustomSelect
+                        label="Role"
+                        id="role"
+                        value={formData.role}
+                        options={ROLES}
+                        placeholder="Enter your role"
+                        onChange={(val) => setFormData(prev => ({ ...prev, role: val }))}
+                      />
+
+                      <div className="flex flex-col gap-1">
+                        <label htmlFor="email" className="font-poppins text-sm text-gray-900">Work E-Mail</label>
+                        <input
+                          type="email"
+                          id="email"
+                          name="email"
+                          required
+                          value={formData.email}
+                          onChange={handleChange}
+                          className="rounded-md bg-[#f0f0f0] px-3 py-2.5 font-poppins text-xs text-gray-900 placeholder:text-gray-300 focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-100"
+                          placeholder="Enter your email"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="flex flex-col gap-2.5">
+                      <div className="flex flex-col gap-1">
+                        <label htmlFor="organization" className="font-poppins text-sm text-gray-900">Organization Name</label>
+                        <input
+                          type="text"
+                          id="organization"
+                          name="organization"
+                          required
+                          value={formData.organization}
+                          onChange={handleChange}
+                          className="rounded-md bg-[#f0f0f0] px-3 py-2.5 font-poppins text-xs text-gray-900 placeholder:text-gray-300 focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-100"
+                          placeholder="Enter your organization name"
+                        />
+                      </div>
+
+                      <CustomSelect
+                        label="Industry"
+                        id="industry"
+                        value={formData.industry}
+                        options={INDUSTRIES}
+                        placeholder="Enter your Industry"
+                        onChange={(val) => setFormData(prev => ({ ...prev, industry: val }))}
+                      />
+
+                      <PhoneInputWrapper
+                        value={formData.phone}
+                        onChange={(val) => setFormData(prev => ({ ...prev, phone: val }))}
+                      />
+                    </div>
+                  </div>
+
                   <div className="flex flex-col gap-1">
-                    <label htmlFor="name" className="font-poppins text-sm text-gray-900">Name</label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      required
-                      value={formData.name}
+                    <label htmlFor="brief" className="font-poppins text-sm text-gray-900">Share a Brief</label>
+                    <textarea
+                      id="brief"
+                      name="brief"
+                      rows={3}
+                      value={formData.brief}
                       onChange={handleChange}
-                      className="rounded-md bg-[#f0f0f0] px-3 py-2.5 font-poppins text-xs text-gray-900 placeholder:text-gray-300 focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-100"
-                      placeholder="Enter your name"
+                      className="h-[70px] resize-none rounded-md bg-[#f0f0f0] px-3 py-2 font-poppins text-xs text-gray-900 placeholder:text-gray-300 focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-100"
+                      placeholder="Enter your message"
                     />
                   </div>
 
-                  <CustomSelect
-                    label="Role"
-                    id="role"
-                    value={formData.role}
-                    options={ROLES}
-                    placeholder="Enter your role"
-                    onChange={(val) => setFormData(prev => ({ ...prev, role: val }))}
-                  />
+                  <div className="flex flex-col gap-3 lg:flex-row">
+                    <div className="w-full lg:flex-1">
+                      <CustomSelect
+                        label="Country"
+                        id="country"
+                        value={formData.country}
+                        options={COUNTRIES}
+                        placeholder="Select country"
+                        onChange={(val) => setFormData(prev => ({ ...prev, country: val }))}
+                      />
+                    </div>
 
-                  <div className="flex flex-col gap-1">
-                    <label htmlFor="email" className="font-poppins text-sm text-gray-900">Work E-Mail</label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      required
-                      value={formData.email}
-                      onChange={handleChange}
-                      className="rounded-md bg-[#f0f0f0] px-3 py-2.5 font-poppins text-xs text-gray-900 placeholder:text-gray-300 focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-100"
-                      placeholder="Enter your email"
-                    />
-                  </div>
-                </div>
+                    <div className="flex w-full flex-col gap-1 lg:flex-1">
+                      <label htmlFor="date" className="font-poppins text-sm text-gray-900">Date</label>
+                      <input
+                        type="date"
+                        id="date"
+                        name="date"
+                        value={formData.date}
+                        onChange={handleChange}
+                        className="rounded-md bg-[#f0f0f0] px-3 py-2.5 font-poppins text-xs text-gray-900 focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-100"
+                      />
+                    </div>
 
-                <div className="flex flex-col gap-2.5">
-                  <div className="flex flex-col gap-1">
-                    <label htmlFor="organization" className="font-poppins text-sm text-gray-900">Organization Name</label>
-                    <input
-                      type="text"
-                      id="organization"
-                      name="organization"
-                      required
-                      value={formData.organization}
-                      onChange={handleChange}
-                      className="rounded-md bg-[#f0f0f0] px-3 py-2.5 font-poppins text-xs text-gray-900 placeholder:text-gray-300 focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-100"
-                      placeholder="Enter your organization name"
-                    />
+                    <div className="w-full lg:flex-1">
+                      <TimePicker
+                        startTime={formData.startTime}
+                        startPeriod={formData.startPeriod}
+                        endTime={formData.endTime}
+                        endPeriod={formData.endPeriod}
+                        onTimeSelect={handleTimeSelect}
+                      />
+                    </div>
                   </div>
 
-                  <CustomSelect
-                    label="Industry"
-                    id="industry"
-                    value={formData.industry}
-                    options={INDUSTRIES}
-                    placeholder="Enter your Industry"
-                    onChange={(val) => setFormData(prev => ({ ...prev, industry: val }))}
-                  />
-
-                  <PhoneInputWrapper
-                    value={formData.phone}
-                    onChange={(val) => setFormData(prev => ({ ...prev, phone: val }))}
-                  />
-                </div>
-              </div>
-
-              <div className="flex flex-col gap-1">
-                <label htmlFor="brief" className="font-poppins text-sm text-gray-900">Share a Brief</label>
-                <textarea
-                  id="brief"
-                  name="brief"
-                  rows={3}
-                  value={formData.brief}
-                  onChange={handleChange}
-                  className="h-[70px] resize-none rounded-md bg-[#f0f0f0] px-3 py-2 font-poppins text-xs text-gray-900 placeholder:text-gray-300 focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-100"
-                  placeholder="Enter your message"
-                />
-              </div>
-
-              <div className="flex gap-3">
-                <div className="flex-1">
-                  <CustomSelect
-                    label="Country"
-                    id="country"
-                    value={formData.country}
-                    options={COUNTRIES}
-                    placeholder="Select country"
-                    onChange={(val) => setFormData(prev => ({ ...prev, country: val }))}
-                  />
-                </div>
-
-                <div className="flex flex-1 flex-col gap-1">
-                  <label htmlFor="date" className="font-poppins text-sm text-gray-900">Preferred Time Slot</label>
-                  <input
-                    type="date"
-                    id="date"
-                    name="date"
-                    value={formData.date}
-                    onChange={handleChange}
-                    className="rounded-md bg-[#f0f0f0] px-3 py-2.5 font-poppins text-xs text-gray-900 focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-100"
-                  />
-                </div>
-
-                <TimePicker
-                  startTime={formData.startTime}
-                  startPeriod={formData.startPeriod}
-                  endTime={formData.endTime}
-                  endPeriod={formData.endPeriod}
-                  onTimeSelect={handleTimeSelect}
-                />
-              </div>
-
-              <div className="flex flex-col gap-2">
-                <label htmlFor="file-upload" className="font-poppins text-sm text-gray-900">
-                  Upload File (PDF/Image, max 10MB)
-                </label>
-                <div className="flex items-center gap-3">
-                  <input
-                    ref={fileInputRef}
-                    id="file-upload"
-                    type="file"
-                    accept=".pdf, .png, .jpg, .jpeg"
-                    onChange={(e) => {
-                      const selectedFile = e.target.files?.[0];
-                      if (selectedFile) {
-                        if (selectedFile.size > 10 * 1024 * 1024) {
-                          setFileError("File size exceeds 10MB limit.");
-                          setFile(null);
-                        } else {
-                          setFileError("");
-                          setFile(selectedFile);
-                        }
-                      }
-                    }}
-                    className="sr-only"
-                  />
-                  <button
-                    type="button"
-                    onClick={() => fileInputRef.current?.click()}
-                    className="flex items-center gap-2 rounded-lg bg-orange-100/60 px-4 py-2.5 font-poppins text-sm text-orange-600 transition-colors hover:bg-orange-100"
-                  >
-                    <Image src="/images/icons/upload.svg" alt="Upload" width={16} height={16} />
-                    <span>Choose File</span>
-                  </button>
-                  <div className="flex items-center gap-2">
-                    <span className="font-poppins text-sm text-gray-600">
-                      {file ? file.name : 'No file chosen'}
-                    </span>
-                    {file && (
+                  <div className="flex flex-col gap-2">
+                    <label htmlFor="file-upload" className="font-poppins text-sm text-gray-900">
+                      Upload File (PDF/Image, max 10MB)
+                    </label>
+                    <div className="flex items-center gap-3">
+                      <input
+                        ref={fileInputRef}
+                        id="file-upload"
+                        type="file"
+                        accept=".pdf, .png, .jpg, .jpeg"
+                        onChange={(e) => {
+                          const selectedFile = e.target.files?.[0];
+                          if (selectedFile) {
+                            if (selectedFile.size > 10 * 1024 * 1024) {
+                              setFileError("File size exceeds 10MB limit.");
+                              setFile(null);
+                            } else {
+                              setFileError("");
+                              setFile(selectedFile);
+                            }
+                          }
+                        }}
+                        className="sr-only"
+                      />
                       <button
                         type="button"
-                        onClick={handleRemoveFile}
-                        aria-label="Remove file"
-                        className="flex items-center justify-center rounded-full text-gray-500 hover:text-gray-700 hover:bg-gray-100 transition-colors p-1"
+                        onClick={() => fileInputRef.current?.click()}
+                        className="flex items-center gap-2 rounded-lg bg-orange-100/60 px-4 py-2.5 font-poppins text-sm text-orange-600 transition-colors hover:bg-orange-100"
                       >
-                        <CloseIcon className="size-4" />
+                        <Image src="/images/icons/upload.svg" alt="Upload" width={16} height={16} />
+                        <span>Choose File</span>
                       </button>
-                    )}
+                      <div className="flex items-center gap-2">
+                        <span className="font-poppins text-sm text-gray-600">
+                          {file ? file.name : 'No file chosen'}
+                        </span>
+                        {file && (
+                          <button
+                            type="button"
+                            onClick={handleRemoveFile}
+                            aria-label="Remove file"
+                            className="flex items-center justify-center rounded-full text-gray-500 hover:text-gray-700 hover:bg-gray-100 transition-colors p-1"
+                          >
+                            <CloseIcon className="size-4" />
+                          </button>
+                        )}
+                      </div>
+                    </div>
+                    {fileError && <p className="text-red-500 text-xs">{fileError}</p>}
                   </div>
-                </div>
-                {fileError && <p className="text-red-500 text-xs">{fileError}</p>}
-              </div>
 
-              <div className="flex items-center justify-between gap-4">
-                <div className="flex items-start gap-2 max-w-[70%]">
-                  <input
-                    type="checkbox"
-                    id="consent"
-                    name="consent"
-                    checked={formData.consent}
-                    onChange={(e) => setFormData(prev => ({ ...prev, consent: e.target.checked }))}
-                    required
-                    className="mt-1 size-4 rounded border-gray-300 text-orange-500 focus:ring-orange-500"
-                  />
-                  <label htmlFor="consent" className="font-poppins text-xs text-gray-900">
-                    I consent to the collection and processing of my personal data. I understand this information will only be used to respond to my inquiry.
-                  </label>
-                </div>
-                <button
-                  type="submit"
-                  disabled={isSubmitting || !formData.consent}
-                  className="flex items-center gap-1.5 rounded-lg bg-orange-500 px-3 py-2 font-poppins text-sm text-white transition-colors hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  <span>{isSubmitting ? 'Sending...' : 'Submit Now'}</span>
-                  {!isSubmitting && (
-                    <Image src="/right-arrow.svg" alt="arrow" width={16} height={16} />
+                  {submitStatus === 'error' && (
+                    <p className="font-poppins text-sm text-red-600">✗ Something went wrong. Please try again.</p>
                   )}
-                </button>
+                </div>
               </div>
+            </div>
 
-              {submitStatus === 'error' && (
-                <p className="font-poppins text-sm text-red-600">✗ Something went wrong. Please try again.</p>
-              )}
-            </form>
-          </div>
+            <div className="flex-shrink-0 mt-4">
+              <div className="rounded-[12px] bg-white p-5 border-t-2 border-gray-100">
+                <div className="flex items-center justify-between gap-4">
+                  <div className="flex items-start gap-2 max-w-[70%]">
+                    <input
+                      type="checkbox"
+                      id="consent"
+                      name="consent"
+                      checked={formData.consent}
+                      onChange={(e) => setFormData(prev => ({ ...prev, consent: e.target.checked }))}
+                      required
+                      className="mt-1 size-4 rounded border-gray-300 text-orange-500 focus:ring-orange-500"
+                    />
+                    <label htmlFor="consent" className="font-poppins text-xs text-gray-900">
+                      I consent to the collection and processing of my personal data. I understand this information will only be used to respond to my inquiry.
+                    </label>
+                  </div>
+                  <button
+                    type="submit"
+                    disabled={isSubmitting || !formData.consent}
+                    className="flex items-center gap-1.5 rounded-lg bg-orange-500 px-3 py-2 font-poppins text-sm text-white transition-colors hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    <span>{isSubmitting ? 'Sending...' : 'Submit Now'}</span>
+                    {!isSubmitting && (
+                      <Image src="/right-arrow.svg" alt="arrow" width={16} height={16} />
+                    )}
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
         </div>
         </div>
       )}

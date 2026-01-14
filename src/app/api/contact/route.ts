@@ -77,7 +77,7 @@ export async function POST(request: Request) {
 
     // 5. Send Admin Email
     const adminEmail = await resend.emails.send({
-      from: 'admin@ophotech.com',
+      from: 'info@ophotech.com',
       to: process.env.ADMIN_EMAIL || 'john@doe.com',
       subject: `New Inquiry from ${name}`,
       attachments: attachments, // <--- Attach the secure file
