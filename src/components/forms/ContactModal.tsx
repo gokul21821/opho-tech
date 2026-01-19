@@ -40,6 +40,14 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
   const [file, setFile] = useState<File | null>(null);
   const [fileError, setFileError] = useState<string>("");
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const [isDetectingLocation, setIsDetectingLocation] = useState(false);
+  const [detectedPhoneCountry, setDetectedPhoneCountry] = useState<string | undefined>(undefined);
+  const didAttemptAutoFillRef = useRef(false);
+  const formDataRef = useRef(formData);
+
+  useEffect(() => {
+    formDataRef.current = formData;
+  }, [formData]);
 
   // Ensure modal always opens on the form view (not the prior success/error state).
   useEffect(() => {
@@ -69,6 +77,82 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
         window.voiceflow.chat.show();
       }
     };
+  }, [isOpen]);
+
+  useEffect(() => {
+    if (!isOpen) {
+      didAttemptAutoFillRef.current = false;
+      setIsDetectingLocation(false);
+      return;
+    }
+
+    if (didAttemptAutoFillRef.current) return;
+    didAttemptAutoFillRef.current = true;
+
+    const controller = new AbortController();
+
+    const normalizeIso2 = (raw: unknown): string | null => {
+      if (typeof raw !== 'string') return null;
+      const code = raw.trim().toUpperCase();
+      return /^[A-Z]{2}$/.test(code) ? code : null;
+    };
+
+    const toPhoneIso2 = (code: string): string => {
+      const upper = code.toUpperCase();
+      if (upper === 'UK') return 'gb';
+      return upper.toLowerCase();
+    };
+
+    const toDropdownCode = (code: string): string => {
+      const upper = code.toUpperCase();
+      return upper === 'GB' ? 'UK' : upper;
+    };
+
+    const detectAndAutofill = async () => {
+      setIsDetectingLocation(true);
+      try {
+        const response = await fetch('/api/detect-location', {
+          signal: controller.signal,
+          cache: 'no-store',
+        });
+
+        if (!response.ok) return;
+
+        const data = (await response.json()) as {
+          success?: unknown;
+          countryCode?: unknown;
+        };
+
+        const countryCode = normalizeIso2(data.countryCode);
+        if (!countryCode) return;
+
+        // Phone: auto-fill the *dialing* country only if phone is still empty.
+        if (!formDataRef.current.phone) {
+          setDetectedPhoneCountry(toPhoneIso2(countryCode));
+        }
+
+        // Dropdown: auto-fill only if still empty AND the detected country is supported by COUNTRIES.
+        if (!formDataRef.current.country) {
+          const dropdownCode = toDropdownCode(countryCode);
+          const match = COUNTRIES.find(
+            (entry) => entry.value.toUpperCase() === dropdownCode,
+          );
+
+          if (match) {
+            setFormData((prev) => (prev.country ? prev : { ...prev, country: match.label }));
+          }
+        }
+      } catch (error) {
+        if (error instanceof Error && error.name === 'AbortError') return;
+        console.error('Location detection failed:', error);
+      } finally {
+        setIsDetectingLocation(false);
+      }
+    };
+
+    void detectAndAutofill();
+
+    return () => controller.abort();
   }, [isOpen]);
 
   const handleTimeSelect = (type: 'start' | 'end', field: 'time' | 'period', value: string) => {
@@ -291,6 +375,9 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                       <PhoneInputWrapper
                         value={formData.phone}
                         onChange={(val) => setFormData(prev => ({ ...prev, phone: val }))}
+                        defaultCountry={detectedPhoneCountry}
+                        disabled={isDetectingLocation && !formData.phone}
+                        key={`phone-${detectedPhoneCountry ?? 'us'}`}
                       />
                     </div>
                   </div>

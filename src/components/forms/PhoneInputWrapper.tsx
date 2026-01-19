@@ -6,9 +6,23 @@ import 'react-international-phone/style.css';
 interface PhoneInputWrapperProps {
   value: string;
   onChange: (value: string) => void;
+  defaultCountry?: string;
+  disabled?: boolean;
 }
 
-export const PhoneInputWrapper = ({ value, onChange }: PhoneInputWrapperProps) => {
+const FALLBACK_COUNTRY = "us";
+
+function normalizeDefaultCountry(input: string | undefined): string {
+  const code = (input ?? "").trim().toLowerCase();
+  return /^[a-z]{2}$/.test(code) ? code : FALLBACK_COUNTRY;
+}
+
+export const PhoneInputWrapper = ({
+  value,
+  onChange,
+  defaultCountry,
+  disabled = false,
+}: PhoneInputWrapperProps) => {
   return (
     <div className="flex flex-col gap-1">
       <label
@@ -18,9 +32,10 @@ export const PhoneInputWrapper = ({ value, onChange }: PhoneInputWrapperProps) =
         Phone Number
       </label>
       <PhoneInput
-        defaultCountry="us"
+        defaultCountry={normalizeDefaultCountry(defaultCountry)}
         value={value}
         onChange={(val) => onChange(val || '')}
+        disabled={disabled}
         className="react-international-phone-input"
         inputStyle={{
             width: "100%",
