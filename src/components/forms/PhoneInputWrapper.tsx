@@ -1,6 +1,7 @@
 'use client';
 
-import { PhoneInput } from 'react-international-phone';
+import { useEffect, useRef } from 'react';
+import { PhoneInput, PhoneInputRefType } from 'react-international-phone';
 import 'react-international-phone/style.css';
 
 interface PhoneInputWrapperProps {
@@ -24,6 +25,15 @@ export const PhoneInputWrapper = ({
   disabled = false,
 }: PhoneInputWrapperProps) => {
   const normalizedCountry = normalizeDefaultCountry(defaultCountry);
+  const phoneInputRef = useRef<PhoneInputRefType>(null);
+
+  // This effect runs when defaultCountry changes and programmatically sets the country
+  useEffect(() => {
+    if (phoneInputRef.current && normalizedCountry) {
+      // Use the ref method to change country programmatically
+      phoneInputRef.current.setCountry(normalizedCountry, { focusOnInput: false });
+    }
+  }, [normalizedCountry]);
 
   return (
     <div className="flex flex-col gap-1">
@@ -34,11 +44,8 @@ export const PhoneInputWrapper = ({
         Phone Number
       </label>
       <PhoneInput
-        // `defaultCountry` is only read on mount. Force remount when it changes.
-        key={`phone-${normalizedCountry}`}
+        ref={phoneInputRef} // ← ADD REF
         defaultCountry={normalizedCountry}
-        // Ensure the dial code is visible for the selected country even when the input value is empty.
-        // Also avoid "prefilling" the dial code into the controlled value before detection finishes.
         forceDialCode={true}
         disableDialCodePrefill={true}
         value={value}
@@ -62,11 +69,11 @@ export const PhoneInputWrapper = ({
         style={
           {
             "--react-international-phone-height": "42px",
-            "--react-international-phone-border-radius": "0.375rem", // 6px
+            "--react-international-phone-border-radius": "0.375rem",
             "--react-international-phone-border-color": "transparent",
             "--react-international-phone-background-color": "#f0f0f0",
             "--react-international-phone-text-color": "#111827",
-            "--react-international-phone-selected-dropdown-item-background-color": "#f97316", // orange-500
+            "--react-international-phone-selected-dropdown-item-background-color": "#f97316",
           } as React.CSSProperties
         }
       />
