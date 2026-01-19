@@ -2,7 +2,6 @@ import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { CaseStudiesSection } from "@/components/sections/CaseStudiesSection";
 import { CTASection } from "@/components/sections/CTASection";
-import { FinalCTASection } from "@/components/sections/FinalCTASection";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { YourJourney } from "@/components/sections/Your-Journey";
 import { NewsletterSection } from "@/components/sections/NewsletterSection";
@@ -26,7 +25,7 @@ export default function Home() {
           <ValuePropositionSection />
         </AnimatedSection>
         <AnimatedSection delay={100}>
-          <CTASection />
+          <CTASection variant="gradient" />
         </AnimatedSection>
         <AnimatedSection delay={100}>
           <NewsletterSection />
@@ -35,7 +34,7 @@ export default function Home() {
           <CaseStudiesSection />
         </AnimatedSection>
         <AnimatedSection delay={100}>
-          <FinalCTASection />
+          <CTASection variant="ready" />
         </AnimatedSection>
       </main>
       <Footer />

@@ -16,6 +16,10 @@ export const ROLES = [
   { value: 'owner-operator-general-management', label: 'Owner / Operator / General Management' },
   { value: 'project-management', label: 'Project Management' },
   { value: 'purchasing-procurement', label: 'Purchasing / Procurement' },
+  { value: 'quality', label: 'Quality' },
+  { value: 'sales-marketing', label: 'Sales / Marketing' },
+  { value: 'student-professor', label: 'Student / Professor' },
+  { value: 'other', label: 'Other' },
 ];
 
 export const INDUSTRIES = [
@@ -28,6 +32,32 @@ export const INDUSTRIES = [
   { value: 'construction', label: 'Construction' },
   { value: 'conveyors', label: 'Conveyors' },
   { value: 'customer-service', label: 'Customer Service' },
+  { value: 'electric-motors', label: 'Electric Motors' },
+  { value: 'fans-blowers-hvac', label: 'Fans / Blowers / HVAC' },
+  { value: 'fashion', label: 'Fashion' },
+  { value: 'food-beverage', label: 'Food & Beverage' },
+  { value: 'forest-paper', label: 'Forest & Paper' },
+  { value: 'forklifts', label: 'Forklifts' },
+  { value: 'fossil-energy', label: 'Fossil Energy (oil/gas/coal)' },
+  { value: 'gear-drives', label: 'Gear Drives' },
+  { value: 'general-industry', label: 'General Industry' },
+  { value: 'government-agencies', label: 'Government Agencies' },
+  { value: 'healthcare', label: 'Healthcare' },
+  { value: 'hydraulics', label: 'Hydraulics' },
+  { value: 'it', label: 'IT' },
+  { value: 'machine-tool', label: 'Machine Tool' },
+  { value: 'marine', label: 'Marine' },
+  { value: 'metals', label: 'Metals' },
+  { value: 'mining', label: 'Mining' },
+  { value: 'printing', label: 'Printing' },
+  { value: 'pumps-compressors', label: 'Pumps & Compressors' },
+  { value: 'rail', label: 'Rail' },
+  { value: 'recreational-vehicles', label: 'Recreational Vehicles' },
+  { value: 'solar-energy', label: 'Solar Energy' },
+  { value: 'textile', label: 'Textile' },
+  { value: 'wastewater-treatment', label: 'Wastewater Treatment' },
+  { value: 'wind-energy', label: 'Wind Energy' },
+  { value: 'other', label: 'Other' },
 ];
 
 export const CTA_BACKGROUND = "/images/cta/cta-bg.png";

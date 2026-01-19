@@ -1,17 +1,29 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
 import { PrimaryButton } from "@/components/ui/Button";
-import { ContactModal } from "@/components/forms/ContactModal";
 import { VideoPlayer } from "@/components/ui/VideoPlayer";
+import {
+  buildContactModalOpenUrl,
+  markContactModalOpenedFromUi,
+} from "@/lib/contact-modal";
 
 const HERO_BACKGROUND_WAVES = "/images/hero/hero-background.png";
 const LOGO_PATH_WHITE = "/images/logo/logo-blue-black.svg";
 
 
 export function HeroSection() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const handleOpenContact = () => {
+    const searchParams = new URLSearchParams(
+      typeof window === "undefined" ? "" : window.location.search,
+    );
+    markContactModalOpenedFromUi();
+    router.push(buildContactModalOpenUrl(pathname, searchParams));
+  };
 
   return (
     <section className="relative -mt-20 overflow-hidden pb-0 pt-20 text-white md:-mt-24 md:pt-24 ">
@@ -26,10 +38,10 @@ export function HeroSection() {
         />
       </div>
 
-      <div className="relative mx-auto flex min-h-[680px] max-w-[1120px] flex-col gap-16 px-6 pb-24 pt-36 md:px-8 lg:flex-row lg:items-center lg:justify-between lg:gap-20 lg:min-h-[720px]">
+      <div className="relative mx-auto flex min-h-[680px] max-w-7xl px-[5%] flex-col gap-10 pb-24 pt-36  lg:flex-row lg:items-center lg:justify-between lg:min-h-[720px]">
         <div className="max-w-xl space-y-8">
           <div className="space-y-3">
-            <p className="text-4xl font-medium text-orange-500 sm:text-5xl">
+            <p className="text-4xl text-orange-500 sm:text-5xl">
               You Lead
             </p>
             <p className="text-4xl font-semibold text-white sm:text-5xl">
@@ -39,7 +51,9 @@ export function HeroSection() {
           <p className="max-w-lg text-base leading-relaxed text-blue-100 sm:text-lg">
             Partnering In Your Journey To AI Enablement.
           </p>
-          <PrimaryButton onClick={() => setIsModalOpen(true)}>Let&apos;s Start</PrimaryButton>
+          <PrimaryButton onClick={handleOpenContact}>
+            Let&apos;s Start
+          </PrimaryButton>
         </div>
 
         <div className="relative max-w-7xl flex-1">
@@ -51,7 +65,6 @@ export function HeroSection() {
           />
         </div>
       </div>
-      <ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </section>
   );
 }

@@ -61,12 +61,12 @@ const SERVICES = [
 
 export function ServicesSection() {
   return (
-    <section className="relative overflow-hidden bg-white py-24">
-      <div className="pointer-events-none absolute inset-x-0 top-8 mx-auto h-40 w-[60%] rounded-full bg-orange-100/30 blur-[100px]" />
+    <section className="relative overflow-hidden bg-white py-15">
+      <div className="pointer-events-none absolute inset-x-0 top-10 mx-auto h-40 w-[60%] rounded-full bg-orange-100/30 blur-[100px]" />
 
       <div className="relative mx-auto max-w-7xl px-[4%] ">
         <div className="text-center">
-          <h2 className="text-3xl font-semibold text-gray-900 md:text-[38px] md:leading-[48px]">
+          <h2 className="text-3xl font-semibold text-gray-900 md:text-[38px]">
             What We Do for You
           </h2>
           <p className="mt-4 text-base text-gray-600 md:text-lg">
@@ -95,7 +95,7 @@ function ServiceCard({ title, tagline, description, icon }: ServiceCardProps) {
     <Link
       href={href}
       className="
-        service-card group relative flex h-full w-[320px] sm:w-[320px] md:w-[340px] lg:w-[335px] xl:w-[370px] flex-col overflow-visible
+        service-card group relative flex h-full w-[330px] sm:w-[320px] md:w-[340px] lg:w-[335px] xl:w-[370px] flex-col overflow-visible
         px-6 py-8
         transition-all duration-300
       "
@@ -165,8 +165,7 @@ function ServiceCard({ title, tagline, description, icon }: ServiceCardProps) {
       <button
         aria-hidden="true"
         className="
-          absolute bottom-[-1] z-[4]  left-71 sm:left-72 md:left-76 lg:left-[300px] xl:left-[335px]   
-          flex h-11 w-11 items-center justify-center
+          service-card-button flex items-center justify-center
           rounded-full bg-white shadow-[0_10px_30px_-10px_rgba(0,0,0,0.25)]
           transition-transform duration-300
           group-hover:scale-110

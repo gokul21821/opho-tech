@@ -49,17 +49,17 @@ export function HeroSection({
   // If video is provided, use two-column layout
   const hasVideo = !!video;
 
-  // Section classes: add negative margin to pull behind header, ensure proper height
-  const sectionClasses = `relative -mt-20 overflow-hidden pb-0 pt-20 text-white md:-mt-24 md:pt-24 ${
-    fullViewport ? "min-h-screen" : "min-h-[680px] lg:min-h-[720px]"
-  } flex flex-col ${contentAlignment === "center" && !hasVideo ? "justify-center" : ""}`;
+  // Keep current min-heights for the video layout; reduce height when there's no video.
+  const minHeightClass = fullViewport
+    ? "min-h-screen"
+    : hasVideo
+      ? "min-h-[680px] lg:min-h-[720px]"
+      : "min-h-[440px] lg:min-h-[500px]";
 
-  // Container classes: adjust padding to account for header overlap
-  const containerClasses = hasVideo
-    ? `relative mx-auto flex min-h-[680px] max-w-[1120px] flex-col gap-16 pb-24 pt-36 lg:flex-row lg:items-center lg:justify-between lg:gap-20 lg:min-h-[720px] z-10`
-    : `relative mx-auto flex flex-col ${
-        contentAlignment === "center" ? "items-center justify-center text-center" : ""
-      } px-6 pb-24 pt-36 md:px-8 max-w-7xl w-full z-10`;
+  // Section classes: add negative margin to pull behind header
+  const sectionClasses = `relative -mt-20 overflow-hidden pt-20 text-white md:-mt-24 md:pt-24 ${
+    minHeightClass
+  } flex flex-col ${contentAlignment === "center" && !hasVideo ? "justify-center" : ""}`;
 
   return (
     <section className={sectionClasses}>
@@ -75,63 +75,77 @@ export function HeroSection({
         />
       </div>
 
-      {/* Fixed Centered Breadcrumbs */}
-      {breadcrumb && (
-        <div className="absolute left-1/2 top-40 -translate-x-1/2 z-20 flex justify-center w-full px-6">
-          <Breadcrumb items={breadcrumb} />
-        </div>
-      )}
-
-      {/* Content */}
-      <div className={containerClasses}>
+      {/* Main Content Container */}
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-[5%]">
         {hasVideo ? (
-          <>
-            {/* Left: Text Content */}
-            <div className="max-w-xl space-y-8 px-6">
-              <div className="space-y-6">
-                <h1 className="text-4xl font-bold text-orange-500 sm:text-5xl">
+          <div className="flex flex-col pt-20 pb-2">
+            {/* Breadcrumb */}
+            {breadcrumb && <Breadcrumb items={breadcrumb} />}
+
+            {/* Two Column Layout */}
+            <div className="flex flex-1 flex-col items-start gap-12 lg:flex-row lg:items-center lg:gap-16">
+              {/* Left: Text Content */}
+              <div className="min-w-[280px] max-w-md space-y-8 sm:min-w-[350px] lg:min-w-[380px]">
+                <h1 className="text-3xl text-orange-500 sm:text-5xl leading-[1.1] lg:text-5xl">
                   {title}
                 </h1>
 
                 {subtitle && (
-                  <p className="text-base leading-relaxed text-blue-100 sm:text-lg max-w-lg">
+                  <p className="text-base leading-relaxed text-blue-100 sm:text-lg lg:text-xl">
                     {subtitle}
                   </p>
                 )}
 
                 {children}
               </div>
-            </div>
 
-            {/* Right: Video */}
-            <div className="relative max-w-7xl flex-1 px-6">
-              <div className="w-full max-w-2xl mx-auto">
-                <VideoPlayer
-                  src={video}
-                  poster={videoPoster}
-                  muted={true}
-                  showControls={true}
-                  className="scale-100 sm:scale-100 md:scale-110 lg:scale-110 xl:scale-140"
-                />
+              {/* Right: Video */}
+              <div className="w-full flex-1">
+                <div className="w-full lg:w-auto lg:ml-0">
+                  <VideoPlayer
+                    src={video}
+                    poster={videoPoster}
+                    muted={true}
+                    showControls={true}
+                  />
+                </div>
               </div>
             </div>
-          </>
+          </div>
         ) : (
-          <>
-            <div className={`flex flex-col ${contentAlignment === "center" ? "items-center text-center" : ""} space-y-6 max-w-7xl ${contentAlignment === "left" ? "w-full" : ""}`}>
-              <h1 className={`text-4xl font-bold text-orange-500 sm:text-5xl ${contentAlignment === "center" ? "text-center" : ""}`}>
+          <div
+            className={`flex flex-col pt-5 ${
+              contentAlignment === "center" ? "items-center text-center" : ""
+            }`}
+          >
+            {/* Breadcrumb for non-video layout */}
+            {breadcrumb && (
+              <div className={contentAlignment === "center" ? "w-full" : ""}>
+                <Breadcrumb items={breadcrumb} />
+              </div>
+            )}
+
+            {/* Content */}
+            <div
+              className={`flex flex-col space-y-6 ${
+                contentAlignment === "center"
+                  ? "items-center text-center max-w-5xl"
+                  : "max-w-5xl"
+              }`}
+            >
+              <h1 className="text-4xl  text-orange-500 sm:text-5xl leading-[1.1] lg:text-5xl">
                 {title}
               </h1>
 
               {subtitle && (
-                <p className={`text-base leading-relaxed text-blue-100 sm:text-lg ${contentAlignment === "center" ? "text-center max-w-3xl" : "max-w-4xl"}`}>
+                <p className="text-base leading-relaxed text-blue-100 sm:text-lg">
                   {subtitle}
                 </p>
               )}
 
               {children}
             </div>
-          </>
+          </div>
         )}
       </div>
     </section>

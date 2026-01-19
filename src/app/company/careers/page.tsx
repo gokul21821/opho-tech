@@ -1,17 +1,16 @@
 "use client";
 
-import {Footer} from "@/components/layout/Footer";
+import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { HeroSection } from "@/components/ui/HeroSection";
 import Image from "next/image";
-import { Fragment, useState } from "react";
+import { Fragment } from "react";
 import BackgroundDots from "@/components/ui/background";
-import { ContactModal } from "@/components/forms/ContactModal";
 import { PrimaryButton } from "@/components/ui/Button";
+import { IconCardsSection } from "@/components/ui/IconCardsSection";
+import { CTASection } from "@/components/sections/CTASection";
 
 export default function Careers() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
   return (
     <div className="flex min-h-screen flex-col bg-white text-gray-900">
       <Header />
@@ -40,10 +39,10 @@ export default function Careers() {
               "linear-gradient(to bottom, #ffffff 38.524%, #feecd6 171.52%)",
           }}
         >
-          <section className="relative px-6 py-24 md:py-28">
+          <section className="relative px-6 py-5">
             {/* Header */}
             <div className="max-w-5xl mx-auto text-center">
-              <h2 className="text-5xl md:text-6xl font-semibold tracking-tight text-neutral-900">
+              <h2 className="text-4xl  font-medium tracking-tight text-neutral-900">
                 Join our Team
               </h2>
               <p className="mt-4 text-base md:text-lg text-neutral-600 max-w-3xl mx-auto">
@@ -59,9 +58,9 @@ export default function Careers() {
                 <span className="inline-flex items-center justify-center rounded-lg border border-orange-500 px-4 py-1.5 text-base font-semibold text-orange-400 shadow-[inset_0_1px_0_rgba(255,255,255,0.6)]">
                   Senior Level
                 </span>
-                <h3 className="mt-4 text-3xl font-semibold tracking-tight text-neutral-900">
+                <h2 className="mt-4 text-3xl font-medium tracking-tight text-neutral-900">
                   Business Development Manager
-                </h3>
+                </h2>
                 <p className="mt-3 mb-10 max-w-md text-neutral-600 leading-relaxed">
                 To drive requirement analysis, solution scoping, and business growth for our software development, IT services, and Generative AI solutions
                 </p>
@@ -87,9 +86,9 @@ export default function Careers() {
                 <span className="inline-flex items-center justify-center rounded-lg border border-orange-500 px-4 py-1.5 text-base font-semibold text-orange-400 shadow-[inset_0_1px_0_rgba(255,255,255,0.6)]">
                   Mid Level
                 </span>
-                <h3 className="mt-10 text-3xl font-semibold tracking-tight text-neutral-900">
+                <h2 className="mt-10 text-3xl font-medium tracking-tight text-neutral-900">
                   Data Engineer
-                </h3>
+                </h2 >
                 <p className="mt-10 mb-10 max-w-md text-neutral-600 leading-relaxed">
                   Can build predictive models, AI tools, and automation systems.
                 </p>
@@ -102,77 +101,41 @@ export default function Careers() {
         </BackgroundDots>
 
 
-        {/* Work With Us */}
-        <section className="mx-auto max-w-7xl px-6 py-16">
-          <h2 className="text-center text-3xl font-semibold mb-12">Work with Us</h2>
-
-          <div className="mt-10 flex flex-col gap-8 lg:flex-row lg:items-stretch lg:justify-center lg:gap-6">
-            {[{
+        <IconCardsSection
+          title="Work with Us"
+          items={[
+            {
               title: "Innovation First",
-              text: "",
               icon: "/images/icons/intelligent.svg",
-              description: "Every project starts with research, giving you space to explore and create."
-            }, {
+              description:
+                "Every project starts with research, giving you space to explore and create.",
+            },
+            {
               title: "Cutting-Edge Tools",
-              text: "",
               icon: "/images/icons/ai-agent.svg",
-              description: "Work with AI/ML, cloud-native platforms, and next-gen software stacks."
-            }, {
+              description:
+                "Work with AI/ML, cloud-native platforms, and next-gen software stacks.",
+            },
+            {
               title: "Collaborative Culture",
-              text: "",
               icon: "/images/icons/handshake.svg",
-              description: "We believe in Connect – Create – Evolve not just for clients, but also for our teams."
-            }, {
+              description:
+                "We believe in Connect – Create – Evolve not just for clients, but also for our teams.",
+            },
+            {
               title: "Global Impact",
-              text: "",
               icon: "/images/icons/cloud-db.svg",
-              description: "Serve clients across North America, Europe, and Asia while shaping industries worldwide."
-            }, {
+              description:
+                "Serve clients across North America, Europe, and Asia while shaping industries worldwide.",
+            },
+            {
               title: "Continuous Learning",
-              text: "",
               icon: "/images/icons/paper-analysis.svg",
-              description: "Training, certifications, and mentorship programs to help you grow."
-            }].map((item, index, array) => (
-              <Fragment key={item.title}>
-                <article className="flex-1 rounded-[20px] px-6 py-10 text-center">
-                  <div className="mx-auto mb-4 grid h-20 w-20 place-items-center rounded-full bg-[#FFE6D5] ">
-                    <Image
-                      src={item.icon}
-                      alt={`${item.title} icon`}
-                      width={40}
-                      height={40}
-                      className="h-10 w-10"
-                    />
-                  </div>
-                  <p className="text-[16px] font-medium leading-[24px] text-black">
-                    {item.title.split(' ').map((word, wordIndex) => (
-                      <span key={wordIndex} className="block">
-                        {word}
-                      </span>
-                    ))}
-                  </p>
-                  <p className="mt-3 text-sm text-[#3A4A5F]">
-                    {item.description}
-                  </p>
-                </article>
-
-                {index < array.length - 1 && (
-                  <div className="hidden items-center lg:flex">
-                    <Image
-                      src="/images/raar/lineraar.svg"
-                      alt=""
-                      width={2}
-                      height={320}
-                      className="w-auto h-[325px]"
-                      aria-hidden
-                    />
-                  </div>
-                )}
-              </Fragment>
-            ))}
-          </div>
-
-        </section>
+              description:
+                "Training, certifications, and mentorship programs to help you grow.",
+            },
+          ]}
+        />
 
         {/* Life at Ophotech */}
         <BackgroundDots
@@ -307,16 +270,9 @@ export default function Careers() {
          />
        </div>
         {/* CTA Section */}
-        <section className="py-20 px-6 text-center">
-          <h2 className="text-3xl font-semibold mb-3">Ready to Solve</h2>
-          <p className="text-xl font-medium mb-6">What&apos;s Next With OphoTech?</p>
-          <PrimaryButton onClick={() => setIsModalOpen(true)}>
-            Let&apos;s Start 
-          </PrimaryButton>
-        </section>
+        <CTASection variant="ready" />
       </main>
       <Footer />
-      <ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </div>
   );
 }

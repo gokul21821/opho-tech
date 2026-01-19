@@ -2,18 +2,16 @@
 
 // app/ai-agent-development/page.tsx
 import Image from "next/image";
-import Link from "next/link";
-import { Fragment, useState } from "react";
+import { Fragment } from "react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { HeroSection } from "@/components/ui/HeroSection";
-import { ContactModal } from "@/components/forms/ContactModal";
-import { PrimaryButton } from "@/components/ui/Button";
 import BackgroundDots from "@/components/ui/background";
+import { IconCardsSection } from "@/components/ui/IconCardsSection";
+import { SolutionsNavigationSection } from "@/components/ui/SolutionsNavigationSection";
+import { SolutionsIntroSection } from "@/components/ui/SolutionsIntroSection";
 
 export default function AIAgentDevelopment() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
   const strategicValueCards = [
     {
       title: "Simple Task:",
@@ -107,184 +105,87 @@ export default function AIAgentDevelopment() {
       <main className="flex-1">
   
         {/* Intro split */}
-        <section className="mx-auto max-w-7xl px-[5%] py-20">
-  <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-center gap-12">
+        <SolutionsIntroSection
+          imageSrc="/images/ai_agents/ai-agent.png"
+          imageAlt="AI agents illustration"
+          copy={
+            <>
+              <p>
+                <span className="font-semibold text-[#0F2C58]">AI Agents</span>{" "}
+                are not just chatbots; they are sophisticated digital workers
+                capable of performing complex, multi-step tasks autonomously.
+                Investing in AI Agent development means acquiring a scalable,
+                highly efficient workforce that executes strategic objectives
+                with minimal human oversight, leading to unprecedented
+                <span className="font-semibold">
+                  {" "}
+                  operational efficiency and speed
+                </span>
+                .
+              </p>
 
-    {/* LEFT — Illustration */}
-    <div className="flex justify-center md:justify-start">
-      <Image
-        src="/images/ai_agents/ai-agent.png"
-        alt="AI agents illustration"
-        width={520}
-        height={380}
-        className="h-auto w-[320px] sm:w-[380px] md:w-[420px] rounded-xl"
-        priority
-      />
-    </div>
-
-    {/* CENTER — Vertical Divider */}
-    <div className="flex justify-center">
-    <Image
-                      src="/images/raar/lineraar.svg"
-                      alt=""
-                      width={2}
-                      height={320}
-                      className="w-auto h-auto"
-                      aria-hidden
-                    />
-    </div>
-
-    {/* RIGHT — Text Block */}
-    <div className="flex flex-col justify-center text-sm text-[#3A4A5F] max-w-md">
-
-      <p>
-        <span className="font-semibold text-[#0F2C58]">AI Agents</span> are not just chatbots; they are sophisticated digital workers capable of performing complex, multi-step tasks autonomously.
-        Investing in AI Agent development means acquiring a scalable, highly efficient workforce that executes strategic objectives with minimal human oversight, leading to unprecedented
-        <span className="font-semibold"> operational efficiency and speed</span>.
-      </p>
-
-      <p className="mt-4">
-        <span className="font-semibold text-[#0F2C58]">For the Business Leaders: </span>
-        This is about architecting the next generation of AI systems—leveraging Large Language Models (LLMs) with planning, memory, and tool-use capabilities to automate entire workflows, driving structural change across the organization.
-      </p>
-
-      <div className="mt-8">
-    <h2 className="text-[24px] font-bold text-[#0B1B2B]">Our Tech Stack</h2>
-    <div className="flex flex-wrap gap-4">
-      <div className="w-20 h-12 flex items-center justify-center">
-        <Image
-          src="/images/tech-stack-logos/langchain.svg"
-          alt="langchain logo"
-          width={48}
-          height={48}
-          className="w-full h-full object-contain"
+              <p className="mt-4">
+                <span className="font-semibold text-[#0F2C58]">
+                  For the Business Leaders:{" "}
+                </span>
+                This is about architecting the next generation of AI
+                systems—leveraging Large Language Models (LLMs) with planning,
+                memory, and tool-use capabilities to automate entire workflows,
+                driving structural change across the organization.
+              </p>
+            </>
+          }
+          techStack={[
+            { src: "/images/tech-stack-logos/langchain.svg", alt: "langchain logo" },
+            { src: "/images/tech-stack-logos/haystack.svg", alt: "haystack logo" },
+            { src: "/images/tech-stack-logos/pinecone.svg", alt: "Pinecone logo" },
+            {
+              src: "/images/tech-stack-logos/llamaindex.svg",
+              alt: "llamaindex logo",
+            },
+            {
+              src: "/images/tech-stack-logos/gemini.svg",
+              alt: "gemini logo",
+            },
+          ]}
         />
-      </div>
-      <div className="w-20 h-12 flex items-center justify-center">
-        <Image
-          src="/images/tech-stack-logos/haystack.svg"
-          alt="haystack logo"
-          width={48}
-          height={48}
-          className="w-full h-full object-contain"
-        />
-      </div>
-      <div className="w-20 h-12 flex items-center justify-center">
-        <Image
-          src="/images/tech-stack-logos/pinecone.svg"
-          alt="Pinecone logo"
-          width={48}
-          height={48}
-          className="w-full h-full object-contain"
-        />
-      </div>
-      <div className="w-20 h-12 flex items-center justify-center">
-        <Image
-          src="/images/tech-stack-logos/llamaindex.svg"
-          alt="llamaindex logo"
-          width={48}
-          height={48}
-          className="w-full h-full object-contain"
-        />
-      </div>
-      <div className="w-15 h-12 flex items-center justify-center">
-        <Image
-          src="/images/tech-stack-logos/gemini.svg"
-          alt="gemini logo"
-          width={48}
-          height={48}
-          className="w-full h-full object-contain"
-        />
-      </div>
-    </div>
-  </div>
 
-    </div>
-
-  </div>
-</section>
-
-{/* What You Get */}
-<BackgroundDots
-          className="py-16 "
-          spacing={36}
-          dotSize={2.5}
-          backgroundColor=""
-          dotColor="#D9D9D9"
-          style={{
-            background: "linear-gradient(to bottom, #ffffff 38.524%, #feecd6 171.52%)",
+        <IconCardsSection
+          title="What You Get"
+          items={[
+            {
+              title: "Autonomous, Intelligent Digital Workforce",
+              icon: "/images/icons/settings-code.svg",
+            },
+            {
+              title: "End‑To‑End Workflow Automation",
+              icon: "/images/icons/loader-cube.svg",
+            },
+            {
+              title: "Transparent And Governed AI Operations",
+              icon: "/images/icons/cloud-phone.svg",
+            },
+            {
+              title: "Scalable Cloud‑Native Agent Architecture",
+              icon: "/images/icons/cloud-db.svg",
+            },
+            {
+              title: "Enhanced Organizational Efficiency",
+              icon: "/images/icons/coding-phone.svg",
+            },
+          ]}
+          withBackgroundDots
+          backgroundDotsProps={{
+            spacing: 36,
+            dotSize: 2.5,
+            backgroundColor: "",
+            dotColor: "#D9D9D9",
+            style: {
+              background:
+                "linear-gradient(to bottom, #ffffff 38.524%, #feecd6 171.52%)",
+            },
           }}
-        >
-        <section className="mx-auto max-w-7xl px-[5%]">
-          <h2 className="text-center text-[32px] font-medium leading-[48px] text-[#0B1B2B]">
-            What You Get
-          </h2>
-
-          <div className="mt-10 flex flex-col gap-8 lg:flex-row lg:items-stretch lg:justify-center lg:gap-6">
-            {[
-              {
-                title: "Autonomous, Intelligent Digital Workforce",
-                text: "",
-                icon: "/images/icons/settings-code.svg",
-              },
-              {
-                title: "End‑To‑End Workflow Automation",
-                text: "",
-                icon: "/images/icons/loader-cube.svg",
-              },
-              {
-                title: "Transparent And Governed AI Operations",
-                text: "",
-                icon: "/images/icons/cloud-phone.svg",
-              },
-              {
-                title: "Scalable Cloud‑Native Agent Architecture",
-                text: "",
-                icon: "/images/icons/cloud-db.svg",
-              },
-              {
-                title: "Enhanced Organizational Efficiency",
-                text: "",
-                icon: "/images/icons/coding-phone.svg",
-              },
-            ].map((item, index, array) => (
-              <Fragment key={item.title}>
-                <article className="flex-1 rounded-[20px] px-6 py-10 text-center card-text-smaller">
-                  <div className="mx-auto mb-4 grid h-20 w-20 place-items-center rounded-full bg-[#FFE6D5] ">
-                    <Image
-                      src={item.icon}
-                      alt={`${item.title} icon`}
-                      width={40}
-                      height={40}
-                      className="h-10 w-10"
-                    />
-                  </div>
-                  <p className="text-[16px] font-medium leading-[24px] text-black">
-                    {item.title}
-                  </p>
-                  <p className="mt-3 text-sm leading-[22px] text-[#3A4A5F]">
-                    {item.text}
-                  </p>
-                </article>
-
-                {index < array.length - 1 && (
-                  <div className="hidden items-center lg:flex">
-                    <Image
-                      src="/images/raar/lineraar.svg"
-                      alt=""
-                      width={2}
-                    height={320}
-                    className="w-auto h-[325px]"
-                    aria-hidden
-                  />
-                  </div>
-                )}
-              </Fragment>
-            ))}
-          </div>
-
-        </section>
-        </BackgroundDots>
+        />
         {/* AI Agent Development Framework */}
         <section className="relative">
       {/* AI Solutions & Services Section */}
@@ -441,44 +342,18 @@ export default function AIAgentDevelopment() {
          />
        </div>
 
-        {/* Navigation */}
-        <section className="mx-auto max-w-7xl px-20 py-16">
-          <div className="mb-6">
-            <Link
-              href="/solutions/ai-solutions-and-services"
-              className="inline-flex items-center gap-2 font-poppins text-sm font-medium text-orange-500 transition-colors hover:text-orange-600"
-            >
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 16 16"
-                fill="none"
-                className="size-4"
-              >
-                <path
-                  d="M13 8H3M3 8L7 12M3 8L7 4"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-              <span>Previous</span>
-            </Link>
-          </div>
-          <h2 className="text-center text-2xl font-semibold text-[#0B1B2B]">Discover Next Step of Your AI Journey</h2>
-          <div className="mt-8 flex justify-center">
-            <Link href="/solutions/cyber-security-solutions">
-              <PrimaryButton>
-                Cyber Security Solutions
-              </PrimaryButton>
-            </Link>
-          </div>
-        </section>
+       {/* Navigation */}
+       <SolutionsNavigationSection
+         previousHref="/solutions/ai-solutions-and-services"
+         title="Discover Next Step of Your AI Journey"
+         cta={{
+           href: "/solutions/cyber-security-solutions",
+           label: "Cyber Security Solutions",
+         }}
+       />
       </main>
 
       <Footer />
-      <ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </div>
   );
 }

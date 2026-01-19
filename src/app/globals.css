@@ -87,61 +87,109 @@ body {
 }
 
 .service-card {
+  --service-card-bg: #fffaf5;
+  --service-card-radius: 22px;
+  --service-card-border-width: 1px;
   --service-card-border-color: rgb(254 243 199); /* orange-200 */
+  --service-card-border-color-hover: rgb(249 115 22); /* orange-500 */
+
+  /* Arrow button is h-11 w-11 => 44px */
+  --service-card-button-size: 44px;
+  --service-card-cutout-gap: 10px;
+  /* Cutout radius slightly larger than the button for breathing room */
+  --service-card-cutout-radius: calc(
+    (var(--service-card-button-size) / 2) + var(--service-card-cutout-gap)
+  );
+  /* Keep the cutout looking like a "half circle" by pushing half the radius outside */
+  --service-card-cutout-inset: calc(var(--service-card-cutout-radius) / 2);
+
+  /* Reusable masks (fixed-radius circle => never stretches into an oval) */
+  --service-card-cutout-mask: radial-gradient(
+    circle var(--service-card-cutout-radius) at
+      calc(100% - var(--service-card-cutout-inset))
+      calc(100% - var(--service-card-cutout-inset)),
+    transparent 0 calc(var(--service-card-cutout-radius) - 0.5px),
+    #000 calc(var(--service-card-cutout-radius) + 0.5px)
+  );
+  --service-card-cutout-radius-inner: calc(
+    var(--service-card-cutout-radius) - var(--service-card-border-width)
+  );
+  --service-card-cutout-inset-inner: calc(
+    var(--service-card-cutout-inset) - var(--service-card-border-width)
+  );
+  --service-card-cutout-mask-inner: radial-gradient(
+    circle var(--service-card-cutout-radius-inner) at
+      calc(100% - var(--service-card-cutout-inset-inner))
+      calc(100% - var(--service-card-cutout-inset-inner)),
+    transparent 0 calc(var(--service-card-cutout-radius-inner) - 0.5px),
+    #000 calc(var(--service-card-cutout-radius-inner) + 0.5px)
+  );
   isolation: isolate;
   position: relative;
-  border-radius: 0; /* No border-radius - SVG mask handles the shape */
+  border-radius: 0; /* Shape is handled by masks/pseudo-elements */
   overflow: visible; /* Allow cutout and button to extend beyond card bounds */
 }
 
-/* Card shape mask using inline SVG - creates the exact card shape with smooth concave cutout */
-/* Background color is applied here so it's masked and won't show in cutout area */
+/* Card background fill (masked so the cutout is transparent) */
 .service-card::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: #fffaf5; /* Card background color - applied here so it respects the mask */
+  background: var(--service-card-bg);
   z-index: -1;
-  /* SVG mask path creates the exact card shape with bottom-right cutout */
-  mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 387 275' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'%3E%3Cpath d='M371 0C379.837 0 387 7.16345 387 16V226.481C382.475 224.253 377.384 223 372 223C353.222 223 338 238.222 338 257C338 263.611 339.889 269.78 343.153 275H16C7.16345 275 0 267.837 0 259V16C0 7.16344 7.16344 0 16 0H371Z' fill='white'/%3E%3C/svg%3E");
-  mask-size: 100% 100%;
-  mask-repeat: no-repeat;
-  mask-position: center;
-  -webkit-mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 387 275' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'%3E%3Cpath d='M371 0C379.837 0 387 7.16345 387 16V226.481C382.475 224.253 377.384 223 372 223C353.222 223 338 238.222 338 257C338 263.611 339.889 269.78 343.153 275H16C7.16345 275 0 267.837 0 259V16C0 7.16344 7.16344 0 16 0H371Z' fill='white'/%3E%3C/svg%3E");
-  -webkit-mask-size: 100% 100%;
+  border-radius: var(--service-card-radius);
+  -webkit-mask-image: var(--service-card-cutout-mask);
+  mask-image: var(--service-card-cutout-mask);
   -webkit-mask-repeat: no-repeat;
-  -webkit-mask-position: center;
+  mask-repeat: no-repeat;
 }
 
-/* Border using SVG stroke - matches the card shape exactly, including the cutout curve */
+/* Border ring (outer minus inner) so the curve stays perfectly circular */
 .service-card::before {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 387 275' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'%3E%3Cpath d='M371 0C379.837 0 387 7.16345 387 16V226.481C382.475 224.253 377.384 223 372 223C353.222 223 338 238.222 338 257C338 263.611 339.889 269.78 343.153 275H16C7.16345 275 0 267.837 0 259V16C0 7.16344 7.16344 0 16 0H371Z' fill='none' stroke='rgb(254 243 199)' stroke-width='3' /%3E%3C/svg%3E");
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  background-position: center;
+  border-radius: var(--service-card-radius);
+  padding: var(--service-card-border-width);
+  background: var(--service-card-border-color);
   pointer-events: none;
-  transition: background-image 0.3s ease;
+  transition: background 0.3s ease;
   z-index: 1;
+  -webkit-mask:
+    var(--service-card-cutout-mask) border-box,
+    var(--service-card-cutout-mask-inner) content-box;
+  -webkit-mask-composite: xor;
+  mask:
+    var(--service-card-cutout-mask) border-box,
+    var(--service-card-cutout-mask-inner) content-box;
+  mask-composite: exclude;
 }
 
 .service-card:hover::before {
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 387 275' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'%3E%3Cpath d='M371 0C379.837 0 387 7.16345 387 16V226.481C382.475 224.253 377.384 223 372 223C353.222 223 338 238.222 338 257C338 263.611 339.889 269.78 343.153 275H16C7.16345 275 0 267.837 0 259V16C0 7.16344 7.16344 0 16 0H371Z' fill='none' stroke='rgb(249 115 22)' stroke-width='3' /%3E%3C/svg%3E");
+  background: var(--service-card-border-color-hover);
 }
 
-/* Dotted pattern background - masked to match card shape and exclude cutout area */
+/* Dotted pattern background - masked to exclude cutout area */
 .service-card-dots {
-  /* Apply the same SVG mask as the card to exclude the cutout area */
-  mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 387 275' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'%3E%3Cpath d='M371 0C379.837 0 387 7.16345 387 16V226.481C382.475 224.253 377.384 223 372 223C353.222 223 338 238.222 338 257C338 263.611 339.889 269.78 343.153 275H16C7.16345 275 0 267.837 0 259V16C0 7.16344 7.16344 0 16 0H371Z' fill='white'/%3E%3C/svg%3E");
-  mask-size: 100% 100%;
-  mask-repeat: no-repeat;
-  mask-position: center;
-  -webkit-mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 387 275' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'%3E%3Cpath d='M371 0C379.837 0 387 7.16345 387 16V226.481C382.475 224.253 377.384 223 372 223C353.222 223 338 238.222 338 257C338 263.611 339.889 269.78 343.153 275H16C7.16345 275 0 267.837 0 259V16C0 7.16344 7.16344 0 16 0H371Z' fill='white'/%3E%3C/svg%3E");
-  -webkit-mask-size: 100% 100%;
+  border-radius: var(--service-card-radius);
+  -webkit-mask-image: var(--service-card-cutout-mask);
+  mask-image: var(--service-card-cutout-mask);
   -webkit-mask-repeat: no-repeat;
-  -webkit-mask-position: center;
+  mask-repeat: no-repeat;
+}
+
+/* Arrow button anchor: tied to the same geometry as the cutout */
+.service-card-button {
+  position: absolute;
+  z-index: 4;
+  width: var(--service-card-button-size);
+  height: var(--service-card-button-size);
+  right: calc(
+    var(--service-card-cutout-inset) - (var(--service-card-button-size) / 2)
+  );
+  bottom: calc(
+    var(--service-card-cutout-inset) - (var(--service-card-button-size) / 2)
+  );
 }
 
 /* iPad mini specific styles (744px - 768px) */

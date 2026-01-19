@@ -6,7 +6,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { HeroSection } from "@/components/ui/HeroSection";
 import BackgroundDots from "@/components/ui/background";
-import { PageCTASection } from "@/components/ui/PageCTASection";
+import { CTASection } from "@/components/sections/CTASection";
 
 export default async function BlogsPage() {
   const blogs = await fetchContentList("blogs");
@@ -90,7 +90,7 @@ export default async function BlogsPage() {
           aria-hidden
         />
       </div>
-      <PageCTASection />
+      <CTASection variant="ready" />
       <Footer />
     </>
   );

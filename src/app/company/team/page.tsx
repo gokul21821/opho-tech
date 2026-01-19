@@ -2,12 +2,11 @@
 
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
-import { ContactModal } from "@/components/forms/ContactModal";
-import { PrimaryButton } from "@/components/ui/Button";
+import { CTASection } from "@/components/sections/CTASection";
 import BackgroundDots from "@/components/ui/background";
 import { HeroSection } from "@/components/ui/HeroSection";
 import Image from "next/image";
-import { Fragment, useState } from "react";
+import { Fragment } from "react";
 
 const bhavneetImage = "/images/aboutus/walia-image.png";
 const shivenderImage = "/images/aboutus/sofat-image.png";
@@ -88,8 +87,6 @@ const whiteBackground = {
 };
 
 export default function Team() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
   return (
     <div className="flex min-h-screen flex-col bg-white text-gray-900">
       <Header />
@@ -241,24 +238,11 @@ export default function Team() {
           </div>
         </div>
 
-          <section className="mx-auto flex max-w-4xl flex-col items-center gap-6 text-center">
-            <h2 className="text-4xl font-semibold text-gray-900">
-              Ready to Solve
-              <br />
-              What&apos;s Next With OphoTech?
-            </h2>
-            <PrimaryButton
-              className="mb-10"
-              onClick={() => setIsModalOpen(true)}
-            >
-              Let’s Start
-            </PrimaryButton>
-          </section>
+          <CTASection variant="ready" />
   
 
       </main>
       <Footer />
-      <ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </div>
   );
 }

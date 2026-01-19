@@ -2,16 +2,12 @@
 
 // app/privacy-policy/page.tsx
 import Image from "next/image";
-import { useState } from "react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { HeroSection } from "@/components/ui/HeroSection";
-import { ContactModal } from "@/components/forms/ContactModal";
-import { PrimaryButton } from "@/components/ui/Button";
+import { CTASection } from "@/components/sections/CTASection";
 
 export default function PrivacyPolicy() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
   return (
     <div className="flex min-h-screen flex-col bg-white text-[#0B1B2B]">
       {/* Hero background behind header */}
@@ -54,13 +50,13 @@ export default function PrivacyPolicy() {
             {/* Separator line */}
             <div className="h-px w-full bg-[#B0B0B0]" />
 
-            {/* Opho Tech Privacy Policy Overview */}
+            {/* OphoTech Privacy Policy Overview */}
             <div>
               <h2 className="text-[28px] font-medium leading-[38px] text-black">
-                Opho Tech Privacy Policy Overview
+                OphoTech Privacy Policy Overview
               </h2>
               <p className="mt-5 text-[16px] leading-normal text-[#454545]">
-                This Privacy Policy outlines the privacy measures and practices of Opho Tech Inc. (referred to as "Opho Tech", "we", or "us") in relation to our website (the "Website"), and any features, products, and online services ("services") provided by Opho Tech. We value the privacy of our visitors and users. This Policy explains the types of data and information we collect, and how we safeguard that data.
+                This Privacy Policy outlines the privacy measures and practices of OphoTech Inc. (referred to as "OphoTech", "we", or "us") in relation to our website (the "Website"), and any features, products, and online services ("services") provided by OphoTech. We value the privacy of our visitors and users. This Policy explains the types of data and information we collect, and how we safeguard that data.
               </p>
             </div>
 
@@ -73,7 +69,7 @@ export default function PrivacyPolicy() {
                 Our Services That Process Data
               </h2>
               <p className="mt-5 text-[16px] leading-normal text-[#454545]">
-                Opho Tech's primary service is centered on fraud detection and prevention. We may use data relating to you to analyze transactions, registrations, clicks, and other user behaviors to determine if the intent is malicious or fraudulent. Our machine learning algorithms and data processing mechanisms are built with privacy and data protection in mind, helping prevent data leakage and protect your privacy rights.
+                OphoTech's primary service is centered on fraud detection and prevention. We may use data relating to you to analyze transactions, registrations, clicks, and other user behaviors to determine if the intent is malicious or fraudulent. Our machine learning algorithms and data processing mechanisms are built with privacy and data protection in mind, helping prevent data leakage and protect your privacy rights.
               </p>
             </div>
 
@@ -86,7 +82,7 @@ export default function PrivacyPolicy() {
                 Web Server Log Files
               </h2>
               <p className="mt-5 text-[16px] leading-normal text-[#454545]">
-                Like most websites, Opho Tech uses log files through our web server. The data collected may include internet protocol (IP) addresses, browser type, Internet Service Provider (ISP), date and time stamps, referring and exit pages, and click data, to analyze trends, administer the website, track user movement, and gather demographic information. These data points are not personally identifiable on their own.
+                Like most websites, OphoTech uses log files through our web server. The data collected may include internet protocol (IP) addresses, browser type, Internet Service Provider (ISP), date and time stamps, referring and exit pages, and click data, to analyze trends, administer the website, track user movement, and gather demographic information. These data points are not personally identifiable on their own.
               </p>
             </div>
 
@@ -99,7 +95,7 @@ export default function PrivacyPolicy() {
                 Scripts, Cookies, and Web Beacons
               </h2>
               <p className="mt-5 text-[16px] leading-normal text-[#454545]">
-                Opho Tech may use cookies, pixel tags, embedded scripts, web beacons, and similar technologies to store visitor preferences, record user behavior and actions, and customize services based on the visitor's browser type or other information provided. Users with "Do Not Track" enabled will have their request respected with limited data tracking.
+                OphoTech may use cookies, pixel tags, embedded scripts, web beacons, and similar technologies to store visitor preferences, record user behavior and actions, and customize services based on the visitor's browser type or other information provided. Users with "Do Not Track" enabled will have their request respected with limited data tracking.
               </p>
             </div>
 
@@ -115,7 +111,7 @@ export default function PrivacyPolicy() {
               <div className="mt-5 space-y-3">
                 <div>
                   <h3 className="text-[24px] font-medium leading-[26px] text-[#111111] capitalize">
-                    Personal Information:
+                    • Personal Information:
                   </h3>
                   <p className="mt-3 text-[16px] leading-normal text-[#454545]">
                     This is information that identifies you as an individual or relates to an identifiable individual, such as your name, unique identifier (such as account ID), email address, physical address, telephone number, credit card information, geolocation, and IP address. If you submit any Personal Information relating to others, you represent that you have the authority to do so and to allow us to use that information in accordance with this Privacy Policy.
@@ -124,13 +120,13 @@ export default function PrivacyPolicy() {
 
                 <div>
                   <h3 className="text-[24px] font-medium leading-[26px] text-[#111111] capitalize">
-                    Non-Personal Information:
+                    • Non-Personal Information:
                   </h3>
                   <p className="mt-3 text-[16px] leading-normal text-[#454545]">
                     Any information that does not directly reveal your specific identity or does not relate to an identifiable individual. This may include pseudonymous identifiers, device information, non-precise geolocation, and information collected through cookies and tracking technologies.
                   </p>
                   <p className="mt-3 text-[16px] leading-normal text-[#454545]">
-                    Important: Opho Tech does not collect more information than is necessary to provide accurate fraud detection and prevention services.
+                    Important: OphoTech does not collect more information than is necessary to provide accurate fraud detection and prevention services.
                   </p>
                 </div>
               </div>
@@ -146,16 +142,16 @@ export default function PrivacyPolicy() {
               </h2>
               <div className="mt-5 space-y-3 text-[16px] leading-normal text-[#454545]">
                 <p>
-                  Clients using our services may provide Opho Tech with transactional information, which can include IP addresses, email addresses, billing details, phone numbers, and similar user data. This information is securely processed to detect behavioral intent and analyze the risk profile of transactions and users. The data is used to identify fraud patterns and improve your account's machine learning algorithms.
+                  Clients using our services may provide OphoTech with transactional information, which can include IP addresses, email addresses, billing details, phone numbers, and similar user data. This information is securely processed to detect behavioral intent and analyze the risk profile of transactions and users. The data is used to identify fraud patterns and improve your account's machine learning algorithms.
                 </p>
                 <p>
-                  Data Protection Commitment: Opho Tech does not sell your personal data or the personal data of your end users. Any data shared with Opho Tech will be confidential, securely processed, and maintained in line with industry security standards.
+                  Data Protection Commitment: OphoTech does not sell your personal data or the personal data of your end users. Any data shared with OphoTech will be confidential, securely processed, and maintained in line with industry security standards.
                 </p>
                 <p>
                   Your account's contact details may be shared with CRMs and marketing platforms that meet our standards for adequate security techniques and data processing safeguards.
                 </p>
                 <p>
-                  As required, Opho Tech may share necessary data with third parties for the purpose of investigating false-positive reports, unblocking or registering an IP address, or improving service accuracy. This may involve sharing certain data through feedback forms or related features.
+                  As required, OphoTech may share necessary data with third parties for the purpose of investigating false-positive reports, unblocking or registering an IP address, or improving service accuracy. This may involve sharing certain data through feedback forms or related features.
                 </p>
               </div>
             </div>
@@ -169,7 +165,7 @@ export default function PrivacyPolicy() {
                 Data Processing Agreement
               </h2>
               <p className="mt-5 text-[16px] leading-normal text-[#454545]">
-                Please refer to our full Data Processing Agreement for further details on how Opho Tech handles personal data, in accordance with applicable privacy laws including the General Data Protection Regulation (GDPR) and California Consumer Privacy Act (CCPA).
+                Please refer to our full Data Processing Agreement for further details on how OphoTech handles personal data, in accordance with applicable privacy laws including the General Data Protection Regulation (GDPR) and California Consumer Privacy Act (CCPA).
               </p>
             </div>
 
@@ -182,7 +178,7 @@ export default function PrivacyPolicy() {
                 Data Security
               </h2>
               <p className="mt-5 text-[16px] leading-normal text-[#454545]">
-                Opho Tech takes reasonable and appropriate measures to protect all data collected from unauthorized access, breaches, loss, manipulation, falsification, destruction, or unauthorized disclosure.
+                OphoTech takes reasonable and appropriate measures to protect all data collected from unauthorized access, breaches, loss, manipulation, falsification, destruction, or unauthorized disclosure.
               </p>
             </div>
 
@@ -195,7 +191,7 @@ export default function PrivacyPolicy() {
                 Your Privacy Rights & Access to Information
               </h2>
               <p className="mt-5 text-[16px] leading-normal text-[#454545]">
-                You have the right to request access to any personal information we may have collected about you. Opho Tech can provide a copy of your stored personal data upon request. To fulfill your request, we may ask you to verify your identity. Please contact us at{" "}
+                You have the right to request access to any personal information we may have collected about you. OphoTech can provide a copy of your stored personal data upon request. To fulfill your request, we may ask you to verify your identity. Please contact us at{" "}
                 <a
                   href="mailto:info@ophotech.com"
                   className="underline decoration-solid hover:text-[#333]"
@@ -236,7 +232,7 @@ export default function PrivacyPolicy() {
               </h2>
               <div className="mt-5 space-y-3 text-[16px] leading-normal text-[#454545]">
                 <p>
-                  Upon messaging opt-in, the end user agrees to receive messages from Opho Tech regarding account alerts, communications, marketing, and similar notifications. End users can opt-out by replying STOP or request more information by replying HELP. Message frequency varies. Message and data rates may apply. For assistance or questions about our SMS service, reply HELP to any message or contact our customer support team at{" "}
+                  Upon messaging opt-in, the end user agrees to receive messages from OphoTech regarding account alerts, communications, marketing, and similar notifications. End users can opt-out by replying STOP or request more information by replying HELP. Message frequency varies. Message and data rates may apply. For assistance or questions about our SMS service, reply HELP to any message or contact our customer support team at{" "}
                   <a
                     href="tel:18885796686"
                     className="underline decoration-solid hover:text-[#333]"
@@ -246,7 +242,7 @@ export default function PrivacyPolicy() {
                   .
                 </p>
                 <p>
-                  Mobile Privacy: Mobile information will not be shared with third parties or affiliates for marketing or promotional purposes unrelated to Opho Tech.
+                  Mobile Privacy: Mobile information will not be shared with third parties or affiliates for marketing or promotional purposes unrelated to OphoTech.
                 </p>
               </div>
             </div>
@@ -287,7 +283,7 @@ export default function PrivacyPolicy() {
               <div className="mt-5 text-[16px] leading-normal text-[#454545]">
                 <p>If you have questions related to privacy or would like to contact our Data Compliance Officer, please use the contact information below:</p>
                 <p className="mt-3">ATTN: Data Compliance Officer</p>
-                <p>Opho Tech Inc.</p>
+                <p>OphoTech Inc.</p>
                 <p>2302 – 228 Queens Quay W Downtown, Toronto M5J2X1 Canada</p>
                 <p className="mt-4 font-medium text-[#111111]">
                   Email:{" "}
@@ -300,24 +296,27 @@ export default function PrivacyPolicy() {
                 </p>
               </div>
             </div>
-
+              {/* Horizontal Line */}
+              <div className="flex justify-center w-full">
+                <Image
+                  src="/images/horizontalline.svg"
+                  alt=""
+                  width={1200}
+                  height={3}
+                  className="w-full max-w-5xl"
+                  aria-hidden
+                />
+              </div>
             {/* CTA section */}
-            <div className="rounded-2xl  bg-white p-8 text-center">
-              <h2 className="text-4xl font-medium text-[#0B1B2B]">
-                Ready to Solve
-                <br />
-                What&apos;s Next With OphoTech?
-              </h2>
-              <PrimaryButton className="mt-6" onClick={() => setIsModalOpen(true)}>
-                Let's Start
-              </PrimaryButton>
-            </div>
+            <CTASection
+              variant="ready"
+              readyClassName="rounded-2xl bg-white p-8"
+            />
           </div>
         </section>
       </main>
 
       <Footer />
-      <ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </div>
   );
 }

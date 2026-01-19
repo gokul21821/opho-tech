@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
+import { Suspense } from "react";
 import "./globals.css";
 import VoiceflowChatbot from "@/components/chatbot";
 import CookieConsent from "@/components/cookies/CookieConsent";
+import { ContactModalRouteController } from "@/components/forms/ContactModalRouteController";
 import { GoogleTagManager } from "@next/third-parties/google";
 
 const poppins = Poppins({
@@ -13,14 +15,14 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "OphoTech | AI-Powered MVP Development in 15 Days",
+  title: "OphoTech",
   description:
     "Transform your vision into production-ready MVPs with OphoTech's AI-driven development approach.",
   icons: {
     icon: "/images/icons/titlebar.svg",
   },
   openGraph: {
-    title: "OphoTech | AI-Powered MVP Development in 15 Days",
+    title: "OphoTech",
     description:
       "Transform your vision into production-ready MVPs with OphoTech's AI-driven development approach.",
     url: "https://ophotech.com",
@@ -51,6 +53,9 @@ export default function RootLayout({
 
       <body className={`${poppins.variable} font-sans antialiased`}>
         {children}
+        <Suspense fallback={null}>
+          <ContactModalRouteController />
+        </Suspense>
         <VoiceflowChatbot />
         <CookieConsent />
       </body>

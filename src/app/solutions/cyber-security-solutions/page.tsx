@@ -2,17 +2,31 @@
 
 // app/cyber-security-solutions/page.tsx
 import Image from "next/image";
-import Link from "next/link";
-import { Fragment, useState } from "react";
+import { Fragment } from "react";
+import { usePathname, useRouter } from "next/navigation";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { HeroSection } from "@/components/ui/HeroSection";
-import { ContactModal } from "@/components/forms/ContactModal";
-import { PrimaryButton } from "@/components/ui/Button";
 import BackgroundDots from "@/components/ui/background";
+import { IconCardsSection } from "@/components/ui/IconCardsSection";
+import { SolutionsNavigationSection } from "@/components/ui/SolutionsNavigationSection";
+import { SolutionsIntroSection } from "@/components/ui/SolutionsIntroSection";
+import {
+  buildContactModalOpenUrl,
+  markContactModalOpenedFromUi,
+} from "@/lib/contact-modal";
 
 export default function CyberSecuritySolutions() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const handleOpenContact = () => {
+    const searchParams = new URLSearchParams(
+      typeof window === "undefined" ? "" : window.location.search,
+    );
+    markContactModalOpenedFromUi();
+    router.push(buildContactModalOpenUrl(pathname, searchParams));
+  };
 
   return (
     <div className="flex min-h-screen flex-col bg-white text-[#0B1B2B]">
@@ -32,103 +46,57 @@ export default function CyberSecuritySolutions() {
       <main className="flex-1">
 
         {/* Intro split */}
-        <section className="mx-auto max-w-7xl px-[5%] py-20">
-  <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-center gap-12">
+        <SolutionsIntroSection
+          imageSrc="/images/cyber/brainimage.png"
+          imageAlt="Cyber security illustration"
+          copy={
+            <>
+              <p>
+                <span className="font-semibold text-[#0F2C58]">
+                  Cyber Security environment
+                </span>{" "}
+                is under attack by AI-driven adversaries who operate at machine
+                speed, enabling
+                <span className="font-semibold">
+                  {" "}
+                  mass personalization, rapid reconnaissance, and cross-language
+                  deception. Legacy, rule-based defenses{" "}
+                </span>
+                are no longer sufficient against these adaptive threats.
+              </p>
 
-    {/* LEFT — Illustration */}
-    <div className="flex justify-center md:justify-start">
-      <Image
-        src="/images/cyber/brainimage.png"
-        alt="Cyber security illustration"
-        width={600}
-        height={380}
-        className="h-auto w-[500px] sm:w-[500px] md:w-[500px] rounded-xl"
-        priority
-      />
-    </div>
-
-    {/* CENTER — Vertical Divider */}
-    <div className="flex justify-center">
-                   <Image
-                      src="/images/raar/lineraar.svg"
-                      alt=""
-                      width={2}
-                      height={320}
-                      className="w-auto h-auto"
-                      aria-hidden
-                    />
-    </div>
-
-    {/* RIGHT — Text */}
-    <div className="text-[15.5px] text-[#3A4A5F] max-w-md flex flex-col justify-center">
-
-      <p>
-        <span className="font-semibold text-[#0F2C58]">Cyber Security environment</span> is under attack by AI-driven adversaries who operate at machine speed, enabling
-        <span className="font-semibold"> mass personalization, rapid reconnaissance, and cross-language deception. Legacy, rule-based defenses </span>
-        are no longer sufficient against these adaptive threats.
-      </p>
-
-      <p className="mt-4">
-        We don't offer generic security; we build
-        <span className="font-semibold text-[#0F2C58]"> AI-driven, agentic security architectures</span> that provide
-        <span className="font-semibold"> autonomous resilience</span>—a fusion of human judgment and AI precision.
-      </p>
-
-      <div className="mt-8">
-    <h2 className="text-[24px] font-bold text-[#0B1B2B]">Our Tech Stack</h2>
-    <div className="flex flex-wrap gap-4">
-      <div className="w-20 h-12 flex items-center justify-center">
-        <Image
-          src="/images/tech-stack-logos/afetrust.svg"
-          alt="AFETRUST logo"
-          width={48}
-          height={48}
-          className="w-full h-full object-contain"
+              <p className="mt-4">
+                We don't offer generic security; we build
+                <span className="font-semibold text-[#0F2C58]">
+                  {" "}
+                  AI-driven, agentic security architectures
+                </span>{" "}
+                that provide
+                <span className="font-semibold"> autonomous resilience</span>—a
+                fusion of human judgment and AI precision.
+              </p>
+            </>
+          }
+          techStack={[
+            {
+              src: "/images/tech-stack-logos/afetrust.svg",
+              alt: "AFETRUST logo",
+            },
+            {
+              src: "/images/tech-stack-logos/mcafee.svg",
+              alt: "mcafee logo",
+            },
+            { src: "/images/tech-stack-logos/mco.svg", alt: "mco logo" },
+            {
+              src: "/images/tech-stack-logos/nordvpn.svg",
+              alt: "nordvpn logo",
+            },
+            {
+              src: "/images/tech-stack-logos/concentrix.svg",
+              alt: "concentrix logo",
+            },
+          ]}
         />
-      </div>
-      <div className="w-20 h-12 flex items-center justify-center">
-        <Image
-          src="/images/tech-stack-logos/mcafee.svg"
-          alt="mcafee logo"
-          width={48}
-          height={48}
-          className="w-full h-full object-contain"
-        />
-      </div>
-      <div className="w-20 h-12 flex items-center justify-center">
-        <Image
-          src="/images/tech-stack-logos/mco.svg"
-          alt="mco logo"
-          width={48}
-          height={48}
-          className="w-full h-full object-contain"
-        />
-      </div>
-      <div className="w-20 h-12 flex items-center justify-center">
-        <Image
-          src="/images/tech-stack-logos/nordvpn.svg"
-          alt="nordvpn logo"
-          width={48}
-          height={48}
-          className="w-full h-full object-contain"
-        />
-      </div>
-      <div className="w-15 h-12 flex items-center justify-center">
-        <Image
-          src="/images/tech-stack-logos/concentrix.svg"
-          alt="concentrix logo"
-          width={48}
-          height={48}
-          className="w-full h-full object-contain"
-        />
-      </div>
-    </div>
-  </div>
-
-    </div>
-
-  </div>
-</section>
 
 
         {/* AI-Driven Cyber Security Framework */}
@@ -275,17 +243,17 @@ export default function CyberSecuritySolutions() {
                         </span>
                       </div>
                       <div className="flex flex-col gap-2">
-                        <div className="bg-gray-100 rounded-lg px-2.5 py-1.5 inline-flex items-center justify-center w-fit">
+                        <div className="bg-[#f6f6f6] rounded-lg px-2.5 py-1.5 inline-flex items-center justify-center w-fit">
                           <span className="text-[14px] font-medium text-[#111111]">
                             Focus Area
                           </span>
                         </div>
-                        <p className="text-[16px] md:text-[18px] leading-normal text-gray-600">
+                        <p className="text-[16px] md:text-[18px] leading-normal text-[#454545]">
                           {item.focusArea}
                         </p>
                       </div>
                       <div className="flex flex-col gap-2">
-                        <div className="bg-gray-100 rounded-lg px-2.5 py-1.5 inline-flex items-center justify-center w-fit">
+                        <div className="bg-[#f6f6f6] rounded-lg px-2.5 py-1.5 inline-flex items-center justify-center w-fit">
                           <span className="text-[14px] font-medium text-[#111111]">
                             Key Action
                           </span>
@@ -303,76 +271,31 @@ export default function CyberSecuritySolutions() {
           </section>
         </BackgroundDots>
 
-        {/* Our Solutions */}
-        <section className="mx-auto max-w-7xl px-[5%] py-16">
-          <h2 className="text-center text-4xl font-medium leading-[48px] text-black">
-                Advantages
-          </h2>
-
-          <div className="mt-10 flex flex-col gap-8 lg:flex-row lg:items-stretch lg:justify-center lg:gap-6">
-            {[
-              {
-                title: "AI‑Driven Detection And Rapid Response",
-                text: "",
-                icon: "/images/icons/settings-phone.svg",
-              },
-              {
-                title: "Resilience Roadmap With Measurable KPIs",
-                text: "",
-                icon: "/images/icons/people-search.svg",
-              },
-              {
-                title: "Reduced Breach Costs And Recovery Times",
-                text: "",
-                icon: "/images/icons/settings-money.svg",
-              },
-              {
-                title: "Compliance And Governance Integration",
-                text: "",
-                icon: "/images/icons/settings-code.svg",
-              },
-              {
-                title: "Continuous Autonomous Protection",
-                text: "",
-                icon: "/images/icons/connection.svg",
-              },
-            ].map((item, index, array) => (
-              <Fragment key={item.title}>
-                <article className="flex-1 rounded-[20px] px-6 py-10 text-center card-text-smaller">
-                  <div className="mx-auto mb-4 grid h-20 w-20 place-items-center rounded-full bg-[#FFE6D5] ">
-                    <Image
-                      src={item.icon}
-                      alt={`${item.title} icon`}
-                      width={40}
-                      height={40}
-                      className="h-10 w-10"
-                    />
-                  </div>
-                  <p className="text-[16px] font-medium leading-[24px] text-black">
-                    {item.title}
-                  </p>
-                  <p className="mt-3 text-sm leading-[22px] text-[#3A4A5F]">
-                    {item.text}
-                  </p>
-                </article>
-
-                {index < array.length - 1 && (
-                  <div className="hidden items-center lg:flex">
-                    <Image
-                      src="/images/raar/lineraar.svg"
-                    alt=""
-                    width={2}
-                    height={320}
-                    className="w-auto h-[325px]"
-                    aria-hidden
-                  />
-                  </div>
-                )}
-              </Fragment>
-            ))}
-          </div>
-
-        </section>
+        <IconCardsSection
+          title="Advantages"
+          items={[
+            {
+              title: "AI‑Driven Detection And Rapid Response",
+              icon: "/images/icons/settings-phone.svg",
+            },
+            {
+              title: "Resilience Roadmap With Measurable KPIs",
+              icon: "/images/icons/people-search.svg",
+            },
+            {
+              title: "Reduced Breach Costs And Recovery Times",
+              icon: "/images/icons/settings-money.svg",
+            },
+            {
+              title: "Compliance And Governance Integration",
+              icon: "/images/icons/settings-code.svg",
+            },
+            {
+              title: "Continuous Autonomous Protection",
+              icon: "/images/icons/connection.svg",
+            },
+          ]}
+        />
 
      
        <div className=" flex justify-center">
@@ -387,45 +310,16 @@ export default function CyberSecuritySolutions() {
        </div>
 
         {/* Navigation */}
-        <section className="mx-auto max-w-7xl px-20 py-16">
-          <div className="mb-6">
-            <Link
-              href="/solutions/ai-agent-development"
-              className="inline-flex items-center gap-2 font-poppins text-sm font-medium text-orange-500 transition-colors hover:text-orange-600"
-            >
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 16 16"
-                fill="none"
-                className="size-4"
-              >
-                <path
-                  d="M13 8H3M3 8L7 12M3 8L7 4"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-              <span>Previous</span>
-            </Link>
-          </div>
-          <h2 className="text-center text-2xl font-semibold text-[#0B1B2B]">Ready to Solve</h2>
-          <h2 className="text-center text-2xl font-semibold text-[#0B1B2B]">What's Next With OphoTech?</h2>
-          <p className="mx-auto mt-3 max-w-3xl text-center text-[15px] text-[#3A4A5F]">
-            Together, we connect, create, and evolve.
-          </p>
-          <div className="mt-8 flex justify-center">
-            <PrimaryButton onClick={() => setIsModalOpen(true)}>
-              Let's Start
-            </PrimaryButton>
-          </div>
-        </section>
+        <SolutionsNavigationSection
+          previousHref="/solutions/ai-agent-development"
+          titleClassName="text-3xl font-medium"
+          title={["Ready to Solve", "What's Next With OphoTech?"]}
+          description="Together, we connect, create, and evolve."
+          cta={{ onClick: handleOpenContact, label: "Let's Start" }}
+        />
       </main>
 
       <Footer />
-      <ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </div>
   );
 }

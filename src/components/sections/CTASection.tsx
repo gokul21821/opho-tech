@@ -1,19 +1,82 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
 
+import { cn } from "@/lib/utils";
+import { PrimaryButton } from "@/components/ui/Button";
 import { SecondaryButton } from "@/components/ui/SecondaryButton";
-import { ContactModal } from "@/components/forms/ContactModal";
+import {
+  buildContactModalOpenUrl,
+  markContactModalOpenedFromUi,
+} from "@/lib/contact-modal";
 
 const CTA_BACKGROUND = "/images/hero/hero-background.png";
 
-export function CTASection() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+export type CTASectionVariant = "gradient" | "ready";
+
+export type CTASectionProps = {
+  variant?: CTASectionVariant;
+
+  /**
+   * Used for the "ready" variant. Defaults match the Careers reference.
+   */
+  readyTitle?: string;
+  readySubtitle?: string;
+  readyButtonLabel?: string;
+  readyClassName?: string;
+
+  /**
+   * Used for the "gradient" variant. Defaults preserve existing CTASection copy.
+   */
+  gradientTitle?: string;
+  gradientDescription?: string;
+  gradientButtonLabel?: string;
+  gradientClassName?: string;
+};
+
+export function CTASection({
+  variant = "gradient",
+
+  readyTitle = "Ready to Solve",
+  readySubtitle = "What\u0027s Next With OphoTech?",
+  readyButtonLabel = "Let\u0027s Start",
+  readyClassName = "py-20 px-6",
+
+  gradientTitle = "Start a Conversation with OphoTech",
+  gradientDescription = "Explore how data-driven strategy and responsible technology can advance your business goals.",
+  gradientButtonLabel = "Connect with an Expert",
+  gradientClassName,
+}: CTASectionProps) {
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const handleOpenContact = () => {
+    const searchParams = new URLSearchParams(
+      typeof window === "undefined" ? "" : window.location.search,
+    );
+    markContactModalOpenedFromUi();
+    router.push(buildContactModalOpenUrl(pathname, searchParams));
+  };
+
+  if (variant === "ready") {
+    return (
+      <section className={cn("text-center", readyClassName)}>
+        <h2 className="mb-3 text-4xl font-medium">{readyTitle}</h2>
+        <p className="mb-6 text-4xl font-medium">{readySubtitle}</p>
+        <PrimaryButton onClick={handleOpenContact}>{readyButtonLabel}</PrimaryButton>
+      </section>
+    );
+  }
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-r from-[#1e2f62] via-[#1b2760] to-[#101b3f] py-24 text-white">
-      <div className="pointer-events-none absolute inset-0 opacity-70">
+    <section
+      className={cn(
+        "relative overflow-hidden py-15 text-white",
+        gradientClassName,
+      )}
+    >
+      <div className="pointer-events-none absolute inset-0 ">
         <Image
           src={CTA_BACKGROUND}
           alt=""
@@ -24,20 +87,18 @@ export function CTASection() {
       </div>
 
       <div className="relative mx-auto max-w-4xl px-6 text-center md:px-8">
-        <h2 className="text-3xl font-semibold md:text-[38px] md:leading-[48px]">
-          Start a Conversation with OphoTech
+        <h2 className="text-3xl font-semibold md:text-[38px]">
+          {gradientTitle}
         </h2>
         <p className="mt-4 text-base text-blue-100 md:text-lg">
-          Explore how data-driven strategy and responsible technology can
-          advance your business goals.
+          {gradientDescription}
         </p>
         <div className="mt-10 flex justify-center">
-          <SecondaryButton onClick={() => setIsModalOpen(true)}>
-            Connect with an Expert
+          <SecondaryButton onClick={handleOpenContact}>
+            {gradientButtonLabel}
           </SecondaryButton>
         </div>
       </div>
-      <ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </section>
   );
 }

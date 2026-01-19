@@ -2,16 +2,12 @@
 
 // app/terms-of-service/page.tsx
 import Image from "next/image";
-import { useState } from "react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { HeroSection } from "@/components/ui/HeroSection";
-import { ContactModal } from "@/components/forms/ContactModal";
-import { PrimaryButton } from "@/components/ui/Button";
+import { CTASection } from "@/components/sections/CTASection";
 
 export default function TermsOfService() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
   return (
     <div className="flex min-h-screen flex-col bg-white text-[#0B1B2B]">
       {/* Hero background behind header */}
@@ -51,14 +47,14 @@ export default function TermsOfService() {
               </h2>
               <div className="mt-3 space-y-3 text-[15px] leading-relaxed text-[#3A4A5F]">
                 <p>
-                  Opho Tech Inc. (collectively referred to as "OphoTech", "We", "Us", or "Our") provides the ophotech.com website and various related services (collectively, the "Site" or "Services") to you, the "User," "Client," or "Customer," subject to your compliance with all the terms, conditions, and notices contained or referenced herein (the "Terms of Use," "Terms and Conditions," "Agreement," or "Terms"), as well as any other written agreement between us and you. When using particular services or materials on this Site, users shall be subject to any posted rules applicable to such services or materials, which may contain additional terms and conditions. All such rules are hereby incorporated by reference.
+                  OphoTech Inc. (collectively referred to as "OphoTech", "We", "Us", or "Our") provides the ophotech.com website and various related services (collectively, the "Site" or "Services") to you, the "User," "Client," or "Customer," subject to your compliance with all the terms, conditions, and notices contained or referenced herein (the "Terms of Use," "Terms and Conditions," "Agreement," or "Terms"), as well as any other written agreement between us and you. When using particular services or materials on this Site, users shall be subject to any posted rules applicable to such services or materials, which may contain additional terms and conditions. All such rules are hereby incorporated by reference.
                 </p>
                 <p className="font-medium text-[#111111]">
                   BY USING THIS SITE, YOU AGREE TO BE BOUND BY THESE TERMS OF USE. IF YOU DO NOT AGREE, PLEASE EXIT THE SITE. YOUR REMEDY FOR DISSATISFACTION IS TO STOP USING THE SITE AND/OR THE RELATED PRODUCTS OR SERVICES. YOUR AGREEMENT TO THESE TERMS BECOMES EFFECTIVE IMMEDIATELY UPON YOUR FIRST USE OF THIS SITE.
                 </p>
                 <div>
                   <p className="mb-0">
-                    These Terms are effective as of July 22, 2025. Opho Tech reserves the right to amend these Terms at any time without prior notice. You acknowledge and agree that it is your responsibility to review this Site and these Terms of Use regularly to stay informed of modifications. Your continued use of the Site constitutes acknowledgment and acceptance of any changes.
+                    These Terms are effective as of July 22, 2025. OphoTech reserves the right to amend these Terms at any time without prior notice. You acknowledge and agree that it is your responsibility to review this Site and these Terms of Use regularly to stay informed of modifications. Your continued use of the Site constitutes acknowledgment and acceptance of any changes.
                   </p>
                   <p>
                     References to "Affiliates" include our owners, subsidiaries, affiliated companies, officers, directors, suppliers, partners, sponsors, advertisers, and all parties involved in creating or delivering this Site and its contents.
@@ -75,13 +71,13 @@ export default function TermsOfService() {
               </h2>
               <div className="mt-3 space-y-3 text-[15px] leading-relaxed text-[#3A4A5F]">
                 <p className="mb-0">
-                  Opho Tech offers various data services and documentation through the Site, including, but not limited to, Fraud Detection, Bot Detection, Data Validation, IP Intelligence, Email Validation, Phone Validation, User and Payment Screening, Device Fingerprinting, and other related services ("Opho Tech Services").
+                  OphoTech offers various data services and documentation through the Site, including, but not limited to, Fraud Detection, Bot Detection, Data Validation, IP Intelligence, Email Validation, Phone Validation, User and Payment Screening, Device Fingerprinting, and other related services ("OphoTech Services").
                 </p>
                 <p className="mb-0">
-                  You are responsible for providing, at your own expense, all equipment and Internet access necessary to use Opho Tech Services, and any fees associated with such access.
+                  You are responsible for providing, at your own expense, all equipment and Internet access necessary to use OphoTech Services, and any fees associated with such access.
                 </p>
                 <p>
-                  Opho Tech grants you a non-exclusive, non-transferable, non-sublicensable license to access and use Opho Tech Services. You agree to use the Services in compliance with all applicable laws, regulations, and these Terms. Opho Tech reserves the right to modify or discontinue any part of the Site or its features at any time, with or without notice. Any new features or services added will also be subject to these Terms of Use.
+                  OphoTech grants you a non-exclusive, non-transferable, non-sublicensable license to access and use OphoTech Services. You agree to use the Services in compliance with all applicable laws, regulations, and these Terms. OphoTech reserves the right to modify or discontinue any part of the Site or its features at any time, with or without notice. Any new features or services added will also be subject to these Terms of Use.
                 </p>
               </div>
             </div>
@@ -108,7 +104,7 @@ export default function TermsOfService() {
               <h2 className="text-xl font-semibold text-[#0B1B2B]">4. Use of Logo</h2>
               <div className="mt-3 space-y-3 text-[15px] leading-relaxed text-[#3A4A5F]">
                 <p className="mb-0">
-                  Client authorizes Opho Tech to use its name, logo, and/or trademark in Opho Tech marketing materials (e.g., website, non-public brochures) in accordance with brand guidelines or accepted standards of decency.
+                  Client authorizes OphoTech to use its name, logo, and/or trademark in OphoTech marketing materials (e.g., website, non-public brochures) in accordance with brand guidelines or accepted standards of decency.
                 </p>
                 <p>
                   Client may revoke this right with seven (7) business days&apos; written notice.
@@ -124,10 +120,10 @@ export default function TermsOfService() {
               </h2>
               <div className="mt-3 space-y-3 text-[15px] leading-relaxed text-[#3A4A5F]">
                 <p className="mb-0">
-                  Opho Tech processes Client Data in accordance with its Data Processing Agreement ("DPA"), which is incorporated by reference. The DPA outlines the parties&apos; roles and legal bases for processing personal data under applicable privacy laws, including the GDPR and the CCPA.
+                  OphoTech processes Client Data in accordance with its Data Processing Agreement ("DPA"), which is incorporated by reference. The DPA outlines the parties&apos; roles and legal bases for processing personal data under applicable privacy laws, including the GDPR and the CCPA.
                 </p>
                 <p>
-                  Opho Tech implements and maintains appropriate safeguards to protect Client Data. Clients are responsible for ensuring that any data sharing with Opho Tech complies with applicable data protection laws.
+                  OphoTech implements and maintains appropriate safeguards to protect Client Data. Clients are responsible for ensuring that any data sharing with OphoTech complies with applicable data protection laws.
                 </p>
               </div>
             </div>
@@ -143,7 +139,7 @@ export default function TermsOfService() {
                   Your use of the Site and Services must comply with all laws and regulations; you are solely responsible for your communications and conduct. You may not attempt to breach security, gain unauthorized access, or interfere with another&apos;s use of the Site. Violations may result in criminal or civil liability.
                 </p>
                 <p className="mb-0">
-                  Opho Tech is not a consumer reporting agency under the Fair Credit Reporting Act (FCRA), and our data does not constitute "consumer reports." You agree not to use Opho Tech Services for purposes governed by the FCRA.
+                  OphoTech is not a consumer reporting agency under the Fair Credit Reporting Act (FCRA), and our data does not constitute "consumer reports." You agree not to use OphoTech Services for purposes governed by the FCRA.
                 </p>
                 <p>
                   We may terminate your account at our sole discretion for violations. We will cooperate with law enforcement as required. If your account is terminated, a pro-rated refund will be issued for any paid services.
@@ -158,7 +154,7 @@ export default function TermsOfService() {
                 7. Third Party Sites and Information
               </h2>
               <p className="mt-3 text-[15px] leading-relaxed text-[#3A4A5F]">
-                Opho Tech Services may contain links or references to third-party websites or resources ("Third-Party Content"). Such content is provided for convenience only and does not constitute endorsement or affiliation. Opho Tech does not control and is not responsible for the availability, accuracy, or legality of Third-Party Content. All dealings are solely between you and the third party.
+                OphoTech Services may contain links or references to third-party websites or resources ("Third-Party Content"). Such content is provided for convenience only and does not constitute endorsement or affiliation. OphoTech does not control and is not responsible for the availability, accuracy, or legality of Third-Party Content. All dealings are solely between you and the third party.
               </p>
             </div>
             <div className="border-t border-[#B0B0B0]" />
@@ -169,17 +165,17 @@ export default function TermsOfService() {
                 8. Intellectual Property Information
               </h2>
               <p className="mt-3 text-[18px] font-medium text-[#3A4A5F]">
-                Copyright © 2011 – 2025 Opho Tech Inc. All Rights Reserved.
+                Copyright © 2011 – 2026 OphoTech Inc. All Rights Reserved.
               </p>
               <div className="mt-3 space-y-3 text-[15px] leading-relaxed text-[#3A4A5F]">
                 <p className="mb-0">
-                  "Opho Tech Content" includes all information, data, reports, analytics, software, API responses, documentation, graphics, audio, video, designs, and other materials provided through Opho Tech Services.
+                  "OphoTech Content" includes all information, data, reports, analytics, software, API responses, documentation, graphics, audio, video, designs, and other materials provided through OphoTech Services.
                 </p>
                 <p className="mb-0">
-                  All Content and intellectual property rights are the exclusive property of Opho Tech and/or its licensors and are protected by applicable laws. Use of the Services does not grant you any rights beyond those expressly granted here.
+                  All Content and intellectual property rights are the exclusive property of OphoTech and/or its licensors and are protected by applicable laws. Use of the Services does not grant you any rights beyond those expressly granted here.
                 </p>
                 <p>
-                  Opho Tech trademarks, service marks, and logos ("Opho Tech Marks") are property of Opho Tech or its affiliates. This Agreement grants you no right to use any Opho Tech Marks or third-party trademarks.
+                  OphoTech trademarks, service marks, and logos ("OphoTech Marks") are property of OphoTech or its affiliates. This Agreement grants you no right to use any OphoTech Marks or third-party trademarks.
                 </p>
               </div>
             </div>
@@ -191,11 +187,11 @@ export default function TermsOfService() {
                 9. Disclaimer of Warranties
               </h2>
               <p className="mt-3 text-[15px] font-medium text-[#111111]">
-                ALL SERVICES AND MATERIALS ARE PROVIDED "AS IS" AND "AS AVAILABLE," WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED. OPHO TECH MAKES NO WARRANTY THAT SERVICES WILL MEET YOUR REQUIREMENTS OR THAT THEY WILL BE UNINTERRUPTED, SECURE, OR ERROR-FREE. YOU USE THE SITE AT YOUR OWN RISK.
+                ALL SERVICES AND MATERIALS ARE PROVIDED "AS IS" AND "AS AVAILABLE," WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED. OphoTech MAKES NO WARRANTY THAT SERVICES WILL MEET YOUR REQUIREMENTS OR THAT THEY WILL BE UNINTERRUPTED, SECURE, OR ERROR-FREE. YOU USE THE SITE AT YOUR OWN RISK.
               </p>
               <div className="mt-3 space-y-3 text-[15px] leading-relaxed text-[#3A4A5F]">
                 <p className="mb-0">
-                  Opho Tech is not responsible for errors, omissions, or outdated materials, nor for damages resulting from your use or downloading of materials.
+                  OphoTech is not responsible for errors, omissions, or outdated materials, nor for damages resulting from your use or downloading of materials.
                 </p>
                 <p>
                   Some jurisdictions do not allow exclusion of certain warranties; some limitations may not apply.
@@ -210,10 +206,10 @@ export default function TermsOfService() {
                 10. Limitation of Liability
               </h2>
               <p className="mt-3 text-[15px] font-medium text-[#111111]">
-                IN NO EVENT SHALL OPHO TECH OR ITS AFFILIATES BE LIABLE FOR ANY SPECIAL, INCIDENTAL, INDIRECT, OR CONSEQUENTIAL DAMAGES, OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA, OR PROFITS, WHETHER IN ACTION OF CONTRACT, NEGLIGENCE, OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SITE OR SERVICES.
+                IN NO EVENT SHALL OphoTech OR ITS AFFILIATES BE LIABLE FOR ANY SPECIAL, INCIDENTAL, INDIRECT, OR CONSEQUENTIAL DAMAGES, OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA, OR PROFITS, WHETHER IN ACTION OF CONTRACT, NEGLIGENCE, OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SITE OR SERVICES.
               </p>
               <p className="mt-3 text-[15px] leading-relaxed text-[#3A4A5F]">
-                If any limitation of liability is unenforceable, Opho Tech&apos;s sole obligation for damages shall be limited to the amount actually paid by Client to Opho Tech in the 12 months preceding the subject claim.
+                If any limitation of liability is unenforceable, OphoTech&apos;s sole obligation for damages shall be limited to the amount actually paid by Client to OphoTech in the 12 months preceding the subject claim.
               </p>
             </div>
             <div className="border-t border-[#B0B0B0]" />
@@ -233,7 +229,7 @@ export default function TermsOfService() {
             <div>
               <h2 className="text-xl font-semibold text-[#0B1B2B]">12. Indemnification</h2>
               <p className="mt-3 text-[15px] leading-relaxed text-[#3A4A5F]">
-                You agree to defend, indemnify, and hold harmless Opho Tech, its affiliates, officers, employees, agents, licensors, and suppliers from all liabilities, claims, and expenses (including legal fees) arising from your misuse of the Site or Services.
+                You agree to defend, indemnify, and hold harmless OphoTech, its affiliates, officers, employees, agents, licensors, and suppliers from all liabilities, claims, and expenses (including legal fees) arising from your misuse of the Site or Services.
               </p>
             </div>
             <div className="border-t border-[#B0B0B0]" />
@@ -245,13 +241,13 @@ export default function TermsOfService() {
               </h2>
               <div className="mt-3 space-y-3 text-[15px] leading-relaxed text-[#3A4A5F]">
                 <p className="mb-0">
-                  You are responsible for keeping your password and account information secure and for all actions taken under your account. Opho Tech personnel will never ask for your password. You may enable Two-Factor Authentication (2FA) for additional security.
+                  You are responsible for keeping your password and account information secure and for all actions taken under your account. OphoTech personnel will never ask for your password. You may enable Two-Factor Authentication (2FA) for additional security.
                 </p>
                 <p className="mb-0">
                   Accounts may not be shared or transferred. Violation may result in immediate termination.
                 </p>
                 <p>
-                  Opho Tech employs robust security measures to protect client data and complies with all applicable privacy regulations.
+                  OphoTech employs robust security measures to protect client data and complies with all applicable privacy regulations.
                 </p>
               </div>
             </div>
@@ -263,7 +259,7 @@ export default function TermsOfService() {
                 14. Participation in Promotions
               </h2>
               <p className="mt-3 text-[15px] leading-relaxed text-[#3A4A5F]">
-                Any interaction with third-party advertisers is solely between you and the advertiser. Opho Tech assumes no responsibility for any aspect of such interactions.
+                Any interaction with third-party advertisers is solely between you and the advertiser. OphoTech assumes no responsibility for any aspect of such interactions.
               </p>
             </div>
             <div className="border-t border-[#B0B0B0]" />
@@ -275,10 +271,10 @@ export default function TermsOfService() {
               </h2>
               <div className="mt-3 space-y-3 text-[15px] leading-relaxed text-[#3A4A5F]">
                 <p className="mb-0">
-                  Opho Tech may suspend or terminate your access to all or part of the Site or Services, with or without notice, for any reason, including breach of these Terms. Upon termination, your right to use the Site ceases immediately, and Opho Tech may delete your account and associated data. Opho Tech is not liable for damages arising from such actions.
+                  OphoTech may suspend or terminate your access to all or part of the Site or Services, with or without notice, for any reason, including breach of these Terms. Upon termination, your right to use the Site ceases immediately, and OphoTech may delete your account and associated data. OphoTech is not liable for damages arising from such actions.
                 </p>
                 <p>
-                  If Opho Tech terminates your account, you will receive a pro-rated refund for unused paid services. You may terminate this Agreement at any time with 30 days&apos; written notice, but all outstanding fees will become immediately due and no refunds will be issued for unused services.
+                  If OphoTech terminates your account, you will receive a pro-rated refund for unused paid services. You may terminate this Agreement at any time with 30 days&apos; written notice, but all outstanding fees will become immediately due and no refunds will be issued for unused services.
                 </p>
               </div>
             </div>
@@ -294,7 +290,7 @@ export default function TermsOfService() {
                 <li>Reverse engineer or attempt to extract source code from any API or related software, except as expressly permitted by law.</li>
                 <li>Interfere with, abuse, or disrupt the APIs or networks.</li>
                 <li>Sublicense an API or create a competing API without written approval.</li>
-                <li>Use the APIs to replicate or compete with Opho Tech core products without written approval.</li>
+                <li>Use the APIs to replicate or compete with OphoTech core products without written approval.</li>
                 <li>Use APIs for hazardous activities (e.g., life support, air traffic control).</li>
               </ul>
             </div>
@@ -306,7 +302,7 @@ export default function TermsOfService() {
                 17. Free Account Limitations
               </h2>
               <p className="mt-3 text-[15px] leading-relaxed text-[#3A4A5F]">
-                Users may not create multiple accounts to receive additional free credits. Abuse may result in suspension or termination. For legitimate business needs, contact Opho Tech support for authorization.
+                Users may not create multiple accounts to receive additional free credits. Abuse may result in suspension or termination. For legitimate business needs, contact OphoTech support for authorization.
               </p>
             </div>
             <div className="border-t border-[#B0B0B0]" />
@@ -333,7 +329,7 @@ export default function TermsOfService() {
                 19. Affiliate Program & Referrals
               </h2>
               <p className="mt-3 text-[15px] leading-relaxed text-[#3A4A5F]">
-                Opho Tech offers an affiliate program to active users. Referrals must remain in good standing and are defined within your dashboard. Earnings are paid on a NET-60 schedule, and Opho Tech reserves the right to withhold commissions at its discretion.
+                OphoTech offers an affiliate program to active users. Referrals must remain in good standing and are defined within your dashboard. Earnings are paid on a NET-60 schedule, and OphoTech reserves the right to withhold commissions at its discretion.
               </p>
             </div>
             <div className="border-t border-[#B0B0B0]" />
@@ -343,7 +339,7 @@ export default function TermsOfService() {
               <h2 className="text-xl font-semibold text-[#0B1B2B]">20. Client Data</h2>
               <div className="mt-3 space-y-3 text-[15px] leading-relaxed text-[#3A4A5F]">
                 <p className="mb-0">
-                  Client may transmit transactional, behavioral, or user data ("Client Data") to Opho Tech for fraud detection, risk analysis, and threat intelligence services. Opho Tech may use anonymized or aggregated Client Data to improve global scoring, without disclosing PII or client-specific business data.
+                  Client may transmit transactional, behavioral, or user data ("Client Data") to OphoTech for fraud detection, risk analysis, and threat intelligence services. OphoTech may use anonymized or aggregated Client Data to improve global scoring, without disclosing PII or client-specific business data.
                 </p>
                 <p>
                   All Client Data is protected with industry-standard safeguards and processed in accordance with privacy regulations and the Data Processing Agreement.
@@ -383,7 +379,7 @@ export default function TermsOfService() {
                 23. Class Action Waiver
               </h2>
               <p className="mt-3 text-[15px] leading-relaxed text-[#3A4A5F]">
-                Both Opho Tech and Client waive the right to a trial by jury and agree that all disputes must be brought individually, not as part of any class action or representative proceeding.
+                Both OphoTech and Client waive the right to a trial by jury and agree that all disputes must be brought individually, not as part of any class action or representative proceeding.
               </p>
             </div>
             <div className="border-t border-[#B0B0B0]" />
@@ -412,7 +408,7 @@ export default function TermsOfService() {
                 26. Failure to Enforce
               </h2>
               <p className="mt-3 text-[15px] leading-relaxed text-[#3A4A5F]">
-                Opho Tech&apos;s failure to enforce any provision of these Terms shall not constitute a waiver of that provision or the right to enforce it in the future.
+                OphoTech&apos;s failure to enforce any provision of these Terms shall not constitute a waiver of that provision or the right to enforce it in the future.
               </p>
             </div>
             <div className="border-t border-[#B0B0B0]" />
@@ -432,7 +428,7 @@ export default function TermsOfService() {
                 28. Reseller Governance
               </h2>
               <p className="mt-3 text-[15px] leading-relaxed text-[#3A4A5F]">
-                If Services are purchased through an authorized reseller, these Terms govern usage and access, while payment terms are governed by the agreement with the reseller. Opho Tech is not liable for financial arrangements between Client and Reseller.
+                If Services are purchased through an authorized reseller, these Terms govern usage and access, while payment terms are governed by the agreement with the reseller. OphoTech is not liable for financial arrangements between Client and Reseller.
               </p>
             </div>
             <div className="border-t border-[#B0B0B0]" />
@@ -441,7 +437,7 @@ export default function TermsOfService() {
             <div>
               <h2 className="text-xl font-semibold text-[#0B1B2B]">29. Signature</h2>
               <p className="mt-3 text-[15px] leading-relaxed text-[#3A4A5F]">
-                Your electronic acceptance or use of Opho Tech Services constitutes your binding agreement to these Terms.
+                Your electronic acceptance or use of OphoTech Services constitutes your binding agreement to these Terms.
               </p>
             </div>
             <div className="border-t border-[#B0B0B0]" />
@@ -452,9 +448,9 @@ export default function TermsOfService() {
               <ul className="mt-3 space-y-2 text-[15px] leading-relaxed text-[#3A4A5F] list-disc list-inside">
                 <li><span className="font-medium">Prevailing Party Fees:</span> The prevailing party in any legal action will be entitled to reasonable legal fees and costs.</li>
                 <li><span className="font-medium">Limitation on Claims:</span> All claims must be brought within one (1) year or they are waived and barred.</li>
-                <li><span className="font-medium">Assignment:</span> Client may not assign this Agreement without Opho Tech&apos;s prior written consent; Opho Tech may assign freely.</li>
-                <li><span className="font-medium">Force Majeure:</span> Opho Tech is not liable for failures caused by events beyond its reasonable control.</li>
-                <li><span className="font-medium">No Waiver:</span> No failure or delay by Opho Tech in exercising any right shall constitute a waiver.</li>
+                <li><span className="font-medium">Assignment:</span> Client may not assign this Agreement without OphoTech&apos;s prior written consent; OphoTech may assign freely.</li>
+                <li><span className="font-medium">Force Majeure:</span> OphoTech is not liable for failures caused by events beyond its reasonable control.</li>
+                <li><span className="font-medium">No Waiver:</span> No failure or delay by OphoTech in exercising any right shall constitute a waiver.</li>
               </ul>
             </div>
             <div className="border-t border-[#B0B0B0]" />
@@ -463,7 +459,7 @@ export default function TermsOfService() {
             <div>
               <h2 className="text-xl font-semibold text-[#0B1B2B]">Contact Information</h2>
               <div className="mt-3 text-[15px] text-[#3A4A5F]">
-                <p className="mb-0">Opho Tech Inc.</p>
+                <p className="mb-0">OphoTech Inc.</p>
                 <p className="mb-0">2302 – 228 Queens Quay W Downtown, Toronto M5J2X1 Canada</p>
                 <p className="mb-0">&nbsp;</p>
                 <p className="font-medium text-[#111111]">
@@ -477,24 +473,27 @@ export default function TermsOfService() {
                 </p>
               </div>
             </div>
-
+              {/* Horizontal Line */}
+              <div className="flex justify-center w-full">
+                <Image
+                  src="/images/horizontalline.svg"
+                  alt=""
+                  width={1200}
+                  height={3}
+                  className="w-full max-w-5xl"
+                  aria-hidden
+                />
+              </div>
             {/* CTA section */}
-            <div className="rounded-2xl bg-white p-8 text-center">
-            <h2 className="text-4xl font-medium text-[#0B1B2B]">
-                Ready to Solve
-                <br />
-                What&apos;s Next With OphoTech?
-              </h2>
-              <PrimaryButton className="mt-6" onClick={() => setIsModalOpen(true)}>
-                Let's Start
-              </PrimaryButton>
-            </div>
+            <CTASection
+              variant="ready"
+              readyClassName="rounded-2xl bg-white p-8"
+            />
           </div>
         </section>
       </main>
 
       <Footer />
-      <ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </div>
   );
 }

@@ -41,6 +41,14 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
   const [fileError, setFileError] = useState<string>("");
   const fileInputRef = useRef<HTMLInputElement>(null);
 
+  // Ensure modal always opens on the form view (not the prior success/error state).
+  useEffect(() => {
+    if (isOpen) {
+      setSubmitStatus("idle");
+      setIsSubmitting(false);
+    }
+  }, [isOpen]);
+
   // Hide/show chatbot when modal opens/closes
   useEffect(() => {
     if (isOpen) {

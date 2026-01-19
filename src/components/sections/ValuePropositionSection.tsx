@@ -2,7 +2,11 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import { ContactModal } from '@/components/forms/ContactModal';
+import { usePathname, useRouter } from 'next/navigation';
+import {
+  buildContactModalOpenUrl,
+  markContactModalOpenedFromUi,
+} from '@/lib/contact-modal';
 
 const features = [
   {
@@ -33,10 +37,19 @@ const features = [
 
 export function ValuePropositionSection() {
   const [activeStep, setActiveStep] = useState('connect');
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(false);
+  const router = useRouter();
+  const pathname = usePathname();
 
   const activeFeature = features.find((f) => f.id === activeStep) || features[0];
+
+  const handleOpenContact = () => {
+    const searchParams = new URLSearchParams(
+      typeof window === 'undefined' ? '' : window.location.search,
+    );
+    markContactModalOpenedFromUi();
+    router.push(buildContactModalOpenUrl(pathname, searchParams));
+  };
 
   return (
     <>
@@ -138,7 +151,7 @@ export function ValuePropositionSection() {
           </p>
 
           <button
-            onClick={() => setIsModalOpen(true)}
+            onClick={handleOpenContact}
             className="group flex w-fit items-center gap-1.5 rounded-lg bg-[#FFF6ED] px-3 md:px-4 py-2.5 md:py-3 transition-all hover:bg-[#FFE8D1]"
           >
             <span className="font-poppins text-sm sm:text-base leading-none text-[#E45412]">
@@ -200,7 +213,6 @@ export function ValuePropositionSection() {
            aria-hidden
          />
        </div>
-      <ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </>
   );
 }

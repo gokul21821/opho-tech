@@ -13,7 +13,7 @@ interface BreadcrumbProps {
 
 export function Breadcrumb({ items }: BreadcrumbProps) {
   return (
-    <nav className="mb-8 w-full">
+    <nav className="w-full mb-6">
       <ol className="flex w-full min-w-0 items-center justify-center gap-2 overflow-hidden whitespace-nowrap text-sm md:text-lg">
         {items.map((item, index) => {
           const isLast = index === items.length - 1;
@@ -22,7 +22,7 @@ export function Breadcrumb({ items }: BreadcrumbProps) {
               key={index}
               className={
                 isLast
-                  ? "flex min-w-0 flex-1 items-center gap-2"
+                  ? "flex min-w-0 shrink-0 items-center gap-2"
                   : "flex shrink-0 items-center gap-2"
               }
             >
@@ -52,4 +52,3 @@ export function Breadcrumb({ items }: BreadcrumbProps) {
     </nav>
   );
 }
-

@@ -2,9 +2,13 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 import { useState, useEffect, useRef } from "react";
 import { slugify } from "@/lib/utils";
-import { ContactModal } from "@/components/forms/ContactModal";
+import {
+  buildContactModalOpenUrl,
+  markContactModalOpenedFromUi,
+} from "@/lib/contact-modal";
 
 const COMPANY_LINKS = [
   "About Us",
@@ -56,9 +60,18 @@ const XIcon = () => (
 );
 
 export function Footer() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const router = useRouter();
+  const pathname = usePathname();
   const [isFooterVisible, setIsFooterVisible] = useState(false);
   const footerRef = useRef<HTMLElement>(null);
+
+  const handleOpenContact = () => {
+    const searchParams = new URLSearchParams(
+      typeof window === "undefined" ? "" : window.location.search,
+    );
+    markContactModalOpenedFromUi();
+    router.push(buildContactModalOpenUrl(pathname, searchParams));
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -154,7 +167,7 @@ export function Footer() {
           <FooterColumn
             title="Company"
             links={COMPANY_LINKS}
-            onContactClick={() => setIsModalOpen(true)}
+            onContactClick={handleOpenContact}
             hrefMapper={(link) => {
               if (link === "About Us") return "/company/about-us";
               if (link === "Careers") return "/company/careers";
@@ -194,7 +207,6 @@ export function Footer() {
           </p>
         </div>
       </div>
-      <ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </footer>
   );
 }

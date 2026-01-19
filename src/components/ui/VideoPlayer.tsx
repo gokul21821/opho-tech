@@ -23,7 +23,6 @@ const PauseIcon = () => (
   />
 );
 
-
 interface VideoPlayerProps {
   src: string;
   poster?: string;
@@ -39,7 +38,7 @@ export function VideoPlayer({
   className = "",
   autoplay = false,
   muted = true,
-  showControls = true
+  showControls = true,
 }: VideoPlayerProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -61,8 +60,8 @@ export function VideoPlayer({
     };
 
     checkDevice();
-    window.addEventListener('resize', checkDevice);
-    return () => window.removeEventListener('resize', checkDevice);
+    window.addEventListener("resize", checkDevice);
+    return () => window.removeEventListener("resize", checkDevice);
   }, []);
 
   const handlePlay = async () => {
@@ -80,7 +79,7 @@ export function VideoPlayer({
           showControlsTemporarily();
         }
       } catch (error) {
-        console.error('Play failed:', error);
+        console.error("Play failed:", error);
         setIsLoading(false);
       }
     }
@@ -113,16 +112,13 @@ export function VideoPlayer({
     }
   };
 
-
-
-
   return (
     <div
       ref={containerRef}
-      className={`relative overflow-hidden rounded-[27px] bg-orange-25/40 p-1  transition-all duration-300 ${className}`}
+      className={`relative overflow-hidden rounded-[27px] bg-orange-25/40 p-1 transition-all duration-300 ${className}`}
     >
       <div
-        className="relative overflow-hidden rounded-[24px] bg-white aspect-video"
+        className="relative aspect-[16/10] overflow-hidden rounded-[24px] bg-white"
         onMouseEnter={() => !isMobile && setIsHovered(true)}
         onMouseLeave={() => !isMobile && setIsHovered(false)}
         onClick={handleVideoClick}
@@ -154,41 +150,42 @@ export function VideoPlayer({
         {isLoading && (
           <div className="absolute inset-0 flex items-center justify-center bg-white/80 backdrop-blur-sm">
             <div className="flex items-center gap-2 text-gray-600">
-              <div className="w-6 h-6 border-2 border-gray-300 border-t-blue-500 rounded-full animate-spin"></div>
+              <div className="h-6 w-6 animate-spin rounded-full border-2 border-gray-300 border-t-blue-500"></div>
               <span className="text-sm">Loading...</span>
             </div>
           </div>
         )}
 
         {/* Play Button Overlay - When paused and not started */}
-        {!isPlaying && !hasStarted && (isHovered || isMobile || showMobileControls) && (
-          <div className="absolute inset-0 z-20 flex items-center justify-center bg-gray-900/40 transition-opacity">
-            <button
-              type="button"
-              onClick={handlePlay}
-              aria-label="Play introduction video"
-              className="flex items-center justify-center transition-all hover:scale-110"
-              disabled={isLoading}
-            >
-              <PlayIcon />
-            </button>
-          </div>
-        )}
+        {!isPlaying &&
+          !hasStarted &&
+          (isHovered || isMobile || showMobileControls) && (
+            <div className="absolute inset-0 z-20 flex items-center justify-center bg-gray-900/40 transition-opacity">
+              <button
+                type="button"
+                onClick={handlePlay}
+                aria-label="Play introduction video"
+                className="flex items-center justify-center transition-all hover:scale-110"
+                disabled={isLoading}
+              >
+                <PlayIcon />
+              </button>
+            </div>
+          )}
 
         {/* Pause Button Overlay - When playing and hovered */}
         {isPlaying && (isHovered || showMobileControls) && (
-          <div className="absolute inset-0 z-20 flex items-center justify-center bg-gray-900/30 transition-opacity pointer-events-none">
+          <div className="pointer-events-none absolute inset-0 z-20 flex items-center justify-center bg-gray-900/30 transition-opacity">
             <button
               type="button"
               onClick={handlePause}
               aria-label="Pause video"
-              className="flex items-center justify-center transition-all hover:scale-110 pointer-events-auto"
+              className="pointer-events-auto flex items-center justify-center transition-all hover:scale-110"
             >
               <PauseIcon />
             </button>
           </div>
         )}
-
       </div>
     </div>
   );

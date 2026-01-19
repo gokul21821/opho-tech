@@ -5,7 +5,7 @@ export function YourJourney() {
   return (
     <section className="relative overflow-hidden">
       <BackgroundDots
-        className="py-[4%]"
+        className="py-15"
         spacing={36}
         dotSize={2.5}
         backgroundColor=""

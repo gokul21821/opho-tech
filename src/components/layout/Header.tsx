@@ -2,14 +2,17 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
 
-import { ContactModal } from "@/components/forms/ContactModal";
 import { Dropdown } from "@/components/layout/Dropdown";
 import { SearchDropdown } from "@/components/layout/SearchDropdown";
 import { PrimaryButton } from "@/components/ui/Button";
 import { SecondaryButton } from "@/components/ui/SecondaryButton";
+import {
+  buildContactModalOpenUrl,
+  markContactModalOpenedFromUi,
+} from "@/lib/contact-modal";
 import { slugify } from "@/lib/utils";
 import { fetchAllContent } from "@/lib/client-api";
 import { AllContentData } from "@/lib/types";
@@ -93,8 +96,8 @@ const ChevronSmall = ({ open }: { open: boolean }) => (
 
 export function Header() {
   const pathname = usePathname();
+  const router = useRouter();
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [contactOpen, setContactOpen] = useState(false);
   const [expandedSection, setExpandedSection] = useState<string | null>(null);
   const [searchOpen, setSearchOpen] = useState(false);
   const [allContent, setAllContent] = useState<AllContentData | null>(null);
@@ -176,6 +179,14 @@ export function Header() {
     };
   }, []);
 
+  const handleOpenContact = () => {
+    const searchParams = new URLSearchParams(
+      typeof window === "undefined" ? "" : window.location.search,
+    );
+    markContactModalOpenedFromUi();
+    router.push(buildContactModalOpenUrl(pathname, searchParams));
+  };
+
   return (
     <>
       <header
@@ -241,9 +252,7 @@ export function Header() {
                 />
               ) : null}
             </div>
-            <PrimaryButton onClick={() => setContactOpen(true)}>
-              Contact Us
-            </PrimaryButton>
+            <PrimaryButton onClick={handleOpenContact}>Contact Us</PrimaryButton>
           </div>
 
           <button
@@ -323,7 +332,7 @@ export function Header() {
                 className="w-full justify-center"
                 onClick={() => {
                   setMobileOpen(false);
-                  setContactOpen(true);
+                  handleOpenContact();
                 }}
               >
                 Contact Us
@@ -332,8 +341,6 @@ export function Header() {
           </div>
         </div>
       </header>
-
-      <ContactModal isOpen={contactOpen} onClose={() => setContactOpen(false)} />
 
       {/* Mobile Search Modal */}
       {searchOpen && (

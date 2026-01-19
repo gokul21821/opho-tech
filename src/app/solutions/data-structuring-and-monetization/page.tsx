@@ -2,18 +2,16 @@
 
 // app/solutions/data-structuring-and-monetization/page.tsx
 import Image from "next/image";
-import Link from "next/link";
-import { Fragment, useState } from "react";
+import { Fragment } from "react";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { HeroSection } from "@/components/ui/HeroSection";
-import { ContactModal } from "@/components/forms/ContactModal";
-import { PrimaryButton } from "@/components/ui/Button";
 import BackgroundDots from "@/components/ui/background";
+import { IconCardsSection } from "@/components/ui/IconCardsSection";
+import { SolutionsNavigationSection } from "@/components/ui/SolutionsNavigationSection";
+import { SolutionsIntroSection } from "@/components/ui/SolutionsIntroSection";
 
 export default function DataMonetizationPage() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
   return (
     <div className="flex min-h-screen flex-col bg-white text-[#0B1B2B]">
       <Header />
@@ -32,122 +30,50 @@ export default function DataMonetizationPage() {
       <main className="bg-white text-[#0B1B2B]">
 
       {/* Intro split */}
-      <section className="mx-auto max-w-7xl px-[5%] py-20">
-  <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-center gap-12">
+      <SolutionsIntroSection
+        imageSrc="/images/data-monetize/data.png"
+        imageAlt="Data monetization illustration"
+        copy={
+          <>
+            <p className="font-semibold">
+              As a business leader, you know your data is a critical asset. Data
+              Monetization is the strategy to unlock its financial potential,
+              shifting it from a cost center to a profit generator.
+            </p>
 
-    {/* LEFT — Illustration */}
-    <div className="flex justify-center md:justify-start">
-      <Image
-        src="/images/data-monetize/data.png"
-        alt="Data monetization illustration"
-        width={520}
-        height={380}
-        className="h-auto w-[320px] sm:w-[380px] md:w-[420px] rounded-xl "
-        priority
+            <p className="mt-4">
+              We help executives convert complex data infrastructure into clear,
+              measurable business returns. This is not just a technology
+              project; it is a fundamental shift in how your company creates
+              value and secures a competitive edge.
+            </p>
+          </>
+        }
+        techStack={[
+          {
+            src: "/images/tech-stack-logos/kafka.svg",
+            alt: "Kafka logo",
+          },
+          {
+            src: "/images/tech-stack-logos/spark.svg",
+            alt: "Spark logo",
+          },
+          { src: "/images/tech-stack-logos/tensorflow.svg", alt: "TensorFlow logo" },
+          { src: "/images/tech-stack-logos/mongodb.svg", alt: "MongoDB logo" },
+          {
+            src: "/images/tech-stack-logos/postgresql.svg",
+            alt: "PostgreSQL logo",
+          },
+          {
+            src: "/images/tech-stack-logos/azure.svg",
+            alt: "Azure logo",
+          },
+          {
+            src: "/images/tech-stack-logos/sql.svg",
+            alt: "sql logo",
+          },
+        ]}
       />
-    </div>
-
-    {/* CENTER — Vertical Divider */}
-    <div className="flex justify-center">
-    <Image
-                      src="/images/raar/lineraar.svg"
-                      alt=""
-                      width={2}
-                      height={320}
-                      className="w-auto h-auto"
-                      aria-hidden
-                    />
-    </div>
-
-    {/* RIGHT — Text Block */}
-    <div className="flex flex-col justify-center ml-25 text-[15.5px] text-[#3A4A5F] max-w-md">
-
-      <p className="font-semibold">
-        As a business leader, you know your data is a critical asset.
-        Data Monetization is the strategy to unlock its financial potential,
-        shifting it from a cost center to a profit generator.
-      </p>
-
-      <p className="mt-4">
-        We help executives convert complex data infrastructure into clear,
-        measurable business returns. This is not just a technology project; it
-        is a fundamental shift in how your company creates value and secures a
-        competitive edge.
-      </p>
-
-      <div className="mt-8">
-    <h2 className="text-[24px] font-bold text-[#0B1B2B]">Our Tech Stack</h2>
-    <div className="flex flex-wrap gap-4">
-      <div className="w-15 h-12 flex items-center justify-center">
-        <Image
-          src="/images/tech-stack-logos/kafka.svg"
-          alt="Kafka logo"
-          width={48}
-          height={48}
-          className="w-full h-full object-contain"
-        />
-      </div>
-      <div className="w-15 h-12 flex items-center justify-center">
-        <Image
-          src="/images/tech-stack-logos/spark.svg"
-          alt="Spark logo"
-          width={48}
-          height={48}
-          className="w-full h-full object-contain"
-        />
-      </div>
-      <div className="w-20 h-12 flex items-center justify-center">
-        <Image
-          src="/images/tech-stack-logos/tensorflow.svg"
-          alt="TensorFlow logo"
-          width={48}
-          height={48}
-          className="w-full h-full object-contain"
-        />
-      </div>
-      <div className="w-20 h-12 flex items-center justify-center">
-        <Image
-          src="/images/tech-stack-logos/mongodb.svg"
-          alt="MongoDB logo"
-          width={48}
-          height={48}
-          className="w-full h-full object-contain"
-        />
-      </div>
-      <div className="w-28 h-12 flex items-center justify-center">
-        <Image
-          src="/images/tech-stack-logos/postgresql.svg"
-          alt="PostgreSQL logo"
-          width={48}
-          height={48}
-          className="w-full h-full object-contain"
-        />
-      </div>
-      <div className="w-10 h-12 flex items-center justify-center">
-        <Image
-          src="/images/tech-stack-logos/azure.svg"
-          alt="Azure logo"
-          width={48}
-          height={48}
-          className="w-full h-full object-contain"
-        />
-      </div>
-      <div className="w-15 h-12 flex items-center justify-center">
-        <Image
-          src="/images/tech-stack-logos/sql.svg"
-          alt="sql logo"
-          width={48}
-          height={48}
-          className="w-full h-full object-contain"
-        />
-      </div>
-    </div>
-  </div>
-
-    </div>
-
-  </div>
-</section>
 
 
       {/* How Data Monetization Works Section */}
@@ -165,7 +91,7 @@ export default function DataMonetizationPage() {
           <div className="flex flex-col gap-8 items-center">
             {/* Main Heading */}
             <div className="flex flex-col gap-8 items-center w-full">
-              <h2 className="text-center text-[38px] font-medium leading-[48px] text-[#111111]">
+              <h2 className="text-center text-4xl font-medium text-[#111111]">
                 How Data Monetization Works
               </h2>
               
@@ -404,66 +330,23 @@ export default function DataMonetizationPage() {
         </section>
       </BackgroundDots>
 
-      {/* Derived Value */}
-      <section className="mx-auto max-w-7xl px-[5%] py-16">
-        <h2 className="text-center text-4xl font-bold  text-[#0B1B2B]">
-          Advantages
-        </h2>
-
-        <div className="mt-10 flex flex-col gap-8 lg:flex-row lg:items-stretch lg:justify-center lg:gap-6">
-          {[
-            {
-              title: "New Data‑Driven Revenue Streams",
-              text: "",
-              icon: "/images/icons/search-notes.svg",
-            },
-            {
-              title: "Operational Efficiency And Cost Reduction",
-              text: "",
-              icon: "/images/icons/settings-money.svg",
-            },
-            {
-              title: "Improved Customer Loyalty And Retention",
-              text: "",
-              icon: "/images/icons/monitor.svg",
-            },
-          ].map((item, index, array) => (
-            <Fragment key={item.title}>
-              <article className="flex-1 rounded-[20px] px-6 py-10 text-center card-text-smaller">
-                <div className="mx-auto mb-4 grid h-20 w-20 place-items-center rounded-full bg-[#FFE6D5] ">
-                  <Image
-                    src={item.icon}
-                    alt={`${item.title} icon`}
-                    width={40}
-                    height={40}
-                    className="h-10 w-10"
-                  />
-                </div>
-                <p className="text-[16px] font-medium leading-[24px] text-black">
-                  {item.title}
-                </p>
-                <p className="mt-3 text-sm leading-[22px] text-[#3A4A5F]">
-                  {item.text}
-                </p>
-              </article>
-
-              {index < array.length - 1 && (
-                <div className="hidden items-center lg:flex">
-                  <Image
-                      src="/images/raar/lineraar.svg"
-                      alt=""
-                      width={2}
-                      height={200}
-                      className="w-auto h-[200px]"
-                      aria-hidden
-                    />
-                </div>
-              )}
-            </Fragment>
-          ))}
-        </div>
-
-      </section>
+      <IconCardsSection
+        title="Advantages"
+        items={[
+          {
+            title: "New Data‑Driven Revenue Streams",
+            icon: "/images/icons/search-notes.svg",
+          },
+          {
+            title: "Operational Efficiency And Cost Reduction",
+            icon: "/images/icons/settings-money.svg",
+          },
+          {
+            title: "Improved Customer Loyalty And Retention",
+            icon: "/images/icons/monitor.svg",
+          },
+        ]}
+      />
 
      {/* Data Monetization – Goal */}
      <BackgroundDots
@@ -491,7 +374,7 @@ export default function DataMonetizationPage() {
   <div className="grid md:grid-cols-2 items-center gap-10">
     {/* Left: Text */}
     <div>
-      <h2 className=" text-4xl font-bold text-[#0B1B2B] ">
+      <h2 className=" text-4xl font-medium text-[#0B1B2B] ">
         Data Monetization – Goal
       </h2>
       <p className="mt-5 text-lg text-[#3A4A5F]">
@@ -528,43 +411,17 @@ export default function DataMonetizationPage() {
      </div>
 
       {/* Navigation */}
-      <section className="mx-auto max-w-7xl px-20 py-16">
-        <div className="mb-6">
-          <Link
-            href="/solutions/research-and-analysis"
-            className="inline-flex items-center gap-2 font-poppins text-sm font-medium text-orange-500 transition-colors hover:text-orange-600"
-          >
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 16 16"
-              fill="none"
-              className="size-4"
-            >
-              <path
-                d="M13 8H3M3 8L7 12M3 8L7 4"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-            <span>Previous</span>
-          </Link>
-        </div>
-        <h2 className="text-center text-2xl font-semibold text-[#0B1B2B]">Discover Next Step of Your AI Journey</h2>
-        <div className="mt-8 flex justify-center">
-          <Link href="/solutions/cloud-integration">
-            <PrimaryButton>
-              Cloud Integration & Architecture
-            </PrimaryButton>
-          </Link>
-        </div>
-      </section>
+      <SolutionsNavigationSection
+        previousHref="/solutions/research-and-analysis"
+        title="Discover Next Step of Your AI Journey"
+        cta={{
+          href: "/solutions/cloud-integration",
+          label: "Cloud Integration & Architecture",
+        }}
+      />
     </main>
 
     <Footer />
-    <ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
   </div>
   );
 }

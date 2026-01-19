@@ -4,15 +4,13 @@ import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { HeroSection } from "@/components/ui/HeroSection";
 import Image from "next/image";
-import Link from "next/link";
-import { Fragment, useState } from "react";
-import { ContactModal } from "@/components/forms/ContactModal";
-import { PrimaryButton } from "@/components/ui/Button";
+import { Fragment } from "react";
 import BackgroundDots from "@/components/ui/background";
+import { IconCardsSection } from "@/components/ui/IconCardsSection";
+import { SolutionsNavigationSection } from "@/components/ui/SolutionsNavigationSection";
+import { SolutionsIntroSection } from "@/components/ui/SolutionsIntroSection";
 
 export default function AISolutionsAndServices() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
   return (
     <div className="flex min-h-screen flex-col bg-white text-gray-900">
       <Header />
@@ -31,201 +29,94 @@ export default function AISolutionsAndServices() {
       <main className="bg-white text-[#0B1B2B]">
 
         {/* Overview Section */}
-        <section className="mx-auto max-w-7xl px-[5%] py-20">
-          <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-center gap-12">
-
-            {/* LEFT — Illustration */}
-            <div className="flex justify-center md:justify-start">
-              <Image
-                src="/images/ai_solutions/ai-image.png"
-                alt="AI and Machine Learning illustration"
-                width={520}
-                height={360}
-                className="h-auto w-[320px] sm:w-[380px] md:w-[460px] rounded-xl"
-                priority
-              />
-            </div>
-
-            {/* CENTER — Vertical Divider */}
-            <div className="flex justify-center">
-            <Image
-                      src="/images/raar/lineraar.svg"
-                      alt=""
-                      width={2}
-                      height={320}
-                      className="w-auto h-auto"
-                      aria-hidden
-                    />
-            </div>
-
-            {/* RIGHT — Text */}
-            <div className="text-sm text-gray-600 flex flex-col justify-center max-w-md">
-
+        <SolutionsIntroSection
+          imageSrc="/images/ai_solutions/ai-image.png"
+          imageAlt="AI and Machine Learning illustration"
+          copy={
+            <>
               <p className="mb-6">
-                AI and Machine Learning are no longer futuristic concepts; they are the tools driving present-day <strong>competitive differentiation and operational scalability.</strong> We move beyond pilot programs to integrate AI that delivers measurable ROI on your existing data and cloud investments.
+                AI and Machine Learning are no longer futuristic concepts; they
+                are the tools driving present-day{" "}
+                <strong>
+                  competitive differentiation and operational scalability.
+                </strong>{" "}
+                We move beyond pilot programs to integrate AI that delivers
+                measurable ROI on your existing data and cloud investments.
               </p>
 
               <p>
-                <strong>For Businesses,</strong> we focus on developing robust, scalable, and ethical AI models that are deployed seamlessly into production, driving real-time decisions and business value.
+                <strong>For Businesses,</strong> we focus on developing robust,
+                scalable, and ethical AI models that are deployed seamlessly
+                into production, driving real-time decisions and business value.
               </p>
-
-              <div className="mt-8">
-    <h2 className="text-[24px] font-bold text-[#0B1B2B]">Our Tech Stack</h2>
-    <div className="flex flex-wrap gap-4">
-      <div className="w-15 h-12 flex items-center justify-center">
-        <Image
-          src="/images/tech-stack-logos/octoml.svg"
-          alt="OctoML logo"
-          width={48}
-          height={48}
-          className="w-full h-full object-contain"
+            </>
+          }
+          techStack={[
+            {
+              src: "/images/tech-stack-logos/octoml.svg",
+              alt: "OctoML logo",
+            },
+            {
+              src: "/images/tech-stack-logos/hugging-face.svg",
+              alt: "Hugging Face logo",
+            },
+            {
+              src: "/images/tech-stack-logos/openai.svg",
+              alt: "OpenAI logo",
+            },
+            { src: "/images/tech-stack-logos/mistral-ai.svg", alt: "Mistral AI logo" },
+            {
+              src: "/images/tech-stack-logos/google-ai-studio.svg",
+              alt: "google AI Studio logo",
+            },
+            {
+              src: "/images/tech-stack-logos/amazon-bedrock.svg",
+              alt: "amazon bedrock logo",
+            },
+            {
+              src: "/images/tech-stack-logos/azure-ai-studio.svg",
+              alt: "Azure AI Studio logo",
+            },
+          ]}
         />
-      </div>
-      <div className="w-10 h-12 flex items-center justify-center">
-        <Image
-          src="/images/tech-stack-logos/hugging-face.svg"
-          alt="Hugging Face logo"
-          width={48}
-          height={48}
-          className="w-full h-full object-contain"
-        />
-      </div>
-      <div className="w-10 h-12 flex items-center justify-center">
-        <Image
-          src="/images/tech-stack-logos/openai.svg"
-          alt="OpenAI logo"
-          width={48}
-          height={48}
-          className="w-full h-full object-contain"
-        />
-      </div>
-      <div className="w-20 h-12 flex items-center justify-center">
-        <Image
-          src="/images/tech-stack-logos/mistral-ai.svg"
-          alt="Mistral AI logo"
-          width={48}
-          height={48}
-          className="w-full h-full object-contain"
-        />
-      </div>
-      <div className="w-10 h-12 flex items-center justify-center">
-        <Image
-          src="/images/tech-stack-logos/google-ai-studio.svg"
-          alt="google AI Studio logo"
-          width={48}
-          height={48}
-          className="w-full h-full object-contain"
-        />
-      </div>
-      <div className="w-20 h-12 flex items-center justify-center">
-        <Image
-          src="/images/tech-stack-logos/amazon-bedrock.svg"
-          alt="amazon bedrock logo"
-          width={48}
-          height={48}
-          className="w-full h-full object-contain"
-        />
-      </div>
-      <div className="w-17 h-12 flex items-center justify-center">
-        <Image
-          src="/images/tech-stack-logos/azure-ai-studio.svg"
-          alt="Azure AI Studio logo"
-          width={48}
-          height={48}
-          className="w-full h-full object-contain"
-        />
-      </div>
-   
-    </div>
-  </div>
-
-            </div>
-
-          </div>
-        </section>
 
 
- {/* AI Enablement - How You Lead */}
- <BackgroundDots
-          className="py-16"
-          spacing={36}
-          dotSize={2.5}
-          backgroundColor=""
-          dotColor="#D9D9D9"
-          style={{
-            background: "linear-gradient(to bottom, #ffffff 38.524%, #feecd6 171.52%)",
+        <IconCardsSection
+          title="AI Enablement - Advantages"
+          items={[
+            {
+              title: "Enterprise-Ready AI With Measurable ROI",
+              icon: "/images/icons/monitor-rocket.svg",
+            },
+            {
+              title: "Predictive Analytics And Process Automation",
+              icon: "/images/icons/search-bulb.svg",
+            },
+            {
+              title: "Personalized Customer Engagement",
+              icon: "/images/icons/shield.svg",
+            },
+            {
+              title: "Ethical And Compliant AI Governance",
+              icon: "/images/icons/settings-load.svg",
+            },
+            {
+              title: "Continuous Monitoring And Model Optimization",
+              icon: "/images/icons/settings-phone.svg",
+            },
+          ]}
+          withBackgroundDots
+          backgroundDotsProps={{
+            spacing: 36,
+            dotSize: 2.5,
+            backgroundColor: "",
+            dotColor: "#D9D9D9",
+            style: {
+              background:
+                "linear-gradient(to bottom, #ffffff 38.524%, #feecd6 171.52%)",
+            },
           }}
-        >
- <section className="mx-auto max-w-7xl px-[5%]">
-          <h2 className="text-center text-[32px] font-medium leading-[48px] text-[#0B1B2B]">
-            AI Enablement - Advantages
-          </h2>
-
-          <div className="mt-10 flex flex-col gap-8 lg:flex-row lg:items-stretch lg:justify-center lg:gap-6">
-            {[
-              {
-                title: "Enterprise-Ready AI With Measurable ROI",
-                text: "",
-                icon: "/images/icons/monitor-rocket.svg",
-              },
-              {
-                title: "Predictive Analytics And Process Automation",
-                text: "",
-                icon: "/images/icons/search-bulb.svg",
-              },
-              {
-                title: "Personalized Customer Engagement",
-                text: "",
-                icon: "/images/icons/shield.svg",
-              },
-              {
-                title: "Ethical And Compliant AI Governance",
-                text: "",
-                icon: "/images/icons/settings-load.svg",
-              },
-              {
-                title: "Continuous Monitoring And Model Optimization",
-                text: "",
-                icon: "/images/icons/settings-phone.svg",
-              },
-            ].map((item, index, array) => (
-              <Fragment key={item.title}>
-                <article className="flex-1 rounded-[20px] px-6 py-10 text-center card-text-smaller">
-                  <div className="mx-auto mb-4 grid h-20 w-20 place-items-center rounded-full bg-[#FFE6D5] ">
-                    <Image
-                      src={item.icon}
-                      alt={`${item.title} icon`}
-                      width={40}
-                      height={40}
-                      className="h-10 w-10"
-                    />
-                  </div>
-                  <p className="text-[16px] font-medium leading-[24px] text-black">
-                    {item.title}
-                  </p>
-                  <p className="mt-3 text-sm leading-[22px] text-[#3A4A5F]">
-                    {item.text}
-                  </p>
-                </article>
-
-                {index < array.length - 1 && (
-                  <div className="hidden items-center lg:flex">
-                    <Image
-                      src="/images/raar/lineraar.svg"
-                    alt=""
-                    width={2}
-                    height={320}
-                    className="w-auto h-[325px]"
-                    aria-hidden
-                  />
-                  </div>
-                )}
-              </Fragment>
-            ))}
-          </div>
-
-        </section>
-        </BackgroundDots>
+        />
 
         {/* AI Solutions & Services Section */}
           <section className="max-w-7xl mx-auto px-[5%] py-16">
@@ -422,43 +313,14 @@ export default function AISolutionsAndServices() {
 
 
         {/* Navigation */}
-        <section className="mx-auto max-w-7xl px-20 py-16">
-          <div className="mb-6">
-            <Link
-              href="/solutions/cloud-integration"
-              className="inline-flex items-center gap-2 font-poppins text-sm font-medium text-orange-500 transition-colors hover:text-orange-600"
-            >
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 16 16"
-                fill="none"
-                className="size-4"
-              >
-                <path
-                  d="M13 8H3M3 8L7 12M3 8L7 4"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-              <span>Previous</span>
-            </Link>
-          </div>
-          <h2 className="text-center text-2xl font-semibold text-[#0B1B2B]">Discover Next Step of Your AI Journey</h2>
-          <div className="mt-8 flex justify-center">
-            <Link href="/solutions/ai-agent-development">
-              <PrimaryButton>
-                AI Agent Development
-              </PrimaryButton>
-            </Link>
-          </div>
-        </section>
+        <SolutionsNavigationSection
+          previousHref="/solutions/cloud-integration"
+          title="Discover Next Step of Your AI Journey"
+          cta={{ href: "/solutions/ai-agent-development", label: "AI Agent Development" }}
+        />
       </main>
 
       <Footer />
-      <ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </div>
   );
 }

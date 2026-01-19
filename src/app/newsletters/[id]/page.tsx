@@ -7,7 +7,7 @@ import { RichTextRenderer } from "@/components/Common/RichTextRenderer";
 import { ContentDetailHeroSection } from "@/components/ui/ContentDetailHeroSection";
 import { SocialShareCard } from "@/components/ui/SocialShareCard";
 import { RecentContentCard } from "@/components/ui/RecentContentCard";
-import { PageCTASection } from "@/components/ui/PageCTASection";
+import { CTASection } from "@/components/sections/CTASection";
 import { Metadata } from "next";
 
 export async function generateMetadata({
@@ -136,7 +136,7 @@ export default async function NewsletterDetailPage({
           aria-hidden
         />
       </div>
-      <PageCTASection />
+      <CTASection variant="ready" />
       <Footer />
     </>
   );
