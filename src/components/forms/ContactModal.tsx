@@ -83,6 +83,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
     if (!isOpen) {
       didAttemptAutoFillRef.current = false;
       setIsDetectingLocation(false);
+      setDetectedPhoneCountry(undefined);
       return;
     }
 
@@ -126,10 +127,10 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
         const countryCode = normalizeIso2(data.countryCode);
         if (!countryCode) return;
 
-        // Phone: auto-fill the *dialing* country only if phone is still empty.
-        if (!formDataRef.current.phone) {
-          setDetectedPhoneCountry(toPhoneIso2(countryCode));
-        }
+        // Phone: always set the detected dialing country. (The input is controlled; gating on
+        // `formData.phone` can incorrectly keep the initial US selection if the component
+        // prefills/normalizes early.)
+        setDetectedPhoneCountry(toPhoneIso2(countryCode));
 
         // Dropdown: auto-fill only if still empty AND the detected country is supported by COUNTRIES.
         if (!formDataRef.current.country) {
@@ -377,7 +378,6 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                         onChange={(val) => setFormData(prev => ({ ...prev, phone: val }))}
                         defaultCountry={detectedPhoneCountry}
                         disabled={isDetectingLocation && !formData.phone}
-                        key={`phone-${detectedPhoneCountry ?? 'us'}`}
                       />
                     </div>
                   </div>

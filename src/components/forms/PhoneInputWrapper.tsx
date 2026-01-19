@@ -23,6 +23,8 @@ export const PhoneInputWrapper = ({
   defaultCountry,
   disabled = false,
 }: PhoneInputWrapperProps) => {
+  const normalizedCountry = normalizeDefaultCountry(defaultCountry);
+
   return (
     <div className="flex flex-col gap-1">
       <label
@@ -32,7 +34,13 @@ export const PhoneInputWrapper = ({
         Phone Number
       </label>
       <PhoneInput
-        defaultCountry={normalizeDefaultCountry(defaultCountry)}
+        // `defaultCountry` is only read on mount. Force remount when it changes.
+        key={`phone-${normalizedCountry}`}
+        defaultCountry={normalizedCountry}
+        // Ensure the dial code is visible for the selected country even when the input value is empty.
+        // Also avoid "prefilling" the dial code into the controlled value before detection finishes.
+        forceDialCode={true}
+        disableDialCodePrefill={true}
         value={value}
         onChange={(val) => onChange(val || '')}
         disabled={disabled}
