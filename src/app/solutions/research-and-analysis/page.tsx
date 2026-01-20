@@ -79,7 +79,7 @@ export default function RAARPage() {
     {
       title: "Research",
       text:
-        "Pulls data from vendor contracts, licensing records, usage logs, cost reports, and integration documentation. Cleans, standardizes and validates data for analysis.",
+        "Pulls data from vendor contracts, licensing records, usage logs, cost reports, and integration documentation. Cleans, standardizes and validates data for analysis.",
     },
     {
       title: "Analysis",
@@ -99,7 +99,7 @@ export default function RAARPage() {
   ].map((item) => (
     <div key={item.title} className="h-full">
       <div
-        className="h-full min-w-[220px] md:min-w-[220px] lg:min-w-[230px] xl:min-w-[250px] rounded-2xl border border-[#fcd5ac] bg-white/30 p-5 flex flex-col gap-4 items-start card-text-smaller"
+        className="h-full min-w-[220px] md:min-w-[220px] lg:min-w-[200px] xl:min-w-[250px] rounded-2xl border border-[#fcd5ac] bg-white/30 p-5 flex flex-col gap-4 items-start card-text-smaller"
       >
 
         <h3 className="text-[24px] font-medium leading-[26px] text-[#111111] capitalize">
