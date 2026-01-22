@@ -42,7 +42,7 @@ export default function Careers() {
           <section className="relative px-6 py-5">
             {/* Header */}
             <div className="max-w-5xl mx-auto text-center">
-              <h2 className="text-4xl  font-medium tracking-tight text-neutral-900">
+              <h2 className="text-2xl md:text-4xl font-medium tracking-tight text-neutral-900">
                 Join our Team
               </h2>
               <p className="mt-4 text-base md:text-lg text-neutral-600 max-w-3xl mx-auto">
@@ -52,16 +52,18 @@ export default function Careers() {
             </div>
 
             {/* Two columns with SVG center line */}
-            <div className="relative mt-16 max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-10 md:gap-16 items-start">
+            <div className="relative mt-16 max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-10 md:gap-16 items-stretch">
               {/* Left column */}
-              <div className="flex flex-col items-center text-center">
-                <span className="inline-flex items-center justify-center rounded-lg border border-orange-500 px-4 py-1.5 text-base font-semibold text-orange-400 shadow-[inset_0_1px_0_rgba(255,255,255,0.6)]">
-                  Senior Level
-                </span>
-                <h2 className="mt-4 text-3xl font-medium tracking-tight text-neutral-900">
+              <div className="flex flex-col items-center text-center h-full">
+                <div className="h-[60px] flex items-start justify-center">
+                  <span className="inline-flex items-center justify-center rounded-lg border border-orange-500 px-4 py-1.5 text-base font-semibold text-orange-400 shadow-[inset_0_1px_0_rgba(255,255,255,0.6)]">
+                    Senior Level
+                  </span>
+                </div>
+                <h2 className="mt-4 text-3xl font-medium tracking-tight text-neutral-900 h-[80px] flex items-start justify-center">
                   Business Development Manager
                 </h2>
-                <p className="mt-3 mb-10 max-w-md text-neutral-600 leading-relaxed">
+                <p className="mt-3 mb-10 max-w-md text-neutral-600 leading-relaxed flex-1">
                 To drive requirement analysis, solution scoping, and business growth for our software development, IT services, and Generative AI solutions
                 </p>
                 <PrimaryButton onClick={() => window.open('https://forms.gle/1ofoSTv4a54iktecA', '_blank')}>
@@ -82,19 +84,21 @@ export default function Careers() {
               </div>
 
               {/* Right column */}
-              <div className="flex flex-col items-center text-center">
-                <span className="inline-flex items-center justify-center rounded-lg border border-orange-500 px-4 py-1.5 text-base font-semibold text-orange-400 shadow-[inset_0_1px_0_rgba(255,255,255,0.6)]">
-                  Mid Level
-                </span>
-                <h2 className="mt-10 text-3xl font-medium tracking-tight text-neutral-900">
+              <div className="flex flex-col items-center text-center h-full">
+                <div className="h-[60px] flex items-start justify-center">
+                  <span className="inline-flex items-center justify-center rounded-lg border border-orange-500 px-4 py-1.5 text-base font-semibold text-orange-400 shadow-[inset_0_1px_0_rgba(255,255,255,0.6)]">
+                    Mid Level
+                  </span>
+                </div>
+                <h2 className="mt-4 text-3xl font-medium tracking-tight text-neutral-900 h-[80px] flex items-start justify-center">
                   Data Engineer
-                </h2 >
-                <p className="mt-10 mb-10 max-w-md text-neutral-600 leading-relaxed">
+                </h2>
+                <p className="mt-3 mb-10 max-w-md text-neutral-600 leading-relaxed flex-1">
                   Can build predictive models, AI tools, and automation systems.
                 </p>
                 <PrimaryButton onClick={() => window.open('https://forms.gle/1ofoSTv4a54iktecA', '_blank')}>
-            Apply Now
-          </PrimaryButton>
+                  Apply Now
+                </PrimaryButton>
               </div>
             </div>
           </section>
@@ -151,7 +155,7 @@ export default function Careers() {
           <section className="flex flex-col gap-10 items-center px-20 py-20 max-w-7xl mx-auto text-center">
             {/* Header */}
             <div className="flex flex-col gap-5 items-center">
-              <h2 className="text-[38px] font-medium leading-[48px] text-[#111111]">
+              <h2 className="text-2xl md:text-4xl font-medium leading-[48px] text-[#111111]">
                 Life at OphoTech
               </h2>
               <p className="text-[18px] leading-normal text-[#454545] max-w-[860px]">

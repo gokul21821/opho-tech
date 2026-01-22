@@ -9,7 +9,9 @@ import BackgroundDots from "@/components/ui/background";
 import { CTASection } from "@/components/sections/CTASection";
 
 export default async function BlogsPage() {
-  const blogs = await fetchContentList("blogs");
+  const blogs = await fetchContentList("blogs", {
+    revalidate: 1800, // Cache for 30 minutes - blogs update frequently
+  });
 
   return (
     <>

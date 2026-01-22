@@ -42,7 +42,7 @@ export default function TermsOfService() {
           <div className="space-y-10">
             {/* Section 1 */}
             <div>
-              <h2 className="text-xl font-semibold text-[#0B1B2B]">
+              <h2 className="text-2xl font-medium text-[#0B1B2B]">
                 1. User&apos;s Acknowledgment and Acceptance of Terms
               </h2>
               <div className="mt-3 space-y-3 text-[15px] leading-relaxed text-[#3A4A5F]">
@@ -66,7 +66,7 @@ export default function TermsOfService() {
 
             {/* Section 2 */}
             <div>
-              <h2 className="text-xl font-semibold text-[#0B1B2B]">
+              <h2 className="text-2xl font-medium text-[#0B1B2B]">
                 2. Description of Services
               </h2>
               <div className="mt-3 space-y-3 text-[15px] leading-relaxed text-[#3A4A5F]">
@@ -85,7 +85,7 @@ export default function TermsOfService() {
 
             {/* Section 3 */}
             <div>
-              <h2 className="text-xl font-semibold text-[#0B1B2B]">
+              <h2 className="text-2xl font-medium text-[#0B1B2B]">
                 3. Registration Data and Privacy
               </h2>
               <div className="mt-3 space-y-3 text-[15px] leading-relaxed text-[#3A4A5F]">
@@ -101,7 +101,7 @@ export default function TermsOfService() {
 
             {/* Section 4 */}
             <div>
-              <h2 className="text-xl font-semibold text-[#0B1B2B]">4. Use of Logo</h2>
+              <h2 className="text-2xl font-medium text-[#0B1B2B]">4. Use of Logo</h2>
               <div className="mt-3 space-y-3 text-[15px] leading-relaxed text-[#3A4A5F]">
                 <p className="mb-0">
                   Client authorizes OphoTech to use its name, logo, and/or trademark in OphoTech marketing materials (e.g., website, non-public brochures) in accordance with brand guidelines or accepted standards of decency.
@@ -115,7 +115,7 @@ export default function TermsOfService() {
 
             {/* Section 5 */}
             <div>
-              <h2 className="text-xl font-semibold text-[#0B1B2B]">
+              <h2 className="text-2xl font-medium text-[#0B1B2B]">
                 5. Data Processing Agreement
               </h2>
               <div className="mt-3 space-y-3 text-[15px] leading-relaxed text-[#3A4A5F]">
@@ -131,7 +131,7 @@ export default function TermsOfService() {
 
             {/* Section 6 */}
             <div>
-              <h2 className="text-xl font-semibold text-[#0B1B2B]">
+              <h2 className="text-2xl font-medium text-[#0B1B2B]">
                 6. Conduct on Site
               </h2>
               <div className="mt-3 space-y-3 text-[15px] leading-relaxed text-[#3A4A5F]">
@@ -150,7 +150,7 @@ export default function TermsOfService() {
 
             {/* Section 7 */}
             <div>
-              <h2 className="text-xl font-semibold text-[#0B1B2B]">
+              <h2 className="text-2xl font-medium text-[#0B1B2B]">
                 7. Third Party Sites and Information
               </h2>
               <p className="mt-3 text-[15px] leading-relaxed text-[#3A4A5F]">
@@ -161,7 +161,7 @@ export default function TermsOfService() {
 
             {/* Section 8 */}
             <div>
-              <h2 className="text-xl font-semibold text-[#0B1B2B]">
+              <h2 className="text-2xl font-medium text-[#0B1B2B]">
                 8. Intellectual Property Information
               </h2>
               <p className="mt-3 text-[18px] font-medium text-[#3A4A5F]">
@@ -183,7 +183,7 @@ export default function TermsOfService() {
 
             {/* Section 9 */}
             <div>
-              <h2 className="text-xl font-semibold text-[#0B1B2B]">
+              <h2 className="text-2xl font-medium text-[#0B1B2B]">
                 9. Disclaimer of Warranties
               </h2>
               <p className="mt-3 text-[15px] font-medium text-[#111111]">
@@ -202,7 +202,7 @@ export default function TermsOfService() {
 
             {/* Section 10 */}
             <div>
-              <h2 className="text-xl font-semibold text-[#0B1B2B]">
+              <h2 className="text-2xl font-medium text-[#0B1B2B]">
                 10. Limitation of Liability
               </h2>
               <p className="mt-3 text-[15px] font-medium text-[#111111]">
@@ -216,7 +216,7 @@ export default function TermsOfService() {
 
             {/* Section 11 */}
             <div>
-              <h2 className="text-xl font-semibold text-[#0B1B2B]">
+              <h2 className="text-2xl font-medium text-[#0B1B2B]">
                 11. Non-Disparagement
               </h2>
               <p className="mt-3 text-[15px] leading-relaxed text-[#3A4A5F]">
@@ -227,7 +227,7 @@ export default function TermsOfService() {
 
             {/* Section 12 */}
             <div>
-              <h2 className="text-xl font-semibold text-[#0B1B2B]">12. Indemnification</h2>
+              <h2 className="text-2xl font-medium text-[#0B1B2B]">12. Indemnification</h2>
               <p className="mt-3 text-[15px] leading-relaxed text-[#3A4A5F]">
                 You agree to defend, indemnify, and hold harmless OphoTech, its affiliates, officers, employees, agents, licensors, and suppliers from all liabilities, claims, and expenses (including legal fees) arising from your misuse of the Site or Services.
               </p>
@@ -236,7 +236,7 @@ export default function TermsOfService() {
 
             {/* Section 13 */}
             <div>
-              <h2 className="text-xl font-semibold text-[#0B1B2B]">
+              <h2 className="text-2xl font-medium text-[#0B1B2B]">
                 13. Security and Password
               </h2>
               <div className="mt-3 space-y-3 text-[15px] leading-relaxed text-[#3A4A5F]">
@@ -255,7 +255,7 @@ export default function TermsOfService() {
 
             {/* Section 14 */}
             <div>
-              <h2 className="text-xl font-semibold text-[#0B1B2B]">
+              <h2 className="text-2xl font-medium text-[#0B1B2B]">
                 14. Participation in Promotions
               </h2>
               <p className="mt-3 text-[15px] leading-relaxed text-[#3A4A5F]">
@@ -266,7 +266,7 @@ export default function TermsOfService() {
 
             {/* Section 15 */}
             <div>
-              <h2 className="text-xl font-semibold text-[#0B1B2B]">
+              <h2 className="text-2xl font-medium text-[#0B1B2B]">
                 15. Termination of Use
               </h2>
               <div className="mt-3 space-y-3 text-[15px] leading-relaxed text-[#3A4A5F]">
@@ -282,7 +282,7 @@ export default function TermsOfService() {
 
             {/* Section 16 */}
             <div>
-              <h2 className="text-xl font-semibold text-[#0B1B2B]">16. API & Data Usage</h2>
+              <h2 className="text-2xl font-medium text-[#0B1B2B]">16. API & Data Usage</h2>
               <p className="mt-3 text-[24px] font-medium text-[#111111]">
                 You may not:
               </p>
@@ -298,7 +298,7 @@ export default function TermsOfService() {
 
             {/* Section 17 */}
             <div>
-              <h2 className="text-xl font-semibold text-[#0B1B2B]">
+              <h2 className="text-2xl font-medium text-[#0B1B2B]">
                 17. Free Account Limitations
               </h2>
               <p className="mt-3 text-[15px] leading-relaxed text-[#3A4A5F]">
@@ -309,7 +309,7 @@ export default function TermsOfService() {
 
             {/* Section 18 */}
             <div>
-              <h2 className="text-xl font-semibold text-[#0B1B2B]">
+              <h2 className="text-2xl font-medium text-[#0B1B2B]">
                 18. Premium Plans & Queries
               </h2>
               <div className="mt-3 space-y-3 text-[15px] leading-relaxed text-[#3A4A5F]">
@@ -325,7 +325,7 @@ export default function TermsOfService() {
 
             {/* Section 19 */}
             <div>
-              <h2 className="text-xl font-semibold text-[#0B1B2B]">
+              <h2 className="text-2xl font-medium text-[#0B1B2B]">
                 19. Affiliate Program & Referrals
               </h2>
               <p className="mt-3 text-[15px] leading-relaxed text-[#3A4A5F]">
@@ -336,7 +336,7 @@ export default function TermsOfService() {
 
             {/* Section 20 */}
             <div>
-              <h2 className="text-xl font-semibold text-[#0B1B2B]">20. Client Data</h2>
+              <h2 className="text-2xl font-medium text-[#0B1B2B]">20. Client Data</h2>
               <div className="mt-3 space-y-3 text-[15px] leading-relaxed text-[#3A4A5F]">
                 <p className="mb-0">
                   Client may transmit transactional, behavioral, or user data ("Client Data") to OphoTech for fraud detection, risk analysis, and threat intelligence services. OphoTech may use anonymized or aggregated Client Data to improve global scoring, without disclosing PII or client-specific business data.
@@ -350,7 +350,7 @@ export default function TermsOfService() {
 
             {/* Section 21 */}
             <div>
-              <h2 className="text-xl font-semibold text-[#0B1B2B]">21. Governing Law</h2>
+              <h2 className="text-2xl font-medium text-[#0B1B2B]">21. Governing Law</h2>
               <div className="mt-3 space-y-3 text-[15px] leading-relaxed text-[#3A4A5F]">
                 <p className="mb-0">
                   This Site is operated from Ontario, Canada. By accessing the Site, both parties agree that the laws of the Province of Ontario, without regard to its conflict of law principles, shall govern all matters relating to the use of the Site and Services.
@@ -364,7 +364,7 @@ export default function TermsOfService() {
 
             {/* Section 22 */}
             <div>
-              <h2 className="text-xl font-semibold text-[#0B1B2B]">
+              <h2 className="text-2xl font-medium text-[#0B1B2B]">
                 22. Entire Agreement
               </h2>
               <p className="mt-3 text-[15px] leading-relaxed text-[#3A4A5F]">
@@ -375,7 +375,7 @@ export default function TermsOfService() {
 
             {/* Section 23 */}
             <div>
-              <h2 className="text-xl font-semibold text-[#0B1B2B]">
+              <h2 className="text-2xl font-medium text-[#0B1B2B]">
                 23. Class Action Waiver
               </h2>
               <p className="mt-3 text-[15px] leading-relaxed text-[#3A4A5F]">
@@ -386,7 +386,7 @@ export default function TermsOfService() {
 
             {/* Section 24 */}
             <div>
-              <h2 className="text-xl font-semibold text-[#0B1B2B]">24. Severability</h2>
+              <h2 className="text-2xl font-medium text-[#0B1B2B]">24. Severability</h2>
               <p className="mt-3 text-[15px] leading-relaxed text-[#3A4A5F]">
                 If any provision of this Agreement is held invalid or unenforceable, the remainder of this Agreement will continue in full force and effect.
               </p>
@@ -395,7 +395,7 @@ export default function TermsOfService() {
 
             {/* Section 25 */}
             <div>
-              <h2 className="text-xl font-semibold text-[#0B1B2B]">25. Survival</h2>
+              <h2 className="text-2xl font-medium text-[#0B1B2B]">25. Survival</h2>
               <p className="mt-3 text-[15px] leading-relaxed text-[#3A4A5F]">
                 The following Sections survive termination: 8 (Intellectual Property), 9 (Disclaimer of Warranties), 10 (Limitation of Liability), 11 (Non-Disparagement), 12 (Indemnification), 15 (Termination of Use), 16 (API & Data Usage), 20 (Client Data), 21 (Governing Law), 22 (Entire Agreement), 23 (Class Action Waiver), 28 (Reseller Governance), and 30 (Miscellaneous).
               </p>
@@ -404,7 +404,7 @@ export default function TermsOfService() {
 
             {/* Section 26 */}
             <div>
-              <h2 className="text-xl font-semibold text-[#0B1B2B]">
+              <h2 className="text-2xl font-medium text-[#0B1B2B]">
                 26. Failure to Enforce
               </h2>
               <p className="mt-3 text-[15px] leading-relaxed text-[#3A4A5F]">
@@ -415,7 +415,7 @@ export default function TermsOfService() {
 
             {/* Section 27 */}
             <div>
-              <h2 className="text-xl font-semibold text-[#0B1B2B]">27. Anti-Bribery</h2>
+              <h2 className="text-2xl font-medium text-[#0B1B2B]">27. Anti-Bribery</h2>
               <p className="mt-3 text-[15px] leading-relaxed text-[#3A4A5F]">
                 Neither party will, directly or indirectly, offer or accept bribes, secret commissions, or illegal gratuities. Any breach is grounds for termination and potential legal action. The breaching party is liable for resulting losses.
               </p>
@@ -424,7 +424,7 @@ export default function TermsOfService() {
 
             {/* Section 28 */}
             <div>
-              <h2 className="text-xl font-semibold text-[#0B1B2B]">
+              <h2 className="text-2xl font-medium text-[#0B1B2B]">
                 28. Reseller Governance
               </h2>
               <p className="mt-3 text-[15px] leading-relaxed text-[#3A4A5F]">
@@ -435,7 +435,7 @@ export default function TermsOfService() {
 
             {/* Section 29 */}
             <div>
-              <h2 className="text-xl font-semibold text-[#0B1B2B]">29. Signature</h2>
+              <h2 className="text-2xl font-medium text-[#0B1B2B]">29. Signature</h2>
               <p className="mt-3 text-[15px] leading-relaxed text-[#3A4A5F]">
                 Your electronic acceptance or use of OphoTech Services constitutes your binding agreement to these Terms.
               </p>
@@ -444,7 +444,7 @@ export default function TermsOfService() {
 
             {/* Section 30 */}
             <div>
-              <h2 className="text-xl font-semibold text-[#0B1B2B]">30. Miscellaneous</h2>
+              <h2 className="text-2xl font-medium text-[#0B1B2B]">30. Miscellaneous</h2>
               <ul className="mt-3 space-y-2 text-[15px] leading-relaxed text-[#3A4A5F] list-disc list-inside">
                 <li><span className="font-medium">Prevailing Party Fees:</span> The prevailing party in any legal action will be entitled to reasonable legal fees and costs.</li>
                 <li><span className="font-medium">Limitation on Claims:</span> All claims must be brought within one (1) year or they are waived and barred.</li>
@@ -457,7 +457,7 @@ export default function TermsOfService() {
 
             {/* Contact Information */}
             <div>
-              <h2 className="text-xl font-semibold text-[#0B1B2B]">Contact Information</h2>
+              <h2 className="text-2xl font-medium text-[#0B1B2B]">Contact Information</h2>
               <div className="mt-3 text-[15px] text-[#3A4A5F]">
                 <p className="mb-0">OphoTech Inc.</p>
                 <p className="mb-0">2302 – 228 Queens Quay W Downtown, Toronto M5J2X1 Canada</p>

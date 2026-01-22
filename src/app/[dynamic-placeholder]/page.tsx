@@ -29,11 +29,11 @@ export default async function PlaceholderPage({
         fullViewport={false}
       >
         <div className="flex flex-col items-center space-y-6">
-          <span className="text-sm font-medium uppercase tracking-widest text-orange-500">
+          <span className="text-sm font-medium uppercase tracking-widest text-orange-700">
             Coming Soon
           </span>
           <Link
-            className="inline-flex items-center rounded-full bg-orange-500 px-6 py-3 text-sm font-semibold text-white transition hover:bg-orange-400"
+            className="inline-flex items-center rounded-full bg-orange-700 px-6 py-3 text-sm font-semibold text-white transition hover:bg-orange-800"
             href="/"
           >
             Back to Home

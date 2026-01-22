@@ -113,7 +113,7 @@ export default function LeadershipPage() {
           <section className="py-20 px-6 text-center">
             <h2 className="text-3xl font-semibold mb-3">Ready to Solve</h2>
             <p className="text-xl font-medium mb-6">What's Next With OphoTech?</p>
-            <button className="px-6 py-3 bg-orange-500 text-white rounded-lg hover:bg-orange-600">
+            <button className="px-6 py-3 bg-orange-700 text-white rounded-lg hover:bg-orange-800">
               Let's Start →
             </button>
           </section>

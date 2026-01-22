@@ -53,24 +53,34 @@ export default function DataMonetizationPage() {
           {
             src: "/images/tech-stack-logos/kafka.svg",
             alt: "Kafka logo",
+            wrapperClassName: "w-15 h-6 md:w-15 md:h-8 flex items-center justify-center"
           },
           {
             src: "/images/tech-stack-logos/spark.svg",
             alt: "Spark logo",
+            wrapperClassName: "w-10 h-6 md:w-14 md:h-7 flex items-center justify-center"
           },
-          { src: "/images/tech-stack-logos/tensorflow.svg", alt: "TensorFlow logo" },
-          { src: "/images/tech-stack-logos/mongodb.svg", alt: "MongoDB logo" },
+          { src: "/images/tech-stack-logos/tensorflow.svg", 
+            alt: "TensorFlow logo", 
+            wrapperClassName: "w-15 h-6 md:w-18 md:h-10 flex items-center justify-center" },
+          { 
+            src: "/images/tech-stack-logos/mongodb.svg", 
+            alt: "MongoDB logo", 
+            wrapperClassName: "w-15 h-6 md:w-17 md:h-10 flex items-center justify-center" },
           {
             src: "/images/tech-stack-logos/postgresql.svg",
             alt: "PostgreSQL logo",
+            wrapperClassName: "w-20 h-6 md:w-17 md:h-10 flex items-center justify-center"
           },
           {
             src: "/images/tech-stack-logos/azure.svg",
             alt: "Azure logo",
+            wrapperClassName: "w-10 h-6 md:w-7 md:h-8 flex items-center justify-center"
           },
           {
             src: "/images/tech-stack-logos/sql.svg",
             alt: "sql logo",
+            wrapperClassName: "w-15 h-6 md:w-14 md:h-8 flex items-center justify-center"
           },
         ]}
       />
@@ -118,11 +128,11 @@ export default function DataMonetizationPage() {
                   </span>
                 </div>
                 
-                <p className="text-center text-[28px] font-medium leading-[38px] text-[#454545]">
+                <p className="text-center text-3xl font-medium leading-[38px] text-[#454545]">
                   The Foundation of Trust: Data Readiness
                 </p>
                 
-                <p className="max-w-[860px] mx-auto text-center text-[18px] font-normal leading-normal text-[#454545]">
+                <p className="max-w-[860px] mx-auto text-center text-base font-normal leading-normal text-[#454545]">
                   Before data can be sold or used for high-impact AI, it must be reliable. We ensure your data is "investment-grade" through robust, scalable processes.
                 </p>
               </div>
@@ -151,10 +161,10 @@ export default function DataMonetizationPage() {
                     className="relative rounded-2xl border border-[#FCD5AC] bg-white/30 p-5 card-text-smaller"
                   >
                     <div className="flex flex-col gap-4 items-start">
-                      <h3 className="capitalize text-[24px] font-medium leading-[26px] text-[#111111]">
+                      <h3 className="capitalize text-2xl font-medium leading-[26px] text-[#111111]">
                         {c.title}
                       </h3>
-                      <p className="text-[16px] font-normal leading-normal text-[#454545]">
+                      <p className="text-base font-normal leading-normal text-[#454545]">
                         {c.text}
                       </p>
                     </div>
@@ -173,7 +183,7 @@ export default function DataMonetizationPage() {
                   </span>
                 </div>
                 
-                <p className="text-center text-[28px] font-medium leading-[38px] text-[#454545] max-w-[860px]">
+                <p className="text-center text-3xl font-medium leading-[38px] text-[#454545] max-w-[860px]">
                   The Business Case: Ready to Monetize
                 </p>
               </div>
@@ -205,18 +215,18 @@ export default function DataMonetizationPage() {
                       
 
                       {/* Title */}
-                      <h3 className="capitalize text-[24px] font-medium leading-[26px] text-[#111111]">
+                      <h3 className="capitalize text-2xl font-medium leading-[26px] text-[#111111]">
                         {b.title}
                       </h3>
 
                       {/* Strategic Impact */}
                       <div className="flex flex-col gap-2 w-full">
                         <div className="bg-[#F6F6F6] rounded-lg px-2.5 py-1.5 w-fit">
-                          <span className="text-[14px] font-medium text-[#111111]">
+                          <span className="text-sm font-medium text-[#111111]">
                             Strategic Impact
                           </span>
                         </div>
-                        <p className="text-[16px] font-normal leading-normal text-[#454545]">
+                        <p className="text-base font-normal leading-normal text-[#454545]">
                           {b.strategicImpact}
                         </p>
                       </div>
@@ -224,11 +234,11 @@ export default function DataMonetizationPage() {
                       {/* Tangible Outcome */}
                       <div className="flex flex-col gap-2 w-full">
                         <div className="bg-[#F6F6F6] rounded-lg px-2.5 py-1.5 w-fit">
-                          <span className="text-[14px] font-medium text-[#111111]">
+                          <span className="text-sm font-medium text-[#111111]">
                             Tangible Outcome
                           </span>
                         </div>
-                        <p className="text-[16px] font-normal leading-normal text-[#454545]">
+                        <p className="text-base font-normal leading-normal text-[#454545]">
                           {b.tangibleOutcome}
                         </p>
                       </div>
@@ -256,74 +266,74 @@ export default function DataMonetizationPage() {
                 <h3 className="text-center text-3xl font-medium leading-[38px] text-[#454545]">
                   Data Monetization - <span className="text-[#2A73B5]">From Problem to Profit</span>
                 </h3>
-                <p className="max-w-[860px] mx-auto text-center text-[18px] font-normal leading-normal text-[#454545]">
+                <p className="max-w-[860px] mx-auto text-center text-base font-normal leading-normal text-[#454545]">
                   Our core value is bridging the gap between your executive vision and the necessary technological execution.
                 </p>
               </div>
 
               {/* Two-column challenge/services band */}
               <div className="rounded-2xl border border-[#FCD5AC] bg-white/30 px-6 py-5 md:px-10 w-full card-text-smaller">
-                <div className="flex flex-col md:flex-row gap-6 md:gap-10 items-stretch md:items-center min-h-[243px] relative">
-                  {/* First Card */}
-                  <div className="flex-1 flex flex-col gap-4 items-start justify-center">
-                    <div className="flex flex-col gap-2 w-full">
-                      <div className="bg-[#F6F6F6] rounded-lg px-2.5 py-1.5 w-fit">
-                        <span className="capitalize text-[18px] font-medium text-[#111111]">
-                          Business Challenge
-                        </span>
-                      </div>
-                      <p className="capitalize text-[24px] font-medium leading-[26px] text-[#E45412]">
-                        "need to reduce high marketing spend inefficiency."
-                      </p>
+              <div className="flex flex-col md:flex-row gap-6 md:gap-10 items-stretch md:items-start min-h-[243px] relative">
+                {/* First Card */}
+                <div className="flex-1 flex flex-col gap-4 items-start justify-start">
+                  <div className="flex flex-col gap-2 w-full mb-2 h-[80px]">
+                    <div className="bg-[#F6F6F6] rounded-lg px-2.5 py-1.5 w-fit">
+                      <span className="capitalize text-base font-medium text-[#111111]">
+                        Business Challenge
+                      </span>
                     </div>
-                    <div className="flex flex-col gap-2 w-full">
-                      <div className="bg-[#F6F6F6] rounded-lg px-2.5 py-1.5 w-fit">
-                        <span className="capitalize text-[18px] font-medium text-[#111111]">
-                          Data Opportunity
-                        </span>
-                      </div>
-                      <p className="text-[18px] font-normal leading-normal text-[#454545]">
-                        Implementing <span className="font-medium text-[#111111]">prescriptive analytics</span> to target only the high-value customers with tailored offers, delivering maximum ROI.
-                      </p>
-                    </div>
+                    <p className="capitalize text-2xl font-medium leading-[26px] text-[#E45412]">
+                      "need to reduce high marketing spend inefficiency."
+                    </p>
                   </div>
-
-                  {/* Vertical Line - Centered */}
-                  <div className="hidden md:flex absolute left-1/2 top-0 bottom-0 -translate-x-1/2 items-center justify-center">
-                  <Image
-                      src="/images/raar/lineraar.svg"
-                      alt=""
-                      width={2}
-                      height={320}
-                      className="w-auto h-auto"
-                      aria-hidden
-                    />
-                  </div>
-
-                  {/* Second Card */}
-                  <div className="flex-1 flex flex-col gap-4 items-start justify-center">
-                    <div className="flex flex-col gap-2 w-full">
-                      <div className="bg-[#F6F6F6] rounded-lg px-2.5 py-1.5 w-fit">
-                        <span className="capitalize text-[18px] font-medium text-[#111111]">
-                          Business Challenge
-                        </span>
-                      </div>
-                      <p className="capitalize text-[24px] font-medium leading-[26px] text-[#E45412]">
-                        "need a new growth vertical."
-                      </p>
+                  <div className="flex flex-col gap-2 w-full">
+                    <div className="bg-[#F6F6F6] rounded-lg px-2.5 py-2 w-fit">
+                      <span className="capitalize text-base font-medium text-[#111111]">
+                        Data Opportunity
+                      </span>
                     </div>
-                    <div className="flex flex-col gap-2 w-full">
-                      <div className="bg-[#F6F6F6] rounded-lg px-2.5 py-1.5 w-fit">
-                        <span className="capitalize text-[18px] font-medium text-[#111111]">
-                          Data Services
-                        </span>
-                      </div>
-                      <p className="text-[18px] font-normal leading-normal text-[#454545]">
-                        Aggregate anonymized usage data to create and sell a unique <span className="font-medium text-[#111111]">industry trend report</span> (Data-as-a-Service model), creating a net-new revenue stream.
-                      </p>
-                    </div>
+                    <p className="text-base font-normal leading-normal text-[#454545]">
+                      Implementing <span className="font-medium text-[#111111]">prescriptive analytics</span> to target only the high-value customers with tailored offers, delivering maximum ROI.
+                    </p>
                   </div>
                 </div>
+
+                {/* Vertical Line - Centered */}
+                <div className="hidden md:flex absolute left-1/2 top-0 bottom-0 -translate-x-1/2 items-center justify-center">
+                  <Image
+                    src="/images/raar/lineraar.svg"
+                    alt=""
+                    width={2}
+                    height={320}
+                    className="w-auto h-auto"
+                    aria-hidden
+                  />
+                </div>
+
+                {/* Second Card */}
+                <div className="flex-1 flex flex-col gap-4 items-start justify-start">
+                  <div className="flex flex-col gap-2 w-full mb-2 h-[80px]">
+                    <div className="bg-[#F6F6F6] rounded-lg px-2.5 py-1.5 w-fit">
+                      <span className="capitalize text-base font-medium text-[#111111]">
+                        Business Challenge
+                      </span>
+                    </div>
+                    <p className="capitalize text-2xl font-medium leading-[26px] text-[#E45412]">
+                      "need a new growth vertical."
+                    </p>
+                  </div>
+                  <div className="flex flex-col gap-2 w-full">
+                    <div className="bg-[#F6F6F6] rounded-lg px-2.5 py-1.5 w-fit">
+                      <span className="capitalize text-base font-medium text-[#111111]">
+                        Data Services
+                      </span>
+                    </div>
+                    <p className="text-base font-normal leading-normal text-[#454545]">
+                      Aggregate anonymized usage data to create and sell a unique <span className="font-medium text-[#111111]">industry trend report</span> (Data-as-a-Service model), creating a net-new revenue stream.
+                    </p>
+                  </div>
+                </div>
+              </div>
               </div>
             </div>
           </div>
@@ -374,7 +384,7 @@ export default function DataMonetizationPage() {
   <div className="grid md:grid-cols-2 items-center gap-10">
     {/* Left: Text */}
     <div>
-      <h2 className=" text-4xl font-medium text-[#0B1B2B] ">
+      <h2 className=" text-3xl md:text-4xl font-medium text-[#0B1B2B] ">
         Data Monetization – Goal
       </h2>
       <p className="mt-5 text-lg text-[#3A4A5F]">

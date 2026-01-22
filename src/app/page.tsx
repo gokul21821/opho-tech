@@ -1,12 +1,12 @@
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { CaseStudiesSection } from "@/components/sections/CaseStudiesSection";
-import { CTASection } from "@/components/sections/CTASection";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { YourJourney } from "@/components/sections/Your-Journey";
 import { NewsletterSection } from "@/components/sections/NewsletterSection";
 import { ServicesSection } from "@/components/sections/ServicesSection";
-import { ValuePropositionSection } from "@/components/sections/ValuePropositionSection";
+import { LazyCTASection } from "@/components/sections/LazyCTASection";
+import { LazyValuePropositionSection } from "@/components/sections/LazyValuePropositionSection";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 
 export default function Home() {
@@ -16,16 +16,16 @@ export default function Home() {
       <main className="flex flex-col">
         <HeroSection />
         <AnimatedSection delay={100}>
-        <YourJourney />
+          <YourJourney />
         </AnimatedSection>
         <AnimatedSection delay={100}>
           <ServicesSection />
         </AnimatedSection>
         <AnimatedSection delay={100}>
-          <ValuePropositionSection />
+          <LazyValuePropositionSection />
         </AnimatedSection>
         <AnimatedSection delay={100}>
-          <CTASection variant="gradient" />
+          <LazyCTASection variant="gradient" />
         </AnimatedSection>
         <AnimatedSection delay={100}>
           <NewsletterSection />
@@ -34,7 +34,7 @@ export default function Home() {
           <CaseStudiesSection />
         </AnimatedSection>
         <AnimatedSection delay={100}>
-          <CTASection variant="ready" />
+          <LazyCTASection variant="ready" />
         </AnimatedSection>
       </main>
       <Footer />

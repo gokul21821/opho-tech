@@ -44,13 +44,26 @@ export default function RAARPage() {
           </p>
         }
         techStack={[
-          { src: "/images/tech-stack-logos/sas.svg", alt: "SAS logo" },
-          { src: "/images/tech-stack-logos/spss.svg", alt: "SPSS logo" },
-          { src: "/images/tech-stack-logos/python.svg", alt: "Python logo" },
-          { src: "/images/tech-stack-logos/power-bi.svg", alt: "Power BI logo" },
+          { 
+            src: "/images/tech-stack-logos/sas.svg", 
+            alt: "SAS logo", 
+            wrapperClassName: "w-10 h-6 md:w-14 md:h-6 flex items-center justify-center" },
+          { 
+            src: "/images/tech-stack-logos/spss.svg", 
+            alt: "SPSS logo", 
+            wrapperClassName: "w-10 h-6 md:w-14 md:h-6 flex items-center justify-center" },
+          { 
+            src: "/images/tech-stack-logos/python.svg", 
+            alt: "Python logo", 
+            wrapperClassName: "w-10 h-6 md:w-10 md:h-6 flex items-center justify-center" },
+          { 
+            src: "/images/tech-stack-logos/power-bi.svg", 
+            alt: "Power BI logo", 
+            wrapperClassName: "w-10 h-6 md:w-6 md:h-6 flex items-center justify-center" },
           {
             src: "/images/tech-stack-logos/github.svg",
             alt: "GitHub logo",
+            wrapperClassName: "w-10 h-6 md:w-16 md:h-6 flex items-center justify-center"
           },
         ]}
       />
@@ -69,7 +82,7 @@ export default function RAARPage() {
         >
         <section className="mx-auto max-w-7xl px-[5%]">
           <div className="flex flex-col gap-10 items-center">
-            <h2 className="text-center text-4xl font-medium text-[#111111]">
+            <h2 className="text-center text-2xl md:text-4xl font-medium text-[#111111]">
               How it Works
             </h2>
 
@@ -102,10 +115,10 @@ export default function RAARPage() {
         className="h-full min-w-[220px] md:min-w-[220px] lg:min-w-[200px] xl:min-w-[250px] rounded-2xl border border-[#fcd5ac] bg-white/30 p-5 flex flex-col gap-4 items-start card-text-smaller"
       >
 
-        <h3 className="text-[24px] font-medium leading-[26px] text-[#111111] capitalize">
+        <h3 className="text-2xl font-medium text-[#111111] capitalize">
           {item.title}
         </h3>
-        <p className="text-sm leading-normal text-[#454545]">{item.text}</p>
+        <p className="text-base leading-normal text-[#454545]">{item.text}</p>
       </div>
     </div>
   ))}

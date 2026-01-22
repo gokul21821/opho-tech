@@ -26,24 +26,24 @@ export default function CareerPage() {
     
             <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
               <div className="border border-gray-200 rounded-xl p-8 bg-white shadow-sm">
-                <span className="text-sm text-orange-600 font-semibold">Mid Level</span>
+                <span className="text-sm text-orange-700 font-semibold">Mid Level</span>
                 <h3 className="text-xl font-bold mt-2 mb-3">Cloud Architect</h3>
                 <p className="text-sm text-gray-600 mb-6">
                   As a Cloud Architect, you will design, implement, and evolve secure, scalable cloud architectures that
                   power...
                 </p>
-                <button className="px-5 py-2 bg-orange-500 text-white rounded-md hover:bg-orange-600">
+                <button className="px-5 py-2 bg-orange-700 text-white rounded-md hover:bg-orange-800">
                   Apply Now →
                 </button>
               </div>
     
               <div className="border border-gray-200 rounded-xl p-8 bg-white shadow-sm">
-                <span className="text-sm text-orange-600 font-semibold">Senior Level</span>
+                <span className="text-sm text-orange-700 font-semibold">Senior Level</span>
                 <h3 className="text-xl font-bold mt-2 mb-3">Data Engineer</h3>
                 <p className="text-sm text-gray-600 mb-6">
                   Can build predictive models, AI tools, and automation systems.
                 </p>
-                <button className="px-5 py-2 bg-orange-500 text-white rounded-md hover:bg-orange-600">
+                <button className="px-5 py-2 bg-orange-700 text-white rounded-md hover:bg-orange-800">
                   Apply Now →
                 </button>
               </div>
@@ -106,7 +106,7 @@ export default function CareerPage() {
           <section className="py-20 px-6 text-center">
             <h2 className="text-3xl font-semibold mb-3">Ready to Solve</h2>
             <p className="text-xl font-medium mb-6">What's Next With OphoTech?</p>
-            <button className="px-6 py-3 bg-orange-500 text-white rounded-lg hover:bg-orange-600">
+            <button className="px-6 py-3 bg-orange-700 text-white rounded-lg hover:bg-orange-800">
               Let's Start →
             </button>
           </section>

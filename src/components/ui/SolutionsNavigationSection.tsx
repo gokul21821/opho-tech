@@ -80,15 +80,15 @@ export function SolutionsNavigationSection({
 
       {titleLines.map((line, idx) => (
         <h2
-          // eslint-disable-next-line react/no-array-index-key
-          key={`${idx}-${line}`}
-          className={cn(
-            "text-center text-4xl font-medium text-[#0B1B2B]",
-            titleClassName,
-          )}
-        >
-          {line}
-        </h2>
+  key={`${idx}-${line}`}
+  className={cn(
+    "text-center text-2xl md:text-4xl font-medium text-[#0B1B2B]",
+    titleClassName,
+  )}
+>
+  {line}
+</h2>
+
       ))}
 
       {description ? (

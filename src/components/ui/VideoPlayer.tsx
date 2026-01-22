@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, useCallback } from "react";
 
 const PlayIcon = () => (
   <Image
@@ -34,7 +34,7 @@ interface VideoPlayerProps {
 
 export function VideoPlayer({
   src,
-  poster = "/videos/thumbnail.png",
+  poster = "/videos/thumbnail.webp",
   className = "",
   autoplay = false,
   muted = true,
@@ -42,6 +42,8 @@ export function VideoPlayer({
 }: VideoPlayerProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const hideControlsTimeoutRef = useRef<number | null>(null);
+  const pendingPlayRef = useRef(false);
 
   const [isPlaying, setIsPlaying] = useState(autoplay);
   const [isHovered, setIsHovered] = useState(false);
@@ -50,6 +52,9 @@ export function VideoPlayer({
   const [isTablet, setIsTablet] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [showMobileControls, setShowMobileControls] = useState(false);
+  const [isInView, setIsInView] = useState(false);
+  const [isVideoEnabled, setIsVideoEnabled] = useState(false);
+  const [connectionSlowOrSaveData, setConnectionSlowOrSaveData] = useState(false);
 
   // Detect device type
   useEffect(() => {
@@ -64,17 +69,125 @@ export function VideoPlayer({
     return () => window.removeEventListener("resize", checkDevice);
   }, []);
 
+  // Detect slow connections / Save-Data to avoid heavy video downloads.
+  useEffect(() => {
+    try {
+      const nav = navigator as unknown as {
+        connection?: { effectiveType?: string; saveData?: boolean };
+      };
+      const effectiveType = nav.connection?.effectiveType ?? "";
+      const saveData = Boolean(nav.connection?.saveData);
+      const slow =
+        effectiveType === "slow-2g" ||
+        effectiveType === "2g" ||
+        effectiveType === "3g";
+      setConnectionSlowOrSaveData(Boolean(saveData || slow));
+    } catch {
+      // no-op: best-effort only
+    }
+  }, []);
+
+  const shouldDeferVideo = (isMobile || isTablet) || connectionSlowOrSaveData;
+
+  // Lazy-load: only enable the video once in view (desktop) or on explicit user intent (mobile/tablet/slow).
+  useEffect(() => {
+    if (!containerRef.current) return;
+
+    const el = containerRef.current;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInView(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1, rootMargin: "150px" },
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    // Desktop: enable video as soon as it scrolls into view.
+    if (!shouldDeferVideo && isInView) {
+      setIsVideoEnabled(true);
+    }
+  }, [isInView, shouldDeferVideo]);
+
+  useEffect(() => {
+    // Desktop autoplay: once enabled, attempt to start playback.
+    if (!autoplay || shouldDeferVideo || !isVideoEnabled) return;
+    const v = videoRef.current;
+    if (!v) return;
+
+    setIsLoading(true);
+    v.play()
+      .then(() => {
+        setIsPlaying(true);
+        setHasStarted(true);
+      })
+      .catch(() => {
+        // If autoplay is blocked, fall back to click-to-play.
+        setIsLoading(false);
+      });
+  }, [autoplay, isVideoEnabled, shouldDeferVideo]);
+
+  useEffect(() => {
+    // If the user tapped Play before the video was mounted, start once ready.
+    if (!isVideoEnabled || !pendingPlayRef.current) return;
+    const v = videoRef.current;
+    if (!v) return;
+
+    pendingPlayRef.current = false;
+    setIsLoading(true);
+    v.play()
+      .then(() => {
+        setIsPlaying(true);
+        setHasStarted(true);
+      })
+      .catch((error) => {
+        console.error("Play failed:", error);
+        setIsLoading(false);
+      });
+  }, [isVideoEnabled]);
+
+  const clearHideControlsTimeout = () => {
+    if (hideControlsTimeoutRef.current !== null) {
+      window.clearTimeout(hideControlsTimeoutRef.current);
+      hideControlsTimeoutRef.current = null;
+    }
+  };
+
+  useEffect(() => clearHideControlsTimeout, []);
+
+  const showControlsTemporarily = useCallback(() => {
+    if (!isMobile) return;
+    setShowMobileControls(true);
+    clearHideControlsTimeout();
+    hideControlsTimeoutRef.current = window.setTimeout(() => {
+      setShowMobileControls(false);
+      hideControlsTimeoutRef.current = null;
+    }, 2000);
+  }, [isMobile]);
+
   const handlePlay = async () => {
-    if (videoRef.current && !isLoading) {
+    if (isLoading) return;
+
+    // On mobile/tablet/slow, avoid fetching video until the user explicitly taps play.
+    if (shouldDeferVideo && !isVideoEnabled) {
+      pendingPlayRef.current = true;
+      setIsVideoEnabled(true);
+      return;
+    }
+
+    if (videoRef.current) {
       try {
         setIsLoading(true);
-
-        // Start playing (keep muted initially to avoid autoplay blocks)
         await videoRef.current.play();
         setIsPlaying(true);
         setHasStarted(true);
 
-        // Show controls temporarily on mobile when play starts
         if (isMobile) {
           showControlsTemporarily();
         }
@@ -103,15 +216,6 @@ export function VideoPlayer({
     }
   };
 
-  const showControlsTemporarily = () => {
-    if (isMobile) {
-      setShowMobileControls(true);
-      setTimeout(() => {
-        setShowMobileControls(false);
-      }, 2000); // Hide after 2 seconds
-    }
-  };
-
   return (
     <div
       ref={containerRef}
@@ -123,28 +227,48 @@ export function VideoPlayer({
         onMouseLeave={() => !isMobile && setIsHovered(false)}
         onClick={handleVideoClick}
       >
-        {/* Video Element */}
-        <video
-          ref={videoRef}
-          className="h-full w-full object-cover"
-          muted={muted}
-          loop
-          playsInline
-          preload="metadata"
-          controls={showControls && hasStarted}
-          poster={poster}
-          onPlay={() => {
-            setIsPlaying(true);
-            setIsLoading(false);
-          }}
-          onPause={() => setIsPlaying(false)}
-          onCanPlay={() => setIsLoading(false)}
-          onWaiting={() => setIsLoading(true)}
-          onLoadStart={() => setIsLoading(true)}
-        >
-          <source src={src} type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+        {/* Poster (always) */}
+        <Image
+          src={poster}
+          alt=""
+          fill
+          sizes="(max-width: 768px) 100vw, 50vw"
+          className="object-cover"
+          priority
+          fetchPriority="high"
+          aria-hidden
+        />
+
+        {/* Video Element (lazy-enabled) */}
+        {isVideoEnabled && (
+          <video
+            ref={videoRef}
+            className="absolute inset-0 h-full w-full object-cover"
+            muted={muted}
+            loop
+            playsInline
+            preload={shouldDeferVideo ? "none" : "metadata"}
+            controls={showControls && hasStarted}
+            poster={poster}
+            onPlay={() => {
+              setIsPlaying(true);
+              setIsLoading(false);
+            }}
+            onPause={() => setIsPlaying(false)}
+            onCanPlay={() => setIsLoading(false)}
+            onWaiting={() => setIsLoading(true)}
+            onLoadStart={() => setIsLoading(true)}
+          >
+            <source src={src} type="video/mp4" />
+            <track
+              kind="captions"
+              srcLang="en"
+              label="English"
+              src="/captions/blank.vtt"
+            />
+            Your browser does not support the video tag.
+          </video>
+        )}
 
         {/* Loading Indicator */}
         {isLoading && (

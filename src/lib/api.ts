@@ -22,9 +22,15 @@ function decodeHtmlEntities(html: string | undefined | null) {
 
 type FetchOptions = {
   cache?: RequestCache;
-  revalidate?: number;
+  revalidate?: number; // seconds for ISR revalidation
 };
 
+/**
+ * Fetches a list of content items for the specified content type.
+ * Caching strategy:
+ * - Homepage sections: 5-10 min revalidate (moderate freshness for landing page)
+ * - Individual pages: 30min-2hr revalidate (based on content update frequency)
+ */
 export async function fetchContentList(
   contentType: ContentType,
   opts: FetchOptions = {},

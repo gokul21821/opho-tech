@@ -81,19 +81,26 @@ export default function CyberSecuritySolutions() {
             {
               src: "/images/tech-stack-logos/afetrust.svg",
               alt: "AFETRUST logo",
+              wrapperClassName: "w-15 h-6 md:w-20 md:h-8 flex items-center justify-center"
             },
             {
               src: "/images/tech-stack-logos/mcafee.svg",
               alt: "mcafee logo",
+              wrapperClassName: "w-15 h-6 md:w-20 md:h-8 flex items-center justify-center"
             },
-            { src: "/images/tech-stack-logos/mco.svg", alt: "mco logo" },
+            { 
+              src: "/images/tech-stack-logos/mco.svg", 
+              alt: "mco logo", 
+              wrapperClassName: "w-15 h-6 md:w-20 md:h-8 flex items-center justify-center" },
             {
               src: "/images/tech-stack-logos/nordvpn.svg",
               alt: "nordvpn logo",
+              wrapperClassName: "w-20 h-6 md:w-20 md:h-8 flex items-center justify-center"
             },
             {
               src: "/images/tech-stack-logos/concentrix.svg",
               alt: "concentrix logo",
+              wrapperClassName: "w-15 h-6 md:w-20 md:h-8 flex items-center justify-center"
             },
           ]}
         />
@@ -113,19 +120,19 @@ export default function CyberSecuritySolutions() {
           <section className="max-w-7xl mx-auto px-[5%]">
             {/* Cyber Threat in the AI Era */}
             <div className="flex flex-col gap-10 items-center mb-16">
-              <div className="flex flex-col gap-8 items-center">
-                <h2 className="text-[32px] md:text-[38px] font-medium leading-[40px] md:leading-[48px] text-[#111111] text-center">
+              <div className="flex flex-col gap-3 items-center">
+                <h2 className="text-3xl font-medium text-[#111111] text-center">
                   Cyber Threat in the AI Era
                 </h2>
-                <div className="flex flex-col gap-5 items-center text-center max-w-[924px] px-4">
-                  <p className="text-[16px] md:text-[18px] font-normal leading-normal text-[#454545]">
+                <div className="flex flex-col gap-3 items-center text-center max-w-[924px] px-4">
+                  <p className="text-base font-normal text-[#454545]">
                     A clear escalation from simple phishing to strategic, systemic attacks.
                   </p>
                 </div>
               </div>
 
-              {/* Three Risk Cards */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
+            {/* Three Risk Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
               {[{
                 title: 'AI-Generated Phishing & Deepfakes',
                 impact: '<span style="font-weight: 600; color: #111111;">High Likelihood, Critical Impact:</span> Enables <span style="font-weight: 600; color: #111111;">$25.6M</span> deepfake fraud incidents and dominates basic web-app breach patterns.'
@@ -138,20 +145,20 @@ export default function CyberSecuritySolutions() {
               }].map((item, i) => (
                 <div
                   key={i}
-                  className="border border-[#fcd5ac] rounded-2xl p-5 bg-white/30 relative overflow-hidden card-text-smaller"
+                  className="border border-[#fcd5ac] rounded-2xl p-5 bg-white/30 relative overflow-hidden card-text-smaller h-full flex flex-col"
                 >
-                  <div className="relative z-10 flex flex-col gap-4">
-                    <h4 className="text-[20px] md:text-[24px] font-medium leading-[26px] text-[#111111]">
+                  <div className="relative z-10 flex flex-col gap-4 h-full">
+                    <h4 className="text-2xl font-medium leading-[26px] text-[#111111] h-[60px] flex items-start">
                       {item.title}
                     </h4>
                     <div className="flex flex-col gap-2">
-                      <div className="bg-[#f6f6f6] rounded-lg px-2.5 py-1.5 inline-flex items-center justify-center w-fit">
-                        <span className="text-[14px] font-medium text-[#111111]">
+                      <div className="bg-[#f6f6f6] rounded-lg px-2.5 py-1 inline-flex items-center justify-center w-fit">
+                        <span className="text-sm font-medium text-[#111111]">
                           Business Impact (Risk & Cost)
                         </span>
                       </div>
                       <p 
-                        className="text-[14px] md:text-[16px] font-normal leading-normal text-[#454545]"
+                        className="text-base font-normal leading-normal text-[#454545]"
                         dangerouslySetInnerHTML={{ __html: item.impact }}
                       />
                     </div>
@@ -164,10 +171,10 @@ export default function CyberSecuritySolutions() {
             {/* The AI-Driven Cyber Resilience Framework */}
             <div className="flex flex-col gap-10 mt-10">
               <div className="flex flex-col gap-5 items-center text-center px-4">
-                <h3 className="text-[24px] md:text-[28px] font-medium leading-[32px] md:leading-[38px] text-[#454545]">
+                <h3 className="text-3xl font-medium text-[#454545]">
                   The AI-Driven Cyber Resilience Framework
                 </h3>
-                <p className="text-[16px] md:text-[18px] font-normal leading-normal text-[#454545] max-w-[860px]">
+                <p className="text-base font-normal leading-normal text-[#454545] max-w-[860px]">
                   We implement a layered model to counter these threats, shifting your Security Operations Center (SOC) from a reactive model to an <span className="font-semibold text-[#111111]">agent-based intelligence</span> system.
                 </p>
               </div>
@@ -191,11 +198,11 @@ export default function CyberSecuritySolutions() {
                     className="border border-[#fcd5ac] rounded-2xl p-5 bg-white relative overflow-hidden card-text-smaller"
                   >
                     <div className="relative z-10 flex flex-col gap-4">
-                      <h4 className="text-[20px] md:text-[24px] font-medium leading-[26px] text-[#111111]">
+                      <h4 className="text-2xl font-medium leading-[26px] text-[#111111]">
                         {item.title} <span className="font-medium text-base text-[#111111]">{item.subtitle}</span>
                       </h4>
                       <p 
-                        className="text-[14px] md:text-[16px] font-normal leading-normal text-[#454545]"
+                        className="text-base font-normal leading-normal text-[#454545]"
                         dangerouslySetInnerHTML={{ __html: item.desc }}
                       />
                     </div>
@@ -206,11 +213,11 @@ export default function CyberSecuritySolutions() {
 
             {/* Executive-Focused Roadmap */}
             <div className="flex flex-col gap-10 mt-10">
-              <div className="flex flex-col gap-5 items-center text-center px-4">
-                <h3 className="text-[24px] md:text-[28px] font-medium leading-[32px] md:leading-[38px] text-[#454545]">
+              <div className="flex flex-col gap-3 items-center text-center px-4">
+                <h3 className="text-3xl font-medium text-[#454545]">
                   A Clear, Executive-Focused Roadmap
                 </h3>
-                <p className="text-[16px] md:text-[18px] font-normal leading-normal text-[#454545] max-w-[860px]">
+                <p className="text-base font-normal leading-normal text-[#454545] max-w-[860px]">
                   We provide a phased roadmap to transition from legacy defense to autonomous resilience.
                 </p>
               </div>
@@ -237,29 +244,29 @@ export default function CyberSecuritySolutions() {
                     className="border border-[#fcd5ac] rounded-2xl p-5 bg-white/30 relative overflow-hidden card-text-smaller"
                   >
                     <div className="relative z-10 flex flex-col gap-4">
-                      <div className={`rounded-lg px-2.5 py-1.5 inline-flex items-center justify-center w-fit border ${item.chipColor}`}>
-                        <span className="text-[14px] font-medium">
+                      <div className={`rounded-lg px-2.5 py-1 inline-flex items-center justify-center w-fit border ${item.chipColor}`}>
+                        <span className="text-sm font-medium">
                           {item.chip}
                         </span>
                       </div>
                       <div className="flex flex-col gap-2">
                         <div className="bg-[#f6f6f6] rounded-lg px-2.5 py-1.5 inline-flex items-center justify-center w-fit">
-                          <span className="text-[14px] font-medium text-[#111111]">
+                          <span className="text-sm font-medium text-[#111111]">
                             Focus Area
                           </span>
                         </div>
-                        <p className="text-[16px] md:text-[18px] leading-normal text-[#454545]">
+                        <p className="text-base leading-normal text-[#454545]">
                           {item.focusArea}
                         </p>
                       </div>
                       <div className="flex flex-col gap-2">
-                        <div className="bg-[#f6f6f6] rounded-lg px-2.5 py-1.5 inline-flex items-center justify-center w-fit">
-                          <span className="text-[14px] font-medium text-[#111111]">
+                        <div className="bg-[#f6f6f6] rounded-lg px-2.5 py-1 inline-flex items-center justify-center w-fit">
+                          <span className="text-sm font-medium text-[#111111]">
                             Key Action
                           </span>
                         </div>
                         <p 
-                          className="text-[14px] md:text-[16px] font-normal leading-normal text-[#454545]"
+                          className="text-base font-normal leading-normal text-[#454545]"
                           dangerouslySetInnerHTML={{ __html: item.action }}
                         />
                       </div>

@@ -63,7 +63,7 @@ export default function CookieConsent() {
 
               <button
                 onClick={acceptAll}
-                className="rounded-lg bg-orange-500 px-4 py-2 text-sm font-medium text-white transition hover:bg-orange-600 "
+                className="rounded-lg bg-orange-700 px-4 py-2 text-sm font-medium text-white transition hover:bg-orange-800"
               >
                 Accept All
               </button>
@@ -105,7 +105,7 @@ export default function CookieConsent() {
 
               <button
                 onClick={saveCustom}
-                className="rounded-lg bg-orange-500 px-4 py-2 text-sm font-medium text-white transition hover:bg-orange-600 "
+                className="rounded-lg bg-orange-700 px-4 py-2 text-sm font-medium text-white transition hover:bg-orange-800"
               >
                 Save Preferences
               </button>

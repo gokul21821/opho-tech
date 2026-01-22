@@ -34,6 +34,8 @@ interface HeroSectionProps {
 }
 
 const HERO_BACKGROUND_WAVES = "/images/common-background.png";
+const HERO_BG_BLUR_DATA_URL =
+  "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iMTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEyIiBoZWlnaHQ9IjEyIiBmaWxsPSIjMDcxYjJiIi8+PC9zdmc+";
 
 export function HeroSection({
   breadcrumb,
@@ -41,7 +43,7 @@ export function HeroSection({
   subtitle,
   backgroundImage,
   video,
-  videoPoster = "/videos/thumbnail.png",
+  videoPoster = "/videos/thumbnail.webp", 
   contentAlignment = "center",
   fullViewport = false,
   children,
@@ -67,11 +69,13 @@ export function HeroSection({
       <div className="pointer-events-none absolute inset-0">
         <Image
           src={backgroundImage || HERO_BACKGROUND_WAVES}
-          alt="Background"
+          alt=""
           fill
           sizes="100vw"
           className="object-cover"
-          priority
+          placeholder="blur"
+          blurDataURL={HERO_BG_BLUR_DATA_URL}
+          aria-hidden
         />
       </div>
 
@@ -127,7 +131,7 @@ export function HeroSection({
 
             {/* Content */}
             <div
-              className={`flex flex-col space-y-6 ${
+              className={`flex flex-col space-y-6 mb-10 ${
                 contentAlignment === "center"
                   ? "items-center text-center max-w-5xl"
                   : "max-w-5xl"

@@ -172,7 +172,7 @@ export const CustomSelect = ({
                     }}
                     className={`rounded-md px-3 py-2.5 text-left font-poppins text-xs transition-colors ${
                       value === option.label
-                        ? 'bg-orange-500 text-white'
+                        ? 'bg-orange-700 text-white'
                         : 'bg-[#f0f0f0] text-gray-900 hover:bg-gray-200'
                     }`}
                   >

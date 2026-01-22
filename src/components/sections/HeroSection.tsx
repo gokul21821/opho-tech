@@ -10,7 +10,8 @@ import {
 } from "@/lib/contact-modal";
 
 const HERO_BACKGROUND_WAVES = "/images/hero/hero-background.png";
-const LOGO_PATH_WHITE = "/images/logo/logo-blue-black.svg";
+const HERO_BG_BLUR_DATA_URL =
+  "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iMTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEyIiBoZWlnaHQ9IjEyIiBmaWxsPSIjMDcxYjJiIi8+PC9zdmc+";
 
 
 export function HeroSection() {
@@ -35,6 +36,10 @@ export function HeroSection() {
           sizes="100vw"
           className="object-cover"
           priority
+          fetchPriority="high"
+          placeholder="blur"
+          blurDataURL={HERO_BG_BLUR_DATA_URL}
+          aria-hidden
         />
       </div>
 
@@ -59,7 +64,7 @@ export function HeroSection() {
         <div className="relative max-w-7xl flex-1">
           <VideoPlayer
             src="/videos/Home-Page.mp4"
-            poster="/videos/thumbnail.png"
+            poster="/videos/thumbnail.webp"
             muted={true}
             showControls={true}
           />

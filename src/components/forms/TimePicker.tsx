@@ -58,7 +58,7 @@ export const TimePicker = ({
         onClick={() => setIsOpen(!isOpen)}
         className="flex w-full items-center justify-between rounded-md bg-[#f0f0f0] px-3 py-2.5 font-poppins text-xs text-gray-900 focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-100"
       >
-        <span className={!startTime && !endTime ? "text-gray-300" : ""}>
+        <span className={!startTime && !endTime ? "text-gray-500" : ""}>
           {displayValue}
         </span>
         <ClockIcon className="size-4 text-gray-500" />
@@ -81,7 +81,7 @@ export const TimePicker = ({
                   onClick={() => onTimeSelect('start', 'time', time)}
                   className={`w-full rounded px-2 py-1.5 text-left font-poppins text-xs transition-colors ${
                     startTime === time
-                      ? 'bg-orange-500 text-white'
+                      ? 'bg-orange-700 text-white'
                       : 'text-gray-900 hover:bg-gray-100'
                   }`}
                 >
@@ -98,7 +98,7 @@ export const TimePicker = ({
                   onClick={() => onTimeSelect('start', 'period', period)}
                   className={`flex-1 px-2 py-2 text-center font-poppins text-xs transition-colors ${
                     startPeriod === period
-                      ? 'bg-orange-500 text-white'
+                      ? 'bg-orange-700 text-white'
                       : 'bg-gray-50 text-gray-700 hover:bg-gray-100'
                   }`}
                 >
@@ -126,7 +126,7 @@ export const TimePicker = ({
                     disabled={isDisabled}
                     className={`w-full rounded px-2 py-1.5 text-left font-poppins text-xs transition-colors ${
                       endTime === time
-                        ? 'bg-orange-500 text-white'
+                        ? 'bg-orange-700 text-white'
                         : isDisabled
                         ? 'text-gray-400 cursor-not-allowed'
                         : 'text-gray-900 hover:bg-gray-100'
@@ -149,7 +149,7 @@ export const TimePicker = ({
                     disabled={isDisabled}
                     className={`flex-1 px-2 py-2 text-center font-poppins text-xs transition-colors ${
                       endPeriod === period
-                        ? 'bg-orange-500 text-white'
+                        ? 'bg-orange-700 text-white'
                         : isDisabled
                         ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
                         : 'bg-gray-50 text-gray-700 hover:bg-gray-100'

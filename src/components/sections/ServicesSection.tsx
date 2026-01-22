@@ -162,7 +162,7 @@ function ServiceCard({ title, tagline, description, icon }: ServiceCardProps) {
       </div>
 
       {/* arrow button - positioned in the cutout area */}
-      <button
+      <span
         aria-hidden="true"
         className="
           service-card-button flex items-center justify-center
@@ -181,7 +181,7 @@ function ServiceCard({ title, tagline, description, icon }: ServiceCardProps) {
             group-hover:rotate-45
           "
         />
-      </button>
+      </span>
     </Link>
   );
 }

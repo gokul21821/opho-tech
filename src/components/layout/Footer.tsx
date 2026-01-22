@@ -95,7 +95,10 @@ export function Footer() {
   }, []);
 
   return (
-    <footer ref={footerRef} className="relative w-full overflow-hidden">
+    <footer
+      ref={footerRef}
+      className="relative w-full overflow-hidden "
+    >
       {/* Background Layer - Lazy loaded when footer is near viewport */}
       {isFooterVisible && (
         <div className="absolute inset-0 pointer-events-none">
@@ -132,7 +135,7 @@ export function Footer() {
                   />
                 </div>
               </Link>
-              <p className="max-w-md text-sm leading-relaxed text-blue-50/90">
+              <p className="max-w-md text-sm leading-relaxed text-gray-100">
                 OphoTech is a research and technology partner for enterprises,
                 delivering business audits, AI-driven insights, and scalable
                 SaaS/PaaS solutions. We help leaders make confident decisions,
@@ -225,7 +228,7 @@ function FooterColumn({ title, links, hrefPrefix, onContactClick, hrefMapper }: 
       <h3 className="relative pb-2 text-base font-medium text-white after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-12 after:bg-orange-500">
         {title}
       </h3>
-      <ul className="space-y-3 text-sm text-blue-50/80">
+      <ul className="space-y-3 text-sm text-gray-100">
         {links.map((link) => (
           <li key={link}>
             {link === "Contact" ? (

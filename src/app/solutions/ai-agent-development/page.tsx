@@ -136,16 +136,27 @@ export default function AIAgentDevelopment() {
             </>
           }
           techStack={[
-            { src: "/images/tech-stack-logos/langchain.svg", alt: "langchain logo" },
-            { src: "/images/tech-stack-logos/haystack.svg", alt: "haystack logo" },
-            { src: "/images/tech-stack-logos/pinecone.svg", alt: "Pinecone logo" },
+            {  
+              src: "/images/tech-stack-logos/langchain.svg",
+              alt: "langchain logo",
+              wrapperClassName: "w-15 h-6 md:w-20 md:h-8 flex items-center justify-center" },
+            { 
+              src: "/images/tech-stack-logos/haystack.svg",
+              alt: "haystack logo", 
+              wrapperClassName: "w-20 h-6 md:w-22 md:h-8 flex items-center justify-center" },
+            { 
+              src: "/images/tech-stack-logos/pinecone.svg", 
+              alt: "Pinecone logo", 
+              wrapperClassName: "w-20 h-6 md:w-22 md:h-8 flex items-center justify-center" },
             {
               src: "/images/tech-stack-logos/llamaindex.svg",
               alt: "llamaindex logo",
+              wrapperClassName: "w-20 h-6 md:w-22 md:h-8 flex items-center justify-center"
             },
             {
               src: "/images/tech-stack-logos/gemini.svg",
               alt: "gemini logo",
+              wrapperClassName: "w-15 h-6 md:w-18 md:h-8 flex items-center justify-center"
             },
           ]}
         />
@@ -199,14 +210,14 @@ export default function AIAgentDevelopment() {
             background: "linear-gradient(to bottom, #ffffff 38.524%, #feecd6 171.52%)",
           }}
         >
-            <div className="mx-auto max-w-6xl ">
+            <div className="mx-auto max-w-7xl px-[5%]">
               <div className="space-y-16">
                 {/* Strategic Value */}
                 <div className="text-center">
-                  <h2 className="text-[34px] font-medium leading-[48px] text-[#111111] sm:text-[38px]">
+                  <h2 className="text-3xl font-medium text-[#111111]">
                     The Strategic Value of Autonomous Agents
                   </h2>
-                  <p className="mx-auto mt-4 max-w-3xl text-[16px] text-[#454545] sm:text-[18px]">
+                  <p className="mx-auto mt-4 max-w-3xl text-base text-[#454545]">
                     AI Agents transform core business functions by moving beyond simple task automation to genuine workflow execution.
                   </p>
 
@@ -218,8 +229,8 @@ export default function AIAgentDevelopment() {
                       >
                         <div className="space-y-3">
                           <div>
-                            <h3 className="text-[22px] font-medium text-[#111111]">{card.title}</h3>
-                            <p className="text-xl text-[#555555]">{card.subtitle}</p>
+                            <h3 className="text-2xl font-medium text-[#111111]">{card.title}</h3>
+                            <p className="text-base text-gray-800">{card.subtitle}</p>
                           </div>
 
                           {card.details.map((detail, detailIndex) => {
@@ -227,7 +238,7 @@ export default function AIAgentDevelopment() {
                               return (
                                 <div
                                   key={`${card.title}-badge-${detailIndex}`}
-                                  className="inline-flex rounded-lg bg-[#F6F6F6] px-3 py-1 text-[14px] font-medium text-[#111111]"
+                                  className="inline-flex rounded-lg bg-[#F6F6F6] px-3 py-1 text-sm font-medium text-[#111111]"
                                 >
                                   {detail.text}
                                 </div>
@@ -237,10 +248,10 @@ export default function AIAgentDevelopment() {
                             if (detail.type === "badgeWithCopy") {
                               return (
                                 <div key={`${card.title}-badgecopy-${detailIndex}`} className="space-y-2">
-                                  <div className="inline-flex rounded-lg bg-[#F6F6F6] px-3 py-1 text-[14px] font-medium text-[#111111]">
+                                  <div className="inline-flex rounded-lg bg-[#F6F6F6] px-3 py-1 text-sm font-medium text-[#111111]">
                                     {detail.text}
                                   </div>
-                                  <p className="text-[16px] text-[#454545]">
+                                  <p className="text-base text-[#454545]">
                                     <span className="font-medium text-[#111111]">{detail.bold}</span>
                                     {detail.rest}
                                   </p>
@@ -249,7 +260,7 @@ export default function AIAgentDevelopment() {
                             }
 
                             return (
-                              <p key={`${card.title}-text-${detailIndex}`} className="text-[16px] text-[#454545]">
+                              <p key={`${card.title}-text-${detailIndex}`} className="text-base text-[#454545]">
                                 <span className="font-medium text-[#111111]">{detail.label} </span>
                                 {detail.copy}
                               </p>
@@ -263,8 +274,8 @@ export default function AIAgentDevelopment() {
 
                 {/* Agentic AI – Uses */}
                 <div className="text-center">
-                  <h3 className="text-[26px] font-medium leading-[38px] text-gray-600 sm:text-[28px]">Agentic AI - Uses</h3>
-                  <p className="mx-auto mt-4 max-w-4xl text-[16px] text-[#454545] sm:text-[18px]">
+                  <h3 className="text-2xl font-medium leading-[38px] text-gray-600">Agentic AI - Uses</h3>
+                  <p className="mx-auto mt-4 max-w-4xl text-base text-[#454545]">
                     Our focus is on{" "}
                     <span className="text-[#454545]">
                       translating complex business challenges into clear technology opportunities
@@ -276,10 +287,14 @@ export default function AIAgentDevelopment() {
                     {agenticUseCases.map((useCase) => (
                       <div
                         key={useCase.title}
-                        className="rounded-2xl border border-[#FCD5AC] bg-white/30 p-6 text-left shadow-[0_10px_30px_-18px_rgba(15,44,88,0.35)] card-text-smaller"
+                        className="rounded-2xl border border-[#FCD5AC] bg-white/30 p-6 text-left shadow-[0_10px_30px_-18px_rgba(15,44,88,0.35)] card-text-smaller h-full flex flex-col"
                       >
-                        <h4 className="text-[22px] font-medium text-[#111111]">{useCase.title}</h4>
-                        <p className="mt-3 text-[16px] text-[#454545]">{useCase.body}</p>
+                        <h4 className="text-2xl font-medium text-[#111111] h-[60px] flex items-start">
+                          {useCase.title}
+                        </h4>
+                        <p className="mt-3 text-base text-[#454545]">
+                          {useCase.body}
+                        </p>
                       </div>
                     ))}
                   </div>
@@ -299,14 +314,14 @@ export default function AIAgentDevelopment() {
                       {governancePillars.map((pillar, index) => (
                         <Fragment key={pillar.title.join(" ")}>
                           <div className="flex-1 text-left">
-                            <h4 className="text-[22px] font-medium leading-[26px] text-[#E45412]">
+                            <h4 className="text-2xl font-medium leading-[26px] text-[#E45412]">
                               {pillar.title.map((line) => (
                                 <span key={line} className="block">
                                   {line}
                                 </span>
                               ))}
                             </h4>
-                            <p className="mt-4 text-base text-[#454545] lg:text-base">{pillar.body}</p>
+                            <p className="mt-4 text-base text-[#454545]">{pillar.body}</p>
                           </div>
                           {index < governancePillars.length - 1 && (
                             <div className="hidden lg:flex lg:h-full lg:w-[2px] lg:justify-center">

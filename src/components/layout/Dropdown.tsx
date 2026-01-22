@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 
 import { cn } from "@/lib/utils";
 
@@ -45,6 +45,8 @@ export function Dropdown({
   const [open, setOpen] = useState(false);
   const timeoutRef = useRef<number | null>(null);
   const pathname = usePathname();
+  const buttonId = useId();
+  const menuId = useId();
 
   const handleMouseEnter = () => {
     if (timeoutRef.current !== null) {
@@ -84,8 +86,10 @@ export function Dropdown({
           (isActive || activeFromChildren || open) && activeClassName,
           open && "after:w-full",
         )}
+        id={buttonId}
         aria-expanded={open}
-        aria-haspopup="menu"
+        aria-haspopup="true"
+        aria-controls={menuId}
         onClick={() => setOpen((prev) => !prev)}
       >
         {label}
@@ -102,7 +106,6 @@ export function Dropdown({
           "pointer-events-none absolute left-1/2 top-full z-40 w-64 -translate-x-1/2 overflow-hidden rounded-b-lg opacity-0 shadow-[0px_4px_4.8px_0px_rgba(0,0,0,0.25)] transition-all duration-200",
           open && "pointer-events-auto translate-y-2 opacity-100",
         )}
-        role="menu"
       >
         <div className="relative overflow-hidden rounded-b-lg bg-[#fff9f5] px-4 py-0">
           <div
@@ -113,11 +116,17 @@ export function Dropdown({
               backgroundSize: "15px 15px",
             }}
           />
-          <ul className="relative">
+          <ul
+            id={menuId}
+            className="relative"
+            aria-labelledby={buttonId}
+            aria-hidden={!open}
+          >
             {items.map((item, index) => (
               <li key={item.href}>
                 <Link
                   href={item.href}
+                  tabIndex={open ? 0 : -1}
                   className={cn(
                     "block px-0 py-2 text-sm font-normal leading-normal text-gray-600 transition-colors hover:text-blue-500",
                     index < items.length - 1 && "border-b border-gray-100",

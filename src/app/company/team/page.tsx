@@ -127,7 +127,7 @@ export default function Team() {
 
 
             {/* --- NAME & TITLE OUTSIDE CARD --- */}
-            <h3 className="mt-4 text-lg font-semibold text-gray-900 text-center">
+            <h3 className="mt-4 text-xl font-medium text-gray-900 text-center">
               {member.name}
             </h3>
             <p className="text-sm font-semibold text-orange-500 text-center">
@@ -171,10 +171,10 @@ export default function Team() {
                   profile.reverse ? "lg:pr-4" : "lg:pl-2"
                 }`}
               >
-                <h3 className="text-[28px] mt-10 font-semibold text-gray-900">
+                <h3 className="text-xl md:text-3xl mt-10 font-medium text-gray-900">
                   {profile.name}
                 </h3>
-                <p className="text-2xl font-medium text-orange-500">{profile.title}</p>
+                <p className="text-xl font-medium text-orange-500">{profile.title}</p>
 
                 <div className="space-y-4 text-base leading-relaxed text-gray-600">
                   {profile.description.map((paragraph, idx) => (

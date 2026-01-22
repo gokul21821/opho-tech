@@ -14,22 +14,19 @@ interface BreadcrumbProps {
 export function Breadcrumb({ items }: BreadcrumbProps) {
   return (
     <nav className="w-full mb-6">
-      <ol className="flex w-full min-w-0 items-center justify-center gap-2 overflow-hidden whitespace-nowrap text-sm md:text-lg">
+      <ol className="flex w-full min-w-0 items-center justify-center gap-2 text-base flex-wrap sm:flex-nowrap">
         {items.map((item, index) => {
           const isLast = index === items.length - 1;
           return (
             <li
               key={index}
-              className={
-                isLast
-                  ? "flex min-w-0 shrink-0 items-center gap-2"
-                  : "flex shrink-0 items-center gap-2"
-              }
+              className="flex min-w-0 items-center gap-2"
             >
               {item.href ? (
                 <Link
                   href={item.href}
-                  className="shrink-0 text-white/80 transition-colors duration-200 hover:text-orange-500"
+                  className="min-w-0 truncate text-white/80 transition-colors duration-200 hover:text-orange-500"
+                  title={item.label} // Show full text on hover
                 >
                   {item.label}
                 </Link>
@@ -37,9 +34,10 @@ export function Breadcrumb({ items }: BreadcrumbProps) {
                 <span
                   className={
                     isLast
-                      ? "min-w-0 truncate font-semibold text-orange-500"
-                      : "shrink-0 text-white/80"
+                      ? "min-w-0 truncate text-orange-500"
+                      : "min-w-0 truncate text-white/80"
                   }
+                  title={item.label} // Show full text on hover
                 >
                   {item.label}
                 </span>

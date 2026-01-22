@@ -125,7 +125,7 @@ export function SolutionsIntroSection({
 
           {techStack.length ? (
             <div className="mt-8">
-              <h2 className="text-[24px] font-medium text-[#0B1B2B]">
+              <h2 className="text-xl font-medium text-[#0B1B2B]">
                 {techStackTitle}
               </h2>
               <div className="flex flex-wrap gap-2 mt-4">
@@ -134,7 +134,7 @@ export function SolutionsIntroSection({
                     key={`${logo.src}-${logo.alt}`}
                     className={
                       logo.wrapperClassName ??
-                      "w-12 h-8 sm:w-14 sm:h-9 md:w-18 md:h-7 flex items-center justify-center"
+                      "w-12 h-8 md:w-18 md:h-7 flex items-center justify-center"
                     }
                   >
                     <Image

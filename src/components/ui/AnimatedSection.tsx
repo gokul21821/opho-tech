@@ -17,6 +17,12 @@ export function AnimatedSection({
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const mediaQuery = window.matchMedia?.('(prefers-reduced-motion: reduce)');
+    if (mediaQuery?.matches) {
+      setIsVisible(true);
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -42,7 +48,7 @@ export function AnimatedSection({
   return (
     <div
       ref={ref}
-      className={`transition-all duration-700 ${
+      className={`transform-gpu will-change-transform transition-transform transition-opacity duration-700 motion-reduce:transition-none motion-reduce:transform-none ${
         isVisible
           ? 'translate-y-0 opacity-100'
           : 'translate-y-8 opacity-0'

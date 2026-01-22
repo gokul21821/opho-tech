@@ -19,7 +19,7 @@ export function ContentCard({
   return (
     <Link
       href={`/${contentType}/${id}`}
-      className="group relative flex w-full flex-col gap-4 overflow-visible rounded-2xl border border-orange-100 bg-white p-5 transition-shadow duration-300 hover:bg-orange-25 hover:shadow-lg sm:min-w-0 sm:flex-1 md:w-[280px] lg:w-[330px]"
+      className="group relative flex w-full flex-col gap-4 overflow-visible rounded-2xl border border-orange-300 bg-white/70 p-5 transition-shadow duration-300 hover:bg-orange-25 hover:shadow-lg sm:min-w-0 sm:flex-1 md:w-[280px] lg:w-[330px]"
     >
       <div className="flex size-11 items-center justify-center overflow-hidden">
         <ServiceIcon name="cloud-integration" className="size-11" />
@@ -52,7 +52,7 @@ export function ContentCard({
         />
       </div>
 
-      <button
+      <span
         aria-hidden="true"
         className="absolute bottom-8 right-8 z-[4] flex h-11 w-11 translate-x-1/2 translate-y-1/2 items-center justify-center rounded-lg bg-white shadow-[0_10px_30px_-10px_rgba(0,0,0,0.25)] transition-transform duration-300 md:h-10 md:w-10"
       >
@@ -63,7 +63,7 @@ export function ContentCard({
           height={14}
           className="transition-transform duration-300 group-hover:rotate-45"
         />
-      </button>
+      </span>
     </Link>
   );
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import { sanitizeHtml } from "@/lib/sanitizeHtml";
 
 interface RichTextRendererProps {
   content: string;
@@ -7,6 +8,8 @@ interface RichTextRendererProps {
 
 export function RichTextRenderer({ content, className = '' }: RichTextRendererProps) {
   if (!content) return null;
+
+  const safeHtml = sanitizeHtml(content);
 
   return (
     <div
@@ -44,7 +47,7 @@ export function RichTextRenderer({ content, className = '' }: RichTextRendererPr
 
         ${className}
       `}
-      dangerouslySetInnerHTML={{ __html: content }}
+      dangerouslySetInnerHTML={{ __html: safeHtml }}
     />
   );
 }

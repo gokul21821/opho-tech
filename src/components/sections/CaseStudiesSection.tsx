@@ -5,8 +5,26 @@ import Image from "next/image";
 
 export async function CaseStudiesSection() {
   const caseStudies = await fetchContentList("case-studies", {
-    cache: "no-store", // always fetch fresh data on landing page
+    revalidate: 600, // Cache for 10 minutes - case studies update less frequently
   });
+
+  // Add the static case study to the beginning of the list
+  const staticCaseStudy = {
+    id: "manufacturing-ai-transformation",
+    title: "Bridging the Digital Gap in Manufacturing: How AI-Led RAR Cut IT Decision Time by 60%",
+    description: "Discover how OphoTech's AI-driven Business Research and Analysis (RAR) framework helped a manufacturing company streamline technology decisions and achieve 60% faster IT decision-making.",
+    date: "2025-11-06",
+    createdAt: "2025-11-06T00:00:00Z",
+    updatedAt: "2025-11-06T00:00:00Z",
+    imageUrl: "/images/case/framework.png",
+    author: {
+      id: "admin",
+      username: "admin",
+      email: "admin@ophotech.com"
+    }
+  };
+
+  const allCaseStudies = [staticCaseStudy, ...caseStudies];
 
   return (
     <>
@@ -23,7 +41,7 @@ export async function CaseStudiesSection() {
         <ContentSection
           title="Our Case Studies"
           subtitle="Explore sector-specific solutions shaped by research, technology enablement, and proven strategies."
-          items={caseStudies}
+          items={allCaseStudies}
           contentType="case-studies"
           emptyMessage="Case studies not available, stay tuned"
           hasBackground={false}

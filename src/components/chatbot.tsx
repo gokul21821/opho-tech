@@ -1,10 +1,21 @@
-// components/VoiceflowChatbot.tsx
 'use client';
 
 import { useEffect, useState } from 'react';
 import Script from 'next/script';
 
-// TypeScript type declarations for Voiceflow widget
+// Updated type definitions to include the theme override
+interface VoiceflowConfig {
+  verify: { projectID: string };
+  url: string;
+  versionID: string;
+  voice: {
+    url: string;
+  };
+  theme?: {
+    fontFamily?: string;
+  };
+}
+
 declare global {
   interface Window {
     voiceflow?: {
@@ -17,76 +28,43 @@ declare global {
   }
 }
 
-interface VoiceflowConfig {
-  verify: { projectID: string };
-  url: string;
-  versionID: string;
-  voice: {
-    url: string;
-  };
-}
-
-export default function VoiceflowChatbot() {
+export default function VoiceflowChatbot({ nonce }: { nonce?: string }) {
   const [shouldLoad, setShouldLoad] = useState(false);
 
   useEffect(() => {
-    // Load after 1 second of user activity
+    // We delay the load to prioritize the landing page's LCP (Largest Contentful Paint).
+    // 2000ms is a "sweet spot" for performance vs. user experience.
     const timeoutId = setTimeout(() => {
       setShouldLoad(true);
-    }, 1000);
+    }, 2000);
 
-    // Cleanup
-    return () => {
-      clearTimeout(timeoutId);
-    };
+    return () => clearTimeout(timeoutId);
   }, []);
 
-  // Don't render script until trigger conditions are met
   if (!shouldLoad) return null;
 
   return (
     <Script
-      id="voiceflow-chatbot"
+      src="https://cdn.voiceflow.com/widget-next/bundle.mjs"
       strategy="lazyOnload"
-      dangerouslySetInnerHTML={{
-        __html: `
-          (function(d, t) {
-              var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
-              v.onload = function() {
-                try {
-                  if (typeof window.voiceflow === 'undefined') {
-                    // Optional: Send to error tracking service
-                    // window.analytics?.track('voiceflow_object_unavailable');
-                    return;
-                  }
-                  
-                  window.voiceflow.chat.load({
-                    verify: { projectID: '6880bd6d8519297744f61f1a' },
-                    url: 'https://general-runtime.voiceflow.com',
-                    versionID: 'production',
-                    voice: {
-                      url: "https://runtime-api.voiceflow.com"
-                    }
-                  });
-                  
-                  // Optional: Send to analytics tracking service
-                  // window.analytics?.track('voiceflow_chatbot_loaded');
-                } catch (error) {
-                  // Optional: Send to error tracking service
-                  // window.analytics?.track('voiceflow_init_error', { error: error.message });
-                }
-              };
-              
-              v.onerror = function() {
-                // Optional: Send to error tracking service
-                // window.analytics?.track('voiceflow_cdn_error');
-              };
-              
-              v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs"; 
-              v.type = "text/javascript"; 
-              s.parentNode.insertBefore(v, s);
-          })(document, 'script');
-        `,
+      nonce={nonce}
+      onLoad={() => {
+        if (window.voiceflow?.chat) {
+          window.voiceflow.chat.load({
+            verify: { projectID: '6880bd6d8519297744f61f1a' },
+            url: 'https://general-runtime.voiceflow.com',
+            versionID: 'production',
+            voice: {
+              url: "https://runtime-api.voiceflow.com"
+            },
+            // CRITICAL FIX: Forces Voiceflow to use the fonts we've already 
+            // optimized and loaded in layout.tsx. This eliminates the 
+            // "font-display: swap" warning for the Voiceflow CDN.
+            theme: {
+              fontFamily: 'var(--font-ucity), var(--font-sans), sans-serif',
+            }
+          });
+        }
       }}
     />
   );

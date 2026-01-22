@@ -68,7 +68,7 @@ and drive profitable growth."
         >
           <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-10 px-[5%]">
             <div className="md:w-1/2">
-              <h2 className="text-3xl font-bold mb-6 text-gray-800">Our Story</h2>
+              <h2 className="text-2xl md:text-4xl font-medium mb-6 text-gray-800">Our Story</h2>
               <p className="text-lg text-gray-600">
               As a purpose-driven, research-led organization, we bring deep expertise in Data Science, Research, and AI. We partner with enterprises to enable confident, responsible decision-making, uncover and address critical gaps, and accelerate business outcomes using proven, scalable methodologies. We work closely with your teams to guide your journey of technology enablement in this new era of AI.
               </p>
@@ -119,9 +119,9 @@ and drive profitable growth."
 
         <section className="relative w-full text-white pb-16 lg:pb-0 pt-16 lg:pt-[14rem] lg:bg-[url('/images/aboutus/our-mission.png')] lg:bg-[length:100%_auto] lg:bg-top lg:bg-no-repeat">
           {/* Desktop view with SVG decorations (lg and above) */}
-          <div className="hidden lg:block relative mx-auto h-[520px] max-w-6xl px-6">
+          <div className="hidden lg:block relative mx-auto h-[450px] max-w-6xl px-6">
             {/* Outer blurred ring */}
-            <div className="pointer-events-none absolute left-1/2 top-[10%] -translate-x-1/2 -translate-y-1/2">
+            <div className="pointer-events-none absolute left-1/2 top-[30%] -translate-x-1/2 -translate-y-1/2">
               <Image
                 src={outerCircle}
                 alt=""
@@ -133,7 +133,7 @@ and drive profitable growth."
             </div>
 
             {/* Center orange circle */}
-            <div className="pointer-events-none absolute left-1/2 top-[10%] -translate-x-1/2 -translate-y-1/2">
+            <div className="pointer-events-none absolute left-1/2 top-[30%] -translate-x-1/2 -translate-y-1/2">
               <Image
                 src={centerCircle}
                 alt=""
@@ -145,7 +145,7 @@ and drive profitable growth."
             </div>
 
             {/* Top-right arrow pointing to Our Mission */}
-            <div className="pointer-events-none absolute right-[34%] top-[-24%]">
+            <div className="pointer-events-none absolute right-[34%] top-[-10%]">
               <Image
                 src={topArrow}
                 alt=""
@@ -157,7 +157,7 @@ and drive profitable growth."
             </div>
 
             {/* Arrow from center circle to Our Vision */}
-            <div className="pointer-events-none absolute top-[10%] right-[54%] -translate-y-1/2">
+            <div className="pointer-events-none absolute top-[30%] right-[54%] -translate-y-1/2">
               <Image
                 src={arrowCircle}
                 alt=""
@@ -181,7 +181,7 @@ and drive profitable growth."
             </div>
 
             {/* Our Vision (left) */}
-            <div className="absolute left-[10%] top-[7%] max-w-sm text-left">
+            <div className="absolute left-[10%] top-[25%] max-w-sm text-left">
               <h3 className="text-4xl font-medium leading-[1.3] text-[#FEF1F0]">
                 Our Vision
               </h3>
@@ -233,11 +233,11 @@ and drive profitable growth."
           }}
         >
           <section className="mx-auto max-w-7xl px-[5%] py-20">
-            <h2 className="text-3xl font-bold mb-12 text-center text-gray-800">
+            <h2 className="text-2xl md:text-4xl font-medium mb-12 text-center text-gray-800">
               Our Values
             </h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 place-items-center">
               {[
                 {
                   icon: analysisIcon,
@@ -290,16 +290,16 @@ and drive profitable growth."
               ].map((card) => (
                 <article
                   key={card.title}
-                  className="flex flex-col items-start text-left max-w-[270px] mb-5 p-4 bg-white/50 rounded-lg border border-orange-200"
+                  className="flex flex-col items-start text-left w-full max-w-[270px] mb-5 p-4 bg-white/50 rounded-lg border border-orange-200 h-full"
                 >
                   <Image
                     src={card.icon}
                     alt={card.alt}
                     width={64}
                     height={64}
-                    className="mb-3 h-12 w-16"
+                    className="mb-3 h-12 w-16 flex-shrink-0"
                   />
-                  <h3 className="text-lg font-semibold text-black">
+                  <h3 className="text-lg font-semibold text-black h-[40px] flex items-start">
                     {card.title}
                   </h3>
                   <p className="text-gray-600 mt-2 text-sm">{card.text}</p>

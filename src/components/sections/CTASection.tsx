@@ -62,8 +62,8 @@ export function CTASection({
   if (variant === "ready") {
     return (
       <section className={cn("text-center", readyClassName)}>
-        <h2 className="mb-3 text-4xl font-medium">{readyTitle}</h2>
-        <p className="mb-6 text-4xl font-medium">{readySubtitle}</p>
+        <h2 className="mb-3 text-2xl md:text-4xl font-medium">{readyTitle}</h2>
+        <p className="mb-6 text-2xl md:text-4xl font-medium">{readySubtitle}</p>
         <PrimaryButton onClick={handleOpenContact}>{readyButtonLabel}</PrimaryButton>
       </section>
     );
