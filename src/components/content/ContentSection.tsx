@@ -25,17 +25,17 @@ export function ContentSection({
     <section className={`${hasBackground ? 'bg-white' : ''} px-[8%] py-16 md:py-16`}>
       <div className="mx-auto max-w-[1100px]">
         <div className="mb-10 text-center md:mb-[40px]">
-          <h2 className="font-poppins text-3xl font-medium leading-[48px] text-gray-900 md:text-[38px]">
+          <h2 className="font-poppins text-4xl font-medium leading-[48px] text-[#111111]">
             {title}
           </h2>
-          <p className="mt-4 font-poppins text-base leading-normal text-gray-700 md:text-lg">
+          <p className="mt-4 font-poppins text-base leading-normal text-[#454545]">
             {subtitle}
           </p>
         </div>
 
         {displayItems.length === 0 ? (
           <div className="py-12 text-center">
-            <p className="font-poppins text-lg text-gray-600">{emptyMessage}</p>
+            <p className="font-poppins text-lg text-[#454545]">{emptyMessage}</p>
           </div>
         ) : (
           <>

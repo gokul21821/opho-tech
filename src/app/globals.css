@@ -235,3 +235,30 @@ body {
     line-height: 1.5rem !important; /* 24px */
   }
 }
+
+/* Mobile optimizations for service cards */
+@media (max-width: 640px) {
+  .service-card {
+    /* Simplify complex CSS on mobile for better performance */
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+
+  .service-card::after,
+  .service-card::before {
+    /* Use simpler borders on mobile */
+    border-radius: 16px;
+    border: 1px solid rgb(254 243 199);
+  }
+
+  .service-card::after {
+    background: #fffaf5;
+    border-radius: 16px;
+  }
+
+  .service-card-dots {
+    /* Reduce dotted pattern complexity on mobile */
+    background-size: 20px_20px;
+    opacity: 0.7;
+  }
+}

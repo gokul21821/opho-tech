@@ -1,3 +1,4 @@
+// middleware.ts
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 
@@ -10,65 +11,66 @@ function getOrigin(input: string | undefined | null): string | null {
   }
 }
 
+/**
+ * Generates a cryptographically secure, base64-encoded nonce.
+ * This is used to "vouch" for specific scripts in our CSP.
+ */
 function createNonce(): string {
   const bytes = crypto.getRandomValues(new Uint8Array(16));
   let binary = "";
   for (const b of bytes) binary += String.fromCharCode(b);
-  // base64url (no padding)
   return btoa(binary).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/g, "");
 }
 
 export function middleware(req: NextRequest) {
   const isProd = process.env.NODE_ENV === "production";
 
-  // Only emit CSP headers in production.
-  // Dev mode often includes extra scripts and would generate noisy reports.
+  // 1. Only enforce CSP in production to avoid local development friction
   if (!isProd) return NextResponse.next();
 
   const nonce = createNonce();
-
   const contentApiOrigin = getOrigin(
-    process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000",
+    process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000"
   );
 
   const connectSrc = [
     "'self'",
-     // Voiceflow runtime (HTTP + WebSocket)
-  "https://general-runtime.voiceflow.com",
-  "wss://general-runtime.voiceflow.com",
-
-  "https://runtime-api.voiceflow.com",
-
-    // Google Analytics and Tag Manager
+    "https://general-runtime.voiceflow.com",
+    "wss://general-runtime.voiceflow.com",
+    "https://runtime-api.voiceflow.com",
     "https://www.google-analytics.com",
     "https://www.googletagmanager.com",
     "https://stats.g.doubleclick.net",
-    // External content API (used in client-side search)
     ...(contentApiOrigin ? [contentApiOrigin] : []),
   ].join(" ");
 
-  // Enforced nonce CSP (App Router compatible).
-  // - nonce authorizes Next/our inline scripts safely
-  // - strict-dynamic helps with GTM chains; host allowlist kept as fallback
+  /**
+   * HYBRID CSP POLICY:
+   * We REMOVED 'strict-dynamic' because it forces the browser to ignore 'self'.
+   * By removing it, Next.js chunks (/_next/static/...) will load correctly via 'self',
+   * while GTM and Voiceflow are allowed via their specific domains + nonce.
+   */
   const csp = [
     "default-src 'self'",
     "base-uri 'self'",
     "object-src 'none'",
     "frame-ancestors 'none'",
-    `script-src 'self' 'nonce-${nonce}' 'strict-dynamic' https://cdn.voiceflow.com https://www.googletagmanager.com`,
+    // Added 'unsafe-eval' which is often required for hydration/GTM chains
+    `script-src 'self' 'nonce-${nonce}' https://cdn.voiceflow.com https://www.googletagmanager.com 'unsafe-eval'`,
+    `script-src-elem 'self' 'nonce-${nonce}' https://cdn.voiceflow.com https://www.googletagmanager.com`,
     `connect-src ${connectSrc}`,
     "img-src 'self' data: https:",
     "font-src 'self' data: https://cdn.voiceflow.com",
-    // Keep inline styles allowed initially; revisit in later phases.
-    "style-src 'self' 'unsafe-inline'",
-    // Allow external stylesheet files for the Voiceflow widget.
+    "style-src 'self' 'unsafe-inline'", // Required for Tailwind/Next.js hydration
     "style-src-elem 'self' 'unsafe-inline' https://cdn.voiceflow.com",
     "report-uri /api/csp-report",
   ].join("; ");
 
+  // 2. Set the nonce in the request header so layout.tsx can read it
   const requestHeaders = new Headers(req.headers);
   requestHeaders.set("x-nonce", nonce);
 
+  // 3. Apply the CSP to the response
   const res = NextResponse.next({
     request: { headers: requestHeaders },
   });
@@ -79,8 +81,13 @@ export function middleware(req: NextRequest) {
 
 export const config = {
   matcher: [
-    // Apply to all routes except Next.js internals and common static assets.
-    "/((?!_next/static|_next/image|favicon.ico).*)",
+    /*
+     * Match all request paths except for:
+     * - _next/static (static files)
+     * - _next/image (image optimization files)
+     * - favicon.ico (favicon file)
+     * - public folder files (.svg, .png, etc.)
+     */
+    "/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)",
   ],
 };
-

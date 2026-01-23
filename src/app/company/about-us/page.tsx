@@ -68,8 +68,8 @@ and drive profitable growth."
         >
           <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-10 px-[5%]">
             <div className="md:w-1/2">
-              <h2 className="text-2xl md:text-4xl font-medium mb-6 text-gray-800">Our Story</h2>
-              <p className="text-lg text-gray-600">
+              <h2 className="text-4xl font-medium mb-6 text-[#111111]">Our Story</h2>
+              <p className="text-base text-[#454545]">
               As a purpose-driven, research-led organization, we bring deep expertise in Data Science, Research, and AI. We partner with enterprises to enable confident, responsible decision-making, uncover and address critical gaps, and accelerate business outcomes using proven, scalable methodologies. We work closely with your teams to guide your journey of technology enablement in this new era of AI.
               </p>
             </div>
@@ -233,7 +233,7 @@ and drive profitable growth."
           }}
         >
           <section className="mx-auto max-w-7xl px-[5%] py-20">
-            <h2 className="text-2xl md:text-4xl font-medium mb-12 text-center text-gray-800">
+            <h2 className="text-4xl font-medium mb-12 text-center text-[#111111]">
               Our Values
             </h2>
 
@@ -299,10 +299,10 @@ and drive profitable growth."
                     height={64}
                     className="mb-3 h-12 w-16 flex-shrink-0"
                   />
-                  <h3 className="text-lg font-semibold text-black h-[40px] flex items-start">
+                  <h3 className="text-xl font-medium text-black h-[40px] flex items-start">
                     {card.title}
                   </h3>
-                  <p className="text-gray-600 mt-2 text-sm">{card.text}</p>
+                  <p className="text-[#454545] mt-2 text-base">{card.text}</p>
                 </article>
               ))}
             </div>

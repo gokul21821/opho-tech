@@ -276,7 +276,7 @@ export default function DataMonetizationPage() {
               <div className="flex flex-col md:flex-row gap-6 md:gap-10 items-stretch md:items-start min-h-[243px] relative">
                 {/* First Card */}
                 <div className="flex-1 flex flex-col gap-4 items-start justify-start">
-                  <div className="flex flex-col gap-2 w-full mb-2 h-[80px]">
+                  <div className="flex flex-col gap-2 w-full mb-2 h-[100px]">
                     <div className="bg-[#F6F6F6] rounded-lg px-2.5 py-1.5 w-fit">
                       <span className="capitalize text-base font-medium text-[#111111]">
                         Business Challenge
@@ -312,7 +312,7 @@ export default function DataMonetizationPage() {
 
                 {/* Second Card */}
                 <div className="flex-1 flex flex-col gap-4 items-start justify-start">
-                  <div className="flex flex-col gap-2 w-full mb-2 h-[80px]">
+                  <div className="flex flex-col gap-2 w-full mb-2 h-[100px]">
                     <div className="bg-[#F6F6F6] rounded-lg px-2.5 py-1.5 w-fit">
                       <span className="capitalize text-base font-medium text-[#111111]">
                         Business Challenge

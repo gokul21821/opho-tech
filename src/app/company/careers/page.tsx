@@ -42,10 +42,10 @@ export default function Careers() {
           <section className="relative px-6 py-5">
             {/* Header */}
             <div className="max-w-5xl mx-auto text-center">
-              <h2 className="text-2xl md:text-4xl font-medium tracking-tight text-neutral-900">
+              <h2 className="text-4xl font-medium tracking-tight text-[#111111]">
                 Join our Team
               </h2>
-              <p className="mt-4 text-base md:text-lg text-neutral-600 max-w-3xl mx-auto">
+              <p className="mt-4 text-base text-[#454545] max-w-3xl mx-auto">
                 Discover exciting and fulfilling opportunities at OphoTech, where
                 challenges are met with collaboration and growth.
               </p>
@@ -63,7 +63,7 @@ export default function Careers() {
                 <h2 className="mt-4 text-3xl font-medium tracking-tight text-neutral-900 h-[80px] flex items-start justify-center">
                   Business Development Manager
                 </h2>
-                <p className="mt-3 mb-10 max-w-md text-neutral-600 leading-relaxed flex-1">
+                <p className="mt-3 mb-10 max-w-md text-[#454545] leading-relaxed flex-1">
                 To drive requirement analysis, solution scoping, and business growth for our software development, IT services, and Generative AI solutions
                 </p>
                 <PrimaryButton onClick={() => window.open('https://forms.gle/1ofoSTv4a54iktecA', '_blank')}>
@@ -90,10 +90,10 @@ export default function Careers() {
                     Mid Level
                   </span>
                 </div>
-                <h2 className="mt-4 text-3xl font-medium tracking-tight text-neutral-900 h-[80px] flex items-start justify-center">
+                <h2 className="mt-4 text-3xl font-medium tracking-tight text-[#111111] h-[80px] flex items-start justify-center">
                   Data Engineer
                 </h2>
-                <p className="mt-3 mb-10 max-w-md text-neutral-600 leading-relaxed flex-1">
+                <p className="mt-3 mb-10 max-w-md text-[#454545] leading-relaxed flex-1">
                   Can build predictive models, AI tools, and automation systems.
                 </p>
                 <PrimaryButton onClick={() => window.open('https://forms.gle/1ofoSTv4a54iktecA', '_blank')}>
@@ -155,10 +155,10 @@ export default function Careers() {
           <section className="flex flex-col gap-10 items-center px-20 py-20 max-w-7xl mx-auto text-center">
             {/* Header */}
             <div className="flex flex-col gap-5 items-center">
-              <h2 className="text-2xl md:text-4xl font-medium leading-[48px] text-[#111111]">
+              <h2 className="text-4xl font-medium text-[#111111]">
                 Life at OphoTech
               </h2>
-              <p className="text-[18px] leading-normal text-[#454545] max-w-[860px]">
+              <p className="text-base text-[#454545] max-w-[860px]">
                 At <span className="font-medium text-[#111111]">OphoTech</span>, we believe people do their best work when they're inspired, challenged, and supported. Our culture is built around <span className="font-medium text-[#111111]">curiosity, innovation, and collaboration</span> — with opportunities to grow every step of the way.
               </p>
             </div>
@@ -189,10 +189,10 @@ export default function Careers() {
                         className="size-full"
                       />
                     </div>
-                    <h3 className="capitalize font-medium leading-normal text-[18px] text-[#111111] text-center">
+                    <h3 className="capitalize font-medium leading-normal text-xl text-[#111111] text-center">
                       {item.title}
                     </h3>
-                    <p className="font-normal leading-normal text-[14px] text-[#4f4f4f] text-center">
+                    <p className="font-normal leading-normal text-sm text-[#4f4f4f] text-center">
                       {item.description}
                     </p>
                   </div>
@@ -236,10 +236,10 @@ export default function Careers() {
                           className="size-full"
                         />
                       </div>
-                      <h3 className="capitalize font-medium leading-normal text-[18px] text-[#111111] text-center">
+                      <h3 className="capitalize font-medium leading-normal text-xl text-[#111111] text-center">
                         {item.title}
                       </h3>
-                      <p className="font-normal leading-normal text-[14px] text-[#4f4f4f] text-center">
+                      <p className="font-normal leading-normal text-sm text-[#4f4f4f] text-center">
                         {item.description}
                       </p>
                     </div>

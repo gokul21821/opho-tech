@@ -330,37 +330,40 @@ export default function CloudIntegrationPage() {
             background: "linear-gradient(to bottom, #ffffff 38.524%, #feecd6 171.52%)",
           }}
         >
-          <section className="mx-auto max-w-7xl px-[5%]">
-            <div className="grid items-center gap-10 md:grid-cols-3">
-              <div>
-                <h2 className="text-4xl font-medium">Cloud Integration & Architecture</h2>
-                <p className="mt-5 text-lg text-[#3A4A5F]">
-                Enable and transform complex business challenges into clear technology opportunities, driving stability, security, and speed.
-                </p>
-              </div>
+          <section className="relative mx-auto max-w-7xl px-[5%]">
+  {/* Divider line */}
+  <Image
+    src="/images/raar/lineraar.svg"
+    alt=""
+    width={2}
+    height={320}
+    className="hidden md:block absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+    aria-hidden
+  />
 
-              <div className="flex justify-center">
-                <Image
-                  src="/images/raar/lineraar.svg"
-                  alt=""
-                  width={2}
-                  height={320}
-                  className="h-[320px] w-[2px]"
-                />
-              </div>
+  <div className="grid md:grid-cols-2 items-center gap-10">
+    {/* Left: Text */}
+    <div>
+      <h2 className=" text-3xl md:text-4xl font-medium text-[#0B1B2B] ">
+        Cloud Integration & Architecture
+      </h2>
+      <p className="mt-5 text-lg text-[#3A4A5F]">
+        Enable and transform complex business challenges into clear technology opportunities, driving stability, security, and speed.
+      </p>
+    </div>
 
-              <div className="justify-self-center">
-                <Image
-                  src="/images/cloud-integrations/analyzing.png"
-                  alt="Cloud architecture illustration"
-                  width={520}
-                  height={360}
-                  className="h-auto w-[320px] sm:w-[380px] md:w-[460px] rounded-xl shadow-[0_12px_32px_-10px_rgba(15,44,88,0.3)]"
-                />
-              </div>
-            </div>
-
-          </section>
+    {/* Right: Image */}
+    <div className="justify-self-center">
+      <Image
+        src="/images/cloud-integrations/analyzing.png"
+        alt="Cloud architecture illustration"
+        width={520}
+        height={360}
+        className="h-auto w-[320px] sm:w-[380px] md:w-[460px] rounded-xl shadow-[0_12px_32px_-10px_rgba(15,44,88,0.3)]"
+      />
+    </div>
+  </div>
+</section>
 
         </BackgroundDots>
         <div className=" flex justify-center">

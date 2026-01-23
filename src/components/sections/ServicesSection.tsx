@@ -1,8 +1,22 @@
 import Image from "next/image";
 import Link from "next/link";
+import { lazy, Suspense } from "react";
 
 import { ServiceIcon } from "@/components/icons/ServiceIcon";
 import { slugify } from "@/lib/utils";
+
+// Lazy load ServiceCard for better performance
+const ServiceCard = lazy(() =>
+  import("@/components/sections/ServiceCard").then(module => ({ default: module.ServiceCard }))
+);
+
+// Define the service type
+type Service = {
+  title: string;
+  tagline: string;
+  description: string;
+  icon: "research-analysis" | "data-monetization" | "cloud-integration" | "ai-solutions" | "ai-agent" | "cyber-security";
+};
 
 // Mapping of service titles to their solution page paths
 const SERVICE_TO_PATH: Record<string, string> = {
@@ -61,127 +75,33 @@ const SERVICES = [
 
 export function ServicesSection() {
   return (
-    <section className="relative overflow-hidden bg-white py-15">
+    <section className="relative overflow-hidden bg-white py-12 sm:py-15">
       <div className="pointer-events-none absolute inset-x-0 top-10 mx-auto h-40 w-[60%] rounded-full bg-orange-100/30 blur-[100px]" />
 
-      <div className="relative mx-auto max-w-7xl px-[4%] ">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-[4%]">
         <div className="text-center">
-          <h2 className="text-3xl font-semibold text-gray-900 md:text-[38px]">
+          <h2 className="text-4xl font-medium text-[#111111]">
             What We Do for You
           </h2>
-          <p className="mt-4 text-base text-gray-600 md:text-lg">
+          <p className="mt-4 text-base text-[#454545]">
             Research, Roadmaps, and Support Designed to Deliver Results
           </p>
         </div>
 
-        <div className="mt-14 grid grid-cols-1 justify-items-center gap-15 sm:grid-cols-2 lg:grid-cols-3">
-
-
-          {SERVICES.map((service) => (
-            <ServiceCard key={service.title} {...service} />
-          ))}
+        <div className="mt-6 sm:mt-8 lg:mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 justify-items-center gap-6 sm:gap-5 lg:gap-6 xl:gap-5 place-items-center">
+          <Suspense fallback={<div className="animate-pulse w-full max-w-[330px] h-64 bg-gray-100 rounded-lg" />}>
+            {SERVICES.map((service, index) => (
+              <Suspense
+                key={service.title}
+                fallback={<div className="animate-pulse w-full max-w-[330px] h-64 bg-gray-100 rounded-lg" />}
+              >
+                <ServiceCard {...service} />
+              </Suspense>
+            ))}
+          </Suspense>
         </div>
       </div>
     </section>
   );
 }
 
-type ServiceCardProps = (typeof SERVICES)[number];
-
-function ServiceCard({ title, tagline, description, icon }: ServiceCardProps) {
-  const href = SERVICE_TO_PATH[title] || slugify(title);
-
-  return (
-    <Link
-      href={href}
-      className="
-        service-card group relative flex h-full w-[330px] sm:w-[320px] md:w-[340px] lg:w-[335px] xl:w-[370px] flex-col overflow-visible
-        px-6 py-8
-        transition-all duration-300
-      "
-    >
-      {/* dotted pattern background */}
-      <div
-        className="
-          service-card-dots
-          pointer-events-none absolute inset-0 z-0
-          [background-image:radial-gradient(#d9d9d9_1px,transparent_1px)]
-          [background-size:18px_18px]
-          opacity-[0.9]
-        "
-      />
-
-      {/* top-right orange icon (SVG from public) */}
-      <div
-        className="
-          pointer-events-none absolute top-[-18] right-[-20] z-[3]
-          flex h-10 w-10 items-center justify-center rounded-full"
-      >
-        <Image
-          alt=""
-          src="/images/servicessection/toparrow.svg"
-          width={15}
-          height={15}
-          className="text-orange-500"
-        />
-      </div>
-
-      {/* content */}
-      <div className="relative z-[2] flex flex-col">
-        <div className="flex items-start gap-6 mb-5">
-          <div className="flex-1 min-w-0 flex flex-col">
-            {/* Fixed height container for title - accommodates up to 2 lines, ensures alignment */}
-            <div className="h-[52px] flex items-start mb-10 sm:mb-10 lg:mb-10">
-              <h3 className="text-2xl font-semibold leading-[1.2] text-gray-900">
-                {title}
-              </h3>
-            </div>
-
-            {/* Fixed height container for tagline - accommodates wrapped taglines, ensures alignment */}
-            <div className="h-[40px] flex items-start">
-              <p className="text-xs text-black leading-[1.4]">
-                {tagline}
-              </p>
-            </div>
-          </div>
-
-          <ServiceIcon
-            name={icon}
-            className="
-              shrink-0 rounded-full bg-white/10 
-              text-orange-500 transition-all duration-300
-              group-hover:scale-105
-            "
-          />
-        </div>
-
-        {/* Description starts at fixed position after tagline section - ensures descriptions align */}
-        <p className="text-xs leading-[1.7] text-gray-700">
-          {description}
-        </p>
-      </div>
-
-      {/* arrow button - positioned in the cutout area */}
-      <span
-        aria-hidden="true"
-        className="
-          service-card-button flex items-center justify-center
-          rounded-full bg-white shadow-[0_10px_30px_-10px_rgba(0,0,0,0.25)]
-          transition-transform duration-300
-          group-hover:scale-110
-        "
-      >
-        <Image
-          alt=""
-          src="/images/servicessection/arrow.svg"
-          width={15}
-          height={15}
-          className="
-            transition-transform duration-300
-            group-hover:rotate-45
-          "
-        />
-      </span>
-    </Link>
-  );
-}

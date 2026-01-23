@@ -69,11 +69,11 @@ export function ValuePropositionSection() {
         <div className="mx-auto max-w-[1200px]">
           {/* Heading */}
           <div className="mb-8 sm:mb-9 md:mb-10 text-center">
-          <h2 className="font-poppins text-2xl sm:text-3xl md:text-[38px] font-medium leading-tight sm:leading-[40px] md:leading-[48px] text-[#111111] px-2">
+          <h2 className="font-poppins text-4xl font-medium leading-tight text-[#111111] px-2">
             How We Work<br />
-            <span className="text-black text-3xl">From Idea To Impact</span>
+            <span className="text-black text-4xl">From Idea To Impact</span>
           </h2>
-          <p className="mx-auto mt-4 sm:mt-5 w-full max-w-[860px] font-poppins text-base sm:text-lg leading-normal text-[#454545] px-2">
+          <p className="mx-auto mt-4 sm:mt-5 w-full max-w-[860px] font-poppins text-base leading-normal text-[#454545] px-2">
             End-to-End Support: From Discovery to Deployment, Designed for Measurable Impact.
           </p>
         </div>

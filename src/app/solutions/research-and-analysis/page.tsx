@@ -82,7 +82,7 @@ export default function RAARPage() {
         >
         <section className="mx-auto max-w-7xl px-[5%]">
           <div className="flex flex-col gap-10 items-center">
-            <h2 className="text-center text-2xl md:text-4xl font-medium text-[#111111]">
+            <h2 className="text-center text-4xl  font-medium text-[#111111]">
               How it Works
             </h2>
 

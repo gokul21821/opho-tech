@@ -16,10 +16,10 @@ export function YourJourney() {
       >
         <div className="relative mx-auto max-w-7xl px-[4%]">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-semibold text-gray-900 md:text-[38px] md:leading-[48px]">
+            <h2 className="text-4xl font-medium text-[#111111]">
               Your Journey to AI Enablement
             </h2>
-            <p className="mt-4 text-base text-gray-600 md:text-lg">
+            <p className="mt-4 text-base text-[#454545]">
               A Framework for Enterprise Readiness
             </p>
           </div>
