@@ -29,7 +29,7 @@ export async function CaseStudiesSection() {
   return (
     <>
       <BackgroundDots
-        className="py-16"
+        className="py-2"
         spacing={36}
         dotSize={2.5}
         backgroundColor=""
