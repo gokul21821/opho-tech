@@ -90,7 +90,7 @@ export function HeroSection({
             <div className="flex flex-1 flex-col items-start gap-12 lg:flex-row lg:items-center lg:gap-16">
               {/* Left: Text Content */}
               <div className="min-w-[280px] max-w-md space-y-8 sm:min-w-[350px] lg:min-w-[380px]">
-                <h1 className="text-3xl text-orange-500 sm:text-5xl leading-[1.1] lg:text-5xl">
+                <h1 className="text-3xl text-orange-400 sm:text-5xl leading-[1.1] lg:text-5xl">
                   {title}
                 </h1>
 
@@ -137,7 +137,7 @@ export function HeroSection({
                   : "max-w-5xl"
               }`}
             >
-              <h1 className="text-4xl  text-orange-500 sm:text-5xl leading-[1.1] lg:text-5xl">
+              <h1 className="text-4xl  text-orange-400 sm:text-5xl leading-[1.1] lg:text-5xl">
                 {title}
               </h1>
 

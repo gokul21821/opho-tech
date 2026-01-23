@@ -46,7 +46,7 @@ export function HeroSection() {
       <div className="relative mx-auto flex min-h-[680px] max-w-7xl px-[5%] flex-col gap-10 pb-24 pt-36  lg:flex-row lg:items-center lg:justify-between lg:min-h-[720px]">
         <div className="max-w-xl space-y-8">
           <div className="space-y-3">
-            <p className="text-4xl text-orange-500 sm:text-5xl">
+            <p className="text-4xl text-orange-400 sm:text-5xl">
               You Lead
             </p>
             <p className="text-4xl font-semibold text-white sm:text-5xl">

@@ -234,13 +234,13 @@ function FooterColumn({ title, links, hrefPrefix, onContactClick, hrefMapper }: 
             {link === "Contact" ? (
               <button
                 onClick={onContactClick}
-                className="inline-block transition-colors hover:text-white hover:underline hover:underline-offset-2"
+                className="inline-block transition-colors hover:text-orange-400 "
               >
                 {link}
               </button>
             ) : (
               <Link
-                className="inline-block transition-colors hover:text-white hover:underline hover:underline-offset-2"
+                className="inline-block transition-colors hover:text-orange-400 "
                 href={hrefMapper ? hrefMapper(link) : hrefPrefix ? `${hrefPrefix}${slugify(link)}` : slugify(link)}
               >
                 {link}

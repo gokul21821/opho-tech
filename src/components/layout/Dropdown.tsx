@@ -128,7 +128,7 @@ export function Dropdown({
                   href={item.href}
                   tabIndex={open ? 0 : -1}
                   className={cn(
-                    "block px-0 py-2 text-sm font-normal leading-normal text-gray-600 transition-colors hover:text-blue-500",
+                    "block px-0 py-2 text-sm font-normal leading-normal text-gray-600 transition-colors hover:text-orange-500",
                     index < items.length - 1 && "border-b border-gray-100",
                   )}
                 >

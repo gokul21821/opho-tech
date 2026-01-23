@@ -70,7 +70,7 @@ export function ContentDetailHeroSection({
       {/* Content */}
       <div className={containerClasses}>
         <div className="flex flex-col items-center text-center space-y-6 max-w-5xl">
-          <h1 className="text-4xl font-bold text-orange-500 sm:text-5xl">
+          <h1 className="text-4xl font-bold text-orange-400 sm:text-5xl">
             {title}
           </h1>
 

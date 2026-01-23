@@ -34,7 +34,7 @@ export function Breadcrumb({ items }: BreadcrumbProps) {
                 <span
                   className={
                     isLast
-                      ? "min-w-0 truncate text-orange-500"
+                      ? "min-w-0 truncate text-orange-400"
                       : "min-w-0 truncate text-white/80"
                   }
                   title={item.label} // Show full text on hover
