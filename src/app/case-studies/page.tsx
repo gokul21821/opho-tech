@@ -19,6 +19,7 @@ export default async function CaseStudiesPage() {
     title: "Bridging the Digital Gap in Manufacturing: How AI-Led RAR Cut IT Decision Time by 60%",
     description: "Discover how OphoTech's AI-driven Business Research and Analysis (RAR) framework helped a manufacturing company streamline technology decisions and achieve 60% faster IT decision-making.",
     date: "2025-11-06",
+    category: "Manufacturing",
     createdAt: "2025-11-06T00:00:00Z",
     updatedAt: "2025-11-06T00:00:00Z",
     imageUrl: "/images/case/framework.png",
@@ -92,6 +93,7 @@ export default async function CaseStudiesPage() {
                     id={item.id}
                     title={item.title}
                     date={item.date}
+                    category={item.category}
                     contentType="case-studies"
                   />
                 ))}

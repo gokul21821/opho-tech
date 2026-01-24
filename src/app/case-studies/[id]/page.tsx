@@ -91,8 +91,8 @@ export default async function CaseStudyDetailPage({
         author={caseStudy.author.username}
         contentType="case-studies"
       />
-      <main className="bg-white px-[8%] py-16 md:py-24">
-        <div className="mx-auto max-w-[1200px]">
+      <main className="bg-white py-16 md:py-24">
+        <div className="mx-auto max-w-7xl px-[5%]">
           <div className="flex flex-col gap-8 lg:flex-row lg:gap-12">
             {/* Main Content - 70% */}
             <article className="flex-1 lg:w-[70%]">

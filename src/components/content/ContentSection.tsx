@@ -46,6 +46,8 @@ export function ContentSection({
                   id={item.id}
                   title={item.title}
                   date={item.date}
+                  edition={item.edition}
+                  category={item.category}
                   contentType={contentType}
                 />
               ))}

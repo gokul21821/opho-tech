@@ -31,7 +31,7 @@ export async function POST(request: Request) {
     }
 
     // 3. Process File & Security Check
-    let attachments = [];
+    const attachments = [];
     let fileNameForTemplate = "None";
 
     if (file && file.size > 0) {

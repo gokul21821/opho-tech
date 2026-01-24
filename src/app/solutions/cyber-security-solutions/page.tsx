@@ -66,7 +66,7 @@ export default function CyberSecuritySolutions() {
               </p>
 
               <p className="mt-4">
-                We don't offer generic security; we build
+                We don&apos;t offer generic security; we build
                 <span className="font-semibold text-[#0F2C58]">
                   {" "}
                   AI-driven, agentic security architectures

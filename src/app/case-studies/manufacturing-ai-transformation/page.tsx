@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { notFound } from "next/navigation";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { RichTextRenderer } from "@/components/Common/RichTextRenderer";
@@ -8,7 +7,6 @@ import { SocialShareCard } from "@/components/ui/SocialShareCard";
 import { RecentContentCard } from "@/components/ui/RecentContentCard";
 import { CTASection } from "@/components/sections/CTASection";
 import { Metadata } from "next";
-import BackgroundDots from "@/components/ui/background";
 
 export async function generateMetadata(): Promise<Metadata> {
   const title = "Bridging the Digital Gap in Manufacturing: How AI-Led RAR Cut IT Decision Time by 60%";

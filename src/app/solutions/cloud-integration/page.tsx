@@ -119,7 +119,7 @@ export default function CloudIntegrationPage() {
                     The Strategic Imperative: Agility and Resilience
                   </h3>
                   <p className="text-base font-normal leading-normal text-[#454545]">
-                    In today's market, speed and flexibility are paramount. Our approach ensures your cloud environment is not only cost-effective but an active enabler of business transformation.
+                    In today&apos;s market, speed and flexibility are paramount. Our approach ensures your cloud environment is not only cost-effective but an active enabler of business transformation.
                   </p>
                 </div>
               </div>
@@ -180,7 +180,7 @@ export default function CloudIntegrationPage() {
                   From Complex Challenge to Clear Opportunity
                 </h3>
                 <p className="text-base font-normal leading-normal text-[#454545] max-w-full">
-                  Our core expertise is <span className="font-semibold text-[#111111]">translating complex business challenges into clear technology opportunities.</span> We don't implement technology for its own sake; we align it with your revenue targets and operational requirements.
+                  Our core expertise is <span className="font-semibold text-[#111111]">translating complex business challenges into clear technology opportunities.</span> We don&apos;t implement technology for its own sake; we align it with your revenue targets and operational requirements.
                 </p>
               </div>
   {/* Two-column challenge/services band */}

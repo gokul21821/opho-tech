@@ -1,23 +1,21 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { CookiePreferences } from "@/lib/types";
 
 export default function CookieConsent() {
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(() => {
+    // Initialize show state based on whether preferences exist
+    if (typeof window === 'undefined') return false; // SSR safe
+    const saved = localStorage.getItem("cookie_prefs");
+    return !saved; // Show if no preferences saved
+  });
   const [showCustomize, setShowCustomize] = useState(false);
 
   const [analytics, setAnalytics] = useState(true);
   const [marketing, setMarketing] = useState(true);
 
-  useEffect(() => {
-    const saved = localStorage.getItem("cookie_prefs");
-
-    if (!saved) {
-      setShow(true);
-    }
-  }, []);
-
-  const savePreferences = (prefs: any) => {
+  const savePreferences = (prefs: CookiePreferences) => {
     localStorage.setItem("cookie_prefs", JSON.stringify(prefs));
     window.dispatchEvent(new Event("cookie_update"));
     setShow(false);

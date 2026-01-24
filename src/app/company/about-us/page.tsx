@@ -5,13 +5,11 @@ import { Footer } from "@/components/layout/Footer";
 import { HeroSection } from "@/components/ui/HeroSection";
 import BackgroundDots from "@/components/ui/background";
 import Image from "next/image";
-import { Fragment } from "react";
 import { IconCardsSection } from "@/components/ui/IconCardsSection";
 import { CTASection } from "@/components/sections/CTASection";
 
 // Import images
 const communicationsImage = "/images/aboutus/evolve.png";
-const impactImage = "/images/aboutus/impact.png";
 
 // Mission/Vision visuals
 const centerCircle = "/images/aboutus/center-circle.svg";

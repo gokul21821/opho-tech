@@ -130,17 +130,18 @@ export function Header() {
   // Lazy load content when search opens
   useEffect(() => {
     if (searchOpen && !allContent && !isLoadingContent) {
-      setIsLoadingContent(true);
-      fetchAllContent()
-        .then((data) => {
+      const loadContent = async () => {
+        setIsLoadingContent(true);
+        try {
+          const data = await fetchAllContent();
           setAllContent(data);
-        })
-        .catch((error) => {
+        } catch (error) {
           console.error("Failed to load search content:", error);
-        })
-        .finally(() => {
+        } finally {
           setIsLoadingContent(false);
-        });
+        }
+      };
+      loadContent();
     }
   }, [searchOpen, allContent, isLoadingContent]);
 

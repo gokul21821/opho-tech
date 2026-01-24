@@ -2,7 +2,6 @@
 
 // app/raar/page.tsx
 import Image from "next/image";
-import { Fragment } from "react";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { HeroSection } from "@/components/ui/HeroSection";

@@ -1,13 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ServiceIcon } from "@/components/icons/ServiceIcon";
-import { formatDate } from "@/lib/api";
+import { formatFullDate, formatYear } from "@/lib/api";
 
 interface ContentCardProps {
   id: string;
   title: string;
   date: string;
   contentType: "newsletters" | "case-studies" | "blogs";
+  edition?: string | null;
+  category?: string | null;
 }
 
 export function ContentCard({
@@ -15,7 +17,24 @@ export function ContentCard({
   title,
   date,
   contentType,
+  edition,
+  category,
 }: ContentCardProps) {
+  const year = formatYear(date);
+  const normalizedEdition = edition?.trim();
+  const normalizedCategory = category?.trim();
+
+  const badgeText =
+    contentType === "newsletters"
+      ? normalizedEdition
+        ? `${normalizedEdition}, ${year}`
+        : formatFullDate(date)
+      : contentType === "case-studies"
+        ? id === "manufacturing-ai-transformation"
+          ? "It & Allied Services"
+          : normalizedCategory || "Uncategorized"
+        : formatFullDate(date);
+
   return (
     <Link
       href={`/${contentType}/${id}`}
@@ -33,7 +52,7 @@ export function ContentCard({
       <div className="absolute bottom-4 left-4 z-10">
         <div className="rounded-lg bg-gray-25 px-2.5 py-1.5">
           <span className="block font-poppins text-xs leading-tight text-gray-900">
-            {formatDate(date)}
+            {badgeText}
           </span>
         </div>
       </div>

@@ -159,7 +159,7 @@ export default function Careers() {
                 Life at OphoTech
               </h2>
               <p className="text-base text-[#454545] max-w-[860px]">
-                At <span className="font-medium text-[#111111]">OphoTech</span>, we believe people do their best work when they're inspired, challenged, and supported. Our culture is built around <span className="font-medium text-[#111111]">curiosity, innovation, and collaboration</span> — with opportunities to grow every step of the way.
+                At <span className="font-medium text-[#111111]">OphoTech</span>, we believe people do their best work when they&apos;re inspired, challenged, and supported. Our culture is built around <span className="font-medium text-[#111111]">curiosity, innovation, and collaboration</span> — with opportunities to grow every step of the way.
               </p>
             </div>
 

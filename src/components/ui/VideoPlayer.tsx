@@ -54,7 +54,24 @@ export function VideoPlayer({
   const [showMobileControls, setShowMobileControls] = useState(false);
   const [isInView, setIsInView] = useState(false);
   const [isVideoEnabled, setIsVideoEnabled] = useState(false);
-  const [connectionSlowOrSaveData, setConnectionSlowOrSaveData] = useState(false);
+  const [connectionSlowOrSaveData] = useState(() => {
+    // Initialize connection state
+    if (typeof window === 'undefined') return false; // SSR safe
+    try {
+      const nav = navigator as unknown as {
+        connection?: { effectiveType?: string; saveData?: boolean };
+      };
+      const effectiveType = nav.connection?.effectiveType ?? "";
+      const saveData = Boolean(nav.connection?.saveData);
+      const slow =
+        effectiveType === "slow-2g" ||
+        effectiveType === "2g" ||
+        effectiveType === "3g";
+      return Boolean(saveData || slow);
+    } catch {
+      return false;
+    }
+  });
 
   // Detect device type
   useEffect(() => {
@@ -69,23 +86,6 @@ export function VideoPlayer({
     return () => window.removeEventListener("resize", checkDevice);
   }, []);
 
-  // Detect slow connections / Save-Data to avoid heavy video downloads.
-  useEffect(() => {
-    try {
-      const nav = navigator as unknown as {
-        connection?: { effectiveType?: string; saveData?: boolean };
-      };
-      const effectiveType = nav.connection?.effectiveType ?? "";
-      const saveData = Boolean(nav.connection?.saveData);
-      const slow =
-        effectiveType === "slow-2g" ||
-        effectiveType === "2g" ||
-        effectiveType === "3g";
-      setConnectionSlowOrSaveData(Boolean(saveData || slow));
-    } catch {
-      // no-op: best-effort only
-    }
-  }, []);
 
   const shouldDeferVideo = (isMobile || isTablet) || connectionSlowOrSaveData;
 
@@ -111,7 +111,11 @@ export function VideoPlayer({
   useEffect(() => {
     // Desktop: enable video as soon as it scrolls into view.
     if (!shouldDeferVideo && isInView) {
-      setIsVideoEnabled(true);
+      // Use setTimeout to defer setState call
+      const timeoutId = setTimeout(() => {
+        setIsVideoEnabled(true);
+      }, 0);
+      return () => clearTimeout(timeoutId);
     }
   }, [isInView, shouldDeferVideo]);
 
@@ -121,16 +125,19 @@ export function VideoPlayer({
     const v = videoRef.current;
     if (!v) return;
 
-    setIsLoading(true);
-    v.play()
-      .then(() => {
+    const playVideo = async () => {
+      setIsLoading(true);
+      try {
+        await v.play();
         setIsPlaying(true);
         setHasStarted(true);
-      })
-      .catch(() => {
+      } catch {
         // If autoplay is blocked, fall back to click-to-play.
         setIsLoading(false);
-      });
+      }
+    };
+
+    playVideo();
   }, [autoplay, isVideoEnabled, shouldDeferVideo]);
 
   useEffect(() => {
@@ -140,16 +147,19 @@ export function VideoPlayer({
     if (!v) return;
 
     pendingPlayRef.current = false;
-    setIsLoading(true);
-    v.play()
-      .then(() => {
+    const playVideo = async () => {
+      setIsLoading(true);
+      try {
+        await v.play();
         setIsPlaying(true);
         setHasStarted(true);
-      })
-      .catch((error) => {
+      } catch (error) {
         console.error("Play failed:", error);
         setIsLoading(false);
-      });
+      }
+    };
+
+    playVideo();
   }, [isVideoEnabled]);
 
   const clearHideControlsTimeout = () => {

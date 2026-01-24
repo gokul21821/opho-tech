@@ -112,3 +112,21 @@ export function formatDate(isoDate: string): string {
     month: "long",
   });
 }
+
+/**
+ * Formats a date as "Oct 10, 2025" (short month, 2-digit day, numeric year).
+ */
+export function formatFullDate(isoDate: string): string {
+  return new Date(isoDate).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "short",
+    day: "2-digit",
+  });
+}
+
+/**
+ * Extracts the year portion from an ISO date string (e.g. "2025").
+ */
+export function formatYear(isoDate: string): string {
+  return new Date(isoDate).getFullYear().toString();
+}

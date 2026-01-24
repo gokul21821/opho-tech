@@ -61,12 +61,6 @@ export function SearchDropdown({
   // Debounced search
   useEffect(() => {
     if (!allContent) {
-      setSearchResults({
-        newsletters: [],
-        blogs: [],
-        caseStudies: [],
-        hasResults: false,
-      });
       return;
     }
 
@@ -108,7 +102,7 @@ export function SearchDropdown({
     return (
       <div key={type} className={isLastSection ? "" : "border-b border-gray-300"}>
         <ul className="space-y-0">
-          {items.map((item, index) => (
+          {items.map((item) => (
             <li key={item.id} className="border-b border-gray-300 last:border-b-0">
               <Link
                 href={`/${getContentTypeUrl(type)}/${item.id}`}

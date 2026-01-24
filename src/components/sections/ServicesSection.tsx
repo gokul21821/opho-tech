@@ -1,32 +1,9 @@
-import Image from "next/image";
-import Link from "next/link";
 import { lazy, Suspense } from "react";
-
-import { ServiceIcon } from "@/components/icons/ServiceIcon";
-import { slugify } from "@/lib/utils";
 
 // Lazy load ServiceCard for better performance
 const ServiceCard = lazy(() =>
   import("@/components/sections/ServiceCard").then(module => ({ default: module.ServiceCard }))
 );
-
-// Define the service type
-type Service = {
-  title: string;
-  tagline: string;
-  description: string;
-  icon: "research-analysis" | "data-monetization" | "cloud-integration" | "ai-solutions" | "ai-agent" | "cyber-security";
-};
-
-// Mapping of service titles to their solution page paths
-const SERVICE_TO_PATH: Record<string, string> = {
-  "Research & Analysis": "/solutions/research-and-analysis",
-  "Data Structuring & Monetization": "/solutions/data-structuring-and-monetization",
-  "Cloud Integration & Architecture": "/solutions/cloud-integration",
-  "AI Solutions & Services": "/solutions/ai-solutions-and-services",
-  "AI Agent Development": "/solutions/ai-agent-development",
-  "Cyber Security Solutions": "/solutions/cyber-security-solutions",
-};
 
 const SERVICES = [
   {
@@ -90,7 +67,7 @@ export function ServicesSection() {
 
         <div className="mt-6 sm:mt-8 lg:mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 justify-items-center gap-6 sm:gap-5 lg:gap-6 xl:gap-5 place-items-center">
           <Suspense fallback={<div className="animate-pulse w-full max-w-[330px] h-64 bg-gray-100 rounded-lg" />}>
-            {SERVICES.map((service, index) => (
+            {SERVICES.map((service) => (
               <Suspense
                 key={service.title}
                 fallback={<div className="animate-pulse w-full max-w-[330px] h-64 bg-gray-100 rounded-lg" />}

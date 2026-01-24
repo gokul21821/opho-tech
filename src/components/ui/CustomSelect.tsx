@@ -34,7 +34,6 @@ export const CustomSelect = ({
   const inputRef = useRef<HTMLInputElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
   const [menuStyle, setMenuStyle] = useState<React.CSSProperties | null>(null);
-  const [openUp, setOpenUp] = useState(false);
 
   useEffect(() => {
     const updateMenuPosition = () => {
@@ -53,7 +52,6 @@ export const CustomSelect = ({
       const maxLeft = window.innerWidth - width - padding;
       const left = Math.max(padding, Math.min(rect.left, maxLeft));
 
-      setOpenUp(shouldOpenUp);
       setMenuStyle(
         shouldOpenUp
           ? { position: 'fixed', left, bottom: window.innerHeight - rect.top + gap, width, zIndex: 9999 }
@@ -81,9 +79,6 @@ export const CustomSelect = ({
       // Keep menu pinned to the input even when scrolling inside the modal.
       window.addEventListener('resize', updateMenuPosition);
       window.addEventListener('scroll', updateMenuPosition, true);
-    } else {
-      setSearchTerm('');
-      setMenuStyle(null);
     }
 
     return () => {
@@ -92,6 +87,16 @@ export const CustomSelect = ({
       window.removeEventListener('scroll', updateMenuPosition, true);
     };
   }, [isOpen]);
+
+  // Clear menu style when dropdown closes
+  useEffect(() => {
+    if (!isOpen && menuStyle !== null) {
+      const timeoutId = setTimeout(() => {
+        setMenuStyle(null);
+      }, 0);
+      return () => clearTimeout(timeoutId);
+    }
+  }, [isOpen, menuStyle]);
 
   const filteredOptions = options.filter((option) =>
     option.label.toLowerCase().includes(searchTerm.toLowerCase())

@@ -1,10 +1,11 @@
 "use client";
 
 import { useEffect } from "react";
+import { CookiePreferences } from "@/lib/types";
 
 export default function AnalyticsLoader() {
 
-  const loadScripts = (prefs: any) => {
+  const loadScripts = (prefs: CookiePreferences) => {
     if (prefs.analytics) {
       // ---- Load Google Analytics ----
       const gtagScript = document.createElement("script");

@@ -133,7 +133,7 @@ export default function DataMonetizationPage() {
                 </p>
                 
                 <p className="max-w-[860px] mx-auto text-center text-base font-normal leading-normal text-[#454545]">
-                  Before data can be sold or used for high-impact AI, it must be reliable. We ensure your data is "investment-grade" through robust, scalable processes.
+                  Before data can be sold or used for high-impact AI, it must be reliable. We ensure your data is &quot;investment-grade&quot; through robust, scalable processes.
                 </p>
               </div>
 
@@ -283,7 +283,7 @@ export default function DataMonetizationPage() {
                       </span>
                     </div>
                     <p className="capitalize text-2xl font-medium leading-[26px] text-[#E45412]">
-                      "need to reduce high marketing spend inefficiency."
+                      &quot;need to reduce high marketing spend inefficiency.&quot;
                     </p>
                   </div>
                   <div className="flex flex-col gap-2 w-full">
@@ -319,7 +319,7 @@ export default function DataMonetizationPage() {
                       </span>
                     </div>
                     <p className="capitalize text-2xl font-medium leading-[26px] text-[#E45412]">
-                      "need a new growth vertical."
+                      &quot;need a new growth vertical.&quot;
                     </p>
                   </div>
                   <div className="flex flex-col gap-2 w-full">

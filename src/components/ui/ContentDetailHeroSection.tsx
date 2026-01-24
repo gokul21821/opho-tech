@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { Breadcrumb } from "./Breadcrumb";
-import { formatDate } from "@/lib/api";
+import { formatFullDate, formatYear } from "@/lib/api";
 
 interface BreadcrumbItem {
   label: string;
@@ -14,6 +14,7 @@ interface ContentDetailHeroSectionProps {
   date: string; // ISO date string
   author: string; // author name
   contentType: "blogs" | "newsletters" | "case-studies";
+  edition?: string | null;
 }
 
 const HERO_BACKGROUND_WAVES = "/images/common-background.png";
@@ -29,9 +30,18 @@ export function ContentDetailHeroSection({
   date,
   author,
   contentType,
+  edition,
 }: ContentDetailHeroSectionProps) {
   const contentTypeLabel = contentTypeLabels[contentType];
-  const formattedDate = formatDate(date);
+  const formattedDate = formatFullDate(date);
+  const year = formatYear(date);
+
+  const normalizedEdition = edition?.trim();
+  // For the manufacturing-ai-transformation case study, use specific date format
+  const displayDate = contentType === "case-studies" && date === "2025-11-06" 
+    ? "Nov 06, 2025" 
+    : formattedDate;
+  const newsletterSubtitle = normalizedEdition ? `${normalizedEdition}, ${year}` : displayDate;
 
   const breadcrumb: BreadcrumbItem[] = [
     { label: "Home", href: "/" },
@@ -70,13 +80,13 @@ export function ContentDetailHeroSection({
       {/* Content */}
       <div className={containerClasses}>
         <div className="flex flex-col items-center text-center space-y-6 max-w-5xl">
-          <h1 className="text-4xl font-bold text-orange-400 sm:text-5xl">
+          <h1 className="text-4xl font-medium text-orange-400 sm:text-5xl">
             {title}
           </h1>
 
-          {/* Subtitle with date and author */}
+          {/* Subtitle with date/edition and author */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 text-base sm:text-lg text-blue-100">
-            {/* Date with calendar icon */}
+            {/* Date/Edition with calendar icon */}
             <div className="flex items-center gap-2">
               <Image
                 src="/images/icons/calendar.svg"
@@ -86,7 +96,11 @@ export function ContentDetailHeroSection({
                 className="w-3.5 h-4"
                 aria-hidden
               />
-              <time dateTime={date}>{formattedDate}</time>
+              {contentType === "newsletters" && normalizedEdition ? (
+                <span>{newsletterSubtitle}</span>
+              ) : (
+                <time dateTime={date}>{newsletterSubtitle}</time>
+              )}
             </div>
 
             {/* Author with person icon */}

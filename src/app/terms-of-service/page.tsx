@@ -47,7 +47,7 @@ export default function TermsOfService() {
               </h2>
               <div className="mt-3 space-y-3 text-[15px] leading-relaxed text-[#3A4A5F]">
                 <p>
-                  OphoTech Inc. (collectively referred to as "OphoTech", "We", "Us", or "Our") provides the ophotech.com website and various related services (collectively, the "Site" or "Services") to you, the "User," "Client," or "Customer," subject to your compliance with all the terms, conditions, and notices contained or referenced herein (the "Terms of Use," "Terms and Conditions," "Agreement," or "Terms"), as well as any other written agreement between us and you. When using particular services or materials on this Site, users shall be subject to any posted rules applicable to such services or materials, which may contain additional terms and conditions. All such rules are hereby incorporated by reference.
+                  OphoTech Inc. (collectively referred to as &quot;OphoTech&quot;, &quot;We&quot;, &quot;Us&quot;, or &quot;Our&quot;) provides the ophotech.com website and various related services (collectively, the &quot;Site&quot; or &quot;Services&quot;) to you, the &quot;User,&quot; &quot;Client,&quot; or &quot;Customer,&quot; subject to your compliance with all the terms, conditions, and notices contained or referenced herein (the &quot;Terms of Use,&quot; &quot;Terms and Conditions,&quot; &quot;Agreement,&quot; or &quot;Terms&quot;), as well as any other written agreement between us and you. When using particular services or materials on this Site, users shall be subject to any posted rules applicable to such services or materials, which may contain additional terms and conditions. All such rules are hereby incorporated by reference.
                 </p>
                 <p className="font-medium text-[#111111]">
                   BY USING THIS SITE, YOU AGREE TO BE BOUND BY THESE TERMS OF USE. IF YOU DO NOT AGREE, PLEASE EXIT THE SITE. YOUR REMEDY FOR DISSATISFACTION IS TO STOP USING THE SITE AND/OR THE RELATED PRODUCTS OR SERVICES. YOUR AGREEMENT TO THESE TERMS BECOMES EFFECTIVE IMMEDIATELY UPON YOUR FIRST USE OF THIS SITE.
@@ -57,7 +57,7 @@ export default function TermsOfService() {
                     These Terms are effective as of July 22, 2025. OphoTech reserves the right to amend these Terms at any time without prior notice. You acknowledge and agree that it is your responsibility to review this Site and these Terms of Use regularly to stay informed of modifications. Your continued use of the Site constitutes acknowledgment and acceptance of any changes.
                   </p>
                   <p>
-                    References to "Affiliates" include our owners, subsidiaries, affiliated companies, officers, directors, suppliers, partners, sponsors, advertisers, and all parties involved in creating or delivering this Site and its contents.
+                    References to &quot;Affiliates&quot; include our owners, subsidiaries, affiliated companies, officers, directors, suppliers, partners, sponsors, advertisers, and all parties involved in creating or delivering this Site and its contents.
                   </p>
                 </div>
               </div>
@@ -71,7 +71,7 @@ export default function TermsOfService() {
               </h2>
               <div className="mt-3 space-y-3 text-[15px] leading-relaxed text-[#3A4A5F]">
                 <p className="mb-0">
-                  OphoTech offers various data services and documentation through the Site, including, but not limited to, Fraud Detection, Bot Detection, Data Validation, IP Intelligence, Email Validation, Phone Validation, User and Payment Screening, Device Fingerprinting, and other related services ("OphoTech Services").
+                  OphoTech offers various data services and documentation through the Site, including, but not limited to, Fraud Detection, Bot Detection, Data Validation, IP Intelligence, Email Validation, Phone Validation, User and Payment Screening, Device Fingerprinting, and other related services (&quot;OphoTech Services&quot;).
                 </p>
                 <p className="mb-0">
                   You are responsible for providing, at your own expense, all equipment and Internet access necessary to use OphoTech Services, and any fees associated with such access.
@@ -120,7 +120,7 @@ export default function TermsOfService() {
               </h2>
               <div className="mt-3 space-y-3 text-[15px] leading-relaxed text-[#3A4A5F]">
                 <p className="mb-0">
-                  OphoTech processes Client Data in accordance with its Data Processing Agreement ("DPA"), which is incorporated by reference. The DPA outlines the parties&apos; roles and legal bases for processing personal data under applicable privacy laws, including the GDPR and the CCPA.
+                  OphoTech processes Client Data in accordance with its Data Processing Agreement (&quot;DPA&quot;), which is incorporated by reference. The DPA outlines the parties&apos; roles and legal bases for processing personal data under applicable privacy laws, including the GDPR and the CCPA.
                 </p>
                 <p>
                   OphoTech implements and maintains appropriate safeguards to protect Client Data. Clients are responsible for ensuring that any data sharing with OphoTech complies with applicable data protection laws.
@@ -139,7 +139,7 @@ export default function TermsOfService() {
                   Your use of the Site and Services must comply with all laws and regulations; you are solely responsible for your communications and conduct. You may not attempt to breach security, gain unauthorized access, or interfere with another&apos;s use of the Site. Violations may result in criminal or civil liability.
                 </p>
                 <p className="mb-0">
-                  OphoTech is not a consumer reporting agency under the Fair Credit Reporting Act (FCRA), and our data does not constitute "consumer reports." You agree not to use OphoTech Services for purposes governed by the FCRA.
+                  OphoTech is not a consumer reporting agency under the Fair Credit Reporting Act (FCRA), and our data does not constitute &quot;consumer reports.&quot; You agree not to use OphoTech Services for purposes governed by the FCRA.
                 </p>
                 <p>
                   We may terminate your account at our sole discretion for violations. We will cooperate with law enforcement as required. If your account is terminated, a pro-rated refund will be issued for any paid services.
@@ -154,7 +154,7 @@ export default function TermsOfService() {
                 7. Third Party Sites and Information
               </h2>
               <p className="mt-3 text-[15px] leading-relaxed text-[#3A4A5F]">
-                OphoTech Services may contain links or references to third-party websites or resources ("Third-Party Content"). Such content is provided for convenience only and does not constitute endorsement or affiliation. OphoTech does not control and is not responsible for the availability, accuracy, or legality of Third-Party Content. All dealings are solely between you and the third party.
+                OphoTech Services may contain links or references to third-party websites or resources (&quot;Third-Party Content&quot;). Such content is provided for convenience only and does not constitute endorsement or affiliation. OphoTech does not control and is not responsible for the availability, accuracy, or legality of Third-Party Content. All dealings are solely between you and the third party.
               </p>
             </div>
             <div className="border-t border-[#B0B0B0]" />
@@ -169,13 +169,13 @@ export default function TermsOfService() {
               </p>
               <div className="mt-3 space-y-3 text-[15px] leading-relaxed text-[#3A4A5F]">
                 <p className="mb-0">
-                  "OphoTech Content" includes all information, data, reports, analytics, software, API responses, documentation, graphics, audio, video, designs, and other materials provided through OphoTech Services.
+                  &quot;OphoTech Content&quot; includes all information, data, reports, analytics, software, API responses, documentation, graphics, audio, video, designs, and other materials provided through OphoTech Services.
                 </p>
                 <p className="mb-0">
                   All Content and intellectual property rights are the exclusive property of OphoTech and/or its licensors and are protected by applicable laws. Use of the Services does not grant you any rights beyond those expressly granted here.
                 </p>
                 <p>
-                  OphoTech trademarks, service marks, and logos ("OphoTech Marks") are property of OphoTech or its affiliates. This Agreement grants you no right to use any OphoTech Marks or third-party trademarks.
+                  OphoTech trademarks, service marks, and logos (&quot;OphoTech Marks&quot;) are property of OphoTech or its affiliates. This Agreement grants you no right to use any OphoTech Marks or third-party trademarks.
                 </p>
               </div>
             </div>
@@ -187,7 +187,7 @@ export default function TermsOfService() {
                 9. Disclaimer of Warranties
               </h2>
               <p className="mt-3 text-[15px] font-medium text-[#111111]">
-                ALL SERVICES AND MATERIALS ARE PROVIDED "AS IS" AND "AS AVAILABLE," WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED. OphoTech MAKES NO WARRANTY THAT SERVICES WILL MEET YOUR REQUIREMENTS OR THAT THEY WILL BE UNINTERRUPTED, SECURE, OR ERROR-FREE. YOU USE THE SITE AT YOUR OWN RISK.
+                ALL SERVICES AND MATERIALS ARE PROVIDED &quot;AS IS&quot; AND &quot;AS AVAILABLE,&quot; WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED. OphoTech MAKES NO WARRANTY THAT SERVICES WILL MEET YOUR REQUIREMENTS OR THAT THEY WILL BE UNINTERRUPTED, SECURE, OR ERROR-FREE. YOU USE THE SITE AT YOUR OWN RISK.
               </p>
               <div className="mt-3 space-y-3 text-[15px] leading-relaxed text-[#3A4A5F]">
                 <p className="mb-0">
@@ -339,7 +339,7 @@ export default function TermsOfService() {
               <h2 className="text-2xl font-medium text-[#0B1B2B]">20. Client Data</h2>
               <div className="mt-3 space-y-3 text-[15px] leading-relaxed text-[#3A4A5F]">
                 <p className="mb-0">
-                  Client may transmit transactional, behavioral, or user data ("Client Data") to OphoTech for fraud detection, risk analysis, and threat intelligence services. OphoTech may use anonymized or aggregated Client Data to improve global scoring, without disclosing PII or client-specific business data.
+                  Client may transmit transactional, behavioral, or user data (&quot;Client Data&quot;) to OphoTech for fraud detection, risk analysis, and threat intelligence services. OphoTech may use anonymized or aggregated Client Data to improve global scoring, without disclosing PII or client-specific business data.
                 </p>
                 <p>
                   All Client Data is protected with industry-standard safeguards and processed in accordance with privacy regulations and the Data Processing Agreement.

@@ -56,7 +56,7 @@ export default function PrivacyPolicy() {
                 OphoTech Privacy Policy Overview
               </h2>
               <p className="mt-5 text-[16px] leading-normal text-[#454545]">
-                This Privacy Policy outlines the privacy measures and practices of OphoTech Inc. (referred to as "OphoTech", "we", or "us") in relation to our website (the "Website"), and any features, products, and online services ("services") provided by OphoTech. We value the privacy of our visitors and users. This Policy explains the types of data and information we collect, and how we safeguard that data.
+                This Privacy Policy outlines the privacy measures and practices of OphoTech Inc. (referred to as &quot;OphoTech&quot;, &quot;we&quot;, or &quot;us&quot;) in relation to our website (the &quot;Website&quot;), and any features, products, and online services (&quot;services&quot;) provided by OphoTech. We value the privacy of our visitors and users. This Policy explains the types of data and information we collect, and how we safeguard that data.
               </p>
             </div>
 
@@ -69,7 +69,7 @@ export default function PrivacyPolicy() {
                 Our Services That Process Data
               </h2>
               <p className="mt-5 text-[16px] leading-normal text-[#454545]">
-                OphoTech's primary service is centered on fraud detection and prevention. We may use data relating to you to analyze transactions, registrations, clicks, and other user behaviors to determine if the intent is malicious or fraudulent. Our machine learning algorithms and data processing mechanisms are built with privacy and data protection in mind, helping prevent data leakage and protect your privacy rights.
+                OphoTech&apos;s primary service is centered on fraud detection and prevention. We may use data relating to you to analyze transactions, registrations, clicks, and other user behaviors to determine if the intent is malicious or fraudulent. Our machine learning algorithms and data processing mechanisms are built with privacy and data protection in mind, helping prevent data leakage and protect your privacy rights.
               </p>
             </div>
 
@@ -95,7 +95,7 @@ export default function PrivacyPolicy() {
                 Scripts, Cookies, and Web Beacons
               </h2>
               <p className="mt-5 text-[16px] leading-normal text-[#454545]">
-                OphoTech may use cookies, pixel tags, embedded scripts, web beacons, and similar technologies to store visitor preferences, record user behavior and actions, and customize services based on the visitor's browser type or other information provided. Users with "Do Not Track" enabled will have their request respected with limited data tracking.
+                OphoTech may use cookies, pixel tags, embedded scripts, web beacons, and similar technologies to store visitor preferences, record user behavior and actions, and customize services based on the visitor&apos;s browser type or other information provided. Users with &quot;Do Not Track&quot; enabled will have their request respected with limited data tracking.
               </p>
             </div>
 
@@ -142,13 +142,13 @@ export default function PrivacyPolicy() {
               </h2>
               <div className="mt-5 space-y-3 text-[16px] leading-normal text-[#454545]">
                 <p>
-                  Clients using our services may provide OphoTech with transactional information, which can include IP addresses, email addresses, billing details, phone numbers, and similar user data. This information is securely processed to detect behavioral intent and analyze the risk profile of transactions and users. The data is used to identify fraud patterns and improve your account's machine learning algorithms.
+                  Clients using our services may provide OphoTech with transactional information, which can include IP addresses, email addresses, billing details, phone numbers, and similar user data. This information is securely processed to detect behavioral intent and analyze the risk profile of transactions and users. The data is used to identify fraud patterns and improve your account&apos;s machine learning algorithms.
                 </p>
                 <p>
                   Data Protection Commitment: OphoTech does not sell your personal data or the personal data of your end users. Any data shared with OphoTech will be confidential, securely processed, and maintained in line with industry security standards.
                 </p>
                 <p>
-                  Your account's contact details may be shared with CRMs and marketing platforms that meet our standards for adequate security techniques and data processing safeguards.
+                  Your account&apos;s contact details may be shared with CRMs and marketing platforms that meet our standards for adequate security techniques and data processing safeguards.
                 </p>
                 <p>
                   As required, OphoTech may share necessary data with third parties for the purpose of investigating false-positive reports, unblocking or registering an IP address, or improving service accuracy. This may involve sharing certain data through feedback forms or related features.
@@ -253,14 +253,14 @@ export default function PrivacyPolicy() {
             {/* CCPA Opt-Out */}
             <div>
               <h2 className="text-[28px] font-medium leading-[38px] text-black">
-                CCPA Opt-Out — "Do Not Sell Or Share My Personal Information"
+                CCPA Opt-Out — &quot;Do Not Sell Or Share My Personal Information&quot;
               </h2>
               <div className="mt-5 space-y-3 text-[16px] leading-normal text-[#454545]">
                 <p>
                   Privacy laws such as the California Consumer Privacy Act (CCPA) and the Virginia Consumer Data Privacy Act (VCDPA) afford residents of certain jurisdictions the right to opt out of the sale or sharing of personal information, including transfers to third parties for advertising or profiling purposes.
                 </p>
                 <p>
-                  To comply with your "do not share" request, we may require you to verify your identity. Please contact{" "}
+                  To comply with your &quot;do not share&quot; request, we may require you to verify your identity. Please contact{" "}
                   <a
                     href="mailto:info@ophotech.com"
                     className="underline decoration-solid hover:text-[#333]"

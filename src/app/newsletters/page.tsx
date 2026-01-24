@@ -74,6 +74,7 @@ export default async function NewslettersPage() {
                     id={item.id}
                     title={item.title}
                     date={item.date}
+                    edition={item.edition}
                     contentType="newsletters"
                   />
                 ))}

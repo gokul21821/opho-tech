@@ -7,6 +7,16 @@ export interface ContentItem {
   updatedAt: string;
   imagePath?: string | null;
   imageUrl?: string | null;
+  /**
+   * Optional field (newsletters only).
+   * Backend may return null for older content.
+   */
+  edition?: string | null;
+  /**
+   * Optional field (case studies only).
+   * Backend may return null for older content.
+   */
+  category?: string | null;
   author: {
     id: string;
     username: string;
@@ -37,4 +47,9 @@ export interface SearchResults {
   blogs: ContentItem[];
   caseStudies: ContentItem[];
   hasResults: boolean;
+}
+
+export interface CookiePreferences {
+  analytics: boolean;
+  marketing: boolean;
 }

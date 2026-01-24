@@ -13,13 +13,17 @@ export function AnimatedSection({
   className = '',
   delay = 0,
 }: AnimatedSectionProps) {
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(() => {
+    // Initialize visibility based on reduced motion preference
+    if (typeof window === 'undefined') return false; // SSR safe
+    const mediaQuery = window.matchMedia?.('(prefers-reduced-motion: reduce)');
+    return mediaQuery?.matches ?? false;
+  });
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia?.('(prefers-reduced-motion: reduce)');
     if (mediaQuery?.matches) {
-      setIsVisible(true);
       return;
     }
 

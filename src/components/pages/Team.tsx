@@ -112,9 +112,9 @@ export default function LeadershipPage() {
           {/* CTA Section */}
           <section className="py-20 px-6 text-center">
             <h2 className="text-3xl font-semibold mb-3">Ready to Solve</h2>
-            <p className="text-xl font-medium mb-6">What's Next With OphoTech?</p>
+            <p className="text-xl font-medium mb-6">What&apos;s Next With OphoTech?</p>
             <button className="px-6 py-3 bg-orange-700 text-white rounded-lg hover:bg-orange-800">
-              Let's Start →
+              Let&apos;s Start →
             </button>
           </section>
         </main>
