@@ -141,10 +141,10 @@ export default function CloudIntegrationPage() {
                 }].map((item, i) => (
                   <div
                     key={i}
-                    className="border border-[#fcd5ac] rounded-2xl p-5 bg-white/30 relative overflow-hidden card-text-smaller"
+                    className="border border-[#fcd5ac] rounded-2xl p-5 bg-white/30 relative overflow-hidden card-text-smaller h-full flex flex-col"
                   >
-                    <div className="relative z-10 flex flex-col gap-4">
-                      <h4 className="text-2xl font-medium leading-[26px] text-[#111111]">
+                    <div className="relative z-10 flex flex-col gap-4 h-full">
+                      <h4 className="text-2xl font-medium leading-[26px] text-[#111111] h-[80px] flex items-start">
                         {item.title}
                       </h4>
                       <div className="flex flex-col gap-2">
@@ -188,7 +188,7 @@ export default function CloudIntegrationPage() {
               <div className="flex flex-col md:flex-row gap-6 md:gap-10 items-stretch md:items-start min-h-[243px] relative">
                            {/* First Card */}
                            <div className="flex-1 flex flex-col gap-4 items-start justify-start">
-                  <div className="flex flex-col gap-2 w-full mb-2 h-[80px]">
+                  <div className="flex flex-col gap-2 w-full mb-2 h-[110px]">
                     <div className="bg-[#F6F6F6] rounded-lg px-2.5 py-1.5 w-fit">
                       <span className="capitalize text-sm font-medium text-[#111111]">
                         Business Challenge
@@ -224,7 +224,7 @@ export default function CloudIntegrationPage() {
 
                 {/* Second Card */}
                 <div className="flex-1 flex flex-col gap-4 items-start justify-start">
-                  <div className="flex flex-col gap-2 w-full mb-2 h-[80px]">
+                  <div className="flex flex-col gap-2 w-full mb-2 h-[110px]">
                     <div className="bg-[#F6F6F6] rounded-lg px-2.5 py-1.5 w-fit">
                       <span className="capitalize text-sm font-medium text-[#111111]">
                         Business Challenge

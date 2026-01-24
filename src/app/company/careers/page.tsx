@@ -60,7 +60,7 @@ export default function Careers() {
                     Senior Level
                   </span>
                 </div>
-                <h2 className="mt-4 text-3xl font-medium tracking-tight text-neutral-900 h-[80px] flex items-start justify-center">
+                <h2 className="mt-4 text-3xl font-medium tracking-tight text-neutral-900 h-[100px] flex items-start justify-center">
                   Business Development Manager
                 </h2>
                 <p className="mt-3 mb-10 max-w-md text-[#454545] leading-relaxed flex-1">
@@ -90,7 +90,7 @@ export default function Careers() {
                     Mid Level
                   </span>
                 </div>
-                <h2 className="mt-4 text-3xl font-medium tracking-tight text-[#111111] h-[80px] flex items-start justify-center">
+                <h2 className="mt-4 text-3xl font-medium tracking-tight text-[#111111] h-[100px] flex items-start justify-center">
                   Data Engineer
                 </h2>
                 <p className="mt-3 mb-10 max-w-md text-[#454545] leading-relaxed flex-1">

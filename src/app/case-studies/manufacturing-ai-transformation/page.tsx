@@ -6,6 +6,7 @@ import { ContentDetailHeroSection } from "@/components/ui/ContentDetailHeroSecti
 import { SocialShareCard } from "@/components/ui/SocialShareCard";
 import { RecentContentCard } from "@/components/ui/RecentContentCard";
 import { CTASection } from "@/components/sections/CTASection";
+import BackgroundDots from "@/components/ui/background";
 import { Metadata } from "next";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -70,12 +71,12 @@ export default function ManufacturingAITransformationPage() {
 <p>The company needed a structured, data-backed framework to connect technology investments with measurable business value.</p>
 
 <div style="text-align: center; margin: 2rem 0;">
-  <Image
+  <img
     src="/images/case/keyop.png"
     alt="Key operational challenges in manufacturing digital transformation"
-    width={800}
-    height={400}
-    style={{ maxWidth: '100%', height: 'auto' }}
+    width="800"
+    height="400"
+    style="max-width: 100%; height: auto;"
   />
 </div>
 
@@ -115,12 +116,12 @@ export default function ManufacturingAITransformationPage() {
 <li><strong>Scale-Up:</strong> Introduced predictive analytics and performance dashboards to enable continuous improvement.</li>
 </ul>
 <div style="text-align: center; margin: 2rem 0;">
-  <Image
+  <img
     src="/images/case/solution.png"
     alt="Three-phase transformation roadmap"
-    width={800}
-    height={400}
-    style={{ maxWidth: '100%', height: 'auto' }}
+    width="800"
+    height="400"
+    style="max-width: 100%; height: auto;"
   />
 </div>
 
@@ -136,12 +137,12 @@ export default function ManufacturingAITransformationPage() {
 <h3>Business Impact</h3>
 
 <div style="text-align: center; margin: 2rem 0;">
-  <Image
+  <img
     src="/images/case/impact.png"
     alt="Business impact metrics and results"
-    width={800}
-    height={400}
-    style={{ maxWidth: '100%', height: 'auto' }}
+    width="800"
+    height="400"
+    style="max-width: 100%; height: auto;"
   />
 </div>
 
@@ -159,12 +160,12 @@ export default function ManufacturingAITransformationPage() {
 <p><strong>Hypothesis:</strong> RAR's structured prioritization improved cross-departmental understanding and reduced initiative overlap, creating a 133% lift in alignment.</p>
 
 <div style="text-align: center; margin: 2rem 0;">
-  <Image
+  <img
     src="/images/case/performance.png"
     alt="Performance metrics and strategic focus improvement"
-    width={800}
-    height={400}
-    style={{ maxWidth: '100%', height: 'auto' }}
+    width="800"
+    height="400"
+    style="max-width: 100%; height: auto;"
   />
 </div>
 
@@ -207,12 +208,12 @@ export default function ManufacturingAITransformationPage() {
 <p>OphoTech's engagement created long-term clarity and control for leadership, operations, and IT teams. Besides making quick decisions, the organization gained a framework to sustain digital progress and measure its success continuously.</p>
 
 <div style="text-align: center; margin: 2rem 0;">
-  <Image
+  <img
     src="/images/case/framework.png"
     alt="OphoTech RAR framework overview"
-    width={800}
-    height={400}
-    style={{ maxWidth: '100%', height: 'auto' }}
+    width="800"
+    height="400"
+    style="max-width: 100%; height: auto;"
   />
 </div>
 
@@ -241,12 +242,12 @@ export default function ManufacturingAITransformationPage() {
 <p>Many consulting approaches stop at analysis or strategy slides. OphoTech's Business Research and Analysis (RAR) framework goes further by combining expert insights with Agentic AI to deliver data-backed, execution-ready outcomes.</p>
 
 <div style="text-align: center; margin: 2rem 0;">
-  <Image
+  <img
     src="/images/case/table.png"
     alt="Comparison between typical consulting and OphoTech RAR framework"
-    width={800}
-    height={400}
-    style={{ maxWidth: '100%', height: 'auto' }}
+    width="800"
+    height="400"
+    style="max-width: 100%; height: auto;"
   />
 </div>
 
@@ -256,29 +257,6 @@ export default function ManufacturingAITransformationPage() {
 <li>Use readiness and ROI scoring to prioritize investments effectively.</li>
 <li>Establish ownership and governance early to maintain transformation momentum.</li>
 </ul>
-
-<h3>Testimonial</h3>
-<BackgroundDots
-  className="py-16"
-  spacing={36}
-  dotSize={2.5}
-  backgroundColor=""
-  dotColor="#D9D9D9"
-  style={{
-    background: "linear-gradient(to bottom, #ffffff 38.524%, #feecd6 171.52%)",
-  }}
->
-  <div className="px-[8%]">
-    <div className="mx-auto max-w-[1200px]">
-      <div className="text-center">
-        <blockquote className="text-lg italic text-gray-700 mb-4">
-          "What stood out about OphoTech was their ability to connect business goals with real execution strategy. They understood our digital ambitions and converted them into actionable steps, that gave us visibility we never had before. It changed how our leadership approaches technology decisions."
-        </blockquote>
-        <cite className="text-orange-600 font-semibold">— CIO, Manufacturing Client</cite>
-      </div>
-    </div>
-  </div>
-</BackgroundDots>
     `
   };
 
@@ -297,6 +275,32 @@ export default function ManufacturingAITransformationPage() {
             {/* Main Content - 70% */}
             <article className="flex-1 lg:w-[70%]">
               <RichTextRenderer content={caseStudy.description} />
+              
+              {/* Testimonial Section */}
+              <div className="mt-8">
+                <h3 className="text-xl font-bold text-[#0B1B2B] mb-4">Testimonial</h3>
+                <BackgroundDots
+                  className="py-16"
+                  spacing={36}
+                  dotSize={2.5}
+                  backgroundColor=""
+                  dotColor="#D9D9D9"
+                  style={{
+                    background: "linear-gradient(to bottom, #ffffff 38.524%, #feecd6 171.52%)",
+                  }}
+                >
+                  <div className="px-[8%]">
+                    <div className="mx-auto max-w-[1200px]">
+                      <div className="text-left">
+                        <blockquote className="text-lg italic text-gray-700 mb-4">
+                          "What stood out about OphoTech was their ability to connect business goals with real execution strategy. They understood our digital ambitions and converted them into actionable steps, that gave us visibility we never had before. It changed how our leadership approaches technology decisions."
+                        </blockquote>
+                        <cite className=" bg-white text-black px-2 py-2 font-semibold">— CIO, Manufacturing Client</cite>
+                      </div>
+                    </div>
+                  </div>
+                </BackgroundDots>
+              </div>
             </article>
 
             {/* Sidebar - 30% */}
