@@ -3,12 +3,31 @@ import { fetchContentById } from "@/lib/api";
 import { notFound } from "next/navigation";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { RichTextRenderer } from "@/components/Common/RichTextRenderer";
+import { ContentRenderer } from "@/components/Common/ContentRenderer";
 import { ContentDetailHeroSection } from "@/components/ui/ContentDetailHeroSection";
 import { SocialShareCard } from "@/components/ui/SocialShareCard";
 import { RecentContentCard } from "@/components/ui/RecentContentCard";
 import { CTASection } from "@/components/sections/CTASection";
 import { Metadata } from "next";
+import type { TiptapDoc } from "@/lib/types";
+
+function getSeoDescription(content: TiptapDoc | null | undefined, maxLength = 160) {
+  if (!content) return undefined;
+
+  let text = "";
+  const stack: any[] = [content];
+  while (stack.length > 0 && text.length < maxLength) {
+    const node = stack.pop();
+    if (!node) continue;
+    if (node.type === "text" && typeof node.text === "string") {
+      text += node.text;
+    }
+    if (Array.isArray(node.content)) {
+      for (let i = node.content.length - 1; i >= 0; i--) stack.push(node.content[i]);
+    }
+  }
+  return text.replace(/\s+/g, " ").trim().substring(0, maxLength);
+}
 
 export async function generateMetadata({
   params,
@@ -42,10 +61,10 @@ export async function generateMetadata({
 
   return {
     title: caseStudy.title,
-    description: caseStudy.description?.substring(0, 160),
+    description: getSeoDescription(caseStudy.content),
     openGraph: {
       title: caseStudy.title,
-      description: caseStudy.description?.substring(0, 160),
+      description: getSeoDescription(caseStudy.content),
       url: caseStudyUrl,
       type: "article",
       images: absoluteImageUrl
@@ -61,7 +80,7 @@ export async function generateMetadata({
     twitter: {
       card: "summary_large_image",
       title: caseStudy.title,
-      description: caseStudy.description?.substring(0, 160),
+      description: getSeoDescription(caseStudy.content),
       images: absoluteImageUrl ? [absoluteImageUrl] : [],
     },
   };
@@ -96,22 +115,7 @@ export default async function CaseStudyDetailPage({
           <div className="flex flex-col gap-8 lg:flex-row lg:gap-12">
             {/* Main Content - 70% */}
             <article className="flex-1 lg:w-[70%]">
-              {caseStudy.imageUrl ? (
-                <div className="mb-8 overflow-hidden rounded-xl bg-white">
-                  <div className="relative h-[400px] w-full">
-                    <Image
-                      src={caseStudy.imageUrl}
-                      alt={`${caseStudy.title} image`}
-                      fill
-                      className="object-contain"
-                      sizes="(max-width: 1024px) 100vw, 70vw"
-                      priority
-                    />
-                  </div>
-                </div>
-              ) : null}
-
-              <RichTextRenderer content={caseStudy.description} />
+              <ContentRenderer content={caseStudy.content} />
             </article>
 
             {/* Sidebar - 30% */}

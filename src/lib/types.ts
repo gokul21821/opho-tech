@@ -1,20 +1,24 @@
+export type TiptapDoc = Record<string, any>; // TipTap JSON document structure (kept loose during migration)
+
 export interface ContentItem {
   id: string;
   title: string;
-  description: string; // HTML content
+  /**
+   * Content body field (TipTap JSON).
+   * Backend returns `content: { type: "doc", content: [...] }`.
+   * Required - JSON-only, no HTML fallback.
+   */
+  content: TiptapDoc;
   date: string; // ISO date string
   createdAt: string;
   updatedAt: string;
-  imagePath?: string | null;
-  imageUrl?: string | null;
+  imageUrl?: string | null; // Derived from first image in content
   /**
    * Optional field (newsletters only).
-   * Backend may return null for older content.
    */
   edition?: string | null;
   /**
    * Optional field (case studies only).
-   * Backend may return null for older content.
    */
   category?: string | null;
   author: {

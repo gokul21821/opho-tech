@@ -10,6 +10,8 @@ interface ContentCardProps {
   contentType: "newsletters" | "case-studies" | "blogs";
   edition?: string | null;
   category?: string | null;
+  imageUrl?: string | null;
+  excerpt?: string | null;
 }
 
 export function ContentCard({
@@ -19,6 +21,8 @@ export function ContentCard({
   contentType,
   edition,
   category,
+  imageUrl,
+  excerpt,
 }: ContentCardProps) {
   const year = formatYear(date);
   const normalizedEdition = edition?.trim();
@@ -30,24 +34,22 @@ export function ContentCard({
         ? `${normalizedEdition}, ${year}`
         : formatFullDate(date)
       : contentType === "case-studies"
-        ? id === "manufacturing-ai-transformation"
-          ? "It & Allied Services"
-          : normalizedCategory || "Uncategorized"
+        ? normalizedCategory || "Uncategorized"
         : formatFullDate(date);
 
   return (
     <Link
       href={`/${contentType}/${id}`}
-      className="group relative flex w-full flex-col gap-4 overflow-visible rounded-2xl border border-orange-300 bg-white/70 p-5 transition-shadow duration-300 hover:bg-orange-25 hover:shadow-lg sm:min-w-0 sm:flex-1 md:w-[280px] lg:w-[330px]"
+      className="group relative flex w-full flex-col gap-4 overflow-visible rounded-2xl border border-orange-300 bg-white/70 p-5 pb-16 transition-shadow duration-300 hover:bg-orange-25 hover:shadow-lg sm:min-w-0 sm:flex-1 md:w-[280px] lg:w-[330px]"
     >
       <div className="flex size-11 items-center justify-center overflow-hidden">
         <ServiceIcon name="cloud-integration" className="size-11" />
       </div>
 
-      <h3 className="min-h-[3.5rem] whitespace-pre-line mb-12 font-poppins text-base font-medium capitalize leading-normal text-gray-900 sm:text-lg">
+      <h3 className="min-h-[3.5rem] whitespace-pre-line font-poppins text-base font-medium capitalize leading-normal text-gray-900 sm:text-lg">
         {title}
       </h3>
-
+     
      
       <div className="absolute bottom-4 left-4 z-10">
         <div className="rounded-lg bg-gray-25 px-2.5 py-1.5">

@@ -7,30 +7,12 @@ import { Footer } from "@/components/layout/Footer";
 import { HeroSection } from "@/components/ui/HeroSection";
 import BackgroundDots from "@/components/ui/background";
 import { CTASection } from "@/components/sections/CTASection";
+import { getContentPreview } from "@/lib/content-utils";
 
 export default async function CaseStudiesPage() {
   const caseStudies = await fetchContentList("case-studies", {
     revalidate: 7200, // Cache for 2 hours - case studies update quarterly
   });
-
-  // Add the static case study to the beginning of the list
-  const staticCaseStudy = {
-    id: "manufacturing-ai-transformation",
-    title: "Bridging the Digital Gap in Manufacturing: How AI-Led RAR Cut IT Decision Time by 60%",
-    description: "Discover how OphoTech's AI-driven Business Research and Analysis (RAR) framework helped a manufacturing company streamline technology decisions and achieve 60% faster IT decision-making.",
-    date: "2025-11-06",
-    category: "Manufacturing",
-    createdAt: "2025-11-06T00:00:00Z",
-    updatedAt: "2025-11-06T00:00:00Z",
-    imageUrl: "/images/case/framework.png",
-    author: {
-      id: "admin",
-      username: "admin",
-      email: "admin@ophotech.com"
-    }
-  };
-
-  const allCaseStudies = [staticCaseStudy, ...caseStudies];
 
   return (
     <>
@@ -79,7 +61,7 @@ export default async function CaseStudiesPage() {
               </Link>
             </div>
 
-            {allCaseStudies.length === 0 ? (
+            {caseStudies.length === 0 ? (
               <div className="py-12 text-center">
                 <p className="font-poppins text-lg text-gray-600">
                   Case studies not available, stay tuned
@@ -87,13 +69,15 @@ export default async function CaseStudiesPage() {
               </div>
             ) : (
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                {allCaseStudies.map((item) => (
+                {caseStudies.map((item) => (
                   <ContentCard
                     key={item.id}
                     id={item.id}
                     title={item.title}
                     date={item.date}
                     category={item.category}
+                    imageUrl={item.imageUrl}
+                    excerpt={getContentPreview(item.content)}
                     contentType="case-studies"
                   />
                 ))}

@@ -1,5 +1,15 @@
 import type { NextConfig } from "next";
 
+function getSupabaseHostnameFromEnv(): string | null {
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  if (!url) return null;
+  try {
+    return new URL(url).hostname;
+  } catch {
+    return null;
+  }
+}
+
 const nextConfig: NextConfig = {
   reactCompiler: true,
   // 1. Remove the "Next.js" fingerprint for better privacy
@@ -7,6 +17,15 @@ const nextConfig: NextConfig = {
   
   images: {
     remotePatterns: [
+      ...(getSupabaseHostnameFromEnv()
+        ? [
+            {
+              protocol: "https",
+              hostname: getSupabaseHostnameFromEnv()!,
+              pathname: "/storage/v1/object/public/**",
+            } as const,
+          ]
+        : []),
       {
         protocol: "https",
         hostname: "xuhiuibvkuqxcremtpkp.supabase.co",

@@ -37,11 +37,7 @@ export function ContentDetailHeroSection({
   const year = formatYear(date);
 
   const normalizedEdition = edition?.trim();
-  // For the manufacturing-ai-transformation case study, use specific date format
-  const displayDate = contentType === "case-studies" && date === "2025-11-06" 
-    ? "Nov 06, 2025" 
-    : formattedDate;
-  const newsletterSubtitle = normalizedEdition ? `${normalizedEdition}, ${year}` : displayDate;
+  const newsletterSubtitle = normalizedEdition ? `${normalizedEdition}, ${year}` : formattedDate;
 
   const breadcrumb: BreadcrumbItem[] = [
     { label: "Home", href: "/" },

@@ -7,6 +7,7 @@ import { Footer } from "@/components/layout/Footer";
 import { HeroSection } from "@/components/ui/HeroSection";
 import BackgroundDots from "@/components/ui/background";
 import { CTASection } from "@/components/sections/CTASection";
+import { getContentPreview } from "@/lib/content-utils";
 
 export default async function NewslettersPage() {
   const newsletters = await fetchContentList("newsletters", {
@@ -75,6 +76,8 @@ export default async function NewslettersPage() {
                     title={item.title}
                     date={item.date}
                     edition={item.edition}
+                    imageUrl={item.imageUrl}
+                    excerpt={getContentPreview(item.content)}
                     contentType="newsletters"
                   />
                 ))}
