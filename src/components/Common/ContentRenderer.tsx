@@ -1,6 +1,6 @@
 import React from "react";
 import NextImage from "next/image";
-import parse, { DOMNode, Element } from "html-react-parser";
+import parse, { DOMNode, Element, domToReact } from "html-react-parser";
 import { generateHTML } from "@tiptap/html";
 import StarterKit from "@tiptap/starter-kit";
 import TiptapImage from "@tiptap/extension-image";
@@ -87,7 +87,7 @@ export function ContentRenderer({ content, className = "" }: ContentRendererProp
 
           if (!isSafeUrl(href)) {
             // Drop unsafe links, but keep the link text.
-            return <span>{domNode.children.map((c) => parse(c as any))}</span>;
+            return <span>{domToReact(domNode.children as any)}</span>;
           }
 
           // Ensure safe rel when target=_blank.
@@ -103,9 +103,7 @@ export function ContentRenderer({ content, className = "" }: ContentRendererProp
 
           return (
             <a href={href} target={target} rel={rel} className={className}>
-              {domNode.children.map((child, i) => (
-                <React.Fragment key={i}>{parse(child as any)}</React.Fragment>
-              ))}
+              {domToReact(domNode.children as any)}
             </a>
           );
         }

@@ -109,7 +109,7 @@ export function SocialShareCard({
               Share This {contentLabel}:
             </h3>
 
-            <div className="flex flex-wrap justify-center ">
+            <div className="flex flex-wrap justify-left lg:justify-center ">
               {socialButtons.map((button) => {
                 if (button.href) {
                   return (
