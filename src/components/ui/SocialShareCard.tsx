@@ -104,12 +104,12 @@ export function SocialShareCard({
             background: "linear-gradient(to bottom, #ffffff 38.524%, #feecd6 171.52%)",
           }}
         >
-          <div className="p-6">
+          <div className="p-4">
             <h3 className="mb-4 font-poppins text-lg font-semibold text-gray-900">
               Share This {contentLabel}:
             </h3>
 
-            <div className="flex flex-wrap justify-center gap-2 sm:gap-3 lg:gap-1 xl:gap-2">
+            <div className="flex flex-wrap justify-center ">
               {socialButtons.map((button) => {
                 if (button.href) {
                   return (
