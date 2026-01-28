@@ -1,5 +1,7 @@
 export type TiptapDoc = Record<string, any>; // TipTap JSON document structure (kept loose during migration)
 
+export type PublishStatus = 'DRAFT' | 'PUBLISHED';
+
 export interface ContentItem {
   id: string;
   title: string;
@@ -21,6 +23,11 @@ export interface ContentItem {
    * Optional field (case studies only).
    */
   category?: string | null;
+  /**
+   * Publish status.
+   * Public API endpoints will always return 'PUBLISHED' items only.
+   */
+  status: PublishStatus;
   author: {
     id: string;
     username: string;
