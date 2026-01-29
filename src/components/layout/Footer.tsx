@@ -205,7 +205,7 @@ export function Footer() {
           
           {/* Copyright text */}
           <p className="text-center text-sm text-white/50">
-            Copyright © {new Date().getFullYear()} OphoTech Pvt. Ltd. | All
+            Copyright © {new Date().getFullYear()} OphoTech | All
             Rights Reserved
           </p>
         </div>
