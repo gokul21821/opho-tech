@@ -60,7 +60,27 @@ const nextConfig: NextConfig = {
       {
         source: "/home",
         destination: "/",
-        permanent: true, // Redirect home-2 to home
+        permanent: true, // Redirect /home to home
+      },
+      {
+        source: "/blog",
+        destination: "/blogs",
+        permanent: true,
+      },
+      {
+        source: "/newsletter",
+        destination: "/newsletters",
+        permanent: true,
+      },
+      {
+        source: "/Career",
+        destination: "/company/careers",
+        permanent: true,
+      },
+      {
+        source: "/Contact",
+        destination: "/?form=signup",
+        permanent: true, // Opens contact form modal on homepage
       },
     ];
   },
