@@ -57,6 +57,11 @@ const nextConfig: NextConfig = {
         destination: "/",
         permanent: true, // Redirect home-2 to home
       },
+      {
+        source: "/home",
+        destination: "/",
+        permanent: true, // Redirect home-2 to home
+      },
     ];
   },
 
