@@ -55,6 +55,11 @@ export const metadata: Metadata = {
   icons: {
     icon: "/images/icons/titlebar.svg",
   },
+  
+  verification: {
+    google: "5m6QiWoBYT3883hjGFlJqfPu4f9vbmIBaXfwC9JppVk",
+  },
+
   openGraph: {
     title: "OphoTech",
     description:
