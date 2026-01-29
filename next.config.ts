@@ -34,6 +34,32 @@ const nextConfig: NextConfig = {
     ],
   },
 
+  // Add redirects for old URLs to prevent Google indexing wrong pages
+  async redirects() {
+    return [
+      {
+        source: "/about-us",
+        destination: "/company/about-us",
+        permanent: true, // 301 redirect for SEO
+      },
+      {
+        source: "/careers",
+        destination: "/company/careers",
+        permanent: true, // 301 redirect for SEO
+      },
+      {
+        source: "/services",
+        destination: "/solutions/research-and-analysis",
+        permanent: true, // Redirect services to solutions
+      },
+      {
+        source: "/home-2",
+        destination: "/",
+        permanent: true, // Redirect home-2 to home
+      },
+    ];
+  },
+
   async headers() {
     const isProd = process.env.NODE_ENV === "production";
 
