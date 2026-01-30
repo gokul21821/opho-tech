@@ -50,7 +50,7 @@ export type SolutionsIntroSectionProps = {
 };
 
 export function SolutionsIntroSection({
-  sectionClassName = "mx-auto max-w-7xl px-[5%] py-20",
+  sectionClassName = "mx-auto max-w-6xl py-20 px-3 xl:px-0",
   gridClassName = "grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-center gap-15",
   leftWrapperClassName = "flex justify-center md:justify-start",
   dividerWrapperClassName = "flex justify-center",

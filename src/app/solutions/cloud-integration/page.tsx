@@ -97,7 +97,7 @@ export default function CloudIntegrationPage() {
             background: "linear-gradient(to bottom, #ffffff 38.524%, #feecd6 171.52%)",
           }}
         >
-          <section className="max-w-7xl mx-auto px-[5%]">
+          <section className="max-w-6xl mx-auto px-3 xl:px-0">
             {/* How It Works Section */}
             <div className="flex flex-col gap-10 items-center mb-16">
               <div className="flex flex-col gap-8 items-center">
@@ -330,7 +330,7 @@ export default function CloudIntegrationPage() {
             background: "linear-gradient(to bottom, #ffffff 38.524%, #feecd6 171.52%)",
           }}
         >
-          <section className="relative mx-auto max-w-7xl px-[5%]">
+          <section className="relative mx-auto max-w-6xl px-3 xl:px-0">
   {/* Divider line */}
   <Image
     src="/images/raar/lineraar.svg"
@@ -353,7 +353,7 @@ export default function CloudIntegrationPage() {
     </div>
 
     {/* Right: Image */}
-    <div className="justify-self-center">
+    <div className="justify-self-center ml-0 lg:ml-[15%]">
       <Image
         src="/images/cloud-integrations/analyzing.png"
         alt="Cloud architecture illustration"

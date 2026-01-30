@@ -6,6 +6,11 @@ export interface ContentItem {
   id: string;
   title: string;
   /**
+   * Optional subtitle field displayed below the title.
+   * Can be null for existing content without subtitles.
+   */
+  subtitle?: string | null;
+  /**
    * Content body field (TipTap JSON).
    * Backend returns `content: { type: "doc", content: [...] }`.
    * Required - JSON-only, no HTML fallback.

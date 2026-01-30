@@ -14,7 +14,7 @@ export function YourJourney() {
           background: "linear-gradient(to bottom, #ffffff 38.524%, #feecd6 171.52%)",
         }}
       >
-        <div className="relative mx-auto max-w-7xl px-[4%]">
+        <div className="relative mx-auto max-w-6xl px-3 xl:px-0">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-medium text-[#111111]">
               Your Journey to AI Enablement

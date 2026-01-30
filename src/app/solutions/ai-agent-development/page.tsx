@@ -210,7 +210,7 @@ export default function AIAgentDevelopment() {
             background: "linear-gradient(to bottom, #ffffff 38.524%, #feecd6 171.52%)",
           }}
         >
-            <div className="mx-auto max-w-7xl px-[5%]">
+            <div className="mx-auto max-w-6xl px-3 xl:px-0">
               <div className="space-y-16">
                 {/* Strategic Value */}
                 <div className="text-center">

@@ -22,9 +22,9 @@ export function ContentSection({
   const displayItems = items.slice(0, 3);
 
   return (
-    <section className={`${hasBackground ? 'bg-white' : ''} px-[8%] py-16 md:py-16`}>
-      <div className="mx-auto max-w-[1100px]">
-        <div className="mb-10 text-center md:mb-[40px]">
+    <section className={`${hasBackground ? "bg-white" : ""}  py-16`}>
+      <div className="mx-auto max-w-6xl px-3 xl:px-0">
+        <div className="mb-10 text-center">
           <h2 className="font-poppins text-4xl font-medium leading-[48px] text-[#111111]">
             {title}
           </h2>
@@ -35,21 +35,28 @@ export function ContentSection({
 
         {displayItems.length === 0 ? (
           <div className="py-12 text-center">
-            <p className="font-poppins text-lg text-[#454545]">{emptyMessage}</p>
+            <p className="font-poppins text-lg text-[#454545]">
+              {emptyMessage}
+            </p>
           </div>
         ) : (
           <>
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {/* FLEX layout */}
+            <div className="flex flex-wrap items-stretch justify-center gap-6">
               {displayItems.map((item) => (
-                <ContentCard
+                <div
                   key={item.id}
-                  id={item.id}
-                  title={item.title}
-                  date={item.date}
-                  edition={item.edition}
-                  category={item.category}
-                  contentType={contentType}
-                />
+                  className="w-full sm:w-[250px] lg:w-[320px]"
+                >
+                  <ContentCard
+                    id={item.id}
+                    title={item.title}
+                    date={item.date}
+                    edition={item.edition}
+                    category={item.category}
+                    contentType={contentType}
+                  />
+                </div>
               ))}
             </div>
 
@@ -82,4 +89,3 @@ export function ContentSection({
     </section>
   );
 }
-

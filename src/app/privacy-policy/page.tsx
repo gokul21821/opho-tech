@@ -38,7 +38,7 @@ export default function PrivacyPolicy() {
         </HeroSection>
 
         {/* Content body */}
-        <section className="mx-auto max-w-5xl px-6 py-12">
+        <section className="mx-auto max-w-6xl py-12 px-3 xl:px-0">
           <div className="space-y-10">
             {/* Intro paragraph */}
             <div>
@@ -303,7 +303,7 @@ export default function PrivacyPolicy() {
                   alt=""
                   width={1200}
                   height={3}
-                  className="w-full max-w-5xl"
+                  className="w-full max-w-6xl"
                   aria-hidden
                 />
               </div>

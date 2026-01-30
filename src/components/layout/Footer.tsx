@@ -118,7 +118,7 @@ export function Footer() {
       )}
 
       {/* Content */}
-      <div className="relative z-10 mx-auto max-w-[1200px] px-6 pb-8 pt-24 md:px-8 lg:px-12 lg:pt-32">
+      <div className="relative z-10 mx-auto max-w-6xl pb-8 pt-24 px-3 xl:px-0">
         {/* Main grid */}
         <div className="grid gap-12 md:grid-cols-[2fr_1fr_1fr_1fr] md:gap-8 lg:gap-16">
           {/* Company Info */}

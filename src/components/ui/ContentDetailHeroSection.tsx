@@ -11,6 +11,7 @@ interface BreadcrumbItem {
 
 interface ContentDetailHeroSectionProps {
   title: string;
+  subtitle?: string | null;
   date: string; // ISO date string
   author: string; // author name
   contentType: "blogs" | "newsletters" | "case-studies";
@@ -27,6 +28,7 @@ const contentTypeLabels = {
 
 export function ContentDetailHeroSection({
   title,
+  subtitle,
   date,
   author,
   contentType,
@@ -75,10 +77,17 @@ export function ContentDetailHeroSection({
 
       {/* Content */}
       <div className={containerClasses}>
-        <div className="flex flex-col items-center text-center space-y-6 max-w-5xl">
+        <div className="flex flex-col items-center text-center space-y-6 max-w-6xl px-3 xl:px-0">
           <h1 className="text-4xl font-medium text-orange-400 sm:text-5xl">
             {title}
           </h1>
+
+          {/* Subtitle */}
+          {subtitle && (
+            <p className="text-base leading-relaxed text-blue-100 sm:text-lg">
+              {subtitle}
+            </p>
+          )}
 
           {/* Subtitle with date/edition and author */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 text-base sm:text-lg text-blue-100">

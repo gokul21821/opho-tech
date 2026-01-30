@@ -287,19 +287,20 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
           <div className="flex flex-col gap-2">
             <div className="flex items-start justify-between">
             <div className="flex flex-col">
-              <p className="font-poppins text-[15px] sm:text-[15px] md:text-[28px] font-medium capitalize leading-[16px] sm:leading-[16px] md:leading-[38px] text-orange-500 md:text-[28px]">
+              <p className="font-poppins text-[12px] sm:text-[15px] md:text-[28px] font-medium capitalize leading-[16px] sm:leading-[16px] md:leading-[38px] text-orange-500 md:text-[28px]">
                 Book A Call
               </p>
               <h2
                 id="contact-modal-title"
-                className="font-poppins text-[15px] sm:text-[15px] md:text-[25px] font-medium leading-[16px] sm:leading-[16px] md:leading-[26px] text-white"
+                className="font-poppins text-[12px] sm:text-[15px] md:text-[25px] font-medium leading-[16px] sm:leading-[16px] md:leading-[26px] text-white"
               >
                 From Idea To Impact
               </h2>
             </div>
-              <p className="font-poppins text-[12px] sm:text-[12px] md:text-[16px] leading-normal text-gray-50 max-w-lg">
-                Join our AI solution architects for a discovery session that transforms your vision into a tangible, business-ready MVP.
-              </p>
+            <p className="font-poppins text-[10px] sm:text-[12px] md:text-[16px] leading-normal text-gray-50 w-full sm:max-w-lg">
+            Join our AI solution architects for a discovery session that transforms your vision into a tangible, business-ready MVP.
+          </p>
+
             </div>
           </div>
         </div>

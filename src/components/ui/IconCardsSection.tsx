@@ -1,5 +1,4 @@
 import type { ComponentProps } from "react";
-import { Fragment } from "react";
 import Image, { type StaticImageData } from "next/image";
 
 import BackgroundDots from "@/components/ui/background";
@@ -42,9 +41,16 @@ export type IconCardsSectionProps = {
 
   /**
    * Divider (between cards) defaults to Careers implementation.
+   *
+   * NOTE: divider is rendered with a simple element (not next/image) to avoid
+   * inconsistent scaling produced by next/image for very thin SVGs.
    */
   dividerContainerClassName?: string;
-  dividerImageClassName?: string;
+  dividerBarClassName?: string;
+  /**
+   * If provided, uses an explicit height in px for the divider bar.
+   * If omitted, the divider uses h-full (matches card height).
+   */
   dividerImageHeight?: number;
 };
 
@@ -55,25 +61,29 @@ export function IconCardsSection({
   stackTitleWords = false, // Changed default to false for normal text wrapping
   withBackgroundDots = false,
   backgroundDotsProps,
-  sectionClassName = "mx-auto max-w-7xl px-6 py-15",
-  titleClassName = "text-center text-4xl font-medium",
-  subtitleClassName = "text-center text-base text-[#3A4A5F] mt-4 mb-12",
-  cardsRowClassName = "mt-10 flex flex-col gap-8 md:gap-1  xl:gap-5 lg:flex-row lg:items-stretch lg:justify-center",
-  cardClassName = "flex-1 min-w-[200px] rounded-[20px] px-8 py-10 text-center",
-  titleTextClassName = "text-base font-medium leading-[20px] text-black mx-auto max-w-[180px]",
+  sectionClassName = "mx-auto max-w-5xl mb-2 px-4",
+  titleClassName = "text-center text-4xl font-medium mt-10",
+  subtitleClassName = "text-center text-base text-[#3A4A5F] mt-5 mb-2",
+  cardsRowClassName =
+    "mt-5 flex flex-col  items-center lg:flex-row lg:items-end lg:justify-center lg:gap-0",
+  cardClassName = "flex-1 min-w-[200px] rounded-[20px] lg:px-10 xl:px-8 py-15 text-center flex flex-col items-center",
+  titleTextClassName =
+    "text-base font-medium leading-[20px] text-black mx-auto max-w-[180px]",
   descriptionClassName = "mt-2 text-sm text-[#3A4A5F]",
-  dividerContainerClassName = "hidden items-center lg:flex",
-  dividerImageClassName = "w-auto h-[325px]",
-  dividerImageHeight = 320,
+  dividerContainerClassName =
+    "flex items-center justify-center lg:flex",
+  // dividerBarClassName controls width + gradient; height handled by style/h-full
+  dividerBarClassName = "block w-[1px] bg-gradient-to-b from-transparent via-[#F37121] to-transparent mx-6",
+  dividerImageHeight = 290,
 }: IconCardsSectionProps) {
   const content = (
     <section className={sectionClassName}>
       <h2 className={titleClassName}>{title}</h2>
       {subtitle ? <p className={subtitleClassName}>{subtitle}</p> : null}
 
-      <div className={cardsRowClassName}>
+      <div className="hidden lg:flex lg:items-center lg:justify-center lg:gap-0">
         {items.map((item, index, array) => (
-          <Fragment key={item.title}>
+          <div key={`card-group-${index}`} className="flex items-end gap-0">
             <article className={cardClassName}>
               <div className="mx-auto mb-4 grid h-20 w-20 place-items-center rounded-full bg-[#FFE6D5]">
                 <Image
@@ -101,18 +111,54 @@ export function IconCardsSection({
             </article>
 
             {index < array.length - 1 ? (
-              <div className={dividerContainerClassName}>
+              <div
+                className="w-[1px] bg-gradient-to-b from-transparent via-[#F37121] to-transparent lg:mx-2 xl:mx-6 flex-shrink-0"
+                style={{
+                  height: `${dividerImageHeight}px`,
+                }}
+                aria-hidden
+              />
+            ) : null}
+          </div>
+        ))}
+      </div>
+
+      <div className="lg:hidden">
+        {items.map((item, index, array) => (
+          <div key={`mobile-card-${index}`}>
+            <article className={cardClassName}>
+              <div className="mx-auto mb-4 grid h-20 w-20 place-items-center rounded-full bg-[#FFE6D5]">
                 <Image
-                  src="/images/raar/lineraar.svg"
-                  alt=""
-                  width={2}
-                  height={dividerImageHeight}
-                  className={dividerImageClassName}
-                  aria-hidden
+                  src={item.icon}
+                  alt={`${item.title} icon`}
+                  width={40}
+                  height={40}
+                  className="h-10 w-10"
                 />
               </div>
+
+              <p className={titleTextClassName}>
+                {stackTitleWords
+                  ? item.title.split(" ").map((word, wordIndex) => (
+                      <span key={wordIndex} className="block">
+                        {word}
+                      </span>
+                    ))
+                  : item.title}
+              </p>
+
+              {item.description?.trim() ? (
+                <p className={descriptionClassName}>{item.description}</p>
+              ) : null}
+            </article>
+
+            {index < array.length - 1 ? (
+              <div
+                className="h-[1px] w-full bg-gradient-to-r from-transparent via-[#F37121] to-transparent"
+                aria-hidden
+              />
             ) : null}
-          </Fragment>
+          </div>
         ))}
       </div>
     </section>

@@ -35,7 +35,7 @@ export async function CaseStudiesSection() {
           alt=""
           width={1200}
           height={3}
-          className="w-full max-w-5xl"
+          className="w-full max-w-6xl"
           aria-hidden
         />
       </div>

@@ -199,12 +199,11 @@ export default function Careers() {
 
                   {index < array.length - 1 && (
                     <div className="hidden lg:flex items-center justify-center">
-                      <Image
-                        src="/images/raar/lineraar.svg"
-                        alt=""
-                        width={2}
-                        height={200}
-                        className="h-[300px] w-auto"
+                      <div
+                        className="w-[1px] bg-gradient-to-b from-transparent via-[#F37121] to-transparent flex-shrink-0"
+                        style={{
+                          height: "400px",
+                        }}
                         aria-hidden
                       />
                     </div>
@@ -246,12 +245,11 @@ export default function Careers() {
 
                     {index < array.length - 1 && (
                       <div className="hidden lg:flex items-end justify-center">
-                        <Image
-                          src="/images/raar/lineraar.svg"
-                          alt=""
-                          width={2}
-                          height={200}
-                          className="h-[350px] w-auto"
+                        <div
+                          className="w-[1px] bg-gradient-to-b from-transparent via-[#F37121] to-transparent flex-shrink-0"
+                          style={{
+                            height: "350px",
+                          }}
                           aria-hidden
                         />
                       </div>

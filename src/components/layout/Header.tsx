@@ -194,7 +194,7 @@ export function Header() {
         className="relative sticky top-0 z-50 bg-gray-900 after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-full after:bg-gradient-to-r after:from-white/20 after:via-orange-500 after:to-white/10 after:content-['']"
         role="banner"
       >
-        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-[5%]">
+       <div className="mx-auto flex h-20 max-w-6xl items-center justify-between px-2 xl:px-0">
           <Link href="/" className="flex items-center">
             <Image
               src="/images/logo/logo.svg"

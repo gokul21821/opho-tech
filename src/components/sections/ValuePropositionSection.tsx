@@ -66,7 +66,7 @@ export function ValuePropositionSection() {
           />
         </div>
 
-        <div className="mx-auto max-w-[1200px]">
+        <div className="mx-auto max-w-6xl">
           {/* Heading */}
           <div className="mb-8 sm:mb-9 md:mb-10 text-center">
           <h2 className="font-poppins text-4xl font-medium leading-tight text-[#111111] px-2">
@@ -209,7 +209,7 @@ export function ValuePropositionSection() {
            alt=""
            width={1200}
            height={3}
-           className="w-full max-w-5xl"
+           className="w-full max-w-6xl"
            aria-hidden
          />
        </div>

@@ -36,7 +36,7 @@ export default async function CaseStudiesPage() {
         }}
       >
         <main className="px-[8%]">
-          <div className="mx-auto max-w-[1200px]">
+          <div className="mx-auto max-w-6xl">
             <div className="mb-6">
               <Link
                 href="/"
@@ -76,8 +76,6 @@ export default async function CaseStudiesPage() {
                     title={item.title}
                     date={item.date}
                     category={item.category}
-                    imageUrl={item.imageUrl}
-                    excerpt={getContentPreview(item.content)}
                     contentType="case-studies"
                   />
                 ))}
@@ -92,7 +90,7 @@ export default async function CaseStudiesPage() {
           alt=""
           width={1200}
           height={3}
-          className="w-full max-w-5xl"
+          className="w-full max-w-6xl"
           aria-hidden
         />
       </div>

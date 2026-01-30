@@ -97,7 +97,7 @@ export default function DataMonetizationPage() {
             background: "linear-gradient(to bottom, #ffffff 38.524%, #feecd6 171.52%)",
           }}
         >
-        <section className="mx-auto max-w-7xl px-[5%]">
+        <section className="mx-auto max-w-6xl px-3 xl:px-0">
           <div className="flex flex-col gap-8 items-center">
             {/* Main Heading */}
             <div className="flex flex-col gap-8 items-center w-full">
@@ -370,7 +370,7 @@ export default function DataMonetizationPage() {
           }}
         >
      
-     <section className="relative mx-auto max-w-7xl px-[5%]">
+     <section className="relative mx-auto max-w-6xl px-3 xl:px-0">
   {/* Divider line */}
   <Image
     src="/images/raar/lineraar.svg"
@@ -395,7 +395,7 @@ export default function DataMonetizationPage() {
     </div>
 
     {/* Right: Image */}
-    <div className="justify-self-center">
+    <div className="justify-self-center ml-0 lg:ml-[15%]">
       <Image
         src="/images/data-monetize/cube.png"
         alt="Cube vault illustration"

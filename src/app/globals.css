@@ -262,3 +262,9 @@ body {
     opacity: 0.7;
   }
 }
+
+@media (min-width: 1024px) {
+  [data-divider] {
+    background-size: 2px 100%;
+  }
+}

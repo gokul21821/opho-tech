@@ -117,7 +117,7 @@ export default function CyberSecuritySolutions() {
             background: "linear-gradient(to bottom, #ffffff 38.524%, #feecd6 171.52%)",
           }}
         >
-          <section className="max-w-7xl mx-auto px-[5%]">
+            <section className="max-w-6xl mx-auto px-3 xl:px-0">
             {/* Cyber Threat in the AI Era */}
             <div className="flex flex-col gap-10 items-center mb-16">
               <div className="flex flex-col gap-3 items-center">
@@ -321,7 +321,6 @@ export default function CyberSecuritySolutions() {
           previousHref="/solutions/ai-agent-development"
           titleClassName="text-3xl font-medium"
           title={["Ready to Solve", "What's Next With OphoTech?"]}
-          description="Together, we connect, create, and evolve."
           cta={{ onClick: handleOpenContact, label: "Let's Start" }}
         />
       </main>

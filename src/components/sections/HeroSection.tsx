@@ -43,7 +43,7 @@ export function HeroSection() {
         />
       </div>
 
-      <div className="relative mx-auto flex min-h-[680px] max-w-7xl px-[5%] flex-col gap-10 pb-24 pt-36  lg:flex-row lg:items-center lg:justify-between lg:min-h-[720px]">
+      <div className="relative mx-auto flex min-h-[680px] max-w-6xl px-2 xl:px-0 flex-col gap-10 pb-24 pt-36  lg:flex-row lg:items-center lg:justify-between lg:min-h-[720px]">
         <div className="max-w-xl space-y-8">
           <div className="space-y-3">
             <p className="text-4xl text-orange-400 sm:text-5xl">
@@ -61,7 +61,7 @@ export function HeroSection() {
           </PrimaryButton>
         </div>
 
-        <div className="relative max-w-7xl flex-1">
+        <div className="relative max-w-6xl flex-1">
           <VideoPlayer
             src="/videos/Home-Page.mp4"
             poster="/videos/thumbnail.webp"

@@ -104,7 +104,7 @@ export default function Team() {
       <BackgroundDots {...gradientBackground}>
 
         
-  <section className="mx-auto flex max-w-[1220px] flex-col gap-10 px-[3%]">
+  <section className="mx-auto flex max-w-6xl flex-col gap-10 px-3 xl:px-0">
     <div className="flex flex-col items-center gap-12 lg:flex-row lg:items-start lg:justify-between">
 
       {teamMembers.map((member, index) => (
@@ -161,7 +161,7 @@ export default function Team() {
           return (
             <BackgroundDots key={profile.name} {...backgroundProps}>
               <section
-              className={`mx-auto flex w-full flex-col px-[7%] xl:px-[6%] 2xl:px-[22%]  ${
+              className={`mx-auto flex w-full max-w-6xl flex-col px-3 xl:px-0 ${
                 profile.reverse ? "lg:flex-row-reverse" : "lg:flex-row"
               }`}
             >
@@ -171,12 +171,12 @@ export default function Team() {
                   profile.reverse ? "lg:pr-4" : "lg:pl-2"
                 }`}
               >
-                <h3 className="text-xl md:text-3xl mt-10 font-medium text-gray-900">
+                <h3 className="text-xl md:text-3xl font-medium text-gray-900">
                   {profile.name}
                 </h3>
                 <p className="text-xl font-medium text-orange-500">{profile.title}</p>
 
-                <div className="space-y-4 text-base leading-relaxed text-gray-600">
+                <div className="space-y-4 text-base leading-relaxed text-gray-600 mb-5 lg:mb-0">
                   {profile.description.map((paragraph, idx) => (
                     <p key={idx}>{paragraph}</p>
                   ))}

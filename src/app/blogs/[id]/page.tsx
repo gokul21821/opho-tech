@@ -106,12 +106,13 @@ export default async function BlogDetailPage({
       <Header />
       <ContentDetailHeroSection
         title={blog.title}
+        subtitle={blog.subtitle}
         date={blog.date}
         author={blog.author.username}
         contentType="blogs"
       />
       <main className="bg-white py-16 md:py-24">
-        <div className="mx-auto max-w-7xl px-[5%]">
+        <div className="mx-auto max-w-6xl px-3 xl:px-0">
           <div className="flex flex-col gap-8 lg:flex-row lg:gap-12">
             {/* Main Content - 70% */}
             <article className="flex-1 lg:w-[70%]">
@@ -136,7 +137,7 @@ export default async function BlogDetailPage({
           alt=""
           width={1200}
           height={3}
-          className="w-full max-w-5xl"
+          className="w-full max-w-6xl"
           aria-hidden
         />
       </div>

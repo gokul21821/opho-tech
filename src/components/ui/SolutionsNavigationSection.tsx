@@ -65,7 +65,7 @@ export function SolutionsNavigationSection({
   const titleLines = Array.isArray(title) ? title : [title];
 
   return (
-    <section className={cn("mx-auto max-w-7xl px-20 py-16", sectionClassName)}>
+    <section className={cn("mx-auto max-w-6xl py-16 px-3 xl:px-0", sectionClassName)}>
       {previousHref ? (
         <div className="mb-6">
           <Link

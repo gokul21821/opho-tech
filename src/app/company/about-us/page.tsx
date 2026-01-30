@@ -64,7 +64,7 @@ and drive profitable growth."
             background: "linear-gradient(to bottom, #ffffff 38.524%, #feecd6 171.52%)",
           }}
         >
-          <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-10 px-[5%]">
+          <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10 px-3 xl:px-0">
             <div className="md:w-1/2">
               <h2 className="text-4xl font-medium mb-6 text-[#111111]">Our Story</h2>
               <p className="text-base text-[#454545]">
@@ -115,7 +115,7 @@ and drive profitable growth."
         />
 
 
-        <section className="relative w-full text-white pb-16 lg:pb-0 pt-16 lg:pt-[14rem] lg:bg-[url('/images/aboutus/our-mission.png')] lg:bg-[length:100%_auto] lg:bg-top lg:bg-no-repeat">
+        <section className="relative w-full text-white pb-16 lg:pb-0 pt-16 lg:pt-[10rem] lg:bg-[url('/images/aboutus/our-mission.png')] lg:bg-[length:100%_auto] lg:bg-top lg:bg-no-repeat">
           {/* Desktop view with SVG decorations (lg and above) */}
           <div className="hidden lg:block relative mx-auto h-[450px] max-w-6xl px-6">
             {/* Outer blurred ring */}
@@ -167,7 +167,7 @@ and drive profitable growth."
             </div>
 
             {/* Our Mission (right) */}
-            <div className="absolute right-[-3%] top-[-25%] max-w-sm text-left">
+            <div className="absolute left-[70%] top-[-12%] max-w-xs text-left">
               <h2 className="text-4xl font-medium leading-[1.3] text-[#FEF1F0]">
                 Our Mission
               </h2>
@@ -230,7 +230,7 @@ and drive profitable growth."
               "linear-gradient(to bottom, #ffffff 38.524%, #feecd6 171.52%)",
           }}
         >
-          <section className="mx-auto max-w-7xl px-[5%] py-20">
+          <section className="mx-auto max-w-6xl py-20">
             <h2 className="text-4xl font-medium mb-12 text-center text-[#111111]">
               Our Values
             </h2>

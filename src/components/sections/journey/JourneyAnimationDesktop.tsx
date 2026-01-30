@@ -46,9 +46,37 @@ export function JourneyAnimationDesktop() {
   const getResponsiveProgress = (stop: typeof JOURNEY_STOPS[0]) =>
     stop.progress[breakpoint];
 
+  // Helper function to wait for element to exist in DOM
+  const waitForElement = (selector: string, maxAttempts = 10, delay = 50): Promise<Element | null> => {
+    return new Promise((resolve) => {
+      let attempts = 0;
+      const check = () => {
+        if (!scope.current) {
+          resolve(null);
+          return;
+        }
+        const element = scope.current.querySelector(selector);
+        if (element) {
+          resolve(element);
+        } else if (attempts < maxAttempts) {
+          attempts++;
+          setTimeout(check, delay);
+        } else {
+          resolve(null);
+        }
+      };
+      check();
+    });
+  };
+
   // sequence logic (same as your previous)
   useEffect(() => {
     const sequence = async () => {
+      // Ensure scope is mounted before starting
+      if (!scope.current) {
+        return;
+      }
+
       progress.set(0);
 
       for (const stop of JOURNEY_STOPS) {
@@ -60,10 +88,19 @@ export function JourneyAnimationDesktop() {
         const contentSelector = `#${stop.id}`;
         const connectorSelector = `#${stop.id}-connector`;
 
-        await Promise.all([
-          animate(contentSelector, { opacity: 1, y: 0 }, { duration: 0.5 }),
-          animate(connectorSelector, { opacity: 1, y: 0 }, { duration: 0.5 })
+        // Wait for elements to exist before animating
+        const [contentElement, connectorElement] = await Promise.all([
+          waitForElement(contentSelector),
+          waitForElement(connectorSelector)
         ]);
+
+        // Only animate if elements exist
+        if (contentElement && connectorElement) {
+          await Promise.all([
+            animate(contentSelector, { opacity: 1, y: 0 }, { duration: 0.5 }),
+            animate(connectorSelector, { opacity: 1, y: 0 }, { duration: 0.5 })
+          ]);
+        }
 
         await new Promise((resolve) => setTimeout(resolve, 800));
       }

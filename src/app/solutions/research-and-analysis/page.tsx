@@ -79,7 +79,7 @@ export default function RAARPage() {
             background: "linear-gradient(to bottom, #ffffff 38.524%, #feecd6 171.52%)",
           }}
         >
-        <section className="mx-auto max-w-7xl px-[5%]">
+        <section className="mx-auto max-w-6xl px-3 xl:px-0">
           <div className="flex flex-col gap-10 items-center">
             <h2 className="text-center text-4xl  font-medium text-[#111111]">
               How it Works

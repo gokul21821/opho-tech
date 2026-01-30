@@ -80,7 +80,7 @@ export function HeroSection({
       </div>
 
       {/* Main Content Container */}
-      <div className="relative z-10 mx-auto w-full max-w-7xl px-[5%]">
+      <div className="relative z-10 mx-auto w-full max-w-6xl px-3 xl:px-0">
         {hasVideo ? (
           <div className="flex flex-col pt-20 pb-2">
             {/* Breadcrumb */}
@@ -133,8 +133,8 @@ export function HeroSection({
             <div
               className={`flex flex-col space-y-6 mb-10 ${
                 contentAlignment === "center"
-                  ? "items-center text-center max-w-5xl"
-                  : "max-w-5xl"
+                  ? "items-center text-center max-w-6xl"
+                  : "max-w-6xl"
               }`}
             >
               <h1 className="text-4xl  text-orange-400 sm:text-5xl leading-[1.1] lg:text-5xl">

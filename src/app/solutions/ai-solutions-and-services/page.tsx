@@ -128,7 +128,7 @@ export default function AISolutionsAndServices() {
         />
 
         {/* AI Solutions & Services Section */}
-          <section className="max-w-7xl mx-auto px-[5%] py-16">
+          <section className="max-w-6xl mx-auto py-16 px-3 xl:px-0">
           
     {/* AI Deployment */}
     <div className="flex flex-col gap-10 ">
@@ -151,11 +151,11 @@ export default function AISolutionsAndServices() {
                   background: "linear-gradient(to bottom, #ffffff 38.524%, #feecd6 171.52%)",
                 }}
               >
-              <div className="border border-[#fcd5ac] rounded-2xl px-6 md:px-10 py-5 bg-white/30 relative overflow-hidden card-text-smaller">
+              <div className="border border-[#fcd5ac] rounded-2xl px-6 md:px-10 py-7 bg-white/30 relative overflow-hidden card-text-smaller">
               <div className="relative z-10 flex flex-col md:flex-row gap-6 md:gap-10">
                 {/* Left Content */}
-                <div className="flex-1 flex flex-col gap-4">
-                  <h4 className="text-2xl font-medium leading-[26px] text-[#e45412] capitalize">
+                <div className="flex-1 flex flex-col gap-6">
+                  <h4 className="text-2xl font-medium leading-[33px] text-[#e45412] capitalize">
                     Scalability & MLOps:
                   </h4>
                   <p className="text-base font-normal leading-normal text-[#454545]">
@@ -170,14 +170,14 @@ export default function AISolutionsAndServices() {
                     alt=""
                     width={2}
                     height={320}
-                    className="w-auto h-[190px]"
+                    className="w-auto h-[163px]"
                     aria-hidden
                   />
                 </div>
 
                 {/* Right Content */}
-                <div className="flex-1 flex flex-col gap-4">
-                  <h4 className="text-2xl font-medium leading-[26px] text-[#e45412] capitalize">
+                <div className="flex-1 flex flex-col gap-6">
+                  <h4 className="text-2xl font-medium leading-[33px] text-[#e45412] capitalize">
                     Ethical AI & Trust:
                   </h4>
                   <p className="text-base font-normal leading-normal text-[#454545]">
@@ -201,7 +201,7 @@ export default function AISolutionsAndServices() {
                 background: "linear-gradient(to bottom, #ffffff 38.524%, #feecd6 171.52%)",
               }}
             >
-            <section className="max-w-7xl mx-auto px-[5%]">
+            <section className="max-w-6xl mx-auto px-3 xl:px-0">
             <div className="flex flex-col gap-10">
               <div className="flex flex-col gap-5 items-center text-center px-4">
                 <h3 className="text-4xl font-medium leading-[32px] md:leading-[38px] text-black">
@@ -246,7 +246,7 @@ export default function AISolutionsAndServices() {
         </BackgroundDots>
 
   {/* Top Section: Heading, Line, Subtitle, Description */}
-  <section className="max-w-7xl mx-auto px-[5%] py-16">
+  <section className="max-w-6xl mx-auto py-16 px-3 xl:px-0">
   <div className="flex flex-col gap-10 items-center mb-10">
               <div className="flex flex-col gap-8 items-center">
      

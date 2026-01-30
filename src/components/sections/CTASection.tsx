@@ -86,7 +86,7 @@ export function CTASection({
         />
       </div>
 
-      <div className="relative mx-auto max-w-4xl px-6 text-center md:px-8">
+      <div className="relative mx-auto max-w-6xl text-center">
         <h2 className="text-3xl font-semibold md:text-[38px]">
           {gradientTitle}
         </h2>
