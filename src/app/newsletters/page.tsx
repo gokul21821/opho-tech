@@ -74,6 +74,8 @@ export default async function NewslettersPage() {
                     key={item.id}
                     id={item.id}
                     title={item.title}
+                    subtitle={item.subtitle}
+                    showSubtitle
                     date={item.date}
                     edition={item.edition}
                     contentType="newsletters"

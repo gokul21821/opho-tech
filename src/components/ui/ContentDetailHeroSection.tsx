@@ -44,7 +44,6 @@ export function ContentDetailHeroSection({
   const breadcrumb: BreadcrumbItem[] = [
     { label: "Home", href: "/" },
     { label: "Resources" },
-    { label: contentTypeLabel, href: `/${contentType}` },
     { label: title },
   ];
 

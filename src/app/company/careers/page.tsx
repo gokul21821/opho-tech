@@ -18,6 +18,7 @@ export default function Careers() {
       <HeroSection
         breadcrumb={[
           { label: "Home", href: "/" },
+          { label: "Company" },
           { label: "Careers" },
         ]}
         title="Join Us in Shaping the Future of AI & Cloud"

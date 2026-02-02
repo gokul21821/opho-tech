@@ -10,6 +10,8 @@ interface ContentCardProps {
   contentType: "newsletters" | "case-studies" | "blogs";
   edition?: string | null;
   category?: string | null;
+  subtitle?: string | null;
+  showSubtitle?: boolean;
 }
 
 export function ContentCard({
@@ -19,10 +21,13 @@ export function ContentCard({
   contentType,
   edition,
   category,
+  subtitle,
+  showSubtitle = false,
 }: ContentCardProps) {
   const year = formatYear(date);
   const normalizedEdition = edition?.trim();
   const normalizedCategory = category?.trim();
+  const normalizedSubtitle = subtitle?.trim();
 
   const badgeText =
     contentType === "newsletters"
@@ -32,6 +37,8 @@ export function ContentCard({
       : contentType === "case-studies"
       ? normalizedCategory || "Uncategorized"
       : formatFullDate(date);
+
+  const shouldShowSubtitle = showSubtitle && normalizedSubtitle;
 
   return (
     <Link
@@ -46,6 +53,13 @@ export function ContentCard({
       <h3 className="font-poppins text-base font-medium capitalize leading-normal text-gray-900 sm:text-lg">
         {title}
       </h3>
+
+      {/* Subtitle with 4-line clamp - only shown when showSubtitle is true and subtitle exists */}
+      {shouldShowSubtitle && (
+        <p className="line-clamp-4 font-poppins text-sm leading-normal text-gray-600">
+          {normalizedSubtitle}
+        </p>
+      )}
 
       {/* Badge */}
       <div className="absolute bottom-4 left-4 z-10">

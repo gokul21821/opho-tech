@@ -111,7 +111,7 @@ export default function RAARPage() {
   ].map((item) => (
     <div key={item.title} className="h-full">
       <div
-        className="h-full min-w-[220px] md:min-w-[220px] lg:min-w-[200px] xl:min-w-[250px] rounded-2xl border border-[#fcd5ac] bg-white/30 p-5 flex flex-col gap-4 items-start card-text-smaller"
+        className="h-full min-w-[220px] md:min-w-[220px] lg:min-w-[200px] xl:min-w-[280px] rounded-2xl border border-[#fcd5ac] bg-white/30 p-5 flex flex-col gap-4 items-start card-text-smaller"
       >
 
         <h3 className="text-2xl font-medium text-[#111111] capitalize">
@@ -151,7 +151,7 @@ export default function RAARPage() {
           },
           {
             title: "Stakeholder-Specific Insights",
-            description: "Customized reports for C-Suite business leaders",
+            description: "Customized reports for C-Suite business leaders.",
             icon: "/images/icons/people.svg",
           },
           {

@@ -22,7 +22,7 @@ const papersearchicon = "/images/icons/paper-analysis.svg";
 const aiAgentIcon = "/images/icons/ai-agent.svg";
 const resilienticon = "/images/icons/cloud-integration.svg";
 const cloudDbIcon = "/images/icons/cloud-db.svg";
-const governedicon = "/images/icons/governedicon.svg";
+const governedicon = "/images/aboutus/governed.svg";
 const analysisIcon = "/images/icons/analysis.svg";
 const peopleSearchIcon = "/images/icons/people-search.svg";
 const securityIcon = "/images/icons/security.svg";
@@ -41,6 +41,7 @@ const AboutPage = () => {
       <HeroSection
         breadcrumb={[
           { label: "Home", href: "/" },
+          { label: "Company" },
           { label: "About Us" },
         ]}
         title="Who We Are"

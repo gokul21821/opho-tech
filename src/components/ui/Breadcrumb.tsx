@@ -42,7 +42,17 @@ export function Breadcrumb({ items }: BreadcrumbProps) {
                   {item.label}
                 </span>
               )}
-              {!isLast && <span className="shrink-0 text-white/50">/</span>}
+              {!isLast && (
+                <span
+                  className={`shrink-0 ${
+                    index === items.length - 2
+                      ? "text-orange-400"
+                      : "text-white/50"
+                  }`}
+                >
+                  &gt;
+                </span>
+              )}
             </li>
           );
         })}

@@ -27,7 +27,7 @@ export function HeroSection() {
   };
 
   return (
-    <section className="relative -mt-20 overflow-hidden pb-0 pt-20 text-white md:-mt-24 md:pt-24 ">
+    <section className="relative -mt-20 overflow-hidden  text-white  min-h-[500px] lg:min-h-[560px]">
       <div className="pointer-events-none absolute inset-0">
         <Image
           src={HERO_BACKGROUND_WAVES}
@@ -43,7 +43,7 @@ export function HeroSection() {
         />
       </div>
 
-      <div className="relative mx-auto flex min-h-[680px] max-w-6xl px-2 xl:px-0 flex-col gap-10 pb-24 pt-36  lg:flex-row lg:items-center lg:justify-between lg:min-h-[720px]">
+      <div className="relative mx-auto flex max-w-6xl px-2 xl:px-0 flex-col gap-10 pb-24 pt-36 lg:flex-row lg:items-center lg:justify-between">
         <div className="max-w-xl space-y-8">
           <div className="space-y-3">
             <p className="text-4xl text-orange-400 sm:text-5xl">
@@ -63,7 +63,7 @@ export function HeroSection() {
 
         <div className="relative max-w-6xl flex-1">
           <VideoPlayer
-            src="/videos/Home-Page.mp4"
+            src="/videos/Home-Page-video.mp4"
             poster="/videos/thumbnail.webp"
             muted={true}
             showControls={true}

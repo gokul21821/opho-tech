@@ -74,6 +74,8 @@ export default async function CaseStudiesPage() {
                     key={item.id}
                     id={item.id}
                     title={item.title}
+                    subtitle={item.subtitle}
+                    showSubtitle
                     date={item.date}
                     category={item.category}
                     contentType="case-studies"

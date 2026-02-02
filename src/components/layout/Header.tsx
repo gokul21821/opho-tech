@@ -253,7 +253,7 @@ export function Header() {
                 />
               ) : null}
             </div>
-            <PrimaryButton onClick={handleOpenContact}>Contact Us</PrimaryButton>
+            <PrimaryButton onClick={handleOpenContact}>Schedule a Call</PrimaryButton>
           </div>
 
           <button
@@ -336,7 +336,7 @@ export function Header() {
                   handleOpenContact();
                 }}
               >
-                Contact Us
+                Schedule a Call
               </PrimaryButton>
             </div>
           </div>

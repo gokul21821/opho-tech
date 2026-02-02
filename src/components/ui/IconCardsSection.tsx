@@ -66,7 +66,7 @@ export function IconCardsSection({
   subtitleClassName = "text-center text-base text-[#3A4A5F] mt-5 mb-2",
   cardsRowClassName =
     "mt-5 flex flex-col  items-center lg:flex-row lg:items-end lg:justify-center lg:gap-0",
-  cardClassName = "flex-1 min-w-[200px] rounded-[20px] lg:px-10 xl:px-8 py-15 text-center flex flex-col items-center",
+  cardClassName = "flex-1 min-w-[200px] rounded-[20px] lg:px-5 xl:px-2 py-15 text-center flex flex-col items-center",
   titleTextClassName =
     "text-base font-medium leading-[20px] text-black mx-auto max-w-[180px]",
   descriptionClassName = "mt-2 text-sm text-[#3A4A5F]",
@@ -81,9 +81,9 @@ export function IconCardsSection({
       <h2 className={titleClassName}>{title}</h2>
       {subtitle ? <p className={subtitleClassName}>{subtitle}</p> : null}
 
-      <div className="hidden lg:flex lg:items-center lg:justify-center lg:gap-0">
+      <div className="hidden lg:flex lg:items-start lg:justify-center lg:gap-0">
         {items.map((item, index, array) => (
-          <div key={`card-group-${index}`} className="flex items-end gap-0">
+          <div key={`card-group-${index}`} className="flex items-start gap-0">
             <article className={cardClassName}>
               <div className="mx-auto mb-4 grid h-20 w-20 place-items-center rounded-full bg-[#FFE6D5]">
                 <Image

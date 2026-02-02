@@ -55,11 +55,12 @@ export function HeroSection({
   const minHeightClass = fullViewport
     ? "min-h-screen"
     : hasVideo
-      ? "min-h-[680px] lg:min-h-[720px]"
-      : "min-h-[440px] lg:min-h-[500px]";
+      ? "min-h-[500px] lg:min-h-[600px]"
+      : "min-h-[500px] sm:min-h-[380px] lg:min-h-[400px]";
+
 
   // Section classes: add negative margin to pull behind header
-  const sectionClasses = `relative -mt-20 overflow-hidden pt-20 text-white md:-mt-24 md:pt-24 ${
+  const sectionClasses = `relative -mt-10 mb-5 overflow-hidden text-white  ${
     minHeightClass
   } flex flex-col ${contentAlignment === "center" && !hasVideo ? "justify-center" : ""}`;
 

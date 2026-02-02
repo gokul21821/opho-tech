@@ -93,6 +93,7 @@ export default function Team() {
       <HeroSection
         breadcrumb={[
           { label: "Home", href: "/" },
+          { label: "Company" },
           { label: "Team" },
         ]}
         title="Leadership Team"
@@ -112,7 +113,7 @@ export default function Team() {
           <div className="flex w-full flex-1 flex-col items-center">
             
             {/* --- ORANGE CARD WITH ONLY IMAGE --- */}
-            <div className="w-full max-w-[220px] rounded-2xl border border-[#FCD5AC] bg-[#FFF6ED] shadow-[0px_12px_30px_rgba(228,84,18,0.08)]">
+            <div className="w-full max-w-[180px] rounded-2xl border border-[#FCD5AC] bg-[#FFF6ED] shadow-[0px_12px_30px_rgba(228,84,18,0.08)]">
   <div className="relative w-full aspect-[3/4] overflow-hidden rounded-2xl">
     <Image
       src={member.image}
