@@ -63,7 +63,7 @@ export function HeroSection() {
 
         <div className="relative max-w-6xl flex-1">
           <VideoPlayer
-            src="/videos/Home-Page-video.mp4"
+            src="/videos/Home-Page-Video.mp4"
             poster="/videos/thumbnail.webp"
             muted={true}
             showControls={true}
