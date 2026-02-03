@@ -37,7 +37,7 @@ export default function RAARPage() {
           <p className="mt-3">
             An intelligence framework, driven by a team of Senior Data
             Scientists and AI/ML Engineers to get real-time operational insights
-            and market opportunities. Our Expert and Precise reports address the
+            and market opportunities. Our expert and precise reports address the
             critical gaps and enable enterprises structure their path to AI
             enablement.
           </p>

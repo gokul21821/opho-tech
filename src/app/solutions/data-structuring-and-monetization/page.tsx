@@ -77,11 +77,6 @@ export default function DataMonetizationPage() {
             alt: "Azure logo",
             wrapperClassName: "w-10 h-6 md:w-7 md:h-8 flex items-center justify-center"
           },
-          {
-            src: "/images/tech-stack-logos/sql.svg",
-            alt: "sql logo",
-            wrapperClassName: "w-15 h-6 md:w-14 md:h-8 flex items-center justify-center"
-          },
         ]}
       />
 

@@ -72,11 +72,6 @@ export default function AISolutionsAndServices() {
               alt: "Mistral AI logo", 
               wrapperClassName: "w-15 h-6 md:w-18 md:h-8 flex items-center justify-center" },
             {
-              src: "/images/tech-stack-logos/google-ai-studio.svg",
-              alt: "google AI Studio logo",
-              wrapperClassName: "w-10 h-6 md:w-10 md:h-8 flex items-center justify-center"
-            },
-            {
               src: "/images/tech-stack-logos/amazon-bedrock.svg",
               alt: "amazon bedrock logo",
               wrapperClassName: "w-15 h-6 md:w-14 md:h-8 flex items-center justify-center"

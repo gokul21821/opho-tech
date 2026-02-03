@@ -276,11 +276,7 @@ export default function AIAgentDevelopment() {
                 <div className="text-center">
                   <h3 className="text-2xl font-medium leading-[38px] text-gray-600">Agentic AI - Uses</h3>
                   <p className="mx-auto mt-4 max-w-4xl text-base text-[#454545]">
-                    Our focus is on{" "}
-                    <span className="text-[#454545]">
-                      translating complex business challenges into clear technology opportunities
-                    </span>{" "}
-                    by building agents that are reliable, governed, and integrated into your current systems.
+                  Our focus is on bridging the gap between complex business requirements and technical innovation by building agents that are reliable, governed, and integrated into your current systems.
                   </p>
 
                   <div className="mt-10 grid gap-6 md:grid-cols-3">

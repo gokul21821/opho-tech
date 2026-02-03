@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { fetchContentList, formatDate } from "@/lib/api";
+import { fetchContentList, formatDate, formatYear } from "@/lib/api";
 import { ContentType } from "@/lib/types";
 import BackgroundDots from "./background";
 
@@ -61,7 +61,9 @@ export async function RecentContentCard({
                   {item.title}
                 </h4>
                 <p className="text-xs text-gray-600">
-                  {formatDate(item.date)}
+                  {contentType === "newsletters"
+                    ? [item.edition, formatYear(item.date)].filter(Boolean).join(", ")
+                    : formatDate(item.date)}
                 </p>
               </Link>
             ))}
