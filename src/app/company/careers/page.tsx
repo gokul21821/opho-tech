@@ -4,13 +4,69 @@ import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { HeroSection } from "@/components/ui/HeroSection";
 import Image from "next/image";
-import { Fragment } from "react";
+import { Fragment, useEffect, useMemo, useRef, useState } from "react";
 import BackgroundDots from "@/components/ui/background";
 import { PrimaryButton } from "@/components/ui/Button";
 import { IconCardsSection } from "@/components/ui/IconCardsSection";
 import { CTASection } from "@/components/sections/CTASection";
 
 export default function Careers() {
+  const [isLeftExpanded, setIsLeftExpanded] = useState(false);
+  const [isRightExpanded, setIsRightExpanded] = useState(false);
+  const leftTextRef = useRef<HTMLParagraphElement | null>(null);
+  const rightTextRef = useRef<HTMLParagraphElement | null>(null);
+  const [leftCanExpand, setLeftCanExpand] = useState(false);
+  const [rightCanExpand, setRightCanExpand] = useState(false);
+
+  const leftDescription =
+    "To drive requirement analysis, solution scoping, and business growth for our software development, IT services, and Generative AI solutions";
+  const rightDescription =
+    "Marketing leader with 5+ years of experience driving growth through enterprise-grade website and app management, SEO-led visibility, and high-performing digital platforms. Proven ability to optimize user journeys from first visit to qualified client, generate high-quality global leads, and translate complex AI-driven engineering work into clear, actionable marketing strategy for business leadership.";
+
+  // Keep the CTA row aligned across both cards in the collapsed state:
+  // - clamp description to 4 lines
+  // - reserve a consistent "Read more" row height on both cards
+  // - only expand the card that was clicked
+  const measureOverflow = useMemo(() => {
+    return (el: HTMLParagraphElement | null) => {
+      if (!el) return false;
+      // When line-clamped, clientHeight is the visible height; scrollHeight includes hidden overflow.
+      // Small epsilon avoids false positives due to sub-pixel rounding.
+      return el.scrollHeight - el.clientHeight > 1;
+    };
+  }, []);
+
+  useEffect(() => {
+    const measure = () => {
+      // Only re-measure in the collapsed state (clamp active).
+      if (!isLeftExpanded) setLeftCanExpand(measureOverflow(leftTextRef.current));
+      if (!isRightExpanded) setRightCanExpand(measureOverflow(rightTextRef.current));
+    };
+
+    // Initial + after layout/resize changes.
+    // rAF helps ensure fonts/layout have settled before measuring.
+    const raf = requestAnimationFrame(measure);
+
+    const onResize = () => measure();
+    window.addEventListener("resize", onResize, { passive: true });
+
+    const ro =
+      typeof ResizeObserver !== "undefined"
+        ? new ResizeObserver(() => measure())
+        : null;
+
+    if (ro) {
+      if (leftTextRef.current) ro.observe(leftTextRef.current);
+      if (rightTextRef.current) ro.observe(rightTextRef.current);
+    }
+
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener("resize", onResize);
+      ro?.disconnect();
+    };
+  }, [isLeftExpanded, isRightExpanded, leftDescription, rightDescription, measureOverflow]);
+
   return (
     <div className="flex min-h-screen flex-col bg-white text-gray-900">
       <Header />
@@ -53,9 +109,9 @@ export default function Careers() {
             </div>
 
             {/* Two columns with SVG center line */}
-            <div className="relative mt-16 max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-10 md:gap-16 items-stretch">
+            <div className="relative mt-16 max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-10 md:gap-16 items-start">
               {/* Left column */}
-              <div className="flex flex-col items-center text-center h-full">
+              <div className="flex flex-col items-center text-center">
                 <div className="h-[60px] flex items-start justify-center">
                   <span className="inline-flex items-center justify-center rounded-lg border border-orange-500 px-4 py-1.5 text-base font-semibold text-orange-400 shadow-[inset_0_1px_0_rgba(255,255,255,0.6)]">
                     Senior Level
@@ -64,16 +120,45 @@ export default function Careers() {
                 <h2 className="mt-4 text-3xl font-medium tracking-tight text-neutral-900 h-[100px] flex items-start justify-center">
                   Business Development Manager
                 </h2>
-                <p className="mt-3 mb-10 max-w-md text-[#454545] leading-relaxed flex-1">
-                To drive requirement analysis, solution scoping, and business growth for our software development, IT services, and Generative AI solutions
-                </p>
+                <div className="mt-4 md:mt-2 lg:mt-0 mb-10 max-w-md text-[#454545] leading-relaxed">
+                  <p
+                    ref={leftTextRef}
+                    className={[
+                      !isLeftExpanded ? "line-clamp-4" : "",
+                      // ~4 lines of text with leading-relaxed (1.625rem) => ~6.5rem.
+                      // This keeps both cards aligned when collapsed.
+                      !isLeftExpanded ? "min-h-[6.5rem]" : "",
+                    ].join(" ")}
+                  >
+                    {leftDescription}
+                  </p>
+                  <div className=" h-5">
+                    {leftCanExpand ? (
+                      <button
+                        type="button"
+                        className="text-sm font-medium text-orange-500 hover:text-orange-600 underline underline-offset-4"
+                        onClick={() => setIsLeftExpanded((v) => !v)}
+                        aria-expanded={isLeftExpanded}
+                      >
+                        {isLeftExpanded ? "Read less" : "Read more"}
+                      </button>
+                    ) : (
+                      <span
+                        className="invisible text-sm font-medium underline underline-offset-4"
+                        aria-hidden
+                      >
+                        Read more
+                      </span>
+                    )}
+                  </div>
+                </div>
                 <PrimaryButton onClick={() => window.open('https://forms.gle/1ofoSTv4a54iktecA', '_blank')}>
                   Apply Now
                 </PrimaryButton>
               </div>
 
               {/* Center line (SVG image) */}
-              <div className="hidden md:flex items-center justify-center">
+              <div className="hidden md:flex items-center justify-center self-start">
                 <Image
                   src="/images/raar/lineraar.svg"
                   alt=""
@@ -85,19 +170,46 @@ export default function Careers() {
               </div>
 
               {/* Right column */}
-              <div className="flex flex-col items-center text-center h-full">
+              <div className="flex flex-col items-center text-center">
                 <div className="h-[60px] flex items-start justify-center">
                   <span className="inline-flex items-center justify-center rounded-lg border border-orange-500 px-4 py-1.5 text-base font-semibold text-orange-400 shadow-[inset_0_1px_0_rgba(255,255,255,0.6)]">
                     Mid Level
                   </span>
                 </div>
                 <h2 className="mt-4 text-3xl font-medium tracking-tight text-[#111111] h-[100px] flex items-start justify-center">
-                  Data Engineer
+                Marketing Manager 
                 </h2>
-                <p className="mt-3 mb-10 max-w-md text-[#454545] leading-relaxed flex-1">
-                  Can build predictive models, AI tools, and automation systems.
-                </p>
-                <PrimaryButton onClick={() => window.open('https://forms.gle/1ofoSTv4a54iktecA', '_blank')}>
+                <div className="mt-4 md:mt-2 lg:mt-0 mb-10 max-w-md text-[#454545] leading-relaxed">
+                  <p
+                    ref={rightTextRef}
+                    className={[
+                      !isRightExpanded ? "line-clamp-4" : "",
+                      !isRightExpanded ? "min-h-[6.5rem]" : "",
+                    ].join(" ")}
+                  >
+                    {rightDescription}
+                  </p>
+                  <div className=" h-5">
+                    {rightCanExpand ? (
+                      <button
+                        type="button"
+                        className="text-sm font-medium text-orange-500 hover:text-orange-600 underline underline-offset-4"
+                        onClick={() => setIsRightExpanded((v) => !v)}
+                        aria-expanded={isRightExpanded}
+                      >
+                        {isRightExpanded ? "Read less" : "Read more"}
+                      </button>
+                    ) : (
+                      <span
+                        className="invisible text-sm font-medium underline underline-offset-4"
+                        aria-hidden
+                      >
+                        Read more
+                      </span>
+                    )}
+                  </div>
+                </div>
+                <PrimaryButton onClick={() => window.open('https://forms.gle/QW4784yV2FTj5zHm7', '_blank')}>
                   Apply Now
                 </PrimaryButton>
               </div>
