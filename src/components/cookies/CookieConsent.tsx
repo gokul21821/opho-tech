@@ -36,7 +36,7 @@ export default function CookieConsent() {
   if (!show) return null;
 
   return (
-    <div className="fixed inset-x-0 bottom-0 z-50 border-t border-gray-200 bg-white shadow-lg">
+    <div className="fixed inset-x-0 bottom-0 z-[100000] border-t border-gray-200 bg-white shadow-lg" aria-label="Cookie consent">
       <div className="mx-auto flex w-full max-w-6xl flex-col gap-4 px-4 py-5 text-gray-900 md:flex-row md:items-center md:justify-between md:gap-6">
         {!showCustomize && (
           <>
