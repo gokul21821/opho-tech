@@ -37,7 +37,7 @@ export default function CookieConsent() {
 
   return (
     <div className="fixed inset-x-0 bottom-0 z-50 border-t border-gray-200 bg-white shadow-lg">
-      <div className="mx-auto flex w-full max-w-5xl flex-col gap-4 px-4 py-5 text-gray-900 md:flex-row md:items-center md:justify-between md:gap-6">
+      <div className="mx-auto flex w-full max-w-6xl flex-col gap-4 px-4 py-5 text-gray-900 md:flex-row md:items-center md:justify-between md:gap-6">
         {!showCustomize && (
           <>
             <p className="text-sm leading-6 md:max-w-3xl">
