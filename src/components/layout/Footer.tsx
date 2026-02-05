@@ -16,6 +16,7 @@ const COMPANY_LINKS = [
   "Contact",
   "Privacy Policy",
   "Terms of Service",
+  "Cookie settings",
 ];
 
 const RESOURCE_LINKS = ["Blogs", "Newsletters", "Case Studies"];
@@ -71,6 +72,10 @@ export function Footer() {
     );
     markContactModalOpenedFromUi();
     router.push(buildContactModalOpenUrl(pathname, searchParams));
+  };
+
+  const handleOpenCookieSettings = () => {
+    window.dispatchEvent(new Event("cookie_open_settings"));
   };
 
   useEffect(() => {
@@ -171,6 +176,7 @@ export function Footer() {
             title="Company"
             links={COMPANY_LINKS}
             onContactClick={handleOpenContact}
+            onCookieSettingsClick={handleOpenCookieSettings}
             hrefMapper={(link) => {
               if (link === "About Us") return "/company/about-us";
               if (link === "Careers") return "/company/careers";
@@ -219,10 +225,18 @@ type FooterColumnProps = {
   links: string[];
   hrefPrefix?: string;
   onContactClick?: () => void;
+  onCookieSettingsClick?: () => void;
   hrefMapper?: (link: string) => string;
 };
 
-function FooterColumn({ title, links, hrefPrefix, onContactClick, hrefMapper }: FooterColumnProps) {
+function FooterColumn({
+  title,
+  links,
+  hrefPrefix,
+  onContactClick,
+  onCookieSettingsClick,
+  hrefMapper,
+}: FooterColumnProps) {
   return (
     <nav className="space-y-5">
       <h3 className="relative pb-2 text-base font-medium text-white after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-12 after:bg-orange-500">
@@ -234,6 +248,13 @@ function FooterColumn({ title, links, hrefPrefix, onContactClick, hrefMapper }: 
             {link === "Contact" ? (
               <button
                 onClick={onContactClick}
+                className="inline-block transition-colors hover:text-orange-400 "
+              >
+                {link}
+              </button>
+            ) : link === "Cookie settings" ? (
+              <button
+                onClick={onCookieSettingsClick}
                 className="inline-block transition-colors hover:text-orange-400 "
               >
                 {link}

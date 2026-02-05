@@ -1,36 +1,73 @@
 "use client";
 
-import { useState } from "react";
-import { CookiePreferences } from "@/lib/types";
+import { useEffect, useState } from "react";
+
+type StoredCookiePrefs = {
+  analytics: boolean;
+};
 
 export default function CookieConsent() {
   const [show, setShow] = useState(() => {
-    // Initialize show state based on whether preferences exist
-    if (typeof window === 'undefined') return false; // SSR safe
+    // Initialize show state based on whether preferences exist and are valid
+    if (typeof window === "undefined") return false; // SSR safe
+
     const saved = localStorage.getItem("cookie_prefs");
-    return !saved; // Show if no preferences saved
+    if (!saved) return true; // Show if no preferences saved
+
+    try {
+      const parsed: unknown = JSON.parse(saved);
+      if (!parsed || typeof parsed !== "object") return true;
+      const maybe = parsed as { analytics?: unknown };
+      return typeof maybe.analytics !== "boolean"; // Show if invalid shape
+    } catch {
+      return true; // Show if invalid JSON
+    }
   });
-  const [showCustomize, setShowCustomize] = useState(false);
+  const [openedFromSettings, setOpenedFromSettings] = useState(false);
 
-  const [analytics, setAnalytics] = useState(true);
-  const [marketing, setMarketing] = useState(true);
+  useEffect(() => {
+    const openSettings = () => {
+      setOpenedFromSettings(true);
+      setShow(true);
+    };
 
-  const savePreferences = (prefs: CookiePreferences) => {
+    window.addEventListener("cookie_open_settings", openSettings);
+    return () => window.removeEventListener("cookie_open_settings", openSettings);
+  }, []);
+
+  const getPreviousAnalyticsConsent = (): boolean | null => {
+    try {
+      const stored = localStorage.getItem("cookie_prefs");
+      if (!stored) return null;
+      const parsed: unknown = JSON.parse(stored);
+      if (!parsed || typeof parsed !== "object") return null;
+      const maybe = parsed as { analytics?: unknown };
+      return typeof maybe.analytics === "boolean" ? maybe.analytics : null;
+    } catch {
+      return null;
+    }
+  };
+
+  const savePreferences = (prefs: StoredCookiePrefs) => {
+    const prevAnalytics = getPreviousAnalyticsConsent();
+
     localStorage.setItem("cookie_prefs", JSON.stringify(prefs));
     window.dispatchEvent(new Event("cookie_update"));
     setShow(false);
+    setOpenedFromSettings(false);
+
+    // If GTM/GA was already loaded earlier in the session, the simplest reliable
+    // way to stop further SPA tracking is to reload after switching to reject.
+    if (prevAnalytics === true && prefs.analytics === false) {
+      window.location.reload();
+    }
   };
 
-  const acceptAll = () => {
-    savePreferences({ analytics: true, marketing: true });
-  };
-
-  const rejectAll = () => {
-    savePreferences({ analytics: false, marketing: false });
-  };
-
-  const saveCustom = () => {
-    savePreferences({ analytics, marketing });
+  const accept = () => savePreferences({ analytics: true });
+  const reject = () => savePreferences({ analytics: false });
+  const close = () => {
+    setShow(false);
+    setOpenedFromSettings(false);
   };
 
   if (!show) return null;
@@ -38,78 +75,35 @@ export default function CookieConsent() {
   return (
     <div className="fixed inset-x-0 bottom-0 z-[100000] border-t border-gray-200 bg-white shadow-lg" aria-label="Cookie consent">
       <div className="mx-auto flex w-full max-w-6xl flex-col gap-4 px-4 py-5 text-gray-900 md:flex-row md:items-center md:justify-between md:gap-6">
-        {!showCustomize && (
-          <>
-            <p className="text-sm leading-6 md:max-w-3xl">
-              We use cookies to improve your browsing experience and analyze traffic. By clicking Accept All, you agree to the use of cookies.
-            </p>
+        <p className="text-sm leading-6 md:max-w-3xl">
+          We use cookies to analyze traffic and improve your experience. Choose
+          “Accept” to allow analytics cookies, or “Reject” to keep analytics off.
+        </p>
 
-            <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-end">
-              {/* <button
-                onClick={() => setShowCustomize(true)}
-                className="rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 transition hover:border-gray-400 hover:bg-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-              >
-                Customize
-              </button> */}
+        <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-end">
+          {openedFromSettings && (
+            <button
+              onClick={close}
+              className="rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 transition hover:border-gray-400 hover:bg-gray-100"
+            >
+              Close
+            </button>
+          )}
 
-              <button
-                onClick={rejectAll}
-                className="rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 transition hover:border-gray-400 hover:bg-gray-100"
-              >
-                Reject All
-              </button>
+          <button
+            onClick={reject}
+            className="rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 transition hover:border-gray-400 hover:bg-gray-100"
+          >
+            Reject
+          </button>
 
-              <button
-                onClick={acceptAll}
-                className="rounded-lg bg-orange-700 px-4 py-2 text-sm font-medium text-white transition hover:bg-orange-800"
-              >
-                Accept All
-              </button>
-            </div>
-          </>
-        )}
-
-        {showCustomize && (
-          <>
-            <h3 className="text-base font-semibold">Customize Cookies</h3>
-
-            <div className="space-y-4">
-              <label className="flex items-center justify-between">
-                <span>Analytics Cookies</span>
-                <input
-                  type="checkbox"
-                  checked={analytics}
-                  onChange={(e) => setAnalytics(e.target.checked)}
-                />
-              </label>
-
-              <label className="flex items-center justify-between">
-                <span>Marketing Cookies</span>
-                <input
-                  type="checkbox"
-                  checked={marketing}
-                  onChange={(e) => setMarketing(e.target.checked)}
-                />
-              </label>
-            </div>
-
-            <div className="mt-6 flex gap-3 justify-end">
-              <button
-                onClick={() => setShowCustomize(false)}
-                className="rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 transition hover:border-gray-400 hover:bg-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2"
-              >
-                Back
-              </button>
-
-              <button
-                onClick={saveCustom}
-                className="rounded-lg bg-orange-700 px-4 py-2 text-sm font-medium text-white transition hover:bg-orange-800"
-              >
-                Save Preferences
-              </button>
-            </div>
-          </>
-        )}
+          <button
+            onClick={accept}
+            className="rounded-lg bg-orange-700 px-4 py-2 text-sm font-medium text-white transition hover:bg-orange-800"
+          >
+            Accept
+          </button>
+        </div>
       </div>
     </div>
   );

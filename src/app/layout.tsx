@@ -7,7 +7,7 @@ import "./globals.css";
 import VoiceflowChatbot from "@/components/chatbot";
 import CookieConsent from "@/components/cookies/CookieConsent";
 import { ContactModalRouteController } from "@/components/forms/ContactModalRouteController";
-import { GtmScripts } from "@/components/analytics/GtmScripts";
+import ConditionalGtm from "@/components/analytics/ConditionalGtm";
 
 const poppins = Poppins({
   variable: "--font-sans",
@@ -119,9 +119,9 @@ export default async function RootLayout({
       </head>
 
       <body className={`${poppins.variable} font-sans antialiased`}>
-        {/* GTM — loads only in production */}
+        {/* GTM — loads only in production and only after consent */}
         {process.env.NODE_ENV === "production" && (
-          <GtmScripts gtmId="GTM-KQRTLRFZ" nonce={nonce} />
+          <ConditionalGtm gtmId="GTM-KQRTLRFZ" nonce={nonce} />
         )}
 
         {children}
