@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { HIDE_RESOURCES } from "@/lib/featureFlags";
 
 const DEFAULT_BASE_URL = "https://ophotech.com";
 
@@ -23,6 +24,19 @@ export default function robots(): MetadataRoute.Robots {
         "/api/",
         "/_next/",
         "/staging",
+        ...(HIDE_RESOURCES
+          ? [
+              "/blogs",
+              "/blogs/",
+              "/blogs/*",
+              "/newsletters",
+              "/newsletters/",
+              "/newsletters/*",
+              "/case-studies",
+              "/case-studies/",
+              "/case-studies/*",
+            ]
+          : []),
       ],
     },
     sitemap: `${baseUrl}/sitemap.xml`,

@@ -8,6 +8,7 @@ import { ServicesSection } from "@/components/sections/ServicesSection";
 import { LazyCTASection } from "@/components/sections/LazyCTASection";
 import { LazyValuePropositionSection } from "@/components/sections/LazyValuePropositionSection";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
+import { HIDE_RESOURCES } from "@/lib/featureFlags";
 
 export default function Home() {
   return (
@@ -27,12 +28,16 @@ export default function Home() {
         <AnimatedSection delay={100}>
           <LazyCTASection variant="gradient" />
         </AnimatedSection>
-        <AnimatedSection delay={100}>
-          <NewsletterSection />
-        </AnimatedSection>
-        <AnimatedSection delay={100}>
-          <CaseStudiesSection />
-        </AnimatedSection>
+        {HIDE_RESOURCES ? null : (
+          <>
+            <AnimatedSection delay={100}>
+              <NewsletterSection />
+            </AnimatedSection>
+            <AnimatedSection delay={100}>
+              <CaseStudiesSection />
+            </AnimatedSection>
+          </>
+        )}
         <AnimatedSection delay={100}>
           <LazyCTASection variant="ready" />
         </AnimatedSection>

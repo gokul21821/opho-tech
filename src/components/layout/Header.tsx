@@ -16,6 +16,7 @@ import {
 import { slugify } from "@/lib/utils";
 import { fetchAllContent } from "@/lib/client-api";
 import { AllContentData } from "@/lib/types";
+import { HIDE_RESOURCES } from "@/lib/featureFlags";
 
 const NAV_SECTIONS = [
   {
@@ -111,7 +112,9 @@ export function Header() {
 
   const dropdowns = useMemo(
     () =>
-      NAV_SECTIONS.map((section) => ({
+      NAV_SECTIONS.filter((section) =>
+        HIDE_RESOURCES ? section.key !== "resources" : true,
+      ).map((section) => ({
         label: section.label,
         key: section.key,
         items: section.items.map((item) => ({
@@ -233,26 +236,28 @@ export function Header() {
           </nav>
 
           <div className="hidden items-center gap-4 lg:flex">
-            <div ref={searchContainerRef} className="relative">
-              <button
-                type="button"
-                aria-label="Search"
-                className="flex size-10 items-center justify-center rounded-xl bg-orange-25 text-orange-500 transition hover:bg-orange-50"
-                onClick={handleSearchToggle}
-                aria-expanded={searchOpen}
-                aria-haspopup="true"
-              >
-                <SearchIcon className="size-9" />
-              </button>
+            {HIDE_RESOURCES ? null : (
+              <div ref={searchContainerRef} className="relative">
+                <button
+                  type="button"
+                  aria-label="Search"
+                  className="flex size-10 items-center justify-center rounded-xl bg-orange-25 text-orange-500 transition hover:bg-orange-50"
+                  onClick={handleSearchToggle}
+                  aria-expanded={searchOpen}
+                  aria-haspopup="true"
+                >
+                  <SearchIcon className="size-9" />
+                </button>
 
-              {searchOpen ? (
-                <SearchDropdown
-                  allContent={allContent}
-                  isLoading={isLoadingContent}
-                  onClose={() => setSearchOpen(false)}
-                />
-              ) : null}
-            </div>
+                {searchOpen ? (
+                  <SearchDropdown
+                    allContent={allContent}
+                    isLoading={isLoadingContent}
+                    onClose={() => setSearchOpen(false)}
+                  />
+                ) : null}
+              </div>
+            )}
             <PrimaryButton onClick={handleOpenContact}>Schedule a Call</PrimaryButton>
           </div>
 
@@ -319,16 +324,18 @@ export function Header() {
               );
             })}
             <div className="flex items-center gap-3 pt-4">
-              <SecondaryButton
-                withArrow={false}
-                className="w-full justify-center"
-                onClick={() => {
-                  setMobileOpen(false);
-                  setSearchOpen(true);
-                }}
-              >
-                Search
-              </SecondaryButton>
+              {HIDE_RESOURCES ? null : (
+                <SecondaryButton
+                  withArrow={false}
+                  className="w-full justify-center"
+                  onClick={() => {
+                    setMobileOpen(false);
+                    setSearchOpen(true);
+                  }}
+                >
+                  Search
+                </SecondaryButton>
+              )}
               <PrimaryButton
                 className="w-full justify-center"
                 onClick={() => {
@@ -344,7 +351,7 @@ export function Header() {
       </header>
 
       {/* Mobile Search Modal */}
-      {searchOpen && (
+      {!HIDE_RESOURCES && searchOpen && (
         <div className="fixed inset-0 z-[70] bg-black/50 lg:hidden">
           <div
             ref={mobileSearchModalRef}

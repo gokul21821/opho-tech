@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 
 import { fetchContentList } from "@/lib/api";
+import { HIDE_RESOURCES } from "@/lib/featureFlags";
 
 const DEFAULT_BASE_URL = "https://ophotech.com";
 
@@ -37,9 +38,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "/company/team",
     "/privacy-policy",
     "/terms-of-service",
-    "/newsletters",
-    "/blogs",
-    "/case-studies",
+    ...(HIDE_RESOURCES ? [] : ["/newsletters", "/blogs", "/case-studies"]),
     "/solutions/research-and-analysis",
     "/solutions/data-structuring-and-monetization",
     "/solutions/cloud-integration",
@@ -59,6 +58,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Production-safe behavior:
   // - If NEXT_PUBLIC_API_URL isn't configured (or points at localhost), we skip
   //   dynamic entries so builds don't fail/noise when the API isn't running.
+  if (HIDE_RESOURCES) {
+    return staticPages;
+  }
   if (!shouldFetchDynamicPages()) {
     return staticPages;
   }

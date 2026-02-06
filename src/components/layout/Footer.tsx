@@ -9,6 +9,7 @@ import {
   buildContactModalOpenUrl,
   markContactModalOpenedFromUi,
 } from "@/lib/contact-modal";
+import { HIDE_RESOURCES } from "@/lib/featureFlags";
 
 const COMPANY_LINKS = [
   "About Us",
@@ -19,7 +20,7 @@ const COMPANY_LINKS = [
   "Cookie settings",
 ];
 
-const RESOURCE_LINKS = ["Blogs", "Newsletters", "Case Studies"];
+const RESOURCE_LINKS = HIDE_RESOURCES ? [] : ["Blogs", "Newsletters", "Case Studies"];
 
 const SOLUTION_LINKS = [
   "Research & Analysis",
@@ -123,7 +124,7 @@ export function Footer() {
       )}
 
       {/* Content */}
-      <div className="relative z-10 mx-auto max-w-6xl pb-8 pt-24 px-3 xl:px-0">
+      <div className="relative z-10 mx-auto max-w-6xl  pb-8 pt-24 px-3 xl:px-0">
         {/* Main grid */}
         <div className="grid gap-12 md:grid-cols-[2fr_1fr_1fr_1fr] md:gap-8 lg:gap-16">
           {/* Company Info */}
@@ -185,16 +186,18 @@ export function Footer() {
           />
           
           {/* Resources Links */}
-          <FooterColumn
-            title="Resources"
-            links={RESOURCE_LINKS}
-            hrefMapper={(link) => {
-              if (link === "Newsletters") return "/newsletters";
-              if (link === "Case Studies") return "/case-studies";
-              if (link === "Blogs") return "/blogs";
-              return slugify(link);
-            }}
-          />
+          {RESOURCE_LINKS.length ? (
+            <FooterColumn
+              title="Resources"
+              links={RESOURCE_LINKS}
+              hrefMapper={(link) => {
+                if (link === "Newsletters") return "/newsletters";
+                if (link === "Case Studies") return "/case-studies";
+                if (link === "Blogs") return "/blogs";
+                return slugify(link);
+              }}
+            />
+          ) : null}
           
           {/* Solutions Links */}
           <FooterColumn
