@@ -8,12 +8,8 @@ import { HeroSection } from "@/components/ui/HeroSection";
 import BackgroundDots from "@/components/ui/background";
 import { CTASection } from "@/components/sections/CTASection";
 import { getContentPreview } from "@/lib/content-utils";
-import { notFound } from "next/navigation";
-import { HIDE_RESOURCES } from "@/lib/featureFlags";
 
 export default async function BlogsPage() {
-  if (HIDE_RESOURCES) notFound();
-
   const blogs = await fetchContentList("blogs", {
     revalidate: 1800, // Cache for 30 minutes - blogs update frequently
   });

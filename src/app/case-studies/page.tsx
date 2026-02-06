@@ -8,12 +8,8 @@ import { HeroSection } from "@/components/ui/HeroSection";
 import BackgroundDots from "@/components/ui/background";
 import { CTASection } from "@/components/sections/CTASection";
 import { getContentPreview } from "@/lib/content-utils";
-import { notFound } from "next/navigation";
-import { HIDE_RESOURCES } from "@/lib/featureFlags";
 
 export default async function CaseStudiesPage() {
-  if (HIDE_RESOURCES) notFound();
-
   const caseStudies = await fetchContentList("case-studies", {
     revalidate: 7200, // Cache for 2 hours - case studies update quarterly
   });

@@ -10,7 +10,6 @@ import { RecentContentCard } from "@/components/ui/RecentContentCard";
 import { CTASection } from "@/components/sections/CTASection";
 import { Metadata } from "next";
 import type { TiptapDoc } from "@/lib/types";
-import { HIDE_RESOURCES } from "@/lib/featureFlags";
 
 function getSeoDescription(content: TiptapDoc | null | undefined, maxLength = 160) {
   if (!content) return undefined;
@@ -35,13 +34,6 @@ export async function generateMetadata({
 }: {
   params: Promise<{ id: string }>;
 }): Promise<Metadata> {
-  if (HIDE_RESOURCES) {
-    return {
-      title: "Not Found",
-      robots: { index: false, follow: false },
-    };
-  }
-
   const { id } = await params;
   const blog = await fetchContentById("blogs", id);
 
@@ -99,8 +91,6 @@ export default async function BlogDetailPage({
 }: {
   params: Promise<{ id: string }>;
 }) {
-  if (HIDE_RESOURCES) notFound();
-
   const { id } = await params;
   const blog = await fetchContentById("blogs", id);
 
