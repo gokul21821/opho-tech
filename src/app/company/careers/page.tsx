@@ -19,9 +19,9 @@ export default function Careers() {
   const [rightCanExpand, setRightCanExpand] = useState(false);
 
   const leftDescription =
-    "To drive requirement analysis, solution scoping, and business growth for our software development, IT services, and Generative AI solutions";
+    "Own the end-to-end sales cycle, from requirement discovery to solution scoping and proposal closure, to grow our Software Development, IT Services, and Generative AI business.";
   const rightDescription =
-    "Marketing leader with 5+ years of experience driving growth through enterprise-grade website and app management, SEO-led visibility, and high-performing digital platforms. Proven ability to optimize user journeys from first visit to qualified client, generate high-quality global leads, and translate complex AI-driven engineering work into clear, actionable marketing strategy for business leadership.";
+    "Build demand through SEO-led visibility and high-performing digital platforms, improving conversion journeys and positioning complex AI work for the right audiences.";
 
   // Keep the CTA row aligned across both cards in the collapsed state:
   // - clamp description to 4 lines
@@ -265,14 +265,14 @@ export default function Careers() {
             background: "linear-gradient(to bottom, #ffffff 38.524%, #feecd6 171.52%)",
           }}
         >
-          <section className="flex flex-col gap-10 items-center px-20 py-20 max-w-7xl mx-auto text-center">
+          <section className="flex flex-col gap-10 items-center px-20 py-10 max-w-7xl mx-auto text-center">
             {/* Header */}
             <div className="flex flex-col gap-5 items-center">
               <h2 className="text-4xl font-medium text-[#111111]">
                 Life at OphoTech
               </h2>
               <p className="text-base text-[#454545] max-w-[860px]">
-                At <span className="font-medium text-[#111111]">OphoTech</span>, we believe people do their best work when they&apos;re inspired, challenged, and supported. Our culture is built around <span className="font-medium text-[#111111]">curiosity, innovation, and collaboration</span> — with opportunities to grow every step of the way.
+                At <span className="font-medium text-[#111111]">OphoTech</span>, we believe people do their best work when they&apos;re inspired, challenged, and supported. Our culture is built around <span className="font-medium text-[#111111]">curiosity, innovation, and collaboration</span> — with opportunities to grow at every step.
               </p>
             </div>
 
@@ -281,7 +281,7 @@ export default function Careers() {
               {[{
                 title: "Hybrid & Flexible Work Options",
                 icon: "/images/icons/hybrid-work.svg",
-                description: "We understand that innovation doesn't just happen at a desk. That's why we offer hybrid work models and flexible schedules that empower you to balance work and life. Whether you prefer collaborating in our offices or contributing remotely, we make sure you stay connected and supported."
+                description: "We understand that innovation doesn't just happen at a desk. That's why we offer hybrid work models and flexible schedules that empower you to balance work and life. Whether you prefer to collaborate in our offices or contribute remotely, we make sure you stay connected and supported."
               }, {
                 title: "R&D-Focused Projects With Global Clients",
                 icon: "/images/icons/global-client.svg",

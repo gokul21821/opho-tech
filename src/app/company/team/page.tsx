@@ -26,7 +26,7 @@ const leaderProfiles = [
     name: "Mr. Bhavneet Walia",
     title: "Founder",
     description: [
-      "Mr. Bhavneet Walia is the Founder & Chief Executive Officer of OphoTech with a distinguished track record in enterprise AI leadership and strategic innovation management. Based in Toronto with global partnerships across North America, Europe, and the APAC region, he is exceptionally skillful in aligning research initiatives with commercial productization while maintaining rigorous compliance and governance standards. His leadership extends beyond corporate boundaries through his role as Chair of the World Association of Supercomputing, where he drives global high-performance computing collaboration, and his position as Trustee with Little Big Things, focusing on social impact and community development programs. ",
+      "Mr. Bhavneet Walia is the Founder & Chief Executive Officer of OphoTech with a distinguished track record in enterprise AI leadership and strategic innovation management. Based in Toronto, with global partnerships across North America, Europe, and the APAC region, he is exceptionally skilled at aligning research initiatives with commercial productization while maintaining rigorous compliance and governance standards. His leadership extends beyond corporate boundaries through his role as Chair of the World Association of Supercomputing, where he drives global high-performance computing collaboration, and as a Trustee with Little Big Things, focusing on social impact and community development programs.",
     ],
     image: bhavneetImage,
     reverse: false,
@@ -36,7 +36,7 @@ const leaderProfiles = [
     name: "Mr. Shivender Sofat",
     title: "Advisory Board Member",
     description: [
-      "Mr. Shivender Sofat is a distinguished cross-border finance and assurance leader who enables organizational growth through strong controls, transparency, and regulatory compliance. He holds the prestigious triple certification of Chartered Accountant (India), Certified Public Accountant (USA), and Certified Fraud Examiner, positioning him as a globally recognized expert in international finance and risk management. His professional affiliations include active membership in the AICPA, NYSSCPA, ACFE, and ICAI, where he contributes to anti-money laundering and combating the Financing of Terrorism initiatives, as well as IRS-related committees. ",
+      "Mr. Shivender Sofat is a highly sought-after cross-border finance and assurance leader who enables organizational growth through strong controls, transparency, and regulatory compliance. He holds the prestigious triple certification of Chartered Accountant (India), Certified Public Accountant (USA), and Certified Fraud Examiner, positioning him as a globally recognized expert in international finance and risk management. His professional affiliations include active membership in the AICPA, NYSSCPA, ACFE, and ICAI, where he contributes to anti-money laundering and combating the Financing of Terrorism initiatives, as well as IRS-related committees. ",
     ],
     image: shivenderImage,
     reverse: true,
@@ -46,7 +46,7 @@ const leaderProfiles = [
     name: "Mr. Rajveer Singh",
     title: "Advisory Board Member",
     description: [
-      "Mr. Rajveer Singh brings exceptional public-sector leadership with extensive expertise in audit, policy design, infrastructure finance, and multilateral standards. As a member of the Indian Civil Service (1991 batch), he has served as Special Secretary to the Government of India. He has also held senior leadership positions with the Comptroller and Auditor General of India, Accountant General Audit Delhi, Northern Railway, and New Delhi Municipal Council. His academic foundation includes degrees in Agriculture, Agricultural Economics, and Law, providing him with a comprehensive understanding of policy frameworks across multiple sectors. ",
+      "Mr. Rajveer Singh brings exceptional public-sector leadership with extensive expertise in audit, policy design, infrastructure finance, and multilateral standards. As a member of the Indian Civil Service (1991 batch), he has served as Special Secretary to the Government of India. He has also held senior leadership positions with the Comptroller and Auditor General of India, the Accountant General (Audit), Delhi, Northern Railway, and the New Delhi Municipal Council. His academic foundation includes degrees in Agriculture, Agricultural Economics, and Law, providing him with a comprehensive understanding of policy frameworks across multiple sectors. ",
       "At OphoTech, Mr. Rajveer anchors governance and public-sector assurance across technology-policy engagements. His role focuses on ensuring compliance with regulatory frameworks while maximizing impact through strategic policy alignment and multilateral engagement standards. ",
     ],
     image: rajveerImage,
@@ -57,7 +57,7 @@ const leaderProfiles = [
     name: "Dr. Vijay Varadi, PhD",
     title: "Director",
     description: [
-      "Dr. Vijay brings a unique interdisciplinary expertise that combines advanced data science methodologies with rigorous economic principles to drive enterprise transformation. With a Ph.D. in Economics and post-doctoral fellowship credentials, complemented by executive certification in Leadership with AI from the Indian School of Business, Dr. Vijay has established himself as a leading practitioner in machine learning, econometric modeling, and decision science. He is also a professor at Golden Gate University, where he bridges theoretical knowledge with practical applications, while maintaining active engagement with leading economic research institutions across policy and program development initiatives. ",
+      "Dr. Vijay brings a unique interdisciplinary expertise combining advanced data science methodologies with rigorous economic principles to drive enterprise transformation. With a Ph.D. in Economics and post-doctoral fellowship credentials, complemented by executive certification in Leadership with AI from the Indian School of Business, Dr. Vijay has established himself as a leading practitioner in machine learning, econometric modeling, and decision science. He is also a professor at Golden Gate University, where he bridges theoretical knowledge with practical applications, while maintaining active engagement with leading economic research institutions across policy and program development initiatives. ",
     ],
     image: vijayImage,
     reverse: true,

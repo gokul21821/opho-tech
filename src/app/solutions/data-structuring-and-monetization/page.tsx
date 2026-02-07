@@ -35,10 +35,8 @@ export default function DataMonetizationPage() {
         imageAlt="Data monetization illustration"
         copy={
           <>
-            <p className="font-semibold">
-              As a business leader, you know your data is a critical asset. Data
-              Monetization is the strategy to unlock its financial potential,
-              shifting it from a cost center to a profit generator.
+            <p>
+              As a business leader, you know your data is a critical asset. Data Monetization is the strategy for unlocking its financial potential, shifting it from a cost center to a profit center.
             </p>
 
             <p className="mt-4">
@@ -143,7 +141,7 @@ export default function DataMonetizationPage() {
                   {
                     title: "Cleanse & Validate",
                     text:
-                      "We enforce strict data quality rules, removing errors and inconsistencies. This is the critical step that ensures your AI models are accurate and your business decisions are trustworthy.",
+                      "We enforce strict data quality rules to remove errors and inconsistencies. This is the critical step that ensures your AI models are accurate and your business decisions are trustworthy.",
                   },
                   {
                     title: "Label & Enrich",
@@ -259,10 +257,10 @@ export default function DataMonetizationPage() {
             <div className="flex flex-col gap-10 items-start w-full">
               <div className="flex flex-col gap-5 items-center w-full">
                 <h3 className="text-center text-3xl font-medium leading-[38px] text-[#454545]">
-                  Data Monetization - <span className="text-[#2A73B5]">From Problem to Profit</span>
+                  Data Monetization - From Problem to Profit.
                 </h3>
                 <p className="max-w-[860px] mx-auto text-center text-base font-normal leading-normal text-[#454545]">
-                  Our core value is bridging the gap between your executive vision and the necessary technological execution.
+                Our core value is bridging the gap between your executive vision and the technological execution required.
                 </p>
               </div>
 
@@ -288,7 +286,7 @@ export default function DataMonetizationPage() {
                       </span>
                     </div>
                     <p className="text-base font-normal leading-normal text-[#454545]">
-                      Implementing <span className="font-medium text-[#111111]">prescriptive analytics</span> to target only the high-value customers with tailored offers, delivering maximum ROI.
+                      Implementing prescriptive analytics to target only the high-value customers with tailored offers, delivering maximum ROI.
                     </p>
                   </div>
                 </div>
@@ -324,7 +322,7 @@ export default function DataMonetizationPage() {
                       </span>
                     </div>
                     <p className="text-base font-normal leading-normal text-[#454545]">
-                      Aggregate anonymized usage data to create and sell a unique <span className="font-medium text-[#111111]">industry trend report</span> (Data-as-a-Service model), creating a net-new revenue stream.
+                      Aggregate anonymized usage data to create and sell a unique industry trend report (Data-as-a-Service model), creating a net-new revenue stream.
                     </p>
                   </div>
                 </div>

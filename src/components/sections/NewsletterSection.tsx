@@ -9,7 +9,7 @@ export async function NewsletterSection() {
   return (
     <ContentSection
       title="Newsletter"
-      subtitle="From Research to Reality — Insights That Power Smarter Decisions."
+      subtitle="Weekly AI SaaS insights for Business Leaders"
       items={newsletters}
       contentType="newsletters"
       emptyMessage="Newsletters not available, stay tuned"

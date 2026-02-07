@@ -69,7 +69,7 @@ export default function PrivacyPolicy() {
                 Our Services That Process Data
               </h2>
               <p className="mt-5 text-[16px] leading-normal text-[#454545]">
-                OphoTech&apos;s primary service is centered on fraud detection and prevention. We may use data relating to you to analyze transactions, registrations, clicks, and other user behaviors to determine if the intent is malicious or fraudulent. Our machine learning algorithms and data processing mechanisms are built with privacy and data protection in mind, helping prevent data leakage and protect your privacy rights.
+                OphoTech&apos;s primary service is centered on fraud detection and prevention. We may use data about you to analyze transactions, registrations, clicks, and other user behavior to determine whether the intent is malicious or fraudulent. Our machine learning algorithms and data processing mechanisms are built with privacy and data protection in mind, helping prevent data leakage and protect your privacy rights.
               </p>
             </div>
 
@@ -82,7 +82,7 @@ export default function PrivacyPolicy() {
                 Web Server Log Files
               </h2>
               <p className="mt-5 text-[16px] leading-normal text-[#454545]">
-                Like most websites, OphoTech uses log files through our web server. The data collected may include internet protocol (IP) addresses, browser type, Internet Service Provider (ISP), date and time stamps, referring and exit pages, and click data, to analyze trends, administer the website, track user movement, and gather demographic information. These data points are not personally identifiable on their own.
+                Like most websites, OphoTech uses log files through our web server. The data collected may include Internet Protocol (IP) addresses, browser type, Internet Service Provider (ISP), date and time stamps, referring and exit pages, and click data, to analyze trends, administer the website, track user movement, and gather demographic information. These data points are not personally identifiable on their own.
               </p>
             </div>
 
@@ -142,16 +142,16 @@ export default function PrivacyPolicy() {
               </h2>
               <div className="mt-5 space-y-3 text-[16px] leading-normal text-[#454545]">
                 <p>
-                  Clients using our services may provide OphoTech with transactional information, which can include IP addresses, email addresses, billing details, phone numbers, and similar user data. This information is securely processed to detect behavioral intent and analyze the risk profile of transactions and users. The data is used to identify fraud patterns and improve your account&apos;s machine learning algorithms.
+                Clients using our services may provide OphoTech with transactional information, including IP addresses, email addresses, billing details, phone numbers, and similar user data. This information is securely processed to detect behavioral intent and analyze the risk profile of transactions and users. The data is used to identify fraud patterns and improve your account's machine learning algorithms.
                 </p>
                 <p>
-                  Data Protection Commitment: OphoTech does not sell your personal data or the personal data of your end users. Any data shared with OphoTech will be confidential, securely processed, and maintained in line with industry security standards.
+                Data Protection Commitment: OphoTech does not sell your personal data or that of your end users. Any data shared with OphoTech will be confidential, securely processed, and maintained in line with industry security standards. 
                 </p>
                 <p>
-                  Your account&apos;s contact details may be shared with CRMs and marketing platforms that meet our standards for adequate security techniques and data processing safeguards.
+                  Your account&apos;s contact details may be shared with CRMs and marketing platforms that meet our standards for adequate security techniques and data processing safeguards. 
                 </p>
                 <p>
-                  As required, OphoTech may share necessary data with third parties for the purpose of investigating false-positive reports, unblocking or registering an IP address, or improving service accuracy. This may involve sharing certain data through feedback forms or related features.
+                As required, OphoTech may share necessary data with third parties to investigate false-positive reports, unblock or register an IP address, or improve service accuracy. This may involve sharing certain data through feedback forms or related features.
                 </p>
               </div>
             </div>
@@ -198,7 +198,7 @@ export default function PrivacyPolicy() {
                 >
                   info@ophotech.com
                 </a>{" "}
-                to submit a personal information request.
+                to submit a request for personal information.
               </p>
             </div>
 
@@ -211,14 +211,14 @@ export default function PrivacyPolicy() {
                 Information Correction & Deletion
               </h2>
               <p className="mt-5 text-[16px] leading-normal text-[#454545]">
-                If you believe the information we have about you is incorrect, please contact us so we can update it and keep your data accurate. You also have the right to request deletion of your information. In order to comply, we may require you to verify your identity. Please contact{" "}
+                If you believe the information we have about you is incorrect, please contact us so we can update it and keep your data accurate. You also have the right to request deletion of your information. To comply, we may require you to verify your identity. Please contact {" "}
                 <a
                   href="mailto:info@ophotech.com"
                   className="underline decoration-solid hover:text-[#333]"
                 >
                   info@ophotech.com
                 </a>{" "}
-                to request information deletion.
+                to request the deletion of your information.
               </p>
             </div>
 
@@ -232,7 +232,7 @@ export default function PrivacyPolicy() {
               </h2>
               <div className="mt-5 space-y-3 text-[16px] leading-normal text-[#454545]">
                 <p>
-                  Upon messaging opt-in, the end user agrees to receive messages from OphoTech regarding account alerts, communications, marketing, and similar notifications. End users can opt-out by replying STOP or request more information by replying HELP. Message frequency varies. Message and data rates may apply. For assistance or questions about our SMS service, reply HELP to any message or contact our customer support team at{" "}
+                Upon opting in to messaging, the end user agrees to receive messages from OphoTech regarding account alerts, communications, marketing, and similar notifications. End users can opt out by replying STOP or request more information by replying HELP. Message frequency varies. Message and data rates may apply. For assistance or questions about our SMS service, reply HELP to any message or contact our customer support team at{" "}
                   <a
                     href="tel:18885796686"
                     className="underline decoration-solid hover:text-[#333]"
@@ -284,7 +284,7 @@ export default function PrivacyPolicy() {
                 <p>If you have questions related to privacy or would like to contact our Data Compliance Officer, please use the contact information below:</p>
                 <p className="mt-3">ATTN: Data Compliance Officer</p>
                 <p>OphoTech Inc.</p>
-                <p>2302 – 228 Queens Quay W Downtown, Toronto M5J2X1 Canada</p>
+                <p>2302 – 228 Queens Quay W, Downtown, Toronto, M5J2X1 Canada</p>
                 <p className="mt-4 font-medium text-[#111111]">
                   Email:{" "}
                   <a

@@ -35,21 +35,11 @@ export default function CloudIntegrationPage() {
         copy={
           <>
             <p className="mb-6">
-              <strong>For the Business Leaders:</strong> Cloud is not just an IT
-              cost center; it is the
-              <strong> platform for innovation, agility, and scale.</strong>{" "}
-              Cloud Integration & Architecture services ensure technology
-              strategy directly supports business goals, minimizes risk, and
-              maximizes competitive speed.
+            For Business Leaders, the cloud is the platform for innovation, agility, and scale. Cloud Integration & Architecture services ensure technology strategy directly supports business goals, minimizes risk, and maximizes competitive speed.
             </p>
 
             <p>
-              <strong>
-                For the Chief Cloud Architect and Integration Expert:
-              </strong>{" "}
-              We focus on modern, scalable, and secure system design—breaking
-              down data silos and enabling real-time analytics across your
-              enterprise.
+            For the Chief Cloud Architect and Integration Expert, we focus on modern, scalable, and secure system design—breaking down data silos and enabling real-time analytics across your enterprise.
             </p>
           </>
         }
@@ -180,7 +170,7 @@ export default function CloudIntegrationPage() {
                   From Complex Challenge to Clear Opportunity
                 </h3>
                 <p className="text-base font-normal leading-normal text-[#454545] max-w-full">
-                  Our core expertise is <span className="font-semibold text-[#111111]">translating complex business challenges into clear technology opportunities.</span> We don&apos;t implement technology for its own sake; we align it with your revenue targets and operational requirements.
+                  Our core expertise is translating complex business challenges into clear technology opportunities. We don&apos;t implement technology for its own sake; we align it with your revenue targets and operational requirements.
                 </p>
               </div>
   {/* Two-column challenge/services band */}
@@ -189,23 +179,23 @@ export default function CloudIntegrationPage() {
                            {/* First Card */}
                            <div className="flex-1 flex flex-col gap-4 items-start justify-start">
                   <div className="flex flex-col gap-2 w-full mb-2 h-[110px]">
-                    <div className="bg-[#F6F6F6] rounded-lg px-2.5 py-1.5 w-fit">
+                    <div className="bg-[#F6F6F6] rounded-lg px-2.5 py-3 w-fit">
                       <span className="capitalize text-sm font-medium text-[#111111]">
                         Business Challenge
                       </span>
                     </div>
                     <p className="capitalize text-2xl font-medium leading-[26px] text-[#E45412]">
-                      Product Development Cycle Is Too Slow.
+                    Product Development Cycle Is Too Slow. 
                     </p>
                   </div>
                   <div className="flex flex-col gap-2 w-full">
-                    <div className="bg-[#F6F6F6] rounded-lg px-2.5 py-2 w-fit">
+                    <div className="bg-[#F6F6F6] rounded-lg px-2.5  w-fit">
                       <span className="capitalize text-sm font-medium text-[#111111]">
                         Solution
                       </span>
                     </div>
                     <p className="text-base font-normal leading-normal text-[#454545]">
-                      Design a cloud-native DevOps pipeline and integrate development tools to cut time-to-market significantly.
+                    Design a cloud-native DevOps pipeline and integrate development tools to significantly reduce time-to-market.
                     </p>
                   </div>
                 </div>
@@ -225,23 +215,23 @@ export default function CloudIntegrationPage() {
                 {/* Second Card */}
                 <div className="flex-1 flex flex-col gap-4 items-start justify-start">
                   <div className="flex flex-col gap-2 w-full mb-2 h-[110px]">
-                    <div className="bg-[#F6F6F6] rounded-lg px-2.5 py-1.5 w-fit">
+                    <div className="bg-[#F6F6F6] rounded-lg px-2.5 py-3 w-fit">
                       <span className="capitalize text-sm font-medium text-[#111111]">
                         Business Challenge
                       </span>
                     </div>
                     <p className="capitalize text-2xl font-medium leading-[26px] text-[#E45412]">
-                      Cannot Get A 360-Degree View of the Customer.
+                    Cannot Get A 360-Degree View of the Customer.
                     </p>
                   </div>
                   <div className="flex flex-col gap-2 w-full">
-                    <div className="bg-[#F6F6F6] rounded-lg px-2.5 py-1.5 w-fit">
+                    <div className="bg-[#F6F6F6] rounded-lg px-2.5  w-fit">
                       <span className="capitalize text-sm font-medium text-[#111111]">
                         Solution
                       </span>
                     </div>
                     <p className="text-base font-normal leading-normal text-[#454545]">
-                      Implement a secure, real-time data API integration strategy to connect CRM, ERP, and other marketing platforms, instantly enabling personalized customer experiences.
+                    Implement a secure, real-time API integration strategy to connect CRM, ERP, and other marketing platforms, enabling personalized customer experiences instantly.
                     </p>
                   </div>
                 </div>
@@ -269,7 +259,7 @@ export default function CloudIntegrationPage() {
                   )
                 }, {
                   title: 'Seamless Integration Expertise',
-                  desc: 'We specialize in modernizing legacy systems, migrating applications, and establishing robust data pipelines that ensure data flows securely and reliably across your entire ecosystem.'
+                  desc: 'We specialize in modernizing legacy systems, migrating applications, and establishing robust data pipelines that ensure secure, reliable data flow across your entire ecosystem.'
                 }, {
                   title: 'Security By Design',
                   desc: 'We implement enterprise-grade security controls, identity and access management (IAM), and compliance frameworks to protect your assets in the cloud environment.'

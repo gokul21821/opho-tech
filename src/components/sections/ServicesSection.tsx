@@ -8,7 +8,7 @@ const ServiceCard = lazy(() =>
 const SERVICES = [
   {
     title: "Research & Analysis",
-    tagline: "Powered by AI agents. Built for every decision-maker in your organization.",
+    tagline: "Your AI Journey Begins with Diligent and In-depth Research.",
     description:
       "An intelligence framework, driven by a team of Senior Data Scientists and AI/ML Engineers to get real-time operational insights and market opportunities. Our expert and precise reports address the critical gaps and enable enterprises structure their path to AI enablement.",
     icon: "research-analysis" as const,

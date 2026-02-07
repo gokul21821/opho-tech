@@ -93,7 +93,7 @@ export default function TermsOfService() {
                   To access certain services, you must (a) create an account and password via our online registration, and (b) keep your registration data accurate and updated. By registering, you confirm all information provided is accurate, current, and complete.
                 </p>
                 <p>
-                  Upon registration, your account contact information may be transferred to a secure CRM system. You may be contacted by support or marketing teams by automated or manual means. To opt out, please submit a support request or written notice.
+                  Upon registration, your account contact information may be transferred to a secure CRM system. You may be contacted by support or marketing teams, either automatically or manually. To opt out, please submit a support request or written notice.
                 </p>
               </div>
             </div>
@@ -104,10 +104,10 @@ export default function TermsOfService() {
               <h2 className="text-2xl font-medium text-[#0B1B2B]">4. Use of Logo</h2>
               <div className="mt-3 space-y-3 text-[15px] leading-relaxed text-[#3A4A5F]">
                 <p className="mb-0">
-                  Client authorizes OphoTech to use its name, logo, and/or trademark in OphoTech marketing materials (e.g., website, non-public brochures) in accordance with brand guidelines or accepted standards of decency.
+                  The Client authorizes OphoTech to use its name, logo, and/or trademark in OphoTech marketing materials (e.g., website, non-public brochures) in accordance with brand guidelines or accepted standards of decency.
                 </p>
                 <p>
-                  Client may revoke this right with seven (7) business days&apos; written notice.
+                  The Client may revoke this right with seven (7) business days&apos; written notice.
                 </p>
               </div>
             </div>
@@ -289,8 +289,8 @@ export default function TermsOfService() {
               <ul className="mt-3 space-y-2 text-[15px] leading-relaxed text-[#3A4A5F] list-disc list-inside">
                 <li>Reverse engineer or attempt to extract source code from any API or related software, except as expressly permitted by law.</li>
                 <li>Interfere with, abuse, or disrupt the APIs or networks.</li>
-                <li>Sublicense an API or create a competing API without written approval.</li>
-                <li>Use the APIs to replicate or compete with OphoTech core products without written approval.</li>
+                <li>Sub-license an API or create a competing API without written approval.</li>
+                <li>Use the APIs to replicate or compete with OphoTech&apos;s core products without written approval.</li>
                 <li>Use APIs for hazardous activities (e.g., life support, air traffic control).</li>
               </ul>
             </div>
@@ -329,7 +329,7 @@ export default function TermsOfService() {
                 19. Affiliate Program & Referrals
               </h2>
               <p className="mt-3 text-[15px] leading-relaxed text-[#3A4A5F]">
-                OphoTech offers an affiliate program to active users. Referrals must remain in good standing and are defined within your dashboard. Earnings are paid on a NET-60 schedule, and OphoTech reserves the right to withhold commissions at its discretion.
+                OphoTech offers an affiliate program to active users. Referrals must remain in good standing, as defined in your dashboard. Earnings are paid on a NET-60 schedule, and OphoTech reserves the right to withhold commissions at its discretion.
               </p>
             </div>
             <div className="border-t border-[#B0B0B0]" />
@@ -428,7 +428,7 @@ export default function TermsOfService() {
                 28. Reseller Governance
               </h2>
               <p className="mt-3 text-[15px] leading-relaxed text-[#3A4A5F]">
-                If Services are purchased through an authorized reseller, these Terms govern usage and access, while payment terms are governed by the agreement with the reseller. OphoTech is not liable for financial arrangements between Client and Reseller.
+                If Services are purchased through an authorized reseller, these Terms govern usage and access, while payment terms are governed by the agreement with the reseller. OphoTech is not liable for any financial arrangements between the Client and the Reseller.
               </p>
             </div>
             <div className="border-t border-[#B0B0B0]" />
@@ -460,7 +460,7 @@ export default function TermsOfService() {
               <h2 className="text-2xl font-medium text-[#0B1B2B]">Contact Information</h2>
               <div className="mt-3 text-[15px] text-[#3A4A5F]">
                 <p className="mb-0">OphoTech Inc.</p>
-                <p className="mb-0">2302 – 228 Queens Quay W Downtown, Toronto M5J2X1 Canada</p>
+                <p className="mb-0">2302 – 228 Queens Quay W, Downtown, Toronto, M5J2X1, Canada</p>
                 <p className="mb-0">&nbsp;</p>
                 <p className="font-medium text-[#111111]">
                   Email:{" "}

@@ -69,7 +69,7 @@ and drive profitable growth."
             <div className="md:w-1/2">
               <h2 className="text-4xl font-medium mb-6 text-[#111111]">Our Story</h2>
               <p className="text-base text-[#454545]">
-              As a purpose-driven, research-led organization, we bring deep expertise in Data Science, Research, and AI. We partner with enterprises to enable confident, responsible decision-making, uncover and address critical gaps, and accelerate business outcomes using proven, scalable methodologies. We work closely with your teams to guide your journey of technology enablement in this new era of AI.
+              As a purpose-driven, research-led organization, we bring deep expertise in Data Science, Research, and AI. We enable organizations to make confident, responsible decisions, uncover and address critical gaps, and accelerate business outcomes using proven, scalable methodologies. We work closely with your teams to guide your journey of technology enablement in this new era of AI.
               </p>
             </div>
             <div className="md:w-1/2 flex justify-center">
@@ -89,7 +89,7 @@ and drive profitable growth."
           subtitle="See earlier. Decide smarter. Deliver results."
           items={[
             {
-              title: "Evidence Clariy",
+              title: "Evidence Clarity",
               description:
                 "Decisions grounded in validated data, not assumptions or intuition.",
               icon: papersearchicon,
@@ -97,7 +97,7 @@ and drive profitable growth."
             {
               title: "Proven Intelligence",
               description:
-                "AI applied only where measurable value and outcomes are demonstrated.",
+                "AI is applied only where measurable value and outcomes are demonstrated.",
               icon: aiAgentIcon,
             },
             {
@@ -109,7 +109,7 @@ and drive profitable growth."
             {
               title: "Governed Impact",
               description:
-                "Privacy, compliance, and quantifiable ROI embedded into every solution.",
+                "Privacy, compliance, and quantifiable ROI are embedded into every solution.",
               icon: governedicon,
             },
           ]}
@@ -259,7 +259,7 @@ and drive profitable growth."
                 {
                   icon: cloudDbIcon,
                   title: "Build to Adapt",
-                  text: "Open, interoperable, and cloud-native so value compounds.",
+                  text: "Open, interoperable, and cloud-native, so value compounds.",
                   alt: "Build to Adapt Icon",
                 },
                 {

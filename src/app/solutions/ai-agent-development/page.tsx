@@ -55,12 +55,12 @@ export default function AIAgentDevelopment() {
     {
       title: "Planning & Execution",
       body:
-        'We build agents with the ability to break down a high-level goal (e.g., "Onboard a new vendor") into sequential steps, executing each step and course-correcting based on real-time feedback.',
+        'We build agents that can break down a high-level goal (e.g., "Onboard a new vendor") into sequential steps, executing each step and course-correcting based on real-time feedback.',
     },
     {
       title: "Tool Integration",
       body:
-        "Agents are designed to utilize your existing tools (APIs, databases, enterprise software like ERP/CRM) effectively, ensuring they fit seamlessly into your existing technology stack.",
+        "Agents are designed to leverage your existing tools (APIs, databases, enterprise software such as ERP/CRM) effectively, ensuring they integrate seamlessly with your technology stack.",
     },
     {
       title: "Structural Change Enablement",
@@ -111,27 +111,11 @@ export default function AIAgentDevelopment() {
           copy={
             <>
               <p>
-                <span className="font-semibold text-[#0F2C58]">AI Agents</span>{" "}
-                are not just chatbots; they are sophisticated digital workers
-                capable of performing complex, multi-step tasks autonomously.
-                Investing in AI Agent development means acquiring a scalable,
-                highly efficient workforce that executes strategic objectives
-                with minimal human oversight, leading to unprecedented
-                <span className="font-semibold">
-                  {" "}
-                  operational efficiency and speed
-                </span>
-                .
+              AI Agents are advanced digital workers performing complex, multi-step tasks autonomously. Investing in AI Agents means gaining a scalable, efficient workforce that drives operational speed and efficiency with minimal oversight.
               </p>
 
               <p className="mt-4">
-                <span className="font-semibold text-[#0F2C58]">
-                  For the Business Leaders:{" "}
-                </span>
-                This is about architecting the next generation of AI
-                systems—leveraging Large Language Models (LLMs) with planning,
-                memory, and tool-use capabilities to automate entire workflows,
-                driving structural change across the organization.
+              Business leaders can use next-generation AI systems—leveraging LLMs with planning and memory—to automate entire workflows and drive organizational transformation. 
               </p>
             </>
           }
@@ -218,7 +202,7 @@ export default function AIAgentDevelopment() {
                     The Strategic Value of Autonomous Agents
                   </h2>
                   <p className="mx-auto mt-4 max-w-3xl text-base text-[#454545]">
-                    AI Agents transform core business functions by moving beyond simple task automation to genuine workflow execution.
+                  AI Agents enhance core business functions by completing end-to-end workflows, making decisions, and adapting to dynamic conditions beyond basic automation.
                   </p>
 
                   <div className="mt-10 grid gap-6 md:grid-cols-2">
@@ -302,7 +286,7 @@ export default function AIAgentDevelopment() {
                     Building Trustworthy and Governed Agents
                   </h3>
                   <p className="mx-auto mt-4 max-w-4xl text-[16px] text-[#454545] sm:text-[18px]">
-                    As leaders in AI we prioritize a governance framework essential for scaling autonomous systems.
+                  As leaders in AI, we prioritize a governance framework essential for scaling autonomous systems
                   </p>
 
                   <div className="mt-10 rounded-2xl border border-[#FCD5AC] bg-white/30 p-6 shadow-[0_10px_30px_-18px_rgba(15,44,88,0.35)] sm:p-10 card-text-smaller">

@@ -35,19 +35,11 @@ export default function AISolutionsAndServices() {
           copy={
             <>
               <p className="mb-6">
-                AI and Machine Learning are no longer futuristic concepts; they
-                are the tools driving present-day{" "}
-                <strong>
-                  competitive differentiation and operational scalability.
-                </strong>{" "}
-                We move beyond pilot programs to integrate AI that delivers
-                measurable ROI on your existing data and cloud investments.
+              AI and Machine Learning are established, transformative tools for driving competitive differentiation and operational scalability. We move beyond pilot programs to integrate AI that consistently delivers measurable ROI from your existing data and cloud investments.
               </p>
 
               <p>
-                <strong>For Businesses,</strong> we focus on developing robust,
-                scalable, and ethical AI models that are deployed seamlessly
-                into production, driving real-time decisions and business value.
+              For businesses, we develop robust, scalable, and ethical AI models that are seamlessly deployed into production. This enables real-time decision-making and drives measurable business value.
               </p>
             </>
           }
@@ -154,7 +146,7 @@ export default function AISolutionsAndServices() {
                     Scalability & MLOps:
                   </h4>
                   <p className="text-base font-normal leading-normal text-[#454545]">
-                    We focus on an <span className="font-medium text-[#111111]">MLOps (Machine Learning Operations)</span> framework, treating AI models like enterprise software. This ensures rapid development, automated deployment, and reliable performance at scale.
+                  We implement MLOps frameworks to manage the lifecycle of AI models, much like enterprise software, enabling rapid, reliable deployment at scale.
                   </p>
                 </div>
 
@@ -165,7 +157,7 @@ export default function AISolutionsAndServices() {
                     alt=""
                     width={2}
                     height={320}
-                    className="w-auto h-[163px]"
+                    className="w-auto h-[130px]"
                     aria-hidden
                   />
                 </div>
@@ -176,7 +168,7 @@ export default function AISolutionsAndServices() {
                     Ethical AI & Trust:
                   </h4>
                   <p className="text-base font-normal leading-normal text-[#454545]">
-                    We embed principles of fairness, transparency, and data privacy into every solution. This mitigates risk, ensures regulatory compliance, and builds customer trust.
+                  Every solution prioritizes fairness, transparency, and data privacy to reduce risk, ensure compliance, and build trust.
                   </p>
                 </div>
               </div>
@@ -203,23 +195,23 @@ export default function AISolutionsAndServices() {
                   The Value Chain of AI Implementation
                 </h3>
                 <p className="text-[16px] md:text-[18px] font-normal leading-normal text-[#454545] max-w-[860px]">
-                  Our expertise ensures that AI projects succeed by bridging the gap between data science theory and practical, secure deployment.
+                We connect data science theory with secure, practical AI deployment for project success.
                 </p>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full">
                 {[{
                   title: 'Business Problem Translation',
-                  desc: 'Defining a clear business goal (e.g., reduce churn substantially). '
+                  desc: 'Defining a clear business goal (e.g., reduce churn substantially).'
                 }, {
                   title: 'Model Development & Training',
-                  desc: 'Our data scientists build and train the most appropriate machine learning models (e.g., deep learning, NLP, computer vision) using your high-quality, validated data. '
+                  desc: 'Our data scientists build and train machine learning models—including deep learning, NLP, and computer vision—using your validated data.'
                 }, {
                   title: 'Deployment & Integration',
-                  desc: 'Our architects and integration experts ensure the model is seamlessly deployed into your cloud architecture (via APIs, MLOps pipelines), enabling real-time decision-making. '
+                  desc: 'Our architects and integration experts deploy the model seamlessly into your cloud using APIs and MLOps pipelines, enabling real-time decisions.'
                 }, {
                   title: 'Monitoring & Governance',
-                  desc: 'Establish continuous monitoring to track model performance, ensure ethical compliance, and retrain models to prevent "drift" and maintain accuracy over time.'
+                  desc: "Continuous monitoring tracks performance, ensures compliance, and enables retraining to prevent 'drift' and maintain accuracy."
                 }].map((item, i) => (
                   <div
                     key={i}
@@ -250,7 +242,7 @@ export default function AISolutionsAndServices() {
                     Strategic AI: Adding Value to Data Beyond Simple Automation
                   </h3>
                   <p className="text-base font-normal leading-normal text-[#454545]">
-                    We implement AI solutions that are deeply embedded in your core business workflows, transforming how decisions are made, not just how tasks are completed.
+                  Our AI solutions transform decision-making by embedding into core workflows, moving beyond basic automation.
                   </p>
                 </div>
               </div>
@@ -259,16 +251,16 @@ export default function AISolutionsAndServices() {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
                 {[{
                   title: 'Intelligent Automation',
-                  impact: 'Automate complex, rule-based, and high-volume processes (e.g., invoice processing, customer routing). ',
-                  outcome: 'Reduced operational costs, faster processing times, and reallocation of human capital to strategic tasks. '
+                  impact: 'Automate complex, rule-based, high-volume processes such as invoice processing and customer routing.',
+                  outcome: 'Cut operational costs, speed processing, and reallocate human resources for strategic work.'
                 }, {
                   title: 'Predictive Forecasting',
-                  impact: 'Use sophisticated models to anticipate market shifts, customer behavior, and equipment failures. ',
-                  outcome: 'Reduced inventory risk, optimized pricing, and proactive maintenance (less downtime). '
+                  impact: 'Use advanced models to predict market shifts, customer behavior, and equipment failures.',
+                  outcome: 'Minimize inventory risk, optimize pricing, and enable proactive maintenance.'
                 }, {
                   title: 'Personalized Engagement',
-                  impact: 'Deploy AI to tailor every interaction, from marketing to product recommendations. ',
-                  outcome: 'Increased customer loyalty, higher conversion rates, and growth in Customer Lifetime Value (CLV). '
+                  impact: 'Deploy AI to personalize every customer interaction, from marketing to recommendations.',
+                  outcome: 'Increase customer loyalty, conversion rates, and Customer Lifetime Value (CLV).'
                 }].map((item, i) => (
                   <div
                     key={i}

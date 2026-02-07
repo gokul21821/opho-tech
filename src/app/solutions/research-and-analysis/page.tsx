@@ -23,8 +23,8 @@ export default function RAARPage() {
           { label: "Research & Analysis" },
         ]}
         title="Research & Analysis"
-        subtitle="AI Journey Starts with In-depth & Diligent Research"
-        video="/videos/Research-Analysis.mp4"
+        subtitle="Your AI Journey Begins with Diligent and In-depth Research."
+        video="/videos/Research-and-Analysis.mp4"
       />
 
       <main className="bg-white text-[#0B1B2B]">
@@ -36,7 +36,7 @@ export default function RAARPage() {
         copy={
           <p className="mt-3">
             An intelligence framework, driven by a team of Senior Data
-            Scientists and AI/ML Engineers to get real-time operational insights
+            Scientists and AI/ML Engineers, to get real-time operational insights
             and market opportunities. Our expert and precise reports address the
             critical gaps and enable enterprises structure their path to AI
             enablement.

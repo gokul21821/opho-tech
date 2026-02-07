@@ -52,28 +52,12 @@ export default function CyberSecuritySolutions() {
           copy={
             <>
               <p>
-                <span className="font-semibold text-[#0F2C58]">
-                  Cyber Security environment
-                </span>{" "}
-                is under attack by AI-driven adversaries who operate at machine
-                speed, enabling
-                <span className="font-semibold">
-                  {" "}
-                  mass personalization, rapid reconnaissance, and cross-language
-                  deception. Legacy, rule-based defenses{" "}
-                </span>
-                are no longer sufficient against these adaptive threats.
+                  Cybersecurity environment is under attack by AI-driven adversaries who operate at machine speed, enabling
+                  mass personalization, rapid reconnaissance, and cross-language deception. Legacy, rule-based defenses are no longer sufficient against these adaptive threats.
               </p>
 
               <p className="mt-4">
-                We don&apos;t offer generic security; we build
-                <span className="font-semibold text-[#0F2C58]">
-                  {" "}
-                  AI-driven, agentic security architectures
-                </span>{" "}
-                that provide
-                <span className="font-semibold"> autonomous resilience</span>—a
-                fusion of human judgment and AI precision.
+              We don&apos;t offer generic security; we build AI-driven, agentic security architectures that provide autonomous resilience—a fusion of human judgment and AI precision.
               </p>
             </>
           }
@@ -135,13 +119,13 @@ export default function CyberSecuritySolutions() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
               {[{
                 title: 'AI-Generated Phishing & Deepfakes',
-                impact: '<span style="font-weight: 600; color: #111111;">High Likelihood, Critical Impact:</span> Enables <span style="font-weight: 600; color: #111111;">$25.6M</span> deepfake fraud incidents and dominates basic web-app breach patterns.'
+                impact: 'High Likelihood, Critical Impact: Enables $25.6M deepfake fraud incidents and dominates basic web-app breach patterns.'
               }, {
                 title: 'Living-Off-The-Land (LotL) & Identity Abuse',
-                impact: '<span style="font-weight: 600; color: #111111;">High Likelihood: Stolen credentials</span> are a primary pivot point, driving the <span style="font-weight: 600; color: #111111;">global average cost per breach to $4.40M.</span>'
+                impact: 'High Likelihood: Stolen credentials are a primary pivot point, driving the global average cost per breach to $4.40M.'
               }, {
                 title: 'Ransomware / Extortion',
-                impact: '<span style="font-weight: 600; color: #111111;">Critical Impact:</span> Downtime is the largest driver of loss. Healthcare crises have showed <span style="font-weight: 600; color: #111111;">>50% revenue disruption</span> for providers.'
+                impact: 'Critical Impact: Downtime is the largest driver of loss. Healthcare crises have led to >50% revenue disruption for providers.'
               }].map((item, i) => (
                 <div
                   key={i}
@@ -183,15 +167,15 @@ export default function CyberSecuritySolutions() {
                 {[{
                   title: 'Perception',
                   subtitle: '(Detection)',
-                  desc: 'AI Agents ingest and correlate telemetry across your entire environment (endpoint, identity, cloud). They use <span style="font-weight: 600; color: #111111;">continuous behavioral baselining</span> to flag credential abuse and use <span style="font-weight: 600; color: #111111;">NLP models</span> for deepfake detection.'
+                  desc: 'AI Agents ingest and correlate telemetry across your entire environment (endpoint, identity, cloud). They use continuous behavioral baselining to flag credential abuse and use NLP models for deepfake detection.'
                 }, {
                   title: 'Cognition',
                   subtitle: '(Reasoning)',
-                  desc: 'We deploy <span style="font-weight: 600; color: #111111;">analyst co-pilots</span> embedded in your SIEM/SOAR to interpret complex alerts and <span style="font-weight: 600; color: #111111;">autonomous correlation engines</span> to infer patterns without static signatures.'
+                  desc: 'We deploy analyst co-pilots embedded in your SIEM/SOAR to interpret complex alerts and autonomous correlation engines to infer patterns without static signatures.'
                 }, {
                   title: 'Action',
                   subtitle: '(Response)',
-                  desc: 'This is the game-changer. <span style="font-weight: 600; color: #111111;">Reinforcement-learning (RL) responders</span> execute rapid containment actions: isolating endpoints, revoking tokens, and blocking command-and-control (C2) in <span style="font-weight: 600; color: #111111;">seconds</span>.'
+                  desc: 'This is the game-changer. Reinforcement-learning (RL) responders execute rapid containment actions: isolating endpoints, revoking tokens, and blocking command-and-control (C2) in seconds.'
                 }].map((item, i) => (
                   <div
                     key={i}
@@ -227,17 +211,17 @@ export default function CyberSecuritySolutions() {
                   chip: 'Stabilize',
                   chipColor: 'text-[#e45412] bg-[#fff3ee] border-[#ffbfa8]',
                   focusArea: 'Foundation & Core Risk',
-                  action: 'Deploy <span style="font-weight: 600; color: #111111;">Phishing-Resistant MFA</span> (FIDO2/WebAuthn) and enforce out-of-band verification for payments to counter deepfakes.'
+                  action: 'Deploy Phishing-Resistant MFA (FIDO2/WebAuthn) and enforce out-of-band verification for payments to counter deepfakes.'
                 }, {
                   chip: 'Integrate',
                   chipColor: 'text-[#e45412] bg-[#fff3ee] border-[#ffbfa8]',
                   focusArea: 'Automation & Supply Chain',
-                  action: 'Integrate <span style="font-weight: 600; color: #111111;">AI co-pilots</span> into SIEM/SOAR to automate Tier-1 triage. Implement <span style="font-weight: 600; color: #111111;">SBOM policy</span> and vendor SLAs for supply-chain control.'
+                  action: 'Integrate AI co-pilots into SIEM/SOAR to automate Tier-1 triage. Implement SBOM policy and vendor SLAs for supply-chain control.'
                 }, {
                   chip: 'Automate',
                   chipColor: 'text-[#e45412] bg-[#fff3ee] border-[#ffbfa8]',
                   focusArea: 'Autonomous Defense',
-                  action: 'Deploy an <span style="font-weight: 600; color: #111111;">Agent Swarm</span> (e.g., Identity Guard, RL Responder) to achieve rapid containment.'
+                  action: 'Deploy an Agent Swarm (e.g., Identity Guard, RL Responder) to achieve rapid containment.'
                 }].map((item, i) => (
                   <div
                     key={i}

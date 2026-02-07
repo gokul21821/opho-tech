@@ -30,7 +30,7 @@ const features = [
     title: 'Evolve',
     subtitle: 'Build & Deploy',
     description:
-      'We deploy enterprise-grade SaaS, AI agents, and secure platforms that scale efficiently, strengthen profitability, and transition organizations into resilient, future-ready, AI-enabled enterprises. ',
+      'We deploy enterprise-grade SaaS, AI agents, and secure platforms that scale efficiently, improve profitability, and help organizations transition into resilient, future-ready, AI-enabled enterprises.',
     icon: '/images/valuesection/evolve.svg',
   },
 ];
@@ -116,7 +116,7 @@ export function ValuePropositionSection() {
                 {feature.subtitle}
               </div>
               <div
-                className={`font-poppins text-base sm:text-lg font-semibold ${
+                className={`font-poppins text-md sm:text-xl font-semibold ${
                   activeStep === feature.id ? 'text-white' : 'text-[#2A73B5]'
                 }`}
               >
