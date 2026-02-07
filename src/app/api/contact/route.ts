@@ -75,12 +75,25 @@ export async function POST(request: Request) {
       ? formatTime12Hour(endTime24)
       : 'Not specified';
 
-    // 5. Send Admin Email
+    // 5. Send Admin Email to Multiple Recipients
+    if (!process.env.ADMIN_EMAILS) {
+      return NextResponse.json(
+        { success: false, error: 'Server configuration error' },
+        { status: 500 }
+      );
+    }
+
+    const adminRecipients = process.env.ADMIN_EMAILS
+      .split(',')
+      .map((e) => e.trim())
+      .filter((e) => e.length > 0);
+
     const adminEmail = await resend.emails.send({
       from: 'info@ophotech.com',
-      to: process.env.ADMIN_EMAIL || 'john@doe.com',
+      to: adminRecipients,
+      replyTo: email,
       subject: `New Inquiry from ${name}`,
-      attachments: attachments, // <--- Attach the secure file
+      attachments: attachments,
       template: {
         id: 'admin-1', // Admin template ID from Resend Dashboard
         variables: {
