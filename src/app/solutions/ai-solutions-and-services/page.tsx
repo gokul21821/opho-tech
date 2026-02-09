@@ -124,7 +124,7 @@ export default function AISolutionsAndServices() {
                   AI Deployment
                 </h3>
                 <p className="text-[16px] md:text-[18px] font-normal leading-normal text-[#454545] max-w-[860px]">
-                  Two <span className="font-medium">critical factors</span> for enterprise AI success.
+                  Two critical factors for enterprise AI success.
                 </p>
               </div>
 

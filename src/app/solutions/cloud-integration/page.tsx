@@ -254,7 +254,7 @@ export default function CloudIntegrationPage() {
                   title: 'Optimal Architecture Design',
                   desc: (
                     <>
-                      We focus on <span className="font-bold text-black">cost-optimization and governance</span> from the start, ensuring your cloud expenditure (FinOps) is efficient and aligned with business value. We select the right services (IaaS, PaaS, or SaaS) for your needs.
+                      We focus on cost-optimization and governance from the start, ensuring your cloud expenditure (FinOps) is efficient and aligned with business value. We select the right services (IaaS, PaaS, or SaaS) for your needs.
                     </>
                   )
                 }, {
